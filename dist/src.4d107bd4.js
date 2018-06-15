@@ -19835,7 +19835,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({17:[function(require,module,exports) {
+})({21:[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -19926,7 +19926,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
-},{}],19:[function(require,module,exports) {
+},{}],23:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -19980,7 +19980,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-},{}],21:[function(require,module,exports) {
+},{}],25:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -19998,7 +19998,7 @@ if ('production' !== 'production') {
 }
 
 module.exports = emptyObject;
-},{}],23:[function(require,module,exports) {
+},{}],27:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -20035,7 +20035,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],15:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 /** @license React v16.4.1
  * react.production.min.js
  *
@@ -20149,7 +20149,7 @@ var X = { Children: { map: function (a, b, e) {
     assign: k } },
     Y = { default: X },
     Z = Y && X || Y;module.exports = Z.default ? Z.default : Z;
-},{"object-assign":17,"fbjs/lib/invariant":19,"fbjs/lib/emptyObject":21,"fbjs/lib/emptyFunction":23}],13:[function(require,module,exports) {
+},{"object-assign":21,"fbjs/lib/invariant":23,"fbjs/lib/emptyObject":25,"fbjs/lib/emptyFunction":27}],17:[function(require,module,exports) {
 'use strict';
 
 if ('production' === 'production') {
@@ -20157,7 +20157,7 @@ if ('production' === 'production') {
 } else {
   module.exports = require('./cjs/react.development.js');
 }
-},{"./cjs/react.production.min.js":15}],3:[function(require,module,exports) {
+},{"./cjs/react.production.min.js":19}],3:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20179,7 +20179,7 @@ var Card = function Card(props) {
 };
 
 exports.default = Card;
-},{"react":13}],5:[function(require,module,exports) {
+},{"react":17}],5:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20203,7 +20203,7 @@ var Heading = function Heading(props) {
 };
 
 exports.default = Heading;
-},{"react":13}],7:[function(require,module,exports) {
+},{"react":17}],7:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -20221,7 +20221,7 @@ var Image = function Image(props) {
 };
 
 exports.default = Image;
-},{"react":13}],9:[function(require,module,exports) {
+},{"react":17}],9:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20243,7 +20243,29 @@ var Layout = function Layout(props) {
 };
 
 exports.default = Layout;
-},{"react":13}],11:[function(require,module,exports) {
+},{"react":17}],11:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Link = function Link(props) {
+  return _react2.default.createElement(
+    'a',
+    { href: props.href, className: props.cssClass, onClick: props.onClick },
+    props.children
+  );
+};
+
+exports.default = Link;
+},{"react":17}],13:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20265,13 +20287,43 @@ var Paragraph = function Paragraph(props) {
 };
 
 exports.default = Paragraph;
-},{"react":13}],1:[function(require,module,exports) {
+},{"react":17}],15:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Paragraph = exports.Layout = exports.Image = exports.Heading = exports.Card = undefined;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var UnorderedList = function UnorderedList(props) {
+  var listItems = props.items.map(function (item) {
+    return _react2.default.createElement(
+      'li',
+      { key: item.toString() },
+      item
+    );
+  });
+
+  return _react2.default.createElement(
+    'ul',
+    { className: props.cssClass },
+    listItems
+  );
+};
+
+exports.default = UnorderedList;
+},{"react":17}],1:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UnorderedList = exports.Paragraph = exports.Link = exports.Layout = exports.Image = exports.Heading = exports.Card = undefined;
 
 var _Card = require('./lib/components/Card');
 
@@ -20289,9 +20341,17 @@ var _Layout = require('./lib/components/Layout');
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
+var _Link = require('./lib/components/Link');
+
+var _Link2 = _interopRequireDefault(_Link);
+
 var _Paragraph = require('./lib/components/Paragraph');
 
 var _Paragraph2 = _interopRequireDefault(_Paragraph);
+
+var _UnorderedList = require('./lib/components/UnorderedList');
+
+var _UnorderedList2 = _interopRequireDefault(_UnorderedList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20299,8 +20359,10 @@ exports.Card = _Card2.default;
 exports.Heading = _Heading2.default;
 exports.Image = _Image2.default;
 exports.Layout = _Layout2.default;
+exports.Link = _Link2.default;
 exports.Paragraph = _Paragraph2.default;
-},{"./lib/components/Card":3,"./lib/components/Heading":5,"./lib/components/Image":7,"./lib/components/Layout":9,"./lib/components/Paragraph":11}]},{},[1], null)
+exports.UnorderedList = _UnorderedList2.default;
+},{"./lib/components/Card":3,"./lib/components/Heading":5,"./lib/components/Image":7,"./lib/components/Layout":9,"./lib/components/Link":11,"./lib/components/Paragraph":13,"./lib/components/UnorderedList":15}]},{},[1], null)
 //# sourceMappingURL=/index.map
 },{}],33:[function(require,module,exports) {
 var bundleURL = null;
@@ -20388,6 +20450,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
 var dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
 
+var dropshipGithubLink = 'https://github.com/jasonrundell/dropship';
+var dropshipDemoGithubLink = 'https://github.com/jasonrundell/dropship-demo';
+
+var goToDropshipDemoGithub = function goToDropshipDemoGithub(event) {
+  event.preventDefault();
+  location.href = dropshipDemoGithubLink;
+};
+
+var goToDropshipGithub = function goToDropshipGithub(event) {
+  event.preventDefault();
+  location.href = dropshipGithubLink;
+};
+
 var App = function App() {
   return _react2.default.createElement(
     _dropship.Layout,
@@ -20400,7 +20475,7 @@ var App = function App() {
     ),
     _react2.default.createElement(
       _dropship.Card,
-      { cssClass: 'Layout' },
+      { cssClass: 'Card' },
       _react2.default.createElement(
         _dropship.Heading,
         { priority: '2', cssClass: 'color__alt' },
@@ -20409,13 +20484,29 @@ var App = function App() {
       _react2.default.createElement(
         _dropship.Paragraph,
         null,
-        'GitHub: ',
+        'Links:'
+      ),
+      _react2.default.createElement(
+        _dropship.Paragraph,
+        null,
+        'Dropship GitHub: ',
         _react2.default.createElement(
-          'a',
-          { href: 'https://github.com/jasonrundell/dropship-demo' },
-          'https://github.com/jasonrundell/dropship-demo'
+          _dropship.Link,
+          { cssClass: 'color__alt', href: dropshipGithubLink, onClick: goToDropshipGithub },
+          dropshipGithubLink
         )
-      )
+      ),
+      _react2.default.createElement(
+        _dropship.Paragraph,
+        null,
+        'Dropship Demo GitHub: ',
+        _react2.default.createElement(
+          _dropship.Link,
+          { cssClass: 'color__alt', href: dropshipDemoGithubLink, onClick: goToDropshipDemoGithub },
+          dropshipDemoGithubLink
+        )
+      ),
+      _react2.default.createElement(_dropship.UnorderedList, { items: ['One', 'Two', 'Three'] })
     )
   );
 };
@@ -20437,7 +20528,7 @@ var _App2 = _interopRequireDefault(_App);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _reactDom.render)(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
-},{"react":5,"react-dom":6,"./App":7}],48:[function(require,module,exports) {
+},{"react":5,"react-dom":6,"./App":7}],31:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -20466,7 +20557,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63416' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64394' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -20607,5 +20698,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[48,8], null)
+},{}]},{},[31,8], null)
 //# sourceMappingURL=/src.4d107bd4.map
