@@ -1,0 +1,15 @@
+{
+  "modules": false,
+  "plugins": {
+    "autoprefixer": {
+      "browsers": [
+        "last 5 versions",
+        "ie >= 8",
+        "iOS 7",
+        "Firefox >= 20",
+        "> 5% in US"
+      ],
+      "flexbox": "no-2009"
+    }
+  }
+}
