@@ -1,7 +1,13 @@
 {
-  "name": "dropship-demo",
+  "name": "dropship",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "Get a React project up and running really fast with Dropship.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonrundell/dropship.git"
+  },
+  "author": "jasonrundell <jason.rundell@gmail.com>",
   "scripts": {
     "test": "jest",
     "start": "cross-env NODE_ENV=development parcel src/index.html -p 3000",
@@ -27,7 +33,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.0.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.2",
     "parcel-bundler": "^1.8.1"
   }
 }
