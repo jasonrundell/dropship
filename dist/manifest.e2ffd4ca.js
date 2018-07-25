@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({6:[function(require,module,exports) {
+})({"manifest.json":[function(require,module,exports) {
 module.exports = {
   "short_name": "codesummonercorp",
   "name": "Code Summoner Corp.",
@@ -117,7 +117,7 @@ module.exports = {
   "theme_color": "#000000",
   "background_color": "#ffffff"
 };
-},{}],55:[function(require,module,exports) {
+},{}],"..\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -146,7 +146,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54834' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55433' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -223,7 +223,7 @@ function getParents(bundle, id) {
     for (d in modules[k][1]) {
       dep = modules[k][1][d];
       if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(+k);
+        parents.push(k);
       }
     }
   }
@@ -287,4 +287,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[55,6], null)
+},{}]},{},["..\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js","manifest.json"], null)

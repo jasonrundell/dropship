@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Heading, Image, Layout, Link, Paragraph, UnorderedList } from 'dropship-components';
+import { Card, Heading, Image, Layout, Link, Paragraph, UnorderedList, OrderedList } from 'dropship-components';
 
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
 const dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
@@ -30,6 +30,7 @@ const App = () =>
     <Paragraph>Dropship GitHub: <Link cssClass="color__alt" href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Link></Paragraph>
     <Paragraph>Dropship Demo GitHub: <Link cssClass="color__alt" href={dropshipDemoGithubLink} onClick={goToDropshipDemoGithub}>{dropshipDemoGithubLink}</Link></Paragraph>
     <UnorderedList items={['One','Two','Three']} />
+    <OrderedList items={['One','Two','Three']} />
   </Card>
 </Layout>;
 
