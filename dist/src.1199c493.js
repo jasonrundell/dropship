@@ -390,11 +390,24 @@ module.exports = ReactPropTypesSecret;
 
 'use strict';
 
+var printWarning = function () {};
+
 if ('development' !== 'production') {
-  var invariant = require('fbjs/lib/invariant');
-  var warning = require('fbjs/lib/warning');
   var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
   var loggedTypeFailures = {};
+
+  printWarning = function (text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
 }
 
 /**
@@ -419,12 +432,18 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
         try {
           // This is intentionally an invariant that gets caught. It's the same
           // behavior as without this statement except with a better message.
-          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.');
+            err.name = 'Invariant Violation';
+            throw err;
+          }
           error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
         } catch (ex) {
           error = ex;
         }
-        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error && !(error instanceof Error)) {
+          printWarning((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + typeof error + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
+        }
         if (error instanceof Error && !(error.message in loggedTypeFailures)) {
           // Only monitor this failure once because there tends to be a lot of the
           // same error.
@@ -432,7 +451,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
           var stack = getStack ? getStack() : '';
 
-          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+          printWarning('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
         }
       }
     }
@@ -440,8 +459,8 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 }
 
 module.exports = checkPropTypes;
-},{"fbjs/lib/invariant":"..\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"..\\node_modules\\fbjs\\lib\\warning.js","./lib/ReactPropTypesSecret":"..\\node_modules\\prop-types\\lib\\ReactPropTypesSecret.js"}],"..\\node_modules\\react\\cjs\\react.development.js":[function(require,module,exports) {
-/** @license React v16.4.1
+},{"./lib/ReactPropTypesSecret":"..\\node_modules\\prop-types\\lib\\ReactPropTypesSecret.js"}],"..\\node_modules\\react\\cjs\\react.development.js":[function(require,module,exports) {
+/** @license React v16.4.2
  * react.development.js
  *
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -465,7 +484,7 @@ if ('development' !== "production") {
 
     // TODO: this is special because it gets imported during build.
 
-    var ReactVersion = '16.4.1';
+    var ReactVersion = '16.4.2';
 
     // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
     // nor polyfill, then a plain number is used for performance.
@@ -2287,7 +2306,7 @@ function camelizeStyleName(string) {
 
 module.exports = camelizeStyleName;
 },{"./camelize":"..\\node_modules\\fbjs\\lib\\camelize.js"}],"..\\node_modules\\react-dom\\cjs\\react-dom.development.js":[function(require,module,exports) {
-/** @license React v16.4.1
+/** @license React v16.4.2
  * react-dom.development.js
  *
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -4847,14 +4866,15 @@ if ('development' !== "production") {
     var ROOT_ATTRIBUTE_NAME = 'data-reactroot';
     var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + ATTRIBUTE_NAME_START_CHAR + '][' + ATTRIBUTE_NAME_CHAR + ']*$');
 
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
     var illegalAttributeNameCache = {};
     var validatedAttributeNameCache = {};
 
     function isAttributeNameSafe(attributeName) {
-      if (validatedAttributeNameCache.hasOwnProperty(attributeName)) {
+      if (hasOwnProperty.call(validatedAttributeNameCache, attributeName)) {
         return true;
       }
-      if (illegalAttributeNameCache.hasOwnProperty(attributeName)) {
+      if (hasOwnProperty.call(illegalAttributeNameCache, attributeName)) {
         return false;
       }
       if (VALID_ATTRIBUTE_NAME_REGEX.test(attributeName)) {
@@ -9178,7 +9198,7 @@ if ('development' !== "production") {
     var rARIA = new RegExp('^(aria)-[' + ATTRIBUTE_NAME_CHAR + ']*$');
     var rARIACamel = new RegExp('^(aria)[A-Z][' + ATTRIBUTE_NAME_CHAR + ']*$');
 
-    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    var hasOwnProperty$1 = Object.prototype.hasOwnProperty;
 
     function getStackAddendum() {
       var stack = ReactDebugCurrentFrame.getStackAddendum();
@@ -9186,7 +9206,7 @@ if ('development' !== "production") {
     }
 
     function validateProperty(tagName, name) {
-      if (hasOwnProperty.call(warnedProperties, name) && warnedProperties[name]) {
+      if (hasOwnProperty$1.call(warnedProperties, name) && warnedProperties[name]) {
         return true;
       }
 
@@ -19192,7 +19212,7 @@ if ('development' !== "production") {
 
     // TODO: this is special because it gets imported during build.
 
-    var ReactVersion = '16.4.1';
+    var ReactVersion = '16.4.2';
 
     // TODO: This type is shared between the reconciler and ReactDOM, but will
     // eventually be lifted out to the renderer.
@@ -20157,7 +20177,95 @@ if ('production' === 'production') {
 } else {
   module.exports = require('./cjs/react.development.js');
 }
-},{"./cjs/react.production.min.js":"dDQ8"}],"NOSF":[function(require,module,exports) {
+},{"./cjs/react.production.min.js":"dDQ8"}],"3GLL":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Abbr = function Abbr(props) {
+  return _react2.default.createElement(
+    'abbr',
+    { className: props.cssClass, title: props.title },
+    props.children
+  );
+};
+
+exports.default = Abbr;
+},{"react":"+UVH"}],"bjUq":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Address = function Address(props) {
+  return _react2.default.createElement(
+    'address',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Address;
+},{"react":"+UVH"}],"RzQD":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Article = function Article(props) {
+  return _react2.default.createElement(
+    'article',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Article;
+},{"react":"+UVH"}],"vri3":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Aside = function Aside(props) {
+  return _react2.default.createElement(
+    'aside',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Aside;
+},{"react":"+UVH"}],"NOSF":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20201,6 +20309,28 @@ var Card = function Card(props) {
 };
 
 exports.default = Card;
+},{"react":"+UVH"}],"KO+H":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Code = function Code(props) {
+  return _react2.default.createElement(
+    'code',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Code;
 },{"react":"+UVH"}],"uv3A":[function(require,module,exports) {
 'use strict';
 
@@ -20223,6 +20353,50 @@ var Form = function Form(props) {
 };
 
 exports.default = Form;
+},{"react":"+UVH"}],"b10I":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer(props) {
+  return _react2.default.createElement(
+    'footer',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Footer;
+},{"react":"+UVH"}],"6LAG":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Hgroup = function Hgroup(props) {
+  return _react2.default.createElement(
+    'hgroup',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Hgroup;
 },{"react":"+UVH"}],"jYxe":[function(require,module,exports) {
 'use strict';
 
@@ -20367,7 +20541,7 @@ var Link = function Link(props) {
 };
 
 exports.default = Link;
-},{"react":"+UVH"}],"T92y":[function(require,module,exports) {
+},{"react":"+UVH"}],"XBFZ":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20380,15 +20554,15 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Paragraph = function Paragraph(props) {
+var Nav = function Nav(props) {
   return _react2.default.createElement(
-    'p',
+    'nav',
     { className: props.cssClass },
     props.children
   );
 };
 
-exports.default = Paragraph;
+exports.default = Nav;
 },{"react":"+UVH"}],"i7oz":[function(require,module,exports) {
 'use strict';
 
@@ -20419,6 +20593,50 @@ var OrderedList = function OrderedList(props) {
 };
 
 exports.default = OrderedList;
+},{"react":"+UVH"}],"T92y":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Paragraph = function Paragraph(props) {
+  return _react2.default.createElement(
+    'p',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Paragraph;
+},{"react":"+UVH"}],"GYtO":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Section = function Section(props) {
+  return _react2.default.createElement(
+    'section',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Section;
 },{"react":"+UVH"}],"R5Af":[function(require,module,exports) {
 'use strict';
 
@@ -20455,7 +20673,23 @@ exports.default = UnorderedList;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UnorderedList = exports.Paragraph = exports.OrderedList = exports.Link = exports.Layout = exports.Label = exports.InputText = exports.InputSubmit = exports.Image = exports.Heading = exports.Form = exports.Card = exports.Button = undefined;
+exports.UnorderedList = exports.Section = exports.Paragraph = exports.OrderedList = exports.Nav = exports.Link = exports.Layout = exports.Label = exports.InputText = exports.InputSubmit = exports.Image = exports.Hgroup = exports.Heading = exports.Footer = exports.Form = exports.Code = exports.Card = exports.Button = exports.Aside = exports.Article = exports.Address = exports.Abbr = undefined;
+
+var _Abbr = require('./lib/components/Abbr');
+
+var _Abbr2 = _interopRequireDefault(_Abbr);
+
+var _Address = require('./lib/components/Address');
+
+var _Address2 = _interopRequireDefault(_Address);
+
+var _Article = require('./lib/components/Article');
+
+var _Article2 = _interopRequireDefault(_Article);
+
+var _Aside = require('./lib/components/Aside');
+
+var _Aside2 = _interopRequireDefault(_Aside);
 
 var _Button = require('./lib/components/Button');
 
@@ -20465,9 +20699,21 @@ var _Card = require('./lib/components/Card');
 
 var _Card2 = _interopRequireDefault(_Card);
 
+var _Code = require('./lib/components/Code');
+
+var _Code2 = _interopRequireDefault(_Code);
+
 var _Form = require('./lib/components/Form');
 
 var _Form2 = _interopRequireDefault(_Form);
+
+var _Footer = require('./lib/components/Footer');
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+var _Hgroup = require('./lib/components/Hgroup');
+
+var _Hgroup2 = _interopRequireDefault(_Hgroup);
 
 var _Heading = require('./lib/components/Heading');
 
@@ -20497,13 +20743,21 @@ var _Link = require('./lib/components/Link');
 
 var _Link2 = _interopRequireDefault(_Link);
 
-var _Paragraph = require('./lib/components/Paragraph');
+var _Nav = require('./lib/components/Nav');
 
-var _Paragraph2 = _interopRequireDefault(_Paragraph);
+var _Nav2 = _interopRequireDefault(_Nav);
 
 var _OrderedList = require('./lib/components/OrderedList');
 
 var _OrderedList2 = _interopRequireDefault(_OrderedList);
+
+var _Paragraph = require('./lib/components/Paragraph');
+
+var _Paragraph2 = _interopRequireDefault(_Paragraph);
+
+var _Section = require('./lib/components/Section');
+
+var _Section2 = _interopRequireDefault(_Section);
 
 var _UnorderedList = require('./lib/components/UnorderedList');
 
@@ -20511,20 +20765,29 @@ var _UnorderedList2 = _interopRequireDefault(_UnorderedList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+exports.Abbr = _Abbr2.default;
+exports.Address = _Address2.default;
+exports.Article = _Article2.default;
+exports.Aside = _Aside2.default;
 exports.Button = _Button2.default;
 exports.Card = _Card2.default;
+exports.Code = _Code2.default;
 exports.Form = _Form2.default;
+exports.Footer = _Footer2.default;
 exports.Heading = _Heading2.default;
+exports.Hgroup = _Hgroup2.default;
 exports.Image = _Image2.default;
 exports.InputSubmit = _InputSubmit2.default;
 exports.InputText = _InputText2.default;
 exports.Label = _Label2.default;
 exports.Layout = _Layout2.default;
 exports.Link = _Link2.default;
+exports.Nav = _Nav2.default;
 exports.OrderedList = _OrderedList2.default;
 exports.Paragraph = _Paragraph2.default;
+exports.Section = _Section2.default;
 exports.UnorderedList = _UnorderedList2.default;
-},{"./lib/components/Button":"NOSF","./lib/components/Card":"Risu","./lib/components/Form":"uv3A","./lib/components/Heading":"jYxe","./lib/components/Image":"0YAT","./lib/components/InputSubmit":"rTML","./lib/components/InputText":"vNob","./lib/components/Label":"BJ5F","./lib/components/Layout":"YK3C","./lib/components/Link":"/f3b","./lib/components/Paragraph":"T92y","./lib/components/OrderedList":"i7oz","./lib/components/UnorderedList":"R5Af"}]},{},["Focm"], null)
+},{"./lib/components/Abbr":"3GLL","./lib/components/Address":"bjUq","./lib/components/Article":"RzQD","./lib/components/Aside":"vri3","./lib/components/Button":"NOSF","./lib/components/Card":"Risu","./lib/components/Code":"KO+H","./lib/components/Form":"uv3A","./lib/components/Footer":"b10I","./lib/components/Hgroup":"6LAG","./lib/components/Heading":"jYxe","./lib/components/Image":"0YAT","./lib/components/InputSubmit":"rTML","./lib/components/InputText":"vNob","./lib/components/Label":"BJ5F","./lib/components/Layout":"YK3C","./lib/components/Link":"/f3b","./lib/components/Nav":"XBFZ","./lib/components/OrderedList":"i7oz","./lib/components/Paragraph":"T92y","./lib/components/Section":"GYtO","./lib/components/UnorderedList":"R5Af"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.map
 },{}],"..\\node_modules\\parcel-bundler\\src\\builtins\\bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
@@ -20629,47 +20892,225 @@ var App = function App() {
   return _react2.default.createElement(
     _dropshipComponents.Layout,
     { cssClass: 'Layout' },
-    _react2.default.createElement(_dropshipComponents.Image, { src: dropshipLogo, alt: 'Dropship\'s logo' }),
     _react2.default.createElement(
       _dropshipComponents.Heading,
       { priority: '1', cssClass: 'color__prime' },
       'Dropship'
     ),
     _react2.default.createElement(
-      _dropshipComponents.Card,
-      { cssClass: 'Card' },
+      _dropshipComponents.Article,
+      null,
       _react2.default.createElement(
-        _dropshipComponents.Heading,
-        { priority: '2', cssClass: 'color__alt' },
-        'A boilerplate dropshop project!'
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '2', cssClass: 'color__prime' },
+          'Getting Started'
+        )
       ),
       _react2.default.createElement(
-        _dropshipComponents.Paragraph,
+        _dropshipComponents.Section,
         null,
-        'Links:'
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '2', cssClass: 'color__prime' },
+          'Components'
+        )
       ),
       _react2.default.createElement(
-        _dropshipComponents.Paragraph,
+        _dropshipComponents.Section,
         null,
-        'Dropship GitHub: ',
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Paragraph'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Paragraph,
+          null,
+          'Here is a paragraph'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Paragraph>Here is a paragraph</Paragraph>'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Unordered List'
+        ),
+        _react2.default.createElement(_dropshipComponents.UnorderedList, { items: ['One', 'Two', 'Three'] }),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<UnorderedList items=',
+          ['One', 'Two', 'Three'],
+          ' />'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Ordered List'
+        ),
+        _react2.default.createElement(_dropshipComponents.OrderedList, { items: ['One', 'Two', 'Three'] }),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<OrderedList items=',
+          ['One', 'Two', 'Three'],
+          ' />'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Button'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Button,
+          { cssClass: 'button' },
+          'Button'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Button cssClass="button">Button</Button>'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Link'
+        ),
         _react2.default.createElement(
           _dropshipComponents.Link,
           { cssClass: 'color__alt', href: dropshipGithubLink, onClick: goToDropshipGithub },
           dropshipGithubLink
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Link cssClass="color__alt" href=',
+          dropshipGithubLink,
+          ' onClick=',
+          goToDropshipGithub,
+          '>',
+          dropshipGithubLink,
+          '</Link>'
         )
       ),
       _react2.default.createElement(
-        _dropshipComponents.Paragraph,
+        _dropshipComponents.Section,
         null,
-        'Dropship Demo GitHub: ',
         _react2.default.createElement(
-          _dropshipComponents.Link,
-          { cssClass: 'color__alt', href: dropshipDemoGithubLink, onClick: goToDropshipDemoGithub },
-          dropshipDemoGithubLink
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Headings'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '1' },
+          'Heading 1'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '2' },
+          'Heading 2'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3' },
+          'Heading 3'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '4' },
+          'Heading 4'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '5' },
+          'Heading 5'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '6' },
+          'Heading 6'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Heading priority="1">Heading 1</Heading>',
+          _react2.default.createElement('br', null),
+          '<Heading priority="1">Heading 2</Heading>',
+          _react2.default.createElement('br', null),
+          '<Heading priority="1">Heading 3</Heading>',
+          _react2.default.createElement('br', null),
+          '<Heading priority="1">Heading 4</Heading>',
+          _react2.default.createElement('br', null),
+          '<Heading priority="1">Heading 5</Heading>',
+          _react2.default.createElement('br', null),
+          '<Heading priority="1">Heading 6</Heading>'
         )
       ),
-      _react2.default.createElement(_dropshipComponents.UnorderedList, { items: ['One', 'Two', 'Three'] }),
-      _react2.default.createElement(_dropshipComponents.OrderedList, { items: ['One', 'Two', 'Three'] })
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Image'
+        ),
+        _react2.default.createElement(_dropshipComponents.Image, { src: 'https://placeimg.com/200/150/arch', alt: 'Placeholder image' }),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" />'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
+          'Card'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Card,
+          { cssClass: 'Card' },
+          _react2.default.createElement(
+            _dropshipComponents.Paragraph,
+            null,
+            'Paragraph within Card'
+          )
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Card cssClass="Card">',
+          _react2.default.createElement('br', null),
+          '\xA0\xA0<Paragraph>Paragraph within Card</Paragraph>',
+          _react2.default.createElement('br', null),
+          '</Card>'
+        )
+      )
     )
   );
 };
@@ -20720,7 +21161,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55433' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65310' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

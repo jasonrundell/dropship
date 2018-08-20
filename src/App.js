@@ -25,6 +25,9 @@ const App = () =>
   <Heading priority="1" cssClass="color__prime">Dropship</Heading>
   <Article>
     <Section>
+      <Heading priority="2" cssClass="color__prime">Getting Started</Heading>
+    </Section>
+    <Section>
       <Heading priority="2" cssClass="color__prime">Components</Heading>
     </Section>
     <Section>
