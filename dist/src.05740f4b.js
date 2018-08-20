@@ -21066,6 +21066,21 @@ var App = function App() {
         _react2.default.createElement(
           _dropshipComponents.Heading,
           { priority: '3', cssClass: 'color__prime' },
+          'Image'
+        ),
+        _react2.default.createElement(_dropshipComponents.Image, { src: 'https://placeimg.com/200/150/arch', alt: 'Placeholder image' }),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" />'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '3', cssClass: 'color__prime' },
           'Card'
         ),
         _react2.default.createElement(
@@ -21137,7 +21152,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51936' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55212' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

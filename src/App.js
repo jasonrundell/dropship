@@ -70,6 +70,13 @@ const App = () =>
       </Code>
     </Section>
     <Section>
+      <Heading priority="3" cssClass="color__prime">Image</Heading>
+      <Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" />
+      <Code>
+        &lt;Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" /&gt;
+      </Code>
+    </Section>
+    <Section>
       <Heading priority="3" cssClass="color__prime">Card</Heading>
       <Card cssClass="Card">
         <Paragraph>Paragraph within Card</Paragraph>
