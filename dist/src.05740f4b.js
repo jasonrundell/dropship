@@ -20661,7 +20661,7 @@ var App = function App() {
       _react2.default.createElement(
         _dropshipComponents.Heading,
         { priority: '2', cssClass: 'color__alt' },
-        'A boilerplate dropshop project!'
+        'A boilerplate dropship project!'
       ),
       _react2.default.createElement(
         _dropshipComponents.Paragraph,
