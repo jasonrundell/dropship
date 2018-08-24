@@ -22,3 +22,28 @@ code {
   font-family: courier, monospace;
   padding: 0 3px;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.App__nav--container {
+  flex: 0 0 100%;
+  max-width: 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+.App__main--container {
+  flex: 0 0 100%;
+  max-width: 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
