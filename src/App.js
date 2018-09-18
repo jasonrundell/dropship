@@ -4,8 +4,6 @@ import { Heading, Link, Nav, UnorderedList } from 'dropship-components';
 
 import Home from "./Home";
 
-import './App.scss';
-
 const App = () => 
 <div className="App">
   <div className="row">
