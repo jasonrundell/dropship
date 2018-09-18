@@ -10,12 +10,15 @@ Quickly and easily enable customers to:
 
 ## Browser support
 Supporting the latest, stable versions of:
-- Chrome (mobile and desktop)
-- Safari (mobile and desktop)
-- Firefox
+
+- Chrome on Android, Windows, macOS, and Linux
+- Firefox on Windows, macOS, and Linux
+- Safari on iOS and macOS
 - Internet Explorer 11
 
 ## Principles
+As a collaborative effort between a designer and developer, we aim to build a project that exemplifies the best of both expertise with the following design approach:
+
 - Customer first: Offer a smooth experience whether you're a designer, developer, or end consumer.
 - Quality: Follow best practices, well tested.
 - Keep it simple: Less complexity enables a quick and easy path of development upgrades.
