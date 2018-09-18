@@ -1,0 +1,60 @@
+.Main__container {
+  background-color: yellowgreen; }
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 1rem 2rem;
+  background-color: #e6e6e6;
+  color: #444; }
+
+.color__prime {
+  color: #000; }
+
+.color__alt {
+  color: #333; }
+
+code {
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px; }
+
+.row {
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px; }
+
+.App__nav--container {
+  -webkit-flex: 0 0 100%;
+     -moz-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%; }
+  @media (min-width: 768px) {
+    .App__nav--container {
+      -webkit-flex: 0 0 33.333333%;
+         -moz-box-flex: 0;
+          -ms-flex: 0 0 33.333333%;
+              flex: 0 0 33.333333%;
+      max-width: 33.333333%; } }
+
+.App__main--container {
+  -webkit-flex: 0 0 100%;
+     -moz-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%; }
+  @media (min-width: 768px) {
+    .App__main--container {
+      -webkit-flex: 0 0 66.666667%;
+         -moz-box-flex: 0;
+          -ms-flex: 0 0 66.666667%;
+              flex: 0 0 66.666667%;
+      max-width: 66.666667%; } }
