@@ -20850,12 +20850,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"..\\node_modules\\parcel-bundler\\src\\builtins\\bundle-url.js"}],"App.scss":[function(require,module,exports) {
+},{"./bundle-url":"..\\node_modules\\parcel-bundler\\src\\builtins\\bundle-url.js"}],"Home.scss":[function(require,module,exports) {
 
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"..\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"App.js":[function(require,module,exports) {
+},{"_css_loader":"..\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"Home.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20868,12 +20868,12 @@ var _react2 = _interopRequireDefault(_react);
 
 var _dropshipComponents = require('dropship-components');
 
-require('./App.scss');
+require('./Home.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
-var dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
+//const dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
 
 var dropshipGithubLink = 'https://github.com/jasonrundell/dropship';
 var dropshipDemoGithubLink = 'https://github.com/jasonrundell/dropship-demo';
@@ -20888,18 +20888,27 @@ var goToDropshipGithub = function goToDropshipGithub(event) {
   location.href = dropshipGithubLink;
 };
 
-var App = function App() {
+var Home = function Home() {
   return _react2.default.createElement(
-    _dropshipComponents.Layout,
-    { cssClass: 'Layout' },
-    _react2.default.createElement(
-      _dropshipComponents.Heading,
-      { priority: '1', cssClass: 'color__prime' },
-      'Dropship'
-    ),
+    'div',
+    { className: 'Home__container' },
     _react2.default.createElement(
       _dropshipComponents.Article,
       null,
+      _react2.default.createElement(
+        _dropshipComponents.Heading,
+        { priority: '1' },
+        'Dropship'
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '2', cssClass: 'color__prime' },
+          'Getting Started'
+        )
+      ),
       _react2.default.createElement(
         _dropshipComponents.Section,
         null,
@@ -20914,18 +20923,82 @@ var App = function App() {
         null,
         _react2.default.createElement(
           _dropshipComponents.Heading,
-          { priority: '3', cssClass: 'color__prime' },
-          'Paragraph'
+          { priority: '2' },
+          'Typography'
+        ),
+        'This is body text. The base font-size is determined by the users pre-defined preferences within the browser, usually 16px.',
+        _react2.default.createElement(
+          _dropshipComponents.Section,
+          null,
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '3', cssClass: 'color__prime' },
+            'Paragraph'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Paragraph,
+            null,
+            'This is a paragraph.'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Code,
+            null,
+            '<Paragraph>This is a paragraph.</Paragraph>'
+          )
         ),
         _react2.default.createElement(
-          _dropshipComponents.Paragraph,
+          _dropshipComponents.Section,
           null,
-          'Here is a paragraph'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Code,
-          null,
-          '<Paragraph>Here is a paragraph</Paragraph>'
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '3', cssClass: 'color__prime' },
+            'Headings'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '1' },
+            'Heading 1'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '2' },
+            'Heading 2'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '3' },
+            'Heading 3'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '4' },
+            'Heading 4'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '5' },
+            'Heading 5'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Heading,
+            { priority: '6' },
+            'Heading 6'
+          ),
+          _react2.default.createElement(
+            _dropshipComponents.Code,
+            null,
+            '<Heading priority="1">Heading 1</Heading>',
+            _react2.default.createElement('br', null),
+            '<Heading priority="1">Heading 2</Heading>',
+            _react2.default.createElement('br', null),
+            '<Heading priority="1">Heading 3</Heading>',
+            _react2.default.createElement('br', null),
+            '<Heading priority="1">Heading 4</Heading>',
+            _react2.default.createElement('br', null),
+            '<Heading priority="1">Heading 5</Heading>',
+            _react2.default.createElement('br', null),
+            '<Heading priority="1">Heading 6</Heading>'
+          )
         )
       ),
       _react2.default.createElement(
@@ -20968,25 +21041,6 @@ var App = function App() {
         _react2.default.createElement(
           _dropshipComponents.Heading,
           { priority: '3', cssClass: 'color__prime' },
-          'Button'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Button,
-          { cssClass: 'button' },
-          'Button'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Code,
-          null,
-          '<Button cssClass="button">Button</Button>'
-        )
-      ),
-      _react2.default.createElement(
-        _dropshipComponents.Section,
-        null,
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '3', cssClass: 'color__prime' },
           'Link'
         ),
         _react2.default.createElement(
@@ -21012,52 +21066,17 @@ var App = function App() {
         _react2.default.createElement(
           _dropshipComponents.Heading,
           { priority: '3', cssClass: 'color__prime' },
-          'Headings'
+          'Button'
         ),
         _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '1' },
-          'Heading 1'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '2' },
-          'Heading 2'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '3' },
-          'Heading 3'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '4' },
-          'Heading 4'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '5' },
-          'Heading 5'
-        ),
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { priority: '6' },
-          'Heading 6'
+          _dropshipComponents.Button,
+          { cssClass: 'button' },
+          'Button'
         ),
         _react2.default.createElement(
           _dropshipComponents.Code,
           null,
-          '<Heading priority="1">Heading 1</Heading>',
-          _react2.default.createElement('br', null),
-          '<Heading priority="1">Heading 2</Heading>',
-          _react2.default.createElement('br', null),
-          '<Heading priority="1">Heading 3</Heading>',
-          _react2.default.createElement('br', null),
-          '<Heading priority="1">Heading 4</Heading>',
-          _react2.default.createElement('br', null),
-          '<Heading priority="1">Heading 5</Heading>',
-          _react2.default.createElement('br', null),
-          '<Heading priority="1">Heading 6</Heading>'
+          '<Button cssClass="button">Button</Button>'
         )
       ),
       _react2.default.createElement(
@@ -21106,8 +21125,73 @@ var App = function App() {
   );
 };
 
+exports.default = Home;
+},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js","./Home.scss":"Home.scss"}],"App.scss":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"..\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"App.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _dropshipComponents = require('dropship-components');
+
+var _Home = require('./Home');
+
+var _Home2 = _interopRequireDefault(_Home);
+
+require('./App.scss');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'App' },
+    _react2.default.createElement(
+      'div',
+      { className: 'row' },
+      _react2.default.createElement(
+        _dropshipComponents.Nav,
+        { cssClass: 'App__nav--container' },
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { priority: '1', cssClass: 'color__prime' },
+          'Dropship'
+        ),
+        _react2.default.createElement(_dropshipComponents.UnorderedList, { cssClass: 'Nav__list--primary', items: [_react2.default.createElement(
+            _dropshipComponents.Link,
+            { href: '#getting-started' },
+            'Getting Started'
+          ), _react2.default.createElement(
+            _dropshipComponents.Link,
+            { href: '#components' },
+            'Components'
+          ), _react2.default.createElement(
+            _dropshipComponents.Link,
+            { href: '#utilities' },
+            'Utilities'
+          )] })
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'App__main--container' },
+        _react2.default.createElement(_Home2.default, null)
+      )
+    )
+  );
+};
+
 exports.default = App;
-},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js","./App.scss":"App.scss"}],"index.js":[function(require,module,exports) {
+},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js","./Home":"Home.js","./App.scss":"App.scss"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');
@@ -21152,7 +21236,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55212' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53271' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
