@@ -23,68 +23,68 @@ const goToDropshipGithub = (event) => {
 const Home = () =>
 <div className="Home__container">
   <Article>
-    <Heading priority="1">Dropship</Heading>
+    <Heading level="1">Dropship</Heading>
     <Section>
-      <Heading priority="2" cssClass="color__prime">Getting Started</Heading>
+      <Heading level="2" cssClass="color__prime">Getting Started</Heading>
     </Section>
     <Section>
-      <Heading priority="2" cssClass="color__prime">Components</Heading>
+      <Heading level="2" cssClass="color__prime">Components</Heading>
     </Section>
     <Section>
-      <Heading priority="2">Typography</Heading>
+      <Heading level="2">Typography</Heading>
       This is body text. The base font-size is determined by the users pre-defined preferences within the browser, usually 16px.
       <Section>
-        <Heading priority="3" cssClass="color__prime">Paragraph</Heading>
+        <Heading level="3" cssClass="color__prime">Paragraph</Heading>
         <Paragraph>This is a paragraph.</Paragraph>
         <Code>&lt;Paragraph&gt;This is a paragraph.&lt;/Paragraph&gt;</Code>
       </Section>
       <Section>
-        <Heading priority="3" cssClass="color__prime">Headings</Heading>
-        <Heading priority="1">Heading 1</Heading>
-        <Heading priority="2">Heading 2</Heading>
-        <Heading priority="3">Heading 3</Heading>
-        <Heading priority="4">Heading 4</Heading>
-        <Heading priority="5">Heading 5</Heading>
-        <Heading priority="6">Heading 6</Heading>
+        <Heading level="3" cssClass="color__prime">Headings</Heading>
+        <Heading level="1">Heading 1</Heading>
+        <Heading level="2">Heading 2</Heading>
+        <Heading level="3">Heading 3</Heading>
+        <Heading level="4">Heading 4</Heading>
+        <Heading level="5">Heading 5</Heading>
+        <Heading level="6">Heading 6</Heading>
         <Code>
-          &lt;Heading priority="1"&gt;Heading 1&lt;/Heading&gt;<br />
-          &lt;Heading priority="1"&gt;Heading 2&lt;/Heading&gt;<br />
-          &lt;Heading priority="1"&gt;Heading 3&lt;/Heading&gt;<br />
-          &lt;Heading priority="1"&gt;Heading 4&lt;/Heading&gt;<br />
-          &lt;Heading priority="1"&gt;Heading 5&lt;/Heading&gt;<br />
-          &lt;Heading priority="1"&gt;Heading 6&lt;/Heading&gt;
+          &lt;Heading level="1"&gt;Heading 1&lt;/Heading&gt;<br />
+          &lt;Heading level="1"&gt;Heading 2&lt;/Heading&gt;<br />
+          &lt;Heading level="1"&gt;Heading 3&lt;/Heading&gt;<br />
+          &lt;Heading level="1"&gt;Heading 4&lt;/Heading&gt;<br />
+          &lt;Heading level="1"&gt;Heading 5&lt;/Heading&gt;<br />
+          &lt;Heading level="1"&gt;Heading 6&lt;/Heading&gt;
         </Code>
       </Section>
     </Section>
     <Section>
-      <Heading priority="3" cssClass="color__prime">Unordered List</Heading>
+      <Heading level="3" cssClass="color__prime">Unordered List</Heading>
       <UnorderedList items={['One','Two','Three']} />
       <Code>&lt;UnorderedList items={['One','Two','Three']} /&gt;</Code>
     </Section>
     <Section>
-      <Heading priority="3" cssClass="color__prime">Ordered List</Heading>
+      <Heading level="3" cssClass="color__prime">Ordered List</Heading>
       <OrderedList items={['One','Two','Three']} />
       <Code>&lt;OrderedList items={['One','Two','Three']} /&gt;</Code>
     </Section>
     <Section>
-      <Heading priority="3" cssClass="color__prime">Link</Heading>
+      <Heading level="3" cssClass="color__prime">Link</Heading>
       <Link cssClass="color__alt" href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Link>
       <Code>&lt;Link cssClass="color__alt" href={dropshipGithubLink} onClick={goToDropshipGithub}&gt;{dropshipGithubLink}&lt;/Link&gt;</Code>
     </Section>
     <Section>
-      <Heading priority="3" cssClass="color__prime">Button</Heading>
+      <Heading level="3" cssClass="color__prime">Button</Heading>
       <Button cssClass="button">Button</Button>
       <Code>&lt;Button cssClass="button"&gt;Button&lt;/Button&gt;</Code>
     </Section>
     <Section>
-      <Heading priority="3" cssClass="color__prime">Image</Heading>
+      <Heading level="3" cssClass="color__prime">Image</Heading>
       <Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" />
       <Code>
         &lt;Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" /&gt;
       </Code>
     </Section>
     <Section>
-      <Heading priority="3" cssClass="color__prime">Card</Heading>
+      <Heading level="3" cssClass="color__prime">Card</Heading>
       <Card cssClass="Card">
         <Paragraph>Paragraph within Card</Paragraph>
       </Card>
