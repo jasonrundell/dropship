@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Article, Card, Code, Button, Heading, Image, Link, Paragraph, Section, UnorderedList, OrderedList } from 'dropship-components';
+import { Article, Div, Code, Button, Heading, Image, Link, Paragraph, Section, UnorderedList, OrderedList } from 'dropship-components';
 
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
 //const dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
@@ -19,25 +19,25 @@ const goToDropshipGithub = (event) => {
 }
 
 const Home = () =>
-<div className="Home__container">
+<Div>
   <Article>
     <Heading level="1">Dropship</Heading>
     <Section>
-      <Heading level="2" cssClass="color__prime">Getting Started</Heading>
+      <Heading level="2">Getting Started</Heading>
     </Section>
     <Section>
-      <Heading level="2" cssClass="color__prime">Components</Heading>
+      <Heading level="2">Components</Heading>
     </Section>
     <Section>
       <Heading level="2">Typography</Heading>
       This is body text. The base font-size is determined by the users pre-defined preferences within the browser, usually 16px.
       <Section>
-        <Heading level="3" cssClass="color__prime">Paragraph</Heading>
+        <Heading level="3">Paragraph</Heading>
         <Paragraph>This is a paragraph.</Paragraph>
         <Code>&lt;Paragraph&gt;This is a paragraph.&lt;/Paragraph&gt;</Code>
       </Section>
       <Section>
-        <Heading level="3" cssClass="color__prime">Headings</Heading>
+        <Heading level="3">Headings</Heading>
         <Heading level="1">Heading 1</Heading>
         <Heading level="2">Heading 2</Heading>
         <Heading level="3">Heading 3</Heading>
@@ -55,44 +55,44 @@ const Home = () =>
       </Section>
     </Section>
     <Section>
-      <Heading level="3" cssClass="color__prime">Unordered List</Heading>
+      <Heading level="3">Unordered List</Heading>
       <UnorderedList items={['One','Two','Three']} />
       <Code>&lt;UnorderedList items={['One','Two','Three']} /&gt;</Code>
     </Section>
     <Section>
-      <Heading level="3" cssClass="color__prime">Ordered List</Heading>
+      <Heading level="3">Ordered List</Heading>
       <OrderedList items={['One','Two','Three']} />
       <Code>&lt;OrderedList items={['One','Two','Three']} /&gt;</Code>
     </Section>
     <Section>
-      <Heading level="3" cssClass="color__prime">Link</Heading>
-      <Link cssClass="color__alt" href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Link>
-      <Code>&lt;Link cssClass="color__alt" href={dropshipGithubLink} onClick={goToDropshipGithub}&gt;{dropshipGithubLink}&lt;/Link&gt;</Code>
+      <Heading level="3">Link</Heading>
+      <Link href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Link>
+      <Code>&lt;Link href={dropshipGithubLink} onClick={goToDropshipGithub}&gt;{dropshipGithubLink}&lt;/Link&gt;</Code>
     </Section>
     <Section>
-      <Heading level="3" cssClass="color__prime">Button</Heading>
-      <Button cssClass="button">Button</Button>
-      <Code>&lt;Button cssClass="button"&gt;Button&lt;/Button&gt;</Code>
+      <Heading level="3">Button</Heading>
+      <Button>Button</Button>
+      <Code>&lt;Button&gt;Button&lt;/Button&gt;</Code>
     </Section>
     <Section>
-      <Heading level="3" cssClass="color__prime">Image</Heading>
+      <Heading level="3">Image</Heading>
       <Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" />
       <Code>
         &lt;Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" /&gt;
       </Code>
     </Section>
     <Section>
-      <Heading level="3" cssClass="color__prime">Card</Heading>
-      <Card cssClass="Card">
-        <Paragraph>Paragraph within Card</Paragraph>
-      </Card>
+      <Heading level="3">Div</Heading>
+      <Div>
+        <Paragraph>Paragraph within Div</Paragraph>
+      </Div>
       <Code>
-        &lt;Card cssClass="Card"&gt;<br />
-        &nbsp;&nbsp;&lt;Paragraph&gt;Paragraph within Card&lt;/Paragraph&gt;<br />
-        &lt;/Card&gt;
+        &lt;Div&gt;<br />
+        &nbsp;&nbsp;&lt;Paragraph&gt;Paragraph within Div&lt;/Paragraph&gt;<br />
+        &lt;/Div&gt;
       </Code>
     </Section>
   </Article>
-</div>;
+</Div>;
 
 export default Home;
