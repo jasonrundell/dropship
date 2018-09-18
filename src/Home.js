@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Article, Card, Code, Button, Heading, Image, Link, Paragraph, Section, UnorderedList, OrderedList } from 'dropship-components';
 
-import './Home.scss';
-
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
 //const dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
 

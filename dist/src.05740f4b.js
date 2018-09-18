@@ -22071,73 +22071,7 @@ exports.Section = _Section2.default;
 exports.UnorderedList = _UnorderedList2.default;
 },{"./lib/components/Abbr":"3GLL","./lib/components/Address":"bjUq","./lib/components/Article":"RzQD","./lib/components/Aside":"vri3","./lib/components/Button":"NOSF","./lib/components/Card":"Risu","./lib/components/Code":"KO+H","./lib/components/Form":"uv3A","./lib/components/Footer":"b10I","./lib/components/Hgroup":"6LAG","./lib/components/Heading":"jYxe","./lib/components/Image":"0YAT","./lib/components/InputSubmit":"rTML","./lib/components/InputText":"vNob","./lib/components/Label":"BJ5F","./lib/components/Link":"/f3b","./lib/components/Nav":"XBFZ","./lib/components/OrderedList":"i7oz","./lib/components/Paragraph":"T92y","./lib/components/Section":"GYtO","./lib/components/UnorderedList":"R5Af"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.map
-},{}],"..\\node_modules\\parcel-bundler\\src\\builtins\\bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"..\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"..\\node_modules\\parcel-bundler\\src\\builtins\\bundle-url.js"}],"Home.scss":[function(require,module,exports) {
-
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"..\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"Home.js":[function(require,module,exports) {
+},{}],"Home.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -22149,8 +22083,6 @@ var _react = require('react');
 var _react2 = _interopRequireDefault(_react);
 
 var _dropshipComponents = require('dropship-components');
-
-require('./Home.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22408,12 +22340,7 @@ var Home = function Home() {
 };
 
 exports.default = Home;
-},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js","./Home.scss":"Home.scss"}],"App.scss":[function(require,module,exports) {
-
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"..\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"App.js":[function(require,module,exports) {
+},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js"}],"App.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -22429,8 +22356,6 @@ var _dropshipComponents = require('dropship-components');
 var _Home = require('./Home');
 
 var _Home2 = _interopRequireDefault(_Home);
-
-require('./App.scss');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22473,7 +22398,7 @@ var App = function App() {
 };
 
 exports.default = App;
-},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js","./Home":"Home.js","./App.scss":"App.scss"}],"index.js":[function(require,module,exports) {
+},{"react":"..\\node_modules\\react\\index.js","dropship-components":"..\\node_modules\\dropship-components\\dist\\index.js","./Home":"Home.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');
@@ -22518,7 +22443,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56898' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58346' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
