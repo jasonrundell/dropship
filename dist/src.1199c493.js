@@ -22646,6 +22646,26 @@ var Home = function Home() {
           null,
           '<Em>Em</Em>'
         )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { level: '3' },
+          'Aside'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Aside,
+          null,
+          'Aside'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Aside>Aside</Aside>'
+        )
       )
     )
   );
@@ -22676,36 +22696,28 @@ var App = function App() {
     _dropshipComponents.Div,
     null,
     _react2.default.createElement(
-      _dropshipComponents.Div,
+      _dropshipComponents.Nav,
       null,
       _react2.default.createElement(
-        _dropshipComponents.Nav,
-        null,
-        _react2.default.createElement(
-          _dropshipComponents.Heading,
-          { level: '1' },
-          'Dropship'
-        ),
-        _react2.default.createElement(_dropshipComponents.UnorderedList, { items: [_react2.default.createElement(
-            _dropshipComponents.Anchor,
-            { href: '#getting-started' },
-            'Getting Started'
-          ), _react2.default.createElement(
-            _dropshipComponents.Anchor,
-            { href: '#components' },
-            'Components'
-          ), _react2.default.createElement(
-            _dropshipComponents.Anchor,
-            { href: '#utilities' },
-            'Utilities'
-          )] })
+        _dropshipComponents.Heading,
+        { level: '1' },
+        'Dropship'
       ),
-      _react2.default.createElement(
-        _dropshipComponents.Div,
-        null,
-        _react2.default.createElement(_Home2.default, null)
-      )
-    )
+      _react2.default.createElement(_dropshipComponents.UnorderedList, { items: [_react2.default.createElement(
+          _dropshipComponents.Anchor,
+          { href: '#getting-started' },
+          'Getting Started'
+        ), _react2.default.createElement(
+          _dropshipComponents.Anchor,
+          { href: '#components' },
+          'Components'
+        ), _react2.default.createElement(
+          _dropshipComponents.Anchor,
+          { href: '#utilities' },
+          'Utilities'
+        )] })
+    ),
+    _react2.default.createElement(_Home2.default, null)
   );
 };
 
