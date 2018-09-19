@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Div, Heading, Link, Nav, UnorderedList } from 'dropship-components';
+import { Anchor, Div, Heading, Nav, UnorderedList } from 'dropship-components';
 
 import Home from "./Home";
 
@@ -10,9 +10,9 @@ const App = () =>
     <Nav>
     <Heading level="1">Dropship</Heading>
     <UnorderedList items={[
-      <Link href="#getting-started">Getting Started</Link>,
-      <Link href="#components">Components</Link>,
-      <Link href="#utilities">Utilities</Link>,
+      <Anchor href="#getting-started">Getting Started</Anchor>,
+      <Anchor href="#components">Components</Anchor>,
+      <Anchor href="#utilities">Utilities</Anchor>,
       ]} />
     </Nav>
     <Div>

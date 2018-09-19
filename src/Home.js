@@ -1,6 +1,33 @@
 import React from 'react';
 
-import { Article, Button, Code, Div, Em, Heading, Image, Link, Paragraph, Section, Small, Span, Strong, UnorderedList, OrderedList } from 'dropship-components';
+import {
+  Abbr,
+  Address,
+  Anchor,
+  Article,
+  Aside,
+  Button,
+  Code,
+  Div,
+  Em,
+  Footer,
+  Form,
+  Heading,
+  Hgroup,
+  Image,
+  InputSubmit,
+  InputText,
+  Label,
+  Link,
+  Nav,
+  OrderedList,
+  Paragraph,
+  Section,
+  Small,
+  Span,
+  Strong,
+  UnorderedList
+ } from 'dropship-components';
 
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
 //const dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
@@ -69,9 +96,9 @@ const Home = () =>
       </Code>
     </Section>
     <Section>
-      <Heading level="3">Link</Heading>
-      <Link href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Link>
-      <Code>&lt;Link href={dropshipGithubLink} onClick={goToDropshipGithub}&gt;{dropshipGithubLink}&lt;/Link&gt;</Code>
+      <Heading level="3">Anchor</Heading>
+      <Anchor href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Anchor>
+      <Code>&lt;Anchor href={dropshipGithubLink} onClick={goToDropshipGithub}&gt;{dropshipGithubLink}&lt;/Anchor&gt;</Code>
     </Section>
     <Section>
       <Heading level="3">Button</Heading>
