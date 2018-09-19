@@ -21734,6 +21734,28 @@ var Div = function Div(props) {
 };
 
 exports.default = Div;
+},{"react":"+UVH"}],"FOJ+":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Em = function Em(props) {
+  return _react2.default.createElement(
+    'em',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Em;
 },{"react":"+UVH"}],"uv3A":[function(require,module,exports) {
 'use strict';
 
@@ -21916,11 +21938,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Link = function Link(props) {
   return _react2.default.createElement(
     'a',
-    { href: props.href, className: props.cssClass, onClick: props.onClick },
+    { href: props.href, className: props.cssClass, onClick: props.onClick, target: props.target },
     props.children
   );
-};
-
+}; // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 exports.default = Link;
 },{"react":"+UVH"}],"XBFZ":[function(require,module,exports) {
 'use strict';
@@ -22018,6 +22039,72 @@ var Section = function Section(props) {
 };
 
 exports.default = Section;
+},{"react":"+UVH"}],"GPWb":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Small = function Small(props) {
+  return _react2.default.createElement(
+    'small',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Small;
+},{"react":"+UVH"}],"fJVq":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Span = function Span(props) {
+  return _react2.default.createElement(
+    'span',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Span;
+},{"react":"+UVH"}],"uc5E":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Strong = function Strong(props) {
+  return _react2.default.createElement(
+    'strong',
+    { className: props.cssClass },
+    props.children
+  );
+};
+
+exports.default = Strong;
 },{"react":"+UVH"}],"R5Af":[function(require,module,exports) {
 'use strict';
 
@@ -22032,7 +22119,8 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var UnorderedList = function UnorderedList(props) {
-  var listItems = props.items.map(function (item) {
+  var items = props.items;
+  var listItems = items.map(function (item) {
     return _react2.default.createElement(
       'li',
       { key: item.toString(), className: props.cssClassChildren },
@@ -22054,7 +22142,7 @@ exports.default = UnorderedList;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UnorderedList = exports.Section = exports.Paragraph = exports.OrderedList = exports.Nav = exports.Link = exports.Label = exports.InputText = exports.InputSubmit = exports.Image = exports.Hgroup = exports.Heading = exports.Footer = exports.Form = exports.Div = exports.Code = exports.Button = exports.Aside = exports.Article = exports.Address = exports.Abbr = undefined;
+exports.UnorderedList = exports.Strong = exports.Span = exports.Small = exports.Section = exports.Paragraph = exports.OrderedList = exports.Nav = exports.Link = exports.Label = exports.InputText = exports.InputSubmit = exports.Image = exports.Hgroup = exports.Heading = exports.Footer = exports.Form = exports.Em = exports.Div = exports.Code = exports.Button = exports.Aside = exports.Article = exports.Address = exports.Abbr = undefined;
 
 var _Abbr = require('./lib/components/Abbr');
 
@@ -22083,6 +22171,10 @@ var _Code2 = _interopRequireDefault(_Code);
 var _Div = require('./lib/components/Div');
 
 var _Div2 = _interopRequireDefault(_Div);
+
+var _Em = require('./lib/components/Em');
+
+var _Em2 = _interopRequireDefault(_Em);
 
 var _Form = require('./lib/components/Form');
 
@@ -22136,6 +22228,18 @@ var _Section = require('./lib/components/Section');
 
 var _Section2 = _interopRequireDefault(_Section);
 
+var _Small = require('./lib/components/Small');
+
+var _Small2 = _interopRequireDefault(_Small);
+
+var _Span = require('./lib/components/Span');
+
+var _Span2 = _interopRequireDefault(_Span);
+
+var _Strong = require('./lib/components/Strong');
+
+var _Strong2 = _interopRequireDefault(_Strong);
+
 var _UnorderedList = require('./lib/components/UnorderedList');
 
 var _UnorderedList2 = _interopRequireDefault(_UnorderedList);
@@ -22149,6 +22253,7 @@ exports.Aside = _Aside2.default;
 exports.Button = _Button2.default;
 exports.Code = _Code2.default;
 exports.Div = _Div2.default;
+exports.Em = _Em2.default;
 exports.Form = _Form2.default;
 exports.Footer = _Footer2.default;
 exports.Heading = _Heading2.default;
@@ -22162,8 +22267,11 @@ exports.Nav = _Nav2.default;
 exports.OrderedList = _OrderedList2.default;
 exports.Paragraph = _Paragraph2.default;
 exports.Section = _Section2.default;
+exports.Small = _Small2.default;
+exports.Span = _Span2.default;
+exports.Strong = _Strong2.default;
 exports.UnorderedList = _UnorderedList2.default;
-},{"./lib/components/Abbr":"3GLL","./lib/components/Address":"bjUq","./lib/components/Article":"RzQD","./lib/components/Aside":"vri3","./lib/components/Button":"NOSF","./lib/components/Code":"KO+H","./lib/components/Div":"jawT","./lib/components/Form":"uv3A","./lib/components/Footer":"b10I","./lib/components/Hgroup":"6LAG","./lib/components/Heading":"jYxe","./lib/components/Image":"0YAT","./lib/components/InputSubmit":"rTML","./lib/components/InputText":"vNob","./lib/components/Label":"BJ5F","./lib/components/Link":"/f3b","./lib/components/Nav":"XBFZ","./lib/components/OrderedList":"i7oz","./lib/components/Paragraph":"T92y","./lib/components/Section":"GYtO","./lib/components/UnorderedList":"R5Af"}]},{},["Focm"], null)
+},{"./lib/components/Abbr":"3GLL","./lib/components/Address":"bjUq","./lib/components/Article":"RzQD","./lib/components/Aside":"vri3","./lib/components/Button":"NOSF","./lib/components/Code":"KO+H","./lib/components/Div":"jawT","./lib/components/Em":"FOJ+","./lib/components/Form":"uv3A","./lib/components/Footer":"b10I","./lib/components/Hgroup":"6LAG","./lib/components/Heading":"jYxe","./lib/components/Image":"0YAT","./lib/components/InputSubmit":"rTML","./lib/components/InputText":"vNob","./lib/components/Label":"BJ5F","./lib/components/Link":"/f3b","./lib/components/Nav":"XBFZ","./lib/components/OrderedList":"i7oz","./lib/components/Paragraph":"T92y","./lib/components/Section":"GYtO","./lib/components/Small":"GPWb","./lib/components/Span":"fJVq","./lib/components/Strong":"uc5E","./lib/components/UnorderedList":"R5Af"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.map
 },{}],"Home.js":[function(require,module,exports) {
 'use strict';
@@ -22321,9 +22429,7 @@ var Home = function Home() {
         _react2.default.createElement(
           _dropshipComponents.Code,
           null,
-          '<UnorderedList items=',
-          ['One', 'Two', 'Three'],
-          ' />'
+          '<UnorderedList items={[\'One\',\'Two\',\'Three\']} />'
         )
       ),
       _react2.default.createElement(
@@ -22338,9 +22444,7 @@ var Home = function Home() {
         _react2.default.createElement(
           _dropshipComponents.Code,
           null,
-          '<OrderedList items=',
-          ['One', 'Two', 'Three'],
-          ' />'
+          '<OrderedList items={[\'One\',\'Two\',\'Three\']} />'
         )
       ),
       _react2.default.createElement(
@@ -22381,6 +22485,7 @@ var Home = function Home() {
           null,
           'Button'
         ),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           _dropshipComponents.Code,
           null,
@@ -22396,6 +22501,7 @@ var Home = function Home() {
           'Image'
         ),
         _react2.default.createElement(_dropshipComponents.Image, { src: 'https://placeimg.com/200/150/arch', alt: 'Placeholder image' }),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           _dropshipComponents.Code,
           null,
@@ -22427,6 +22533,86 @@ var Home = function Home() {
           '\xA0\xA0<Paragraph>Paragraph within Div</Paragraph>',
           _react2.default.createElement('br', null),
           '</Div>'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { level: '3' },
+          'Small'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Small,
+          null,
+          'Small'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Small>Small</Small>'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { level: '3' },
+          'Strong'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Strong,
+          null,
+          'Strong'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Strong>Strong</Strong>'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { level: '3' },
+          'Span'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Span,
+          null,
+          'Span'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Span>Span</Span>'
+        )
+      ),
+      _react2.default.createElement(
+        _dropshipComponents.Section,
+        null,
+        _react2.default.createElement(
+          _dropshipComponents.Heading,
+          { level: '3' },
+          'Em'
+        ),
+        _react2.default.createElement(
+          _dropshipComponents.Em,
+          null,
+          'Em'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          _dropshipComponents.Code,
+          null,
+          '<Em>Em</Em>'
         )
       )
     )
@@ -22537,7 +22723,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60959' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49252' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Article, Div, Code, Button, Heading, Image, Link, Paragraph, Section, UnorderedList, OrderedList } from 'dropship-components';
+import { Article, Button, Code, Div, Em, Heading, Image, Link, Paragraph, Section, Small, Span, Strong, UnorderedList, OrderedList } from 'dropship-components';
 
 //import imageURL from './dropship.png'; // http://avatars.adorable.io
 //const dropshipLogo = 'https://api.adorable.io/avatars/285/dropship.png';
@@ -57,12 +57,16 @@ const Home = () =>
     <Section>
       <Heading level="3">Unordered List</Heading>
       <UnorderedList items={['One','Two','Three']} />
-      <Code>&lt;UnorderedList items={['One','Two','Three']} /&gt;</Code>
+      <Code>
+        &#x3C;UnorderedList items=&#x7B;&#x5B;&#x27;One&#x27;,&#x27;Two&#x27;,&#x27;Three&#x27;&#x5D;&#x7D; /&#x3E;
+      </Code>
     </Section>
     <Section>
       <Heading level="3">Ordered List</Heading>
       <OrderedList items={['One','Two','Three']} />
-      <Code>&lt;OrderedList items={['One','Two','Three']} /&gt;</Code>
+      <Code>
+        &#x3C;OrderedList items=&#x7B;&#x5B;&#x27;One&#x27;,&#x27;Two&#x27;,&#x27;Three&#x27;&#x5D;&#x7D; /&#x3E;
+      </Code>
     </Section>
     <Section>
       <Heading level="3">Link</Heading>
@@ -72,11 +76,13 @@ const Home = () =>
     <Section>
       <Heading level="3">Button</Heading>
       <Button>Button</Button>
+      <br />
       <Code>&lt;Button&gt;Button&lt;/Button&gt;</Code>
     </Section>
     <Section>
       <Heading level="3">Image</Heading>
       <Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" />
+      <br />
       <Code>
         &lt;Image src="https://placeimg.com/200/150/arch" alt="Placeholder image" /&gt;
       </Code>
@@ -90,6 +96,38 @@ const Home = () =>
         &lt;Div&gt;<br />
         &nbsp;&nbsp;&lt;Paragraph&gt;Paragraph within Div&lt;/Paragraph&gt;<br />
         &lt;/Div&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Small</Heading>
+      <Small>Small</Small>
+      <br />
+      <Code>
+        &lt;Small&gt;Small&lt;/Small&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Strong</Heading>
+      <Strong>Strong</Strong>
+      <br />
+      <Code>
+        &lt;Strong&gt;Strong&lt;/Strong&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Span</Heading>
+      <Span>Span</Span>
+      <br />
+      <Code>
+        &lt;Span&gt;Span&lt;/Span&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Em</Heading>
+      <Em>Em</Em>
+      <br />
+      <Code>
+        &lt;Em&gt;Em&lt;/Em&gt;
       </Code>
     </Section>
   </Article>
