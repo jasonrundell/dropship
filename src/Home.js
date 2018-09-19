@@ -157,6 +157,14 @@ const Home = () =>
         &lt;Em&gt;Em&lt;/Em&gt;
       </Code>
     </Section>
+    <Section>
+      <Heading level="3">Aside</Heading>
+      <Aside>Aside</Aside>
+      <br />
+      <Code>
+        &lt;Aside&gt;Aside&lt;/Aside&gt;
+      </Code>
+    </Section>
   </Article>
 </Div>;
 
