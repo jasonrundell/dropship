@@ -6,26 +6,37 @@ import {
   Anchor,
   Article,
   Aside,
+  Blockquote,
   Button,
+  Caption,
   Code,
   Div,
   Em,
+  Fieldset,
+  Figure,
   Footer,
   Form,
+  Header,
   Heading,
   Hgroup,
+  Hr,
   Image,
   InputSubmit,
   InputText,
   Label,
+  Legend,
   Link,
   Nav,
   OrderedList,
   Paragraph,
+  Pre,
   Section,
   Small,
   Span,
   Strong,
+  Sub,
+  Summary,
+  Sup,
   UnorderedList
  } from 'dropship-components';
 
@@ -96,6 +107,38 @@ const Home = () =>
       </Code>
     </Section>
     <Section>
+      <Heading level="3">Abbr</Heading>
+      <Abbr>Abbr</Abbr>
+      <br />
+      <Code>
+        &lt;Abbr&gt;Abbr&lt;/Abbr&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Address</Heading>
+      <Address>Address</Address>
+      <br />
+      <Code>
+        &lt;Address&gt;Address&lt;/Address&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Sub</Heading>
+      <Sub>Sub</Sub>
+      <br />
+      <Code>
+        &lt;Sub&gt;Sub&lt;/Sub&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Sup</Heading>
+      <Sup>Sup</Sup>
+      <br />
+      <Code>
+        &lt;Sup&gt;Sup&lt;/Sup&gt;
+      </Code>
+    </Section>
+    <Section>
       <Heading level="3">Anchor</Heading>
       <Anchor href={dropshipGithubLink} onClick={goToDropshipGithub}>{dropshipGithubLink}</Anchor>
       <Code>&lt;Anchor href={dropshipGithubLink} onClick={goToDropshipGithub}&gt;{dropshipGithubLink}&lt;/Anchor&gt;</Code>
@@ -103,8 +146,12 @@ const Home = () =>
     <Section>
       <Heading level="3">Button</Heading>
       <Button>Button</Button>
+      <Button disabled={true}>Button</Button>
       <br />
-      <Code>&lt;Button&gt;Button&lt;/Button&gt;</Code>
+      <Code>
+        &lt;Button&gt;Button&lt;/Button&gt;<br />
+        &lt;Button disabled=&#x7B;true&#x7D;&gt;Button&lt;/Button&gt;
+      </Code>
     </Section>
     <Section>
       <Heading level="3">Image</Heading>
@@ -163,6 +210,104 @@ const Home = () =>
       <br />
       <Code>
         &lt;Aside&gt;Aside&lt;/Aside&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Fieldset</Heading>
+      <Fieldset>Fieldset</Fieldset>
+      <Fieldset disabled={true}>Fieldset</Fieldset>
+      <br />
+      <Code>
+        &lt;Fieldset&gt;Fieldset&lt;/Fieldset&gt;<br />
+        &lt;Fieldset disabled=&#x7B;true&#x7D;&gt;Fieldset&lt;/Fieldset&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Blockquote</Heading>
+      <Blockquote>Blockquote</Blockquote>
+      <br />
+      <Code>
+        &lt;Blockquote&gt;Blockquote&lt;/Blockquote&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Caption</Heading>
+      <Caption>Caption</Caption>
+      <br />
+      <Code>
+        &lt;Caption&gt;Caption&lt;/Caption&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Figure</Heading>
+      <Figure>Figure</Figure>
+      <br />
+      <Code>
+        &lt;Figure&gt;Figure&lt;/Figure&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Header</Heading>
+      <Header>Header</Header>
+      <br />
+      <Code>
+        &lt;Header&gt;Header&lt;/Header&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Footer</Heading>
+      <Footer>Footer</Footer>
+      <br />
+      <Code>
+        &lt;Footer&gt;Footer&lt;/Footer&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Hgroup</Heading>
+      <Hgroup>
+        <Heading level="1">Heading 1</Heading>
+        <Heading level="2">Heading 2</Heading>
+        <Heading level="3">Heading 3</Heading>
+      </Hgroup>
+      <br />
+      <Code>
+        &#x3C;Hgroup&#x3E;<br />
+        &nbsp;&nbsp;&#x3C;Heading level=&#x22;1&#x22;&#x3E;Heading 1&#x3C;/Heading&#x3E;<br />
+        &nbsp;&nbsp;&#x3C;Heading level=&#x22;2&#x22;&#x3E;Heading 2&#x3C;/Heading&#x3E;<br />
+        &nbsp;&nbsp;&#x3C;Heading level=&#x22;3&#x22;&#x3E;Heading 3&#x3C;/Heading&#x3E;<br />
+        &#x3C;/Hgroup&#x3E;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Hr</Heading>
+      <Hr />
+      <br />
+      <Code>
+        &lt;Hr /&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Form</Heading>
+      <Form>Form</Form>
+      <br />
+      <Code>
+        &lt;Form&gt;Form&lt;/Form&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Pre</Heading>
+      <Pre>Pre</Pre>
+      <br />
+      <Code>
+        &lt;Pre&gt;Pre&lt;/Pre&gt;
+      </Code>
+    </Section>
+    <Section>
+      <Heading level="3">Summary</Heading>
+      <Summary>Summary</Summary>
+      <br />
+      <Code>
+        &lt;Summary&gt;Summary&lt;/Summary&gt;
       </Code>
     </Section>
   </Article>
