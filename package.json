@@ -33,7 +33,7 @@
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "jest": "^23.5.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "parcel-bundler": "^1.10.0"
   }
 }
