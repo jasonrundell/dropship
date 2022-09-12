@@ -5,16 +5,20 @@
   "description": "Get a React project up and running really fast with Dropship.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasonrundell/dropship.git"
+    "url": "git+https://github.com/jasonrundell/dropship.git"
   },
-  "author": "jasonrundell <jason.rundell@gmail.com>",
+  "author": {
+    "name": "jasonrundell",
+    "email": "jason.rundell@gmail.com"
+  },
   "scripts": {
     "test": "jest",
     "start": "cross-env NODE_ENV=development parcel src/index.html -p 3000",
     "build": "cross-env NODE_ENV=production parcel build src/index.html --no-minify --public-url /",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "chromatic": "npx chromatic --project-token=870bd994da80"
   },
   "license": "MIT",
   "devDependencies": {
@@ -41,5 +45,11 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jasonrundell/dropship/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/jasonrundell/dropship#readme",
+  "_id": "dropship@1.0.0"
 }
