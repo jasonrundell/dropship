@@ -1,4 +1,6 @@
 import React from 'react'
+import { userEvent, within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
 
 import { Button } from './Button'
 
@@ -37,4 +39,23 @@ export const Small = Template.bind({})
 Small.args = {
   size: 'small',
   label: 'Button'
+}
+
+export const WithInteractions = (args) => <Button {...args} />
+WithInteractions.args = {
+  backgroundColor: null,
+  primary: true,
+  size: 'medium',
+  onClick: undefined,
+  label: 'DROPSHIP'
+}
+
+WithInteractions.play = async ({ canvasElement }) => {
+  // Assigns canvas to the component root element
+  const canvas = within(canvasElement)
+  const buttonElement = canvas.getByRole('button')
+  await userEvent.click(buttonElement)
+  expect(buttonElement).not.toBeNull()
+  expect(buttonElement).toHaveAttribute('type', 'button')
+  expect(buttonElement.textContent).toEqual('DROPSHIP')
 }
