@@ -1,0 +1,11 @@
+.storybook-icon {
+  display: 'inline-block';
+  vertical-align: middle;
+
+  shape-rendering: inherit;
+  transform: translate3d(0, 0, 0);
+}
+
+.storybook-icon__path {
+  fill: currentColor;
+}

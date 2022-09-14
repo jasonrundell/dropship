@@ -1,0 +1,36 @@
+.storybook-stories-icon__list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+}
+
+.storybook-stories-icon__list-item {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 0 1 20%;
+  min-width: 120px;
+
+  padding: 0px 7.5px 20px;
+}
+
+.storybook-stories-icon__list-item svg {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.storybook-stories-icon__list-item--minimal {
+  flex: none;
+  min-width: auto;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #666;
+}
+
+.storybook-stories-icon__list-item--minimal svg {
+  display: block;
+  margin-right: 0;
+  width: 48px;
+  height: 48px;
+}
