@@ -8,9 +8,15 @@
 
 # production
 /build
+/dist
+
+# storybook
+/storybook-static
+
+# development
+.env
 
 # misc
-/storybook-static
 .DS_Store
 .env.local
 .env.development.local
