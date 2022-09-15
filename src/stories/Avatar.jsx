@@ -37,7 +37,7 @@ export const Avatar = ({ loading, username, src, size, ...props }) => {
 
   return (
     <div
-      className={`storybook-avatar ${size && `storybook-avatar--${size}`}`}
+      className={`storybook-avatar ${size ? `storybook-avatar--${size}` : ''}`}
       size={size}
       loading={loading}
       src={src}

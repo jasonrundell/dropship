@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { icons } from './shared/icons'
+
+import './icon.css'
 /**
  * An Icon is a piece of visual element, but we must ensure its accessibility while using it.
  * It can have 2 purposes:
@@ -11,7 +13,7 @@ import { icons } from './shared/icons'
 export const Icon = ({ icon, block, ...props }) => {
   return (
     <svg
-      className="storybook-icon"
+      className={`storybook-icon ${block ? 'storybook-icon--block' : ''}`}
       viewBox="0 0 1024 1024"
       width="20px"
       height="20px"
