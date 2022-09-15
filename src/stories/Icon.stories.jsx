@@ -4,7 +4,7 @@ import { Icon } from './Icon'
 import { icons } from './shared/icons'
 
 export default {
-  title: 'Design System/Icon',
+  title: 'Atoms/Icon',
   component: Icon
 }
 
