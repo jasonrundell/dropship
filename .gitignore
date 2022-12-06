@@ -12,6 +12,7 @@
 
 # storybook
 /storybook-static
+build-storybook.log
 
 # development
 .env
