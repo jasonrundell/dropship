@@ -17,5 +17,5 @@ jobs:
         # Options required for Chromatic's GitHub Action
         with:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
-          projectToken: ${{ CHROMATIC_PROJECT_TOKEN }}
-          token: ${{ GH_TOKEN }}
+          projectToken: 870bd994da80
+          token: ${{ secrets.GH_TOKEN }}
