@@ -15,7 +15,6 @@
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "prettier": "prettier --write .",
-    "chromatic": "npx chromatic --project-token 870bd994da80",
     "test:storybook": "test-storybook",
     "build:storybook:docs": "build-storybook --docs"
   },
