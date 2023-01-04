@@ -54,6 +54,8 @@ WithInteractions.play = async ({ canvasElement }) => {
   const linkElement = canvas.getByRole('link')
   await userEvent.click(linkElement)
   expect(linkElement).not.toBeNull()
-  expect(linkElement).toHaveAttribute('type', 'href').toEqual('https://github.com/jasonrundell/dropship')
+  expect(linkElement).toHaveAttribute('href').toEqual('https://github.com/jasonrundell/dropship')
+  expect(linkElement).toHaveAttribute('target').toEqual('_blank')
+  expect(linkElement).toHaveAttribute('rel').toEqual('noopener noreferrer')
   expect(linkElement.textContent).toEqual('Dropship')
 }
