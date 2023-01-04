@@ -51,9 +51,9 @@ WithInteractions.args = {
 WithInteractions.play = async ({ canvasElement }) => {
   // Assigns canvas to the component root element
   const canvas = within(canvasElement)
-  const linkElement = canvas.getByRole('a')
+  const linkElement = canvas.getByRole('link')
   await userEvent.click(linkElement)
   expect(linkElement).not.toBeNull()
   expect(linkElement).toHaveAttribute('type', 'button')
-  expect(linkElement.textContent).toEqual('DROPSHIP')
+  expect(linkElement.textContent).toEqual('Dropship')
 }
