@@ -57,5 +57,5 @@ WithInteractions.play = async ({ canvasElement }) => {
   await userEvent.click(buttonElement)
   expect(buttonElement).not.toBeNull()
   expect(buttonElement).toHaveAttribute('type', 'button')
-  expect(buttonElement.textContent).toEqual('DROPSHIP')
+  expect(buttonElement.textContent).toEqual('Dropship')
 }
