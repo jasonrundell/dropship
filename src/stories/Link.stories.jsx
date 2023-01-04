@@ -1,5 +1,5 @@
 import React from 'react'
-import { userEvent, within } from '@storybook/testing-library'
+import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
 import { Link } from './Link'
