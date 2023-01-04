@@ -54,6 +54,6 @@ WithInteractions.play = async ({ canvasElement }) => {
   const linkElement = canvas.getByRole('link')
   await userEvent.click(linkElement)
   expect(linkElement).not.toBeNull()
-  expect(linkElement).toHaveAttribute('type', 'button')
+  expect(linkElement).toHaveAttribute('type', 'a')
   expect(linkElement.textContent).toEqual('Dropship')
 }
