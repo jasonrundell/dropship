@@ -2,47 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 
 import { Avatar } from './Avatar'
 
-<Meta
-  title="Atoms/Avatar"
-  component={Avatar}
-  argTypes={{
-    loading: {
-      control: 'boolean',
-      description:
-        'Use the loading state to indicate that the data Avatar needs is still loading.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
-    username: {
-      description:
-        'Avatar falls back to the user’s initial when no image is provided. Supply a `username` and omit `src` to see what this looks like.',
-      table: {
-        defaultValue: {
-          summary: 'loading'
-        }
-      }
-    },
-    src: {
-      description: "The URL of the Avatar's image.",
-      table: {
-        defaultValue: {
-          summary: null
-        }
-      }
-    },
-    size: {
-      description:
-        'Avatar comes in four sizes. In most cases, you’ll be fine with `medium`.',
-      table: {
-        defaultValue: {
-          summary: 'medium'
-        }
-      }
-    }
-  }}
-/>
+<Meta title="Atoms/Avatar" component={Avatar} />
 
 # Avatar
 
@@ -52,6 +12,8 @@ Use an avatar for attributing actions or content to specific users.
 
 The user's name should _always_ be present when using Avatar – either printed
 beside the avatar or in a tooltip.
+
+<ArgsTable story="standard" />
 
 export const Template = (args) => <Avatar {...args} />
 
@@ -67,8 +29,6 @@ export const Template = (args) => <Avatar {...args} />
     {Template.bind({})}
   </Story>
 </Canvas>
-
-<ArgsTable story="standard" />
 
 ### Sizes
 

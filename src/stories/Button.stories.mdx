@@ -2,37 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 
 import { Button } from './Button'
 
-<Meta
-  title="Atoms/Button"
-  component={Button}
-  argTypes={{
-    primary: {
-      description: 'Denotes if the button is a primary action or not.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true }
-      }
-    },
-    size: {
-      description:
-        "Buttons come in four sizes. In most cases, you'll be fine with `medium`.",
-      table: {
-        defaultValue: {
-          summary: 'medium'
-        }
-      }
-    },
-    label: {
-      description: 'Buttons require a text label'
-    },
-    onClick: {
-      description: 'The action to perform when the button is clicked',
-      table: {
-        type: { summary: 'func' }
-      }
-    }
-  }}
-/>
+<Meta title="Atoms/Button" component={Button} />
 
 # Button
 
@@ -45,6 +15,8 @@ This button should _never_ be used as a link; links can be styled with a button
 pattern.
 
 Buttons should _always_ have a label.
+
+<ArgsTable story="Primary" />
 
 export const Template = (args) => <Button {...args} />
 
@@ -73,8 +45,6 @@ export const Template = (args) => <Button {...args} />
     {Template.bind({})}
   </Story>
 </Canvas>
-
-<ArgsTable story="Primary" />
 
 ### Sizes
 
@@ -116,9 +86,9 @@ WithInteractions.args = {
 WithInteractions.play = async ({ canvasElement }) => {
   // Assigns canvas to the component root element
   const canvas = within(canvasElement)
-  const buttonElement = canvas.getByRole('button')
-  await userEvent.click(buttonElement)
-  expect(buttonElement).not.toBeNull()
-  expect(buttonElement).toHaveAttribute('type', 'button')
-  expect(buttonElement.textContent).toEqual('Dropship')
+  const theElement = canvas.getByRole('button')
+  await userEvent.click(theElement)
+  expect(theElement).not.toBeNull()
+  expect(theElement).toHaveAttribute('type', 'button')
+  expect(theElement.textContent).toEqual('Dropship')
 }
