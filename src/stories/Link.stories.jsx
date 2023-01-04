@@ -52,10 +52,9 @@ WithInteractions.play = async ({ canvasElement }) => {
   // Assigns canvas to the component root element
   const canvas = within(canvasElement)
   const linkElement = canvas.getByRole('link')
-  await userEvent.click(linkElement)
   expect(linkElement).not.toBeNull()
-  expect(linkElement).toHaveAttribute('href').toEqual('https://github.com/jasonrundell/dropship')
-  expect(linkElement).toHaveAttribute('target').toEqual('_blank')
-  expect(linkElement).toHaveAttribute('rel').toEqual('noopener noreferrer')
+  expect(linkElement).toHaveAttribute('href', 'https://github.com/jasonrundell/dropship')
+  expect(linkElement).toHaveAttribute('target', '_blank')
+  expect(linkElement).toHaveAttribute('rel', 'noopener noreferrer')
   expect(linkElement.textContent).toEqual('Dropship')
 }
