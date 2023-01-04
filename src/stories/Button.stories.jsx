@@ -47,7 +47,7 @@ WithInteractions.args = {
   primary: true,
   size: 'medium',
   onClick: undefined,
-  label: 'DROPSHIP'
+  label: 'Dropship'
 }
 
 WithInteractions.play = async ({ canvasElement }) => {
