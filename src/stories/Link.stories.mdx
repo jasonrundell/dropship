@@ -93,7 +93,7 @@ WithInteractions.args = {
 WithInteractions.play = async ({ canvasElement }) => {
   // Assigns canvas to the component root element
   const canvas = within(canvasElement)
-  const theElement = canvas.getByRole('link')
+  const theElement = canvas.getByRole('img')
   expect(theElement).not.toBeNull()
   expect(theElement).toHaveAttribute(
     'href',
