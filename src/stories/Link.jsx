@@ -6,15 +6,11 @@ import './link.css'
  * Primary UI component for user interaction
  */
 export const Link = ({ primary, to, size, label, target, rel, ...props }) => {
-  const mode = primary
-    ? 'storybook-link--primary'
-    : 'storybook-link--secondary'
+  const mode = primary ? 'storybook-link--primary' : 'storybook-link--secondary'
   return (
     <a
       href={to}
-      className={['storybook-link', `storybook-link--${size}`, mode].join(
-        ' '
-      )}
+      className={['storybook-link', `storybook-link--${size}`, mode].join(' ')}
       {...props}
       target={target}
       rel={rel}
@@ -51,7 +47,7 @@ Link.propTypes = {
   target: PropTypes.string,
   /**
    * Rel for the link
-  */
+   */
   rel: PropTypes.string
 }
 
