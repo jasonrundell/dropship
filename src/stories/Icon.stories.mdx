@@ -1,4 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
 
 import { Icon } from './Icon'
 import { icons } from './shared/icons'
@@ -67,25 +69,20 @@ Experiment with this story with the Controls addon in the Canvas tab.
     name="controls"
     args={{
       icon: 'mobile',
-      block: false
+      block: false,
+      ariaLabel: 'Mobile'
+    }}
+    // https://storybook.js.org/docs/react/api/mdx#play-function
+    play={async ({ canvasElement }) => {
+      const canvas = within(canvasElement)
+      const theElement = canvas.getByRole('img')
+      // 👇 Simulate interactions with the component
+      await expect(theElement).not.toBeNull()
+      await expect(theElement).toHaveAttribute('class')
+      await expect(theElement).toHaveAttribute('viewBox')
+      await expect(theElement).toHaveAttribute('aria-label', 'Mobile')
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
-
-export const WithInteractions = (args) => <Icon {...args} />
-WithInteractions.args = {
-  icon: 'mobile',
-  block: false
-}
-WithInteractions.play = async ({ canvasElement }) => {
-  // Assigns canvas to the component root element
-  const canvas = within(canvasElement)
-  const theElement = canvas.getByRole('img')
-  await userEvent.click(theElement)
-  expect(theElement).not.toBeNull()
-  expect(theElement).toHaveAttribute('class')
-  expect(theElement).toHaveAttribute('viewBox')
-  expect(theElement.textContent).toEqual('Dropship')
-}
