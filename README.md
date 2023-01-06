@@ -39,6 +39,7 @@ approach:
 - [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/react/en/introduction/)
 - [How to test UIs with Storybook](https://storybook.js.org/docs/react/writing-tests/introduction)
 - [Storybook React Testing Utilities](https://storybook.js.org/addons/@storybook/testing-react)
+- [Checklist Design by George Hatzis](https://www.checklist.design/)
 
 ## View Dropbox in Storybook on Chromatic
 
