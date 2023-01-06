@@ -1,4 +1,4 @@
-# Dropship
+# Dropship (name is a work-in-progress)
 
 A lightweight, boilerplate, extensible React component library with optional CSS
 framework that allows you to quickly get a web project up and running.
