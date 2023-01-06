@@ -10,5 +10,7 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   plugins: ['react'],
-  rules: {}
+  rules: {
+    'multiline-ternary': ['error', 'never']
+  }
 }
