@@ -56,9 +56,23 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
 )
 
 Header.propTypes = {
-  user: PropTypes.shape({}),
+  /**
+   * The user object.
+   */
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }),
+  /**
+   * Callback when the login button is clicked.
+   */
   onLogin: PropTypes.func.isRequired,
+  /**
+   * Callback when the logout button is clicked.
+   */
   onLogout: PropTypes.func.isRequired,
+  /**
+   * Callback when the create account button is clicked.
+   */
   onCreateAccount: PropTypes.func.isRequired
 }
 

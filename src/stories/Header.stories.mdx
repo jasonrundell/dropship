@@ -1,0 +1,39 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
+
+import { Header } from './Header'
+
+<Meta title="Layout/Header" component={Header} />
+
+# Header
+
+## Displays a header with a logo and a navigation menu.
+
+Use for the top of every page.
+
+<ArgsTable story="Logged In" />
+
+export const Template = (args) => <Header {...args} />
+
+### Logged In
+
+<Canvas>
+  <Story name="Logged In">{LoggedIn}</Story>
+</Canvas>
+
+### Logged Out
+
+<Canvas>
+  <Story name="Logged Out">{LoggedOut}</Story>
+</Canvas>
+
+export const LoggedIn = Template.bind({})
+LoggedIn.args = {
+  user: {
+    name: 'Jane Doe'
+  }
+}
+
+export const LoggedOut = Template.bind({})
+LoggedOut.args = {}
