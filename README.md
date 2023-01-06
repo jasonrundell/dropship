@@ -36,8 +36,11 @@ approach:
 
 ## Resources
 
+The following resources all had a direct influence on how this system was built, contained inspiration, or had handy references.
+
 - [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/react/en/introduction/)
 - [How to test UIs with Storybook](https://storybook.js.org/docs/react/writing-tests/introduction)
+- [atomic design and storybook by Brad Frost](https://bradfrost.com/blog/post/atomic-design-and-storybook/)
 - [Storybook React Testing Utilities](https://storybook.js.org/addons/@storybook/testing-react)
 - [Checklist Design by George Hatzis](https://www.checklist.design/)
 - [The Component Gallery: Components (by Iain Bean)](https://component.gallery/components/)
