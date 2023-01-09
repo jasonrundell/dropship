@@ -1,0 +1,53 @@
+.h1 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+.h2 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.h3 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.h4 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.h5 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 0.875rem;
+  margin-top: 0;
+  margin-bottom: 0.875rem;
+}
+
+.h6 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
