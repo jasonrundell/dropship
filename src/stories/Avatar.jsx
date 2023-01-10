@@ -11,17 +11,23 @@ export const sizes = {
   tiny: 16
 }
 
-export const Avatar = ({ loading, username, src, size, ...props }) => {
+export const Avatar = ({
+  loading,
+  username,
+  src,
+  size,
+  ariaBusy,
+  ariaLabel
+}) => {
   let avatarFigure = <Icon icon="useralt" />
-  const a11yProps = {}
 
   if (loading) {
-    a11yProps['aria-busy'] = true
-    a11yProps['aria-label'] = 'Loading avatar ...'
+    ariaBusy = true
+    ariaLabel = 'Loading avatar ...'
   } else if (src) {
     avatarFigure = <img src={src} alt={username} />
   } else {
-    a11yProps['aria-label'] = username
+    ariaLabel = username
     avatarFigure = (
       <div
         className={`storybook-avatar__initial ${
@@ -41,8 +47,8 @@ export const Avatar = ({ loading, username, src, size, ...props }) => {
       size={size}
       loading={loading}
       src={src}
-      {...a11yProps}
-      {...props}
+      aria-busy={ariaBusy}
+      aria-label={ariaLabel}
     >
       {avatarFigure}
     </div>
@@ -65,12 +71,22 @@ Avatar.propTypes = {
   /**
    * The size of the Avatar.
    */
-  size: PropTypes.oneOf(Object.keys(sizes))
+  size: PropTypes.oneOf(Object.keys(sizes)),
+  /**
+   * Aria busy attribute
+   */
+  ariaBusy: PropTypes.bool,
+  /**
+   * Aria label attribute
+   */
+  ariaLabel: PropTypes.string
 }
 
 Avatar.defaultProps = {
   loading: false,
   username: 'loading',
   src: null,
-  size: 'medium'
+  size: 'medium',
+  ariaBusy: false,
+  ariaLabel: null
 }

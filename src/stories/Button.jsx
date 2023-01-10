@@ -5,7 +5,7 @@ import './button.css'
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+export const Button = ({ primary, backgroundColor, size, label, onClick }) => {
   const mode = primary
     ? 'storybook-button--primary'
     : 'storybook-button--secondary'
@@ -16,7 +16,7 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
         ' '
       )}
       style={backgroundColor && { backgroundColor }}
-      {...props}
+      onClick={onClick}
     >
       {label}
     </button>

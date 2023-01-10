@@ -11,6 +11,8 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'multiline-ternary': ['error', 'never']
+    'multiline-ternary': ['error', 'never'],
+    'react/jsx-props-no-spreading': 'error',
+    'react/no-unused-prop-types': 'error'
   }
 }
