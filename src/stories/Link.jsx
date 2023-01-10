@@ -5,7 +5,7 @@ import './link.css'
 /**
  * Primary UI component for user interaction
  */
-export const Link = ({ primary, to, size, label, target, rel }) => {
+export const Link = ({ primary, to, size, label, onClick, target, rel }) => {
   const mode = primary ? 'storybook-link--primary' : 'storybook-link--secondary'
   return (
     <a
@@ -13,6 +13,7 @@ export const Link = ({ primary, to, size, label, target, rel }) => {
       className={['storybook-link', `storybook-link--${size}`, mode].join(' ')}
       target={target}
       rel={rel}
+      onClick={onClick}
     >
       {label}
     </a>
