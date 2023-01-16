@@ -27,7 +27,7 @@ export const Icon = ({ icon, block, ariaLabel }) => {
 
 Icon.propTypes = {
   /**
-   * Set the id/name of the icon to use
+   * Set the id/name of the icon to use.
    */
   icon: PropTypes.string.isRequired,
   /**

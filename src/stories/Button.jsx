@@ -29,7 +29,7 @@ Button.propTypes = {
    */
   primary: PropTypes.bool,
   /**
-   * What background color to use
+   * What background color to use.
    */
   backgroundColor: PropTypes.string,
   /**
@@ -37,11 +37,11 @@ Button.propTypes = {
    */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /**
-   * Button contents
+   * Button contents.
    */
   label: PropTypes.string.isRequired,
   /**
-   * Optional click handler
+   * Optional click handler.
    */
   onClick: PropTypes.func
 }

@@ -26,7 +26,7 @@ Link.propTypes = {
    */
   primary: PropTypes.bool,
   /**
-   * What url to link to
+   * What url to link to.
    */
   to: PropTypes.string,
   /**
@@ -34,19 +34,19 @@ Link.propTypes = {
    */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /**
-   * Link contents
+   * Link contents.
    */
   label: PropTypes.string.isRequired,
   /**
-   * Optional click handler
+   * Optional click handler.
    */
   onClick: PropTypes.func,
   /**
-   * Target for the link
+   * Target for the link.
    */
   target: PropTypes.string,
   /**
-   * Rel for the link
+   * Rel for the link.
    */
   rel: PropTypes.string
 }

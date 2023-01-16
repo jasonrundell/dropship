@@ -18,15 +18,15 @@ export const Box = ({ isTight, isRoomy, children }) => {
 
 Box.propTypes = {
   /**
-   * Smaller padding
+   * Smaller padding.
    */
   isTight: PropTypes.bool,
   /**
-   * Larger padding
+   * Larger padding.
    */
   isRoomy: PropTypes.bool,
   /**
-   * Box can contain any elements
+   * Box can contain any elements.
    */
   children: PropTypes.any.isRequired
 }

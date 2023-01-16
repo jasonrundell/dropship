@@ -42,11 +42,11 @@ export const Heading = ({ level, label }) => {
 
 Heading.propTypes = {
   /**
-   * Heading level (1-6)
+   * Heading level (1-6).
    */
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   /**
-   * Heading text
+   * Heading text.
    */
   label: PropTypes.string.isRequired
 }
