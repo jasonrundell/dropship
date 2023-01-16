@@ -77,7 +77,7 @@ Avatar.propTypes = {
    */
   ariaBusy: PropTypes.bool,
   /**
-   * Aria label attribute
+   * Aria label attribute.
    */
   ariaLabel: PropTypes.string
 }
