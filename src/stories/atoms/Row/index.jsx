@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
-import { justifyRules } from './prop-rules'
 import './row.css'
 
 /**
@@ -26,7 +25,14 @@ Row.propTypes = {
   /**
    * Justify content alignment
    */
-  justify: PropTypes.oneOf(justifyRules),
+  justify: PropTypes.oneOf([
+    'start',
+    'end',
+    'center',
+    'space-around',
+    'space-between',
+    'space-evenly'
+  ]),
   /**
    * Row content
    */
@@ -34,5 +40,5 @@ Row.propTypes = {
 }
 
 Row.defaultProps = {
-  justify: justifyRules[0]
+  justify: 'start'
 }

@@ -1,0 +1,152 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
+
+import { Row } from '../Row'
+import { Button } from '../Button'
+
+<Meta title="Atoms/Row" component={Row} />
+
+# Row
+
+## A container used for spacing around elements
+
+The Row component is used to create a container for spacing around elements. It
+can be used to create a row of elements, or to create a container for a single
+element.
+
+<ArgsTable story="Default" />
+
+export const Template = (args) => <Row {...args} />
+
+export const Example = () => (
+  <>
+    <Button label="Button 1" />
+    <Button label="Button 2" />
+    <Button label="Button 3" />
+  </>
+)
+
+## Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Justify: Start
+
+<Canvas>
+  <Story
+    name="Start"
+    args={{
+      justify: 'start',
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Justify: End
+
+<Canvas>
+  <Story
+    name="End"
+    args={{
+      justify: 'end',
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Justify: Center
+
+<Canvas>
+  <Story
+    name="Center"
+    args={{
+      justify: 'center',
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Justify: Space-around
+
+<Canvas>
+  <Story
+    name="Space-around"
+    args={{
+      justify: 'space-around',
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Justify: Space-between
+
+<Canvas>
+  <Story
+    name="Space-between"
+    args={{
+      justify: 'space-between',
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Justify: Space-evenly
+
+<Canvas>
+  <Story
+    name="Space-evenly"
+    args={{
+      justify: 'space-evenly',
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Controls
+
+Experiment with this story with the Controls addon in the Canvas tab.
+
+<Canvas>
+  <Story
+    name="controls"
+    args={{
+      justify: 'start',
+      children: Example()
+    }}
+    // https://storybook.js.org/docs/react/api/mdx#play-function
+    play={async ({ canvasElement }) => {
+      const canvas = within(canvasElement)
+      const theElements = canvas.getAllByRole('button')
+      // 👇 Simulate interactions with the component
+      await expect(theElements).not.toBeNull()
+      await expect(theElements.length).toBe(3)
+      await expect(theElements[0].textContent).toEqual('Button 1')
+      await expect(theElements[1].textContent).toEqual('Button 2')
+      await expect(theElements[2].textContent).toEqual('Button 3')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
