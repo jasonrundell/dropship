@@ -12,7 +12,7 @@ export const Paragraph = ({ children }) => (
 
 Paragraph.propTypes = {
   /**
-   * Paragraph content
+   * Paragraph content.
    */
   children: PropTypes.any.isRequired
 }

@@ -34,7 +34,7 @@ Row.propTypes = {
     'space-evenly'
   ]),
   /**
-   * Row content
+   * Row content.
    */
   children: PropTypes.any.isRequired
 }
