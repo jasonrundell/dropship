@@ -2,9 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './button.css'
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = ({ primary, backgroundColor, size, label, onClick }) => {
   const mode = primary
     ? 'storybook-button--primary'

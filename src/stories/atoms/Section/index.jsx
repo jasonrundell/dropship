@@ -5,9 +5,6 @@ import { classNames } from '../../../utils/css'
 
 import './section.css'
 
-/**
- * Primary UI component for user interaction
- */
 export const Section = ({ id, className, children }) => {
   const classes = classNames('storybook-section', className)
 

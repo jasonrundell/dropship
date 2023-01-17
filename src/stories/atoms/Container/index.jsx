@@ -5,9 +5,6 @@ import { classNames } from '../../../utils/css'
 
 import './container.css'
 
-/**
- * Primary UI component for user interaction
- */
 export const Container = ({ id, className, children }) => {
   const classes = classNames('storybook-container', className)
 

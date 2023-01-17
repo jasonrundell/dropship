@@ -2,9 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './link.css'
 
-/**
- * Primary UI component for user interaction
- */
 export const Link = ({ primary, href, size, label, onClick, target, rel }) => {
   const mode = primary ? 'storybook-link--primary' : 'storybook-link--secondary'
   return (

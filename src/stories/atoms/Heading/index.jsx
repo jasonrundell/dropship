@@ -2,9 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './heading.css'
 
-/**
- * Primary UI component for user interaction
- */
 export const Heading = ({ level, label }) => {
   let titleClass
   let Component

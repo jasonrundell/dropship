@@ -4,9 +4,6 @@ import PropTypes from 'prop-types'
 import { classNames } from '../../../utils/css'
 import './box.css'
 
-/**
- * Primary UI component for user interaction
- */
 export const Box = ({ isTight, isRoomy, children }) => {
   const classes = classNames(
     'storybook-box',
