@@ -1,0 +1,11 @@
+.storybook-container {
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .storybook-container {
+    width: 42rem;
+    padding: 0;
+  }
+}
