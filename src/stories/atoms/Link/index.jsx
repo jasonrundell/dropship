@@ -5,11 +5,11 @@ import './link.css'
 /**
  * Primary UI component for user interaction
  */
-export const Link = ({ primary, to, size, label, onClick, target, rel }) => {
+export const Link = ({ primary, href, size, label, onClick, target, rel }) => {
   const mode = primary ? 'storybook-link--primary' : 'storybook-link--secondary'
   return (
     <a
-      href={to}
+      href={href}
       className={['storybook-link', `storybook-link--${size}`, mode].join(' ')}
       target={target}
       rel={rel}
@@ -28,7 +28,7 @@ Link.propTypes = {
   /**
    * What url to link to.
    */
-  to: PropTypes.string,
+  href: PropTypes.string,
   /**
    * How large should the link be?
    */
@@ -53,7 +53,7 @@ Link.propTypes = {
 
 Link.defaultProps = {
   primary: false,
-  to: '#',
+  href: '#',
   size: 'medium',
   onClick: undefined,
   target: null,
