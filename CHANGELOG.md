@@ -1,5 +1,5 @@
 
-# v0.1.0 (Mon Jan 30 2023)
+# v1.0.1 (Mon Jan 30 2023)
 
 - Created first version of the design system, with the following components:
   - `atoms/Avatar`
