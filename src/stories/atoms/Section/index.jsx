@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
 
-import './section.css'
+import styles from './index.module.css'
 
 export const Section = ({ id, className, children }) => {
-  const classes = classNames('storybook-section', className)
+  const classes = classNames(styles['storybook-section'], className)
 
   return (
     <section id={id} className={classes}>

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './strong.css'
+import styles from './index.module.css'
 
 export const Strong = ({ text }) => {
-  return <strong className="storybook-strong">{text}</strong>
+  return <strong className={styles['storybook-strong']}>{text}</strong>
 }
 
 Strong.propTypes = {

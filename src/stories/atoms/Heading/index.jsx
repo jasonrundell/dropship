@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './heading.css'
+import styles from './index.module.css'
 
 export const Heading = ({ level, label }) => {
   let titleClass
@@ -34,7 +34,7 @@ export const Heading = ({ level, label }) => {
       titleClass = 'h1'
       Component = 'h1'
   }
-  return <Component className={titleClass}>{label}</Component>
+  return <Component className={styles[titleClass]}>{label}</Component>
 }
 
 Heading.propTypes = {

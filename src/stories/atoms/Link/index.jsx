@@ -1,13 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './link.css'
+import styles from './index.module.css'
 
 export const Link = ({ primary, href, size, label, onClick, target, rel }) => {
-  const mode = primary ? 'storybook-link--primary' : 'storybook-link--secondary'
+  const mode = primary
+    ? styles['storybook-link--primary']
+    : styles['storybook-link--secondary']
   return (
     <a
       href={href}
-      className={['storybook-link', `storybook-link--${size}`, mode].join(' ')}
+      className={[
+        styles['storybook-link'],
+        styles[`storybook-link--${size}`],
+        mode
+      ].join(' ')}
       target={target}
       rel={rel}
       onClick={onClick}

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 
 import { Button } from '../../atoms/Button'
 import './header.css'
+import styles from './index.module.css'
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
   <header>
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       <div>
         <svg
           width="32"
@@ -34,7 +35,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
       <div>
         {user ? (
           <>
-            <span className="welcome">
+            <span className={styles.welcome}>
               Welcome, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} label="Log out" />

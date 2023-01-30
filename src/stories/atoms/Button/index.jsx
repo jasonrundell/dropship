@@ -1,17 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './button.css'
+import styles from './index.module.css'
+
+console.log(styles['storybook-button'])
 
 export const Button = ({ primary, backgroundColor, size, label, onClick }) => {
   const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
+    ? styles['storybook-button--primary']
+    : styles['storybook-button--secondary']
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' '
-      )}
+      className={[
+        styles['storybook-button'],
+        styles[`storybook-button--${size}`],
+        mode
+      ].join(' ')}
       style={backgroundColor && { backgroundColor }}
       onClick={onClick}
     >

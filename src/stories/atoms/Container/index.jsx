@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
 
-import './container.css'
+import styles from './index.module.css'
 
 export const Container = ({ id, className, children }) => {
-  const classes = classNames('storybook-container', className)
+  const classes = classNames(styles['storybook-container'], className)
 
   return (
     <div id={id} className={classes}>
