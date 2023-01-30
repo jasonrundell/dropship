@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
-import './box.css'
+import styles from './index.module.css'
 
 export const Box = ({ isTight, isRoomy, children }) => {
   const classes = classNames(
-    'storybook-box',
-    isTight && 'storybook-box--tight',
-    isRoomy && 'storybook-box--roomy'
+    styles['storybook-box'],
+    isTight && styles['storybook-box--tight'],
+    isRoomy && styles['storybook-box--roomy']
   )
   return <div className={classes}>{children}</div>
 }

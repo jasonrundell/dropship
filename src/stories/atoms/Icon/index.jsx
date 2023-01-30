@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { icons } from '../../../shared/icons'
 
-import './icon.css'
+import styles from './index.module.css'
 /**
  * An Icon is a piece of visual element, but we must ensure its accessibility while using it.
  * It can have 2 purposes:
@@ -15,12 +15,14 @@ export const Icon = ({ icon, block, ariaLabel }) => {
     <svg
       role="img"
       aria-label={ariaLabel}
-      className={`storybook-icon ${block ? 'storybook-icon--block' : ''}`}
+      className={`${styles['storybook-icon']} ${
+        block ? styles['storybook-icon--block'] : ''
+      }`}
       viewBox="0 0 1024 1024"
       width="20px"
       height="20px"
     >
-      <path className="storybook-icon__path" d={icons[icon]} />
+      <path className={styles['storybook-icon__path']} d={icons[icon]} />
     </svg>
   )
 }

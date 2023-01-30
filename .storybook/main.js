@@ -12,7 +12,18 @@ module.exports = {
     },
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions'
+    '@storybook/addon-interactions',
+    {
+      name: 'storybook-css-modules',
+      options: {
+        cssModulesLoaderOptions: {
+          importLoaders: 1,
+          modules: {
+            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+          }
+        }
+      }
+    }
   ],
   framework: '@storybook/react',
   features: {

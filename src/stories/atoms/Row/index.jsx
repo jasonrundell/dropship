@@ -2,17 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
-import './row.css'
+import styles from './index.module.css'
 
 export const Row = ({ justify, children }) => {
   const classes = classNames(
-    'storybook-row',
-    justify === 'start' && 'storybook-row--start',
-    justify === 'end' && 'storybook-row--end',
-    justify === 'center' && 'storybook-row--center',
-    justify === 'space-around' && 'storybook-row--space-around',
-    justify === 'space-between' && 'storybook-row--space-between',
-    justify === 'space-evenly' && 'storybook-row--space-evenly'
+    styles['storybook-row'],
+    justify === 'start' && styles['storybook-row--start'],
+    justify === 'end' && styles['storybook-row--end'],
+    justify === 'center' && styles['storybook-row--center'],
+    justify === 'space-around' && styles['storybook-row--space-around'],
+    justify === 'space-between' && styles['storybook-row--space-between'],
+    justify === 'space-evenly' && styles['storybook-row--space-evenly']
   )
 
   return <div className={classes}>{children}</div>

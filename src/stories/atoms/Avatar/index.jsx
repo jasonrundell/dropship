@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from '../Icon'
 
-import './avatar.css'
+import styles from './index.module.css'
 
 export const sizes = {
   large: 40,
@@ -30,8 +30,8 @@ export const Avatar = ({
     ariaLabel = username
     avatarFigure = (
       <div
-        className={`storybook-avatar__initial ${
-          size && `storybook-avatar__initial--${size}`
+        className={`${styles['storybook-avatar__initial']} ${
+          size && styles[`storybook-avatar__initial--${size}`]
         }`}
         size={size}
         aria-hidden="true"
@@ -43,7 +43,9 @@ export const Avatar = ({
 
   return (
     <div
-      className={`storybook-avatar ${size ? `storybook-avatar--${size}` : ''}`}
+      className={`${styles['storybook-avatar']} ${
+        size ? styles[`storybook-avatar--${size}`] : ''
+      }`}
       size={size}
       loading={loading}
       src={src}
