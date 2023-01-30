@@ -16,7 +16,8 @@
     "build:storybook": "build-storybook",
     "prettier": "prettier --write .",
     "test:storybook": "test-storybook",
-    "build:storybook:docs": "build-storybook --docs"
+    "build:storybook:docs": "build-storybook --docs",
+    "release": "auto shipit --base-branch=main"
   },
   "license": "MIT",
   "devDependencies": {
