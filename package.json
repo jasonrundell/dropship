@@ -1,5 +1,5 @@
 {
-  "name": "dropship",
+  "name": "@jasonrundell/dropship",
   "version": "1.0.0",
   "main": "index.js",
   "description": "Get a React project up and running really fast with Dropship.",
@@ -34,6 +34,7 @@
     "@storybook/react": "^6.5.10",
     "@storybook/test-runner": "^0.7.1",
     "@storybook/testing-library": "^0.0.13",
+    "auto": "^10.37.6",
     "babel-loader": "^8.2.5",
     "babel-preset-react-app": "^10.0.1",
     "chromatic": "^6.9.0",
@@ -64,5 +65,8 @@
         }
       ]
     ]
-  }
+  },
+  "keywords": [
+    "react"
+  ]
 }
