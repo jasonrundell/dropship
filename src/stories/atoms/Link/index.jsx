@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 export const Link = ({ primary, href, size, label, onClick, target, rel }) => {
   const mode = primary

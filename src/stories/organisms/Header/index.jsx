@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Button } from '../../atoms/Button'
 import './header.css'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
   <header>

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { icons } from '../../../shared/icons'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 /**
  * An Icon is a piece of visual element, but we must ensure its accessibility while using it.
  * It can have 2 purposes:

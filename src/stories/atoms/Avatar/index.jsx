@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from '../Icon'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 export const sizes = {
   large: 40,
