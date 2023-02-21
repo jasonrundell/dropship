@@ -44,8 +44,8 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          asset_name: dist
-          asset_path: dist
+          name: dist
+          path: dist
 
       - name: Attach Artifact
         uses: actions/upload-release-asset@v1
