@@ -17,21 +17,17 @@ jobs:
     # The list of steps that the action will go through
     steps:
       - uses: actions/checkout@v2
-
       - name: Prepare repository
         run: git fetch --unshallow --tags
-
       - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-
       - name: Cache node modules
         uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,21 +36,4 @@ jobs:
         run: |
           npm install
           npm run build
-      
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
-      - name: Attach Artifact
-        uses: actions/upload-release-asset@v1
-        with:
-          asset_name: dist
-          asset_path: ${{ github.workspace }}/dist/*
-          asset_content_type: application/zip
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-      
-      - name: Ship it
-        run: |
           npm run release
