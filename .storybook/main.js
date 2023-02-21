@@ -1,4 +1,9 @@
+const path = require('path')
+
 module.exports = {
+  core: {
+    builder: 'webpack5'
+  },
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [
     {
@@ -12,21 +17,21 @@ module.exports = {
     },
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    {
-      name: 'storybook-css-modules',
-      options: {
-        cssModulesLoaderOptions: {
-          importLoaders: 1,
-          modules: {
-            localIdentName: '[path][name]__[local]--[hash:base64:5]'
-          }
-        }
-      }
-    }
+    '@storybook/addon-interactions'
   ],
   framework: '@storybook/react',
   features: {
     interactionsDebugger: true
+  },
+  webpackFinal: async (config) => {
+    // Make whatever fine-grained changes you need
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../src')
+    })
+
+    // Return the altered config
+    return config
   }
 }

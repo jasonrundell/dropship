@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 export const Container = ({ id, className, children }) => {
   const classes = classNames(styles['storybook-container'], className)

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { classNames } from '../../../utils/css'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 export const Row = ({ justify, children }) => {
   const classes = classNames(
