@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest",
     "start": "npm run storybook",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "prettier": "prettier --write .",
@@ -52,7 +52,9 @@
     "eslint-plugin-react": "^7.31.8",
     "jest": "^27.5.1",
     "mini-css-extract-plugin": "^2.7.2",
+    "node-sass": "^8.0.0",
     "prettier": "^2.7.1",
+    "rollup-plugin-styles": "^4.0.0",
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0",
     "storybook-css-modules": "^1.0.8",
