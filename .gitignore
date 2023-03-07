@@ -24,6 +24,7 @@ build-storybook.log
 .env.test.local
 .env.production.local
 .cache
+.parcel-cache
 
 npm-debug.log*
 yarn-debug.log*
