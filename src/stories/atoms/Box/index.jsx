@@ -1,16 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@emotion/react'
 
-import { classNames } from '../../../utils/css'
-import styles from './index.module.scss'
+export const Box = ({ isTight, isRoomy, classNames, children }) => {
+  const style = css`
+    padding: ${isRoomy ? '2.5rem' : isTight ? '0.25rem' : '1.25rem'};
+    line-height: 1.25rem;
+  `
 
-export const Box = ({ isTight, isRoomy, children }) => {
-  const classes = classNames(
-    styles['storybook-box'],
-    isTight && styles['storybook-box--tight'],
-    isRoomy && styles['storybook-box--roomy']
+  return (
+    <div css={style} className={classNames}>
+      {children}
+    </div>
   )
-  return <div className={classes}>{children}</div>
 }
 
 Box.propTypes = {
@@ -22,6 +24,10 @@ Box.propTypes = {
    * Larger padding.
    */
   isRoomy: PropTypes.bool,
+  /**
+   * Assign a custom class name or multiple class names to the section.
+   */
+  classNames: PropTypes.string,
   /**
    * Box can contain any elements.
    */
