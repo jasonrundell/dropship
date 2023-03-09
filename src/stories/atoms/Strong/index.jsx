@@ -1,17 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@emotion/react'
 
-import styles from './index.module.scss'
-
-export const Strong = ({ text }) => {
-  return <strong className={styles['storybook-strong']}>{text}</strong>
+export const Strong = ({ text, classNames }) => {
+  const style = css`
+    font-weight: 700;
+  `
+  return (
+    <strong css={style} className={classNames}>
+      {text}
+    </strong>
+  )
 }
 
 Strong.propTypes = {
   /**
    * Text to bold.
    */
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  /**
+   * Assign a custom class name or multiple class names to the section.
+   */
+  classNames: PropTypes.string
 }
 
 Strong.defaultProps = {}
