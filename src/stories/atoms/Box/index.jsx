@@ -36,5 +36,6 @@ Box.propTypes = {
 
 Box.defaultProps = {
   isTight: false,
-  isRoomy: false
+  isRoomy: false,
+  classNames: null
 }
