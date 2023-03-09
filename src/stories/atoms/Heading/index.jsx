@@ -2,51 +2,52 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/react'
 
-const styleH1 = css`
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 2.5rem;
-`
-
-const styleH2 = css`
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-`
-
-const styleH3 = css`
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-`
-const styleH4 = css`
-  font-size: 1rem;
-  line-height: 1rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-`
-
-const styleH5 = css`
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-  margin-top: 0;
-  margin-bottom: 0.875rem;
-`
-
-const styleH6 = css`
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-`
-
 export const Heading = ({ level, label, classNames }) => {
   let titleClass
   let Component
   let style
+
+  const styleH1 = css`
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  `
+
+  const styleH2 = css`
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  `
+
+  const styleH3 = css`
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  `
+  const styleH4 = css`
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  `
+
+  const styleH5 = css`
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    margin-top: 0;
+    margin-bottom: 0.875rem;
+  `
+
+  const styleH6 = css`
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  `
+
   switch (level) {
     case 1:
       titleClass = 'h1'
