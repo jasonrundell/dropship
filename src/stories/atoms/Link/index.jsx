@@ -1,19 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './index.module.scss'
+import { css } from '@emotion/react'
 
-export const Link = ({ primary, href, size, label, onClick, target, rel }) => {
-  const mode = primary
-    ? styles['storybook-link--primary']
-    : styles['storybook-link--secondary']
+export const Link = ({ href, label, onClick, target, rel, classNames }) => {
+  const style = css`
+    cursor: pointer;
+    line-height: 1;
+  `
+
   return (
     <a
       href={href}
-      className={[
-        styles['storybook-link'],
-        styles[`storybook-link--${size}`],
-        mode
-      ].join(' ')}
+      css={style}
+      className={classNames}
       target={target}
       rel={rel}
       onClick={onClick}
@@ -25,17 +24,9 @@ export const Link = ({ primary, href, size, label, onClick, target, rel }) => {
 
 Link.propTypes = {
   /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
    * What url to link to.
    */
   href: PropTypes.string,
-  /**
-   * How large should the link be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
   /**
    * Link contents.
    */
@@ -51,14 +42,17 @@ Link.propTypes = {
   /**
    * Rel for the link.
    */
-  rel: PropTypes.string
+  rel: PropTypes.string,
+  /**
+   * Assign a custom class name or multiple class names to the section.
+   */
+  classNames: PropTypes.string
 }
 
 Link.defaultProps = {
-  primary: false,
   href: '#',
-  size: 'medium',
   onClick: undefined,
   target: null,
-  rel: null
+  rel: null,
+  classNames: null
 }
