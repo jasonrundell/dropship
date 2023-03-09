@@ -25,7 +25,7 @@ Box.propTypes = {
    */
   isRoomy: PropTypes.bool,
   /**
-   * Assign a custom class name or multiple class names to the section.
+   * Assign a custom class name or multiple class names to the component.
    */
   classNames: PropTypes.string,
   /**
