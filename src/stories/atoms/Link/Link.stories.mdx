@@ -1,0 +1,62 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
+
+import { Link } from '../Link'
+
+<Meta title="Atoms/Link" component={Link} />
+
+# Link
+
+## Displays a hyperlink
+
+Use a link to navigate to another page or to another location within the same
+page.
+
+_Avoid_ using Link for triggering an event. See the `Button` component for that.
+
+<ArgsTable story="Default" />
+
+export const Template = (args) => <Link {...args} />
+
+## Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      size: 'medium',
+      label: 'Default style'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Controls
+
+Experiment with this story with the Controls addon in the Canvas tab.
+
+<Canvas>
+  <Story
+    name="controls"
+    args={{
+      label: 'Link',
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    }}
+    // https://storybook.js.org/docs/react/api/mdx#play-function
+    play={async ({ canvasElement }) => {
+      const canvas = within(canvasElement)
+      const theElement = canvas.getByRole('link')
+      // 👇 Simulate interactions with the component
+      await expect(theElement).not.toBeNull()
+      await expect(theElement).toHaveAttribute('href', '#')
+      await expect(theElement).toHaveAttribute('target', '_blank')
+      await expect(theElement).toHaveAttribute('rel', 'noopener noreferrer')
+      await expect(theElement.textContent).toEqual('Link')
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
