@@ -1,3 +1,15 @@
+# v1.17.0 (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- Issues/40 remove css dependencies [#42](https://github.com/jasonrundell/dropship/pull/42) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.16.1 (Wed Mar 08 2023)
 
 #### ⚠️ Pushed to `main`
