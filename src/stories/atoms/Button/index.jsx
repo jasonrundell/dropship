@@ -1,38 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './index.module.scss'
+import { css } from '@emotion/react'
 
-console.log(styles['storybook-button'])
+export const Button = ({ size, label, onClick, classNames }) => {
+  const style = css`
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    font-size: ${size === 'large'
+      ? '2rem'
+      : size === 'medium'
+      ? '1.5rem'
+      : '1rem'};
+    padding: ${size === 'large'
+      ? '0.75rem 1.5rem'
+      : size === 'medium'
+      ? '0.6875rem 1.25rem'
+      : '0.625rem 1rem'};
+  `
 
-export const Button = ({ primary, backgroundColor, size, label, onClick }) => {
-  const mode = primary
-    ? styles['storybook-button--primary']
-    : styles['storybook-button--secondary']
   return (
-    <button
-      type="button"
-      className={[
-        styles['storybook-button'],
-        styles[`storybook-button--${size}`],
-        mode
-      ].join(' ')}
-      style={backgroundColor && { backgroundColor }}
-      onClick={onClick}
-    >
+    <button type="button" css={style} onClick={onClick} className={classNames}>
       {label}
     </button>
   )
 }
 
 Button.propTypes = {
-  /**
-   * Denotes if the button is a primary action or not.
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use.
-   */
-  backgroundColor: PropTypes.string,
   /**
    * How large should the button be?
    */
@@ -44,12 +38,14 @@ Button.propTypes = {
   /**
    * Optional click handler.
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   * Assign a custom class name or multiple class names to the component.
+   */
+  classNames: PropTypes.string
 }
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
   size: 'medium',
   onClick: undefined
 }

@@ -2,28 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/react'
 
-export const Paragraph = ({ classNames, children }) => {
+export const Article = ({ id, classNames, children }) => {
   const style = css`
-    line-height: 1.3;
+    width: 100%;
   `
+
   return (
-    <p css={style} className={classNames}>
+    <article id={id} css={style} className={classNames}>
       {children}
-    </p>
+    </article>
   )
 }
 
-Paragraph.propTypes = {
+Article.propTypes = {
+  /**
+   * Assign a unique id to the section. A common use-case.
+   */
+  id: PropTypes.string,
   /**
    * Assign a custom class name or multiple class names to the component.
    */
   classNames: PropTypes.string,
   /**
-   * Paragraph content.
+   * Section content.
    */
   children: PropTypes.any.isRequired
 }
 
-Paragraph.defaultProps = {
+Article.defaultProps = {
+  id: null,
   classNames: null
 }

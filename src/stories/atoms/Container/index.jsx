@@ -1,15 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@emotion/react'
 
-import { classNames } from '../../../utils/css'
-
-import styles from './index.module.scss'
-
-export const Container = ({ id, className, children }) => {
-  const classes = classNames(styles['storybook-container'], className)
+export const Container = ({ id, classNames, children }) => {
+  const style = css`
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    @media (min-width: 48rem) {
+      width: 42rem;
+      padding: 0;
+    }
+  `
 
   return (
-    <div id={id} className={classes}>
+    <div id={id} css={style} className={classNames}>
       {children}
     </div>
   )
@@ -21,9 +25,9 @@ Container.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * Assign a custom class name or multiple class names to the section.
+   * Assign a custom class name or multiple class names to the component.
    */
-  className: PropTypes.string,
+  classNames: PropTypes.string,
   /**
    * Container content.
    */
@@ -32,5 +36,5 @@ Container.propTypes = {
 
 Container.defaultProps = {
   id: null,
-  className: null
+  classNames: null
 }

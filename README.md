@@ -45,6 +45,7 @@ The following resources all had a direct influence on how this system was built,
 - [Checklist Design by George Hatzis](https://www.checklist.design/)
 - [The Component Gallery: Components (by Iain Bean)](https://component.gallery/components/)
 - [The Component Gallery: Design Systems (by Iain Bean)](https://component.gallery/design-systems/)
+- [Use Emotion CSS Prop in Storybook (by Duncan Leung)](https://duncanleung.com/emotion-css-prop-jsx-pragma-storybook/)
 
 ## View Dropbox in Storybook on Chromatic
 

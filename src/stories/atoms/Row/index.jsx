@@ -1,21 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@emotion/react'
 
-import { classNames } from '../../../utils/css'
-import styles from './index.module.scss'
+export const Row = ({ justify, classNames, children }) => {
+  const style = css`
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: ${justify};
+  `
 
-export const Row = ({ justify, children }) => {
-  const classes = classNames(
-    styles['storybook-row'],
-    justify === 'start' && styles['storybook-row--start'],
-    justify === 'end' && styles['storybook-row--end'],
-    justify === 'center' && styles['storybook-row--center'],
-    justify === 'space-around' && styles['storybook-row--space-around'],
-    justify === 'space-between' && styles['storybook-row--space-between'],
-    justify === 'space-evenly' && styles['storybook-row--space-evenly']
+  return (
+    <div css={style} className={classNames}>
+      {children}
+    </div>
   )
-
-  return <div className={classes}>{children}</div>
 }
 
 Row.propTypes = {
@@ -31,11 +29,16 @@ Row.propTypes = {
     'space-evenly'
   ]),
   /**
+   * Assign a custom class name or multiple class names to the component.
+   */
+  classNames: PropTypes.string,
+  /**
    * Row content.
    */
   children: PropTypes.any.isRequired
 }
 
 Row.defaultProps = {
-  justify: 'start'
+  justify: 'start',
+  classNames: null
 }

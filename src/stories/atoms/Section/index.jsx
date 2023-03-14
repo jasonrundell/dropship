@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from '@emotion/react'
 
-import { classNames } from '../../../utils/css'
-
-import styles from './index.module.scss'
-
-export const Section = ({ id, className, children }) => {
-  const classes = classNames(styles['storybook-section'], className)
+export const Section = ({ id, classNames, children }) => {
+  const style = css`
+    width: 100%;
+  `
 
   return (
-    <section id={id} className={classes}>
+    <section id={id} css={style} className={classNames}>
       {children}
     </section>
   )
@@ -21,9 +20,9 @@ Section.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * Assign a custom class name or multiple class names to the section.
+   * Assign a custom class name or multiple class names to the component.
    */
-  className: PropTypes.string,
+  classNames: PropTypes.string,
   /**
    * Section content.
    */
@@ -32,5 +31,5 @@ Section.propTypes = {
 
 Section.defaultProps = {
   id: null,
-  className: null
+  classNames: null
 }
