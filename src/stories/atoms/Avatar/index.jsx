@@ -27,7 +27,7 @@ export const Avatar = ({
       ? `height: ${sizes.largest}rem; width: ${sizes.largest}rem; line-height: ${sizes.largest}rem;`
       : size === 'small'
       ? `height: ${sizes.large}rem; width: ${sizes.large}rem; line-height: ${sizes.large}rem;`
-      : size === 'smallest'
+      : size === 'tiny'
       ? `height: ${sizes.small}rem; width: ${sizes.small}rem; line-height: ${sizes.small}rem;`
       : `height: ${sizes.larger}rem; width: ${sizes.larger}rem; line-height: ${sizes.larger}rem;`}
 
@@ -54,12 +54,10 @@ export const Avatar = ({
     ${size === 'large'
       ? `font-size: ${sizes.large}rem; line-height: ${sizes.large * 2}rem;`
       : size === 'small'
-      ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.smaller * 2}rem;`
-      : size === 'smallest'
-      ? `font-size: ${sizes.smallest * 3}rem; line-height: ${
-          sizes.smallest * 5
-        }rem;`
-      : `font-size: ${sizes.small}rem; line-height: ${sizes.smaller * 2}rem;`}
+      ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.large}rem;`
+      : size === 'tiny'
+      ? `font-size: ${sizes.smallest}rem; line-height: ${sizes.small}rem;`
+      : `font-size: ${sizes.normal}rem; line-height: ${sizes.larger}rem;`}
   `
   let avatarFigure = <Icon icon="useralt" />
 

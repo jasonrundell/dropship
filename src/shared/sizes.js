@@ -1,6 +1,7 @@
 export const sizes = {
-  smallest: 0.25,
-  smaller: 0.75,
+  tiny: 0.25,
+  smallest: 0.75,
+  smaller: 0.875,
   small: 1,
   normal: 1.25,
   large: 1.5,

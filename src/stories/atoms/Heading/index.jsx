@@ -2,50 +2,52 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/react'
 
+import { sizes } from '../../../shared/sizes'
+
 export const Heading = ({ level, label, classNames }) => {
   let titleClass
   let Component
   let style
 
   const styleH1 = css`
-    font-size: 2.5rem;
-    line-height: 2.5rem;
+    font-size: ${sizes.largest}rem;
+    line-height: ${sizes.largest}rem;
     margin-top: 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: ${sizes.largest}rem;
   `
 
   const styleH2 = css`
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: ${sizes.large}rem;
+    line-height: ${sizes.large}rem;
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: ${sizes.large}rem;
   `
 
   const styleH3 = css`
-    font-size: 1.25rem;
-    line-height: 1.25rem;
+    font-size: ${sizes.normal}rem;
+    line-height: ${sizes.normal}rem;
     margin-top: 0;
-    margin-bottom: 1.25rem;
+    margin-bottom: ${sizes.normal}rem;
   `
   const styleH4 = css`
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: ${sizes.small}rem;
+    line-height: ${sizes.small}rem;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: ${sizes.small}rem;
   `
 
   const styleH5 = css`
-    font-size: 0.875rem;
-    line-height: 0.875rem;
+    font-size: ${sizes.smaller}rem;
+    line-height: ${sizes.smaller}rem;
     margin-top: 0;
-    margin-bottom: 0.875rem;
+    margin-bottom: ${sizes.smaller}rem;
   `
 
   const styleH6 = css`
-    font-size: 0.75rem;
-    line-height: 0.75rem;
+    font-size: ${sizes.smallest}rem;
+    line-height: ${sizes.smallest}rem;
     margin-top: 0;
-    margin-bottom: 0.75rem;
+    margin-bottom: ${sizes.smallest}rem;
   `
 
   switch (level) {
