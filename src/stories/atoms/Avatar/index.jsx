@@ -3,13 +3,7 @@ import PropTypes from 'prop-types'
 import { css } from '@emotion/react'
 
 import { Icon } from '../Icon'
-
-export const sizes = {
-  large: 40,
-  medium: 28,
-  small: 20,
-  tiny: 16
-}
+import { sizes, sizeKeys } from '../../../shared/sizes'
 
 export const Avatar = ({
   loading,
@@ -30,12 +24,12 @@ export const Avatar = ({
     text-transform: uppercase;
 
     ${size === 'large'
-      ? 'height: 3rem; width: 3rem; line-height: 3rem;'
+      ? `height: ${sizes.largest}rem; width: ${sizes.largest}rem; line-height: ${sizes.largest}rem;`
       : size === 'small'
-      ? 'height: 1.5rem; width: 1.5rem; line-height: 1.5rem;'
-      : size === 'tiny'
-      ? 'height: 1rem; width: 1rem; line-height: 1rem;'
-      : 'height: 2rem; width: 2rem; line-height: 2rem;'}
+      ? `height: ${sizes.large}rem; width: ${sizes.large}rem; line-height: ${sizes.large}rem;`
+      : size === 'smallest'
+      ? `height: ${sizes.small}rem; width: ${sizes.small}rem; line-height: ${sizes.small}rem;`
+      : `height: ${sizes.larger}rem; width: ${sizes.larger}rem; line-height: ${sizes.larger}rem;`}
 
     img {
       width: 100%;
@@ -58,12 +52,14 @@ export const Avatar = ({
   const stylesFigure = css`
     text-align: center;
     ${size === 'large'
-      ? 'font-size: 1.5rem; line-height: 3rem;'
+      ? `font-size: ${sizes.large}rem; line-height: ${sizes.large * 2}rem;`
       : size === 'small'
-      ? 'font-size: 0.875rem; line-height: 1.5rem;'
-      : size === 'tiny'
-      ? 'font-size: 0.75rem; line-height: 1rem;'
-      : 'font-size: 1rem; line-height: 1.5rem;'}
+      ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.smaller * 2}rem;`
+      : size === 'smallest'
+      ? `font-size: ${sizes.smallest * 3}rem; line-height: ${
+          sizes.smallest * 5
+        }rem;`
+      : `font-size: ${sizes.small}rem; line-height: ${sizes.smaller * 2}rem;`}
   `
   let avatarFigure = <Icon icon="useralt" />
 
@@ -117,7 +113,7 @@ Avatar.propTypes = {
   /**
    * The size of the Avatar.
    */
-  size: PropTypes.oneOf(Object.keys(sizes)),
+  size: PropTypes.oneOf(Object.keys(sizeKeys)),
   /**
    * Aria busy attribute
    */
@@ -140,7 +136,7 @@ Avatar.defaultProps = {
   loading: false,
   username: 'loading',
   src: null,
-  size: 'medium',
+  size: 'normal',
   ariaBusy: false,
   ariaLabel: null,
   classNames: null,
