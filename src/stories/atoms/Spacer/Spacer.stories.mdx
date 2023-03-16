@@ -1,0 +1,220 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
+
+import { Spacer } from '../Spacer'
+import { Paragraph } from '../Paragraph'
+import { sizes } from '../../../shared/sizes'
+import './spacer-story.css'
+
+<Meta title="Atoms/Spacer" component={Spacer} />
+
+# Spacer
+
+## A container used for spacing around elements
+
+The Spacer component is used to add spacing (padding only) around elements.
+
+<ArgsTable story="Default" />
+
+export const Template = (args) => <Spacer {...args} />
+
+## Example
+
+<Canvas>
+  <Story name="Example">
+    <Paragraph>This paragraph has a default Spacer below it</Paragraph>
+    <Spacer />
+    <Paragraph>
+      In all screens, this paragraph has a Spacer using "largest" below it
+    </Paragraph>
+    <Spacer
+      smallScreen="largest"
+      mediumScreen="largest"
+      largeScreen="largest"
+    />
+    <Paragraph>
+      In small screens, this paragraph has a Spacer using "small" below it. In
+      medium screens, this paragraph has a Spacer using "smallest" below it. In
+      large screens, this paragraph has a Spacer using "larger" below it.
+    </Paragraph>
+    <Spacer smallScreen="small" mediumScreen="smallest" largeScreen="larger" />
+  </Story>
+</Canvas>
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    <Spacer />
+  </Story>
+</Canvas>
+
+## Small Viewport: Smallest
+
+<Canvas>
+  <Story name="Small Viewport: Smallest">
+    <Spacer smallScreen="smallest" />
+  </Story>
+</Canvas>
+
+## Small Viewport: Small
+
+<Canvas>
+  <Story name="Small Viewport: Smallt">
+    <Spacer smallScreen="small" />
+  </Story>
+</Canvas>
+
+## Small Viewport: Normal
+
+<Canvas>
+  <Story name="Small Viewport: Normal">
+    <Spacer smallScreen="normal" />
+  </Story>
+</Canvas>
+
+## Small Viewport: Large
+
+<Canvas>
+  <Story name="Small Viewport: Large">
+    <Spacer smallScreen="large" />
+  </Story>
+</Canvas>
+
+## Small Viewport: Larger
+
+<Canvas>
+  <Story name="Small Viewport: Larger">
+    <Spacer smallScreen="larger" />
+  </Story>
+</Canvas>
+
+## Small Viewport: Largest
+
+<Canvas>
+  <Story name="Small Viewport: Largest">
+    <Spacer smallScreen="largest" />
+  </Story>
+</Canvas>
+
+## Medium Viewport: Smallest
+
+<Canvas>
+  <Story name="Medium Viewport: Smallest">
+    <Spacer mediumScreen="smallest" />
+  </Story>
+</Canvas>
+
+## Medium Viewport: Small
+
+<Canvas>
+  <Story name="Medium Viewport: Small">
+    <Spacer mediumScreen="small" />
+  </Story>
+</Canvas>
+
+## Medium Viewport: Normal
+
+<Canvas>
+  <Story name="Medium Viewport: Normal">
+    <Spacer mediumScreen="normal" />
+  </Story>
+</Canvas>
+
+## Medium Viewport: Large
+
+<Canvas>
+  <Story name="Medium Viewport: Large">
+    <Spacer mediumScreen="large" />
+  </Story>
+</Canvas>
+
+## Medium Viewport: Larger
+
+<Canvas>
+  <Story name="Medium Viewport: Larger">
+    <Spacer mediumScreen="larger" />
+  </Story>
+</Canvas>
+
+## Medium Viewport: Largest
+
+<Canvas>
+  <Story name="Medium Viewport: Largest">
+    <Spacer mediumScreen="largest" />
+  </Story>
+</Canvas>
+
+## Large Viewport: Smallest
+
+<Canvas>
+  <Story name="Large Viewport: Smallest">
+    <Spacer largeScreen="smallest" />
+  </Story>
+</Canvas>
+
+## Large Viewport: Small
+
+<Canvas>
+  <Story name="Large Viewport: Small">
+    <Spacer largeScreen="small" />
+  </Story>
+</Canvas>
+
+## Large Viewport: Normal
+
+<Canvas>
+  <Story name="Large Viewport: Normal">
+    <Spacer largeScreen="normal" />
+  </Story>
+</Canvas>
+
+## Large Viewport: Large
+
+<Canvas>
+  <Story name="Large Viewport: Large">
+    <Spacer largeScreen="large" />
+  </Story>
+</Canvas>
+
+## Large Viewport: Larger
+
+<Canvas>
+  <Story name="Large Viewport: Larger">
+    <Spacer largeScreen="larger" />
+  </Story>
+</Canvas>
+
+## Large Viewport: Largest
+
+<Canvas>
+  <Story name="Large Viewport: Largest">
+    <Spacer largeScreen="largest" />
+  </Story>
+</Canvas>
+
+### Controls
+
+Experiment with this story with the Controls addon in the Canvas tab.
+
+<Canvas>
+  <Story
+    name="controls"
+    args={{
+      'data-TestId': 'spacer',
+      smallScreen: 'small',
+      mediumScreen: 'small',
+      largeScreen: 'small'
+    }}
+    // https://storybook.js.org/docs/react/api/mdx#play-function
+    play={async ({ canvasElement }) => {
+      const expectedHeight = sizes.small * 16
+      const theElement = canvasElement.querySelector('[aria-hidden="true"]')
+      await expect(theElement).not.toBeNull()
+      await expect(theElement.clientHeight).toEqual(expectedHeight)
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,4 @@
+/* Style all spacer divs pink so user can have a visual understanding of size */
+div[id^='story--atoms-spacer'] > div {
+  background-color: pink;
+}
