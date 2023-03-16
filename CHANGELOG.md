@@ -1,3 +1,15 @@
+# v1.19.0 (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
+- Issue/version bump [#44](https://github.com/jasonrundell/dropship/pull/44) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.18.1 (Thu Mar 16 2023)
 
 
