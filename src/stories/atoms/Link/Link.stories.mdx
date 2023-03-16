@@ -22,14 +22,8 @@ export const Template = (args) => <Link {...args} />
 ## Default
 
 <Canvas>
-  <Story
-    name="Default"
-    args={{
-      size: 'medium',
-      label: 'Default style'
-    }}
-  >
-    {Template.bind({})}
+  <Story name="Default">
+    <Link label="Default style" />
   </Story>
 </Canvas>
 
