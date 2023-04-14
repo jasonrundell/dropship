@@ -1,3 +1,15 @@
+# v1.22.0 (Fri Apr 14 2023)
+
+#### 🚀 Enhancement
+
+- Issue/45 fix parcel build for emotion [#48](https://github.com/jasonrundell/dropship/pull/48) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.21.0 (Fri Apr 14 2023)
 
 #### 🚀 Enhancement
