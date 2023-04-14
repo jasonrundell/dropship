@@ -63,6 +63,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "prop-types": "^15.8.1",
@@ -70,10 +71,11 @@
     "react-dom": "^18.2.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6"
+    "@emotion/styled": "^11.10.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "bugs": {
     "url": "https://github.com/jasonrundell/dropship/issues"

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/react'
+import { css } from '@emotion/css'
 
 export const Button = ({ size, label, onClick, classNames }) => {
   const style = css`
