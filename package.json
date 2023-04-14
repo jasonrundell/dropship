@@ -2,9 +2,7 @@
   "name": "@jasonrundell/dropship",
   "description": "Get a React project up and running really fast with Dropship.",
   "version": "1.17.0",
-  "source": "src/index.js",
-  "main": "dist/index.js",
-  "module": "dist/module.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jasonrundell/dropship.git"
@@ -13,7 +11,7 @@
   "scripts": {
     "test": "jest",
     "start": "npm run storybook",
-    "build": "parcel build",
+    "build": "babel src --out-dir lib",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "prettier": "prettier --write .",
@@ -83,16 +81,8 @@
   "homepage": "https://github.com/jasonrundell/dropship#readme",
   "babel": {
     "presets": [
-      [
-        "react-app",
-        {
-          "preset-react": {
-            "runtime": "automatic",
-            "importSource": "@emotion/react"
-          }
-        },
-        "@emotion/babel-preset-css-prop"
-      ]
+      "@babel/preset-env",
+      "@babel/preset-react"
     ],
     "plugins": [
       "@babel/plugin-proposal-class-properties",
