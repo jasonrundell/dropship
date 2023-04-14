@@ -1,3 +1,15 @@
+# v1.21.0 (Fri Apr 14 2023)
+
+#### 🚀 Enhancement
+
+- Changing build [#47](https://github.com/jasonrundell/dropship/pull/47) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.20.0 (Fri Apr 14 2023)
 
 #### 🚀 Enhancement
