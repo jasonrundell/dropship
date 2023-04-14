@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/react'
+import { css } from '@emotion/css'
 
 export const Link = ({ href, label, onClick, target, rel, classNames }) => {
   const style = css`
