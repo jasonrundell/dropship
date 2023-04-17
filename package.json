@@ -80,18 +80,6 @@
     "url": "https://github.com/jasonrundell/dropship/issues"
   },
   "homepage": "https://github.com/jasonrundell/dropship#readme",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-private-methods",
-      "@babel/plugin-proposal-private-property-in-object",
-      "@emotion/babel-plugin"
-    ]
-  },
   "keywords": [
     "react"
   ],
