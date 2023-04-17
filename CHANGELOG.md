@@ -1,3 +1,15 @@
+# v1.26.5 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Update for spacer and emotion [#58](https://github.com/jasonrundell/dropship/pull/58) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.26.4 (Mon Apr 17 2023)
 
 #### 🐛 Bug Fix
