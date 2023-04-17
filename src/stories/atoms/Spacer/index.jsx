@@ -8,6 +8,7 @@ import { breakpoints } from '../../../shared/breakpoints'
 export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
   const style = css`
     display: block;
+    background-color: pink;
     height: ${sizes[smallScreen] ?? sizes.normal}rem;
 
     @media (min-width: ${breakpoints.medium}rem) {
@@ -23,9 +24,9 @@ export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
 }
 
 Spacer.defaultProps = {
-  smallScreen: sizes.normal,
-  mediumScreen: sizes.normal,
-  largeScreen: sizes.normal
+  smallScreen: 'normal',
+  mediumScreen: 'normal',
+  largeScreen: 'normal'
 }
 
 Spacer.propTypes = {
