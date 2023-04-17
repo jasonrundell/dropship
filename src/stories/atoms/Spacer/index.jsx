@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 
 import { sizes, sizeKeys } from '../../../shared/sizes'
 import { breakpoints } from '../../../shared/breakpoints'
@@ -8,7 +8,6 @@ import { breakpoints } from '../../../shared/breakpoints'
 export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
   const style = css`
     display: block;
-    background-color: pink;
     height: ${sizes[smallScreen] ?? sizes.normal}rem;
 
     @media (min-width: ${breakpoints.medium}rem) {
@@ -19,7 +18,7 @@ export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
       height: ${sizes[largeScreen] ?? sizes.normal}rem;
     }
   `
-
+  console.log(style)
   return <div css={style} aria-hidden="true" />
 }
 
