@@ -1,3 +1,15 @@
+# v1.26.1 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Update babel config to allow for no React import [#54](https://github.com/jasonrundell/dropship/pull/54) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.26.0 (Mon Apr 17 2023)
 
 #### 🚀 Enhancement
