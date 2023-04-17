@@ -5,7 +5,12 @@ import { css } from '@emotion/react'
 import { sizes, sizeKeys } from '../../../shared/sizes'
 import { breakpoints } from '../../../shared/breakpoints'
 
-export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
+export const Spacer = ({
+  smallScreen,
+  mediumScreen,
+  largeScreen,
+  ...props
+}) => {
   const style = css`
     display: block;
     height: ${sizes[smallScreen] ?? sizes.normal}rem;
@@ -19,7 +24,7 @@ export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
     }
   `
 
-  return <div css={style} aria-hidden="true" />
+  return <div css={style} aria-hidden="true" {...props} />
 }
 
 Spacer.defaultProps = {
