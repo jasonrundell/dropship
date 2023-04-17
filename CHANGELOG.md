@@ -1,3 +1,15 @@
+# v1.26.3 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Fix broken default prop on Spacer [#56](https://github.com/jasonrundell/dropship/pull/56) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.26.2 (Mon Apr 17 2023)
 
 #### 🐛 Bug Fix
