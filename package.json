@@ -1,7 +1,7 @@
 {
   "name": "@jasonrundell/dropship",
   "description": "Get a React project up and running really fast with Dropship.",
-  "version": "1.26.1",
+  "version": "1.26.2",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
