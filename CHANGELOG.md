@@ -1,3 +1,40 @@
+# v1.25.0 (Fri Apr 14 2023)
+
+#### 🚀 Enhancement
+
+- Removing babel-preset-react-app [#52](https://github.com/jasonrundell/dropship/pull/52) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.24.0 (Fri Apr 14 2023)
+
+#### 🚀 Enhancement
+
+- Change emotion import [#51](https://github.com/jasonrundell/dropship/pull/51) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.23.0 (Fri Apr 14 2023)
+
+#### 🚀 Enhancement
+
+- Removing babel file [#50](https://github.com/jasonrundell/dropship/pull/50) ([@jasonrundell](https://github.com/jasonrundell))
+- Reverting removal of react import [#49](https://github.com/jasonrundell/dropship/pull/49) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.22.0 (Fri Apr 14 2023)
 
 #### 🚀 Enhancement
