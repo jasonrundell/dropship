@@ -18,7 +18,7 @@ export const Spacer = ({ smallScreen, mediumScreen, largeScreen }) => {
       height: ${sizes[largeScreen] ?? sizes.normal}rem;
     }
   `
-  console.log(style)
+
   return <div css={style} aria-hidden="true" />
 }
 
