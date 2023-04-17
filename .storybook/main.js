@@ -31,30 +31,6 @@ module.exports = {
       include: path.resolve(__dirname, '../src')
     })
 
-    // Add babel-loader for Emotion styles
-    config.module.rules.push({
-      test: /\.jsx?$/,
-      include: [path.resolve(__dirname, '../src')],
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-react',
-              [
-                '@emotion/babel-preset-css-prop',
-                {
-                  autoLabel: 'dev-only',
-                  labelFormat: '[local]'
-                }
-              ]
-            ],
-            plugins: ['@babel/plugin-syntax-jsx']
-          }
-        }
-      ]
-    })
-
     // Return the altered config
     return config
   }
