@@ -1,3 +1,15 @@
+# v1.26.2 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Abandon hope for no React import [#55](https://github.com/jasonrundell/dropship/pull/55) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.26.1 (Mon Apr 17 2023)
 
 #### 🐛 Bug Fix
