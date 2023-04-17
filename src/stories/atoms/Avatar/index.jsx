@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 
 import { Icon } from '../Icon'
 import { sizes, sizeKeys } from '../../../shared/sizes'

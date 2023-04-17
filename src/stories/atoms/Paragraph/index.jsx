@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 
 export const Paragraph = ({ classNames, children }) => {
   const style = css`
