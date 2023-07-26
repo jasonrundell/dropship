@@ -1,3 +1,75 @@
+# v1.26.5 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Update for spacer and emotion [#58](https://github.com/jasonrundell/dropship/pull/58) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.26.4 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Import change [#57](https://github.com/jasonrundell/dropship/pull/57) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.26.3 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Fix broken default prop on Spacer [#56](https://github.com/jasonrundell/dropship/pull/56) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.26.2 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Abandon hope for no React import [#55](https://github.com/jasonrundell/dropship/pull/55) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.26.1 (Mon Apr 17 2023)
+
+#### 🐛 Bug Fix
+
+- Update babel config to allow for no React import [#54](https://github.com/jasonrundell/dropship/pull/54) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v1.26.0 (Mon Apr 17 2023)
+
+#### 🚀 Enhancement
+
+- Issue/45 fix parcel build for emotion [#53](https://github.com/jasonrundell/dropship/pull/53) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v1.25.0 (Fri Apr 14 2023)
 
 #### 🚀 Enhancement
