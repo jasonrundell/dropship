@@ -4,7 +4,7 @@ module.exports = {
     commonjs: true,
     es2021: true
   },
-  extends: ['plugin:react/recommended', 'standard'],
+  extends: ['plugin:react/recommended', 'standard', 'plugin:storybook/recommended'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest'
@@ -13,15 +13,13 @@ module.exports = {
   rules: {
     'multiline-ternary': ['error', 'never'],
     'react/jsx-props-no-spreading': 'error',
-    'react/no-unused-prop-types': [
-      'error',
-      {
-        skipShapeProps: true,
-        additionalHooks: 'useRecoilCallback', // allows specific hooks as well
-        propTypes: {
-          css: PropTypes.any // allows the css prop to be unused
-        }
+    'react/no-unused-prop-types': ['error', {
+      skipShapeProps: true,
+      additionalHooks: 'useRecoilCallback',
+      // allows specific hooks as well
+      propTypes: {
+        css: PropTypes.any // allows the css prop to be unused
       }
-    ]
+    }]
   }
-}
+};
