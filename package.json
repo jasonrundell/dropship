@@ -89,8 +89,8 @@
     "react"
   ],
   "engines": {
-    "node": ">=16.19.1",
-    "npm": ">=8.19.3"
+    "node": ">=18.17.0",
+    "npm": ">=9.6.7"
   },
   "packageManager": "yarn@3.6.1"
 }
