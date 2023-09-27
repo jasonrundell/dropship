@@ -2,8 +2,8 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
-import { Container } from '../Container'
-import { Paragraph } from '../Paragraph'
+import { Container } from './Container'
+import { Paragraph } from '../Paragraph/Paragraph'
 
 <Meta title="Atoms/Container" component={Container} />
 
@@ -48,7 +48,6 @@ Experiment with this story with the Controls addon in the Canvas tab.
       className: 'some-custom class-here',
       children: Example()
     }}
-    // https://storybook.js.org/docs/react/api/mdx#play-function
     play={async ({ canvasElement }) => {
       const canvas = within(canvasElement)
       const theElement = canvas.getByText(exampleText)

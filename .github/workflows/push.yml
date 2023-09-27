@@ -12,7 +12,7 @@ jobs:
     # The operating system it will run on
     runs-on: ubuntu-latest
     # This check needs to be in place to prevent a publish loop with auto and github actions
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    if: '!contains(github.event.head_commit.message, "ci skip") && !contains(github.event.head_commit.message, "skip ci")'
     # The list of steps that the action will go through
     steps:
       - uses: actions/checkout@v2
@@ -26,15 +26,17 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: yarn-deps-${{ hashFiles('yarn.lock') }}
+          # package-lock.json is used for npm ci
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+            ${{ runner.os }}-node-
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           #👇 npm token, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/distribute/ to obtain it
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn release
+          npm install -g @storybook/cli
+          npm install
+          npm run build
+          npm run release

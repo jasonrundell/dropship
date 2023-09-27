@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
-import { Heading } from '../Heading'
+import { Heading } from './Heading'
 
 <Meta title="Atoms/Heading" component={Heading} />
 
@@ -126,7 +126,6 @@ Experiment with this story with the Controls addon in the Canvas tab.
       level: 1,
       label: 'Heading'
     }}
-    // https://storybook.js.org/docs/react/api/mdx#play-function
     play={async ({ canvasElement }) => {
       const canvas = within(canvasElement)
       const theElement = canvas.getByRole('heading', { level: 1 })
