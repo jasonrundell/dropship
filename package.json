@@ -9,7 +9,7 @@
   },
   "author": "Jason Rundell <jason.rundell@gmail.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -33,7 +33,6 @@
     "@storybook/testing-library": "^0.2.0",
     "auto": "^11.0.4",
     "chromatic": "^7.2.0",
-    "jest": "^29.7.0",
     "prettier": "^3.0.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
