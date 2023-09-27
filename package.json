@@ -9,6 +9,7 @@
   },
   "author": "Jason Rundell <jason.rundell@gmail.com>",
   "scripts": {
+    "build": "babel src --out-dir lib",
     "test": "jest",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
@@ -19,6 +20,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@storybook/addon-essentials": "^7.3.2",
