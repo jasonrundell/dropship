@@ -1,12 +1,11 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
-
-import { Spacer } from '../Spacer'
-import { Paragraph } from '../Paragraph'
+import { Spacer } from './Spacer'
+import { Paragraph } from '../Paragraph/Paragraph'
 import { sizes, sizeKeys } from '../../../shared/sizes'
 import './spacer-story.css'
-const argTypes = {
+export const argTypes = {
   smallScreen: {
     control: {
       type: 'select',
@@ -27,6 +26,12 @@ const argTypes = {
   }
 }
 
+export const Template = (args) => (
+  <Spacer className="story--atoms-spacer" {...args} />
+)
+
+export const Controls = Template.bind({})
+
 <Meta title="Atoms/Spacer" component={Spacer} argTypes={argTypes} />
 
 # Spacer
@@ -39,19 +44,6 @@ The Spacer component is used to add spacing (padding only) around elements.
 project.**
 
 <ArgsTable story="Default" />
-
-export const Template = (args) => (
-  <Spacer className="story--atoms-spacer" {...args} />
-)
-
-export const Controls = Template.bind({})
-Controls.args = {
-  'data-testid': 'spacer',
-  smallScreen: 'small',
-  mediumScreen: 'small',
-  largeScreen: 'small'
-}
-console.log(Array.isArray(sizeKeys), sizeKeys)
 
 ## Example
 
@@ -108,6 +100,19 @@ console.log(Array.isArray(sizeKeys), sizeKeys)
     name="Small Viewport: Smallest"
     args={{
       smallScreen: 'smallest'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Small Viewport: Smaller
+
+<Canvas>
+  <Story
+    name="Small Viewport: Smaller"
+    args={{
+      smallScreen: 'smaller'
     }}
   >
     {Template.bind({})}
@@ -205,6 +210,19 @@ console.log(Array.isArray(sizeKeys), sizeKeys)
   </Story>
 </Canvas>
 
+## Medium Viewport: Smaller
+
+<Canvas>
+  <Story
+    name="Medium Viewport: Smaller"
+    args={{
+      mediumScreen: 'smaller'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Medium Viewport: Small
 
 <Canvas>
@@ -296,6 +314,19 @@ console.log(Array.isArray(sizeKeys), sizeKeys)
   </Story>
 </Canvas>
 
+## Large Viewport: Smaller
+
+<Canvas>
+  <Story
+    name="Large Viewport: Smaller"
+    args={{
+      largeScreen: 'smaller'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Large Viewport: Small
 
 <Canvas>
@@ -369,7 +400,6 @@ Experiment with this story with the Controls addon in the Canvas tab.
   <Story
     name="controls"
     args={Controls.args}
-    // https://storybook.js.org/docs/react/api/mdx#play-function
     play={async ({ canvasElement }) => {
       const expectedHeight = sizes.small * 16
       const theElement = canvasElement.querySelector('[aria-hidden="true"]')

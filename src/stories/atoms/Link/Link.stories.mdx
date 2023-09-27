@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
-import { Link } from '../Link'
+import { Link } from './Link'
 
 <Meta title="Atoms/Link" component={Link} />
 
@@ -39,7 +39,6 @@ Experiment with this story with the Controls addon in the Canvas tab.
       target: '_blank',
       rel: 'noopener noreferrer'
     }}
-    // https://storybook.js.org/docs/react/api/mdx#play-function
     play={async ({ canvasElement }) => {
       const canvas = within(canvasElement)
       const theElement = canvas.getByRole('link')

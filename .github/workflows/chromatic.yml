@@ -11,14 +11,10 @@ jobs:
     # The list of steps that the action will go through
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 18.17.0
-        uses: actions/setup-node@v1
-        with:
-          node-version: 18.17.0
-      - run: yarn
-        #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@v1
-        # Options required for Chromatic's GitHub Action
+      - name: Install dependencies
+        run: npm install
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
         with:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
