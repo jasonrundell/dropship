@@ -1,6 +1,4 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
-import { within } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
 import { Spacer } from './Spacer'
 import { Paragraph } from '../Paragraph/Paragraph'
 import { sizes, sizeKeys } from '../../../shared/sizes'
@@ -399,8 +397,14 @@ Experiment with this story with the Controls addon in the Canvas tab.
 <Canvas>
   <Story
     name="controls"
-    args={Controls.args}
+    args={{
+      'data-testid': 'spacer',
+      smallScreen: 'small',
+      mediumScreen: 'small',
+      largeScreen: 'small'
+    }}
     play={async ({ canvasElement }) => {
+      console.log(sizes.small)
       const expectedHeight = sizes.small * 16
       const theElement = canvasElement.querySelector('[aria-hidden="true"]')
       await expect(theElement).not.toBeNull()
