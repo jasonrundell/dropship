@@ -1,9 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 import { Icon } from '../Icon/Icon'
 import { sizes, sizeKeys } from '../../../shared/sizes'
+
+const StyledAvatar = styled.div`
+  background: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  text-transform: uppercase;
+
+  ${(props) =>
+    props.size === 'large'
+      ? `height: ${sizes.largest}rem; width: ${sizes.largest}rem; line-height: ${sizes.largest}rem;`
+      : props.size === 'small'
+      ? `height: ${sizes.large}rem; width: ${sizes.large}rem; line-height: ${sizes.large}rem;`
+      : props.size === 'tiny'
+      ? `height: ${sizes.small}rem; width: ${sizes.small}rem; line-height: ${sizes.small}rem;`
+      : `height: ${sizes.larger}rem; width: ${sizes.larger}rem; line-height: ${sizes.larger}rem;`}
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  svg {
+    position: relative;
+    bottom: -2px;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  path {
+    fill: grey;
+  }
+`
+
+const StyledFigure = styled.div`
+  text-align: center;
+  ${(props) =>
+    props.size === 'large'
+      ? `font-size: ${sizes.large}rem; line-height: ${sizes.large * 2}rem;`
+      : props.size === 'small'
+      ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.large}rem;`
+      : props.size === 'tiny'
+      ? `font-size: ${sizes.smallest}rem; line-height: ${sizes.small}rem;`
+      : `font-size: ${sizes.normal}rem; line-height: ${sizes.larger}rem;`}
+`
 
 export const Avatar = ({
   loading,
@@ -15,50 +63,6 @@ export const Avatar = ({
   classNames,
   figureClassNames
 }) => {
-  const styles = css`
-    background: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    vertical-align: top;
-    overflow: hidden;
-    text-transform: uppercase;
-
-    ${size === 'large'
-      ? `height: ${sizes.largest}rem; width: ${sizes.largest}rem; line-height: ${sizes.largest}rem;`
-      : size === 'small'
-      ? `height: ${sizes.large}rem; width: ${sizes.large}rem; line-height: ${sizes.large}rem;`
-      : size === 'tiny'
-      ? `height: ${sizes.small}rem; width: ${sizes.small}rem; line-height: ${sizes.small}rem;`
-      : `height: ${sizes.larger}rem; width: ${sizes.larger}rem; line-height: ${sizes.larger}rem;`}
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    svg {
-      position: relative;
-      bottom: -2px;
-      height: 100%;
-      width: 100%;
-      vertical-align: top;
-    }
-
-    path {
-      fill: grey;
-    }
-  `
-  const stylesFigure = css`
-    text-align: center;
-    ${size === 'large'
-      ? `font-size: ${sizes.large}rem; line-height: ${sizes.large * 2}rem;`
-      : size === 'small'
-      ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.large}rem;`
-      : size === 'tiny'
-      ? `font-size: ${sizes.smallest}rem; line-height: ${sizes.small}rem;`
-      : `font-size: ${sizes.normal}rem; line-height: ${sizes.larger}rem;`}
-  `
   let avatarFigure = <Icon icon="useralt" />
 
   if (loading) {
@@ -69,20 +73,14 @@ export const Avatar = ({
   } else {
     ariaLabel = username
     avatarFigure = (
-      <div
-        css={stylesFigure}
-        className={figureClassNames}
-        size={size}
-        aria-hidden="true"
-      >
+      <StyledFigure className={figureClassNames} size={size} aria-hidden="true">
         {username.substring(0, 1)}
-      </div>
+      </StyledFigure>
     )
   }
 
   return (
-    <div
-      css={styles}
+    <StyledAvatar
       className={classNames}
       size={size}
       loading={loading}
@@ -91,7 +89,7 @@ export const Avatar = ({
       aria-label={ariaLabel}
     >
       {avatarFigure}
-    </div>
+    </StyledAvatar>
   )
 }
 
