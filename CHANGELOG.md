@@ -1,3 +1,15 @@
+# v2.0.2 (Thu Sep 28 2023)
+
+#### 🐛 Bug Fix
+
+- Issues/64 upgrade to storybook 7.3.2 [#71](https://github.com/jasonrundell/dropship/pull/71) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.0.1 (Wed Sep 27 2023)
 
 #### 🐛 Bug Fix
