@@ -1,0 +1,67 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
+
+import { Footer } from './Footer'
+import { Container } from '../Container/Container'
+import { Section } from '../Section/Section'
+import { Paragraph } from '../Paragraph/Paragraph'
+
+<Meta title="Atoms/Footer" component={Footer} />
+
+# Footer
+
+## The Footer `<footer>` element.
+
+A container used for grouping footer content.
+
+<ArgsTable story="Default" />
+
+export const Template = (args) => <Footer {...args} />
+
+export const exampleText =
+  "The sound of waves crashing against the shore was the only thing that broke the silence. The beach was deserted, save for a lone figure walking along the water's edge. The sand was cool beneath their feet and the water was a deep blue, stretching out to the horizon. The sun was setting, painting the sky with shades of pink and orange. It was a moment of pure serenity, a chance to escape the chaos of daily life and just be in the present. It was a place where one could find peace and tranquility."
+
+export const Example = () => (
+  <Container>
+    <Section>
+      <Footer>
+        <Paragraph>{exampleText}</Paragraph>
+      </Footer>
+    </Section>
+  </Container>
+)
+
+## Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      children: Example()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Controls
+
+Experiment with this story with the Controls addon in the Canvas tab.
+
+<Canvas>
+  <Story
+    name="controls"
+    args={{
+      children: Example()
+    }}
+    play={async ({ canvasElement }) => {
+      const canvas = within(canvasElement)
+      const theElement = canvas.getByText(exampleText)
+      // 👇 Simulate interactions with the component
+      await expect(theElement).not.toBeNull()
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
