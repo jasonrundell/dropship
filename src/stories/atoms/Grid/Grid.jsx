@@ -26,8 +26,6 @@ export const Grid = ({
   const mediumBreakpoint = '768px'
   const largeBreakpoint = '1024px'
 
-  console.log('mediumColumnCount', mediumColumnCount)
-
   const root = css`
     column-count: ${columnCount};
     width: 100%;
@@ -155,5 +153,9 @@ Grid.propTypes = {
 }
 
 Grid.defaultProps = {
-  columnCount: 1
+  columnCount: 1,
+  mediumColumnCount: null,
+  largeColumnCount: null,
+  breakInside: 'auto',
+  classNames: null
 }
