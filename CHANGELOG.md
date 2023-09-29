@@ -1,3 +1,15 @@
+# v2.1.0 (Fri Sep 29 2023)
+
+#### 🚀 Enhancement
+
+- Issues/72 add components grid atom and footer a [#73](https://github.com/jasonrundell/dropship/pull/73) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.0.2 (Thu Sep 28 2023)
 
 #### 🐛 Bug Fix
