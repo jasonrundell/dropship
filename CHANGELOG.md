@@ -1,3 +1,15 @@
+# v2.2.0 (Mon Oct 02 2023)
+
+#### 🚀 Enhancement
+
+- Cite and Blockquote added [#75](https://github.com/jasonrundell/dropship/pull/75) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.1.0 (Fri Sep 29 2023)
 
 #### 🚀 Enhancement
