@@ -1,3 +1,15 @@
+# v2.2.1 (Thu Oct 19 2023)
+
+#### 🐛 Bug Fix
+
+- Bump @babel/traverse from 7.23.0 to 7.23.2 [#77](https://github.com/jasonrundell/dropship/pull/77) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v2.2.0 (Mon Oct 02 2023)
 
 #### 🚀 Enhancement
