@@ -1,3 +1,15 @@
+# v2.2.2 (Thu Oct 19 2023)
+
+#### 🐛 Bug Fix
+
+- Bump postcss from 8.4.30 to 8.4.31 [#76](https://github.com/jasonrundell/dropship/pull/76) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v2.2.1 (Thu Oct 19 2023)
 
 #### 🐛 Bug Fix
