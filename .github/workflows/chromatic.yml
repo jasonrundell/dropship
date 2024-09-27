@@ -1,21 +1,24 @@
-# Name of our action
 name: 'Chromatic'
-# The event that will trigger the action
+
 on: push
 
-# What the action will do
 jobs:
-  test:
-    # The operating system it will run on
+  chromatic:
+    name: Run Chromatic
     runs-on: ubuntu-latest
-    # The list of steps that the action will go through
     steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: npm install
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        # ⚠️ See your package manager's documentation for the correct command to install dependencies in a CI environment.
+        run: npm ci
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          token: ${{ secrets.GH_TOKEN }}
