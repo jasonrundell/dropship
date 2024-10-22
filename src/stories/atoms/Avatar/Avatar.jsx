@@ -17,10 +17,10 @@ const StyledAvatar = styled.div`
     props.size === 'large'
       ? `height: ${sizes.largest}rem; width: ${sizes.largest}rem; line-height: ${sizes.largest}rem;`
       : props.size === 'small'
-      ? `height: ${sizes.large}rem; width: ${sizes.large}rem; line-height: ${sizes.large}rem;`
-      : props.size === 'tiny'
-      ? `height: ${sizes.small}rem; width: ${sizes.small}rem; line-height: ${sizes.small}rem;`
-      : `height: ${sizes.larger}rem; width: ${sizes.larger}rem; line-height: ${sizes.larger}rem;`}
+        ? `height: ${sizes.large}rem; width: ${sizes.large}rem; line-height: ${sizes.large}rem;`
+        : props.size === 'tiny'
+          ? `height: ${sizes.small}rem; width: ${sizes.small}rem; line-height: ${sizes.small}rem;`
+          : `height: ${sizes.larger}rem; width: ${sizes.larger}rem; line-height: ${sizes.larger}rem;`}
 
   img {
     width: 100%;
@@ -47,10 +47,10 @@ const StyledFigure = styled.div`
     props.size === 'large'
       ? `font-size: ${sizes.large}rem; line-height: ${sizes.large * 2}rem;`
       : props.size === 'small'
-      ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.large}rem;`
-      : props.size === 'tiny'
-      ? `font-size: ${sizes.smallest}rem; line-height: ${sizes.small}rem;`
-      : `font-size: ${sizes.normal}rem; line-height: ${sizes.larger}rem;`}
+        ? `font-size: ${sizes.smaller}rem; line-height: ${sizes.large}rem;`
+        : props.size === 'tiny'
+          ? `font-size: ${sizes.smallest}rem; line-height: ${sizes.small}rem;`
+          : `font-size: ${sizes.normal}rem; line-height: ${sizes.larger}rem;`}
 `
 
 export const Avatar = ({
@@ -61,7 +61,8 @@ export const Avatar = ({
   ariaBusy,
   ariaLabel,
   classNames,
-  figureClassNames
+  figureClassNames,
+  ...props
 }) => {
   let avatarFigure = <Icon icon="useralt" />
 
@@ -87,6 +88,7 @@ export const Avatar = ({
       src={src}
       aria-busy={ariaBusy}
       aria-label={ariaLabel}
+      {...props}
     >
       {avatarFigure}
     </StyledAvatar>

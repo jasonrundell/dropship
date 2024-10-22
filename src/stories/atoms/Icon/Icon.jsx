@@ -29,7 +29,8 @@ export const Icon = ({
   block,
   ariaLabel,
   classNames,
-  pathClassNames
+  pathClassNames,
+  ...props
 }) => (
   <StyledIcon
     role="img"
@@ -39,6 +40,7 @@ export const Icon = ({
     width="20px"
     height="20px"
     block={block}
+    {...props}
   >
     <StyledPath className={pathClassNames} d={icons[icon]} />
   </StyledIcon>

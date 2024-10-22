@@ -6,17 +6,13 @@ const StyledSection = styled.section`
   width: 100%;
 `
 
-export const Section = ({ id, classNames, children }) => (
-  <StyledSection id={id} className={classNames}>
+export const Section = ({ classNames, children, ...props }) => (
+  <StyledSection className={classNames} {...props}>
     {children}
   </StyledSection>
 )
 
 Section.propTypes = {
-  /**
-   * Assign a unique id to the section. A common use-case.
-   */
-  id: PropTypes.string,
   /**
    * Assign a custom class name or multiple class names to the component.
    */
@@ -28,6 +24,5 @@ Section.propTypes = {
 }
 
 Section.defaultProps = {
-  id: null,
   classNames: null
 }

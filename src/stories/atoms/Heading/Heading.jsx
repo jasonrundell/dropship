@@ -46,7 +46,7 @@ const StyledHeading6 = styled.h6`
   margin-bottom: ${sizes.smallest}rem;
 `
 
-export const Heading = ({ level, label, classNames }) => {
+export const Heading = ({ level, label, classNames, id }) => {
   let titleClass
   let Component
 
@@ -79,7 +79,11 @@ export const Heading = ({ level, label, classNames }) => {
       titleClass = 'h1'
       Component = StyledHeading1
   }
-  return <Component className={classNames}>{label}</Component>
+  return (
+    <Component className={classNames} id={id}>
+      {label}
+    </Component>
+  )
 }
 
 Heading.propTypes = {

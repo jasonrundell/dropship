@@ -6,8 +6,10 @@ const StyledParagraph = styled.p`
   line-height: 1.3;
 `
 
-export const Paragraph = ({ classNames, children }) => (
-  <StyledParagraph className={classNames}>{children}</StyledParagraph>
+export const Paragraph = ({ classNames, children, ...props }) => (
+  <StyledParagraph className={classNames} {...props}>
+    {children}
+  </StyledParagraph>
 )
 
 Paragraph.propTypes = {

@@ -7,13 +7,22 @@ const StyledLink = styled.a`
   line-height: 1;
 `
 
-export const Link = ({ href, label, onClick, target, rel, classNames }) => (
+export const Link = ({
+  href,
+  label,
+  onClick,
+  target,
+  rel,
+  classNames,
+  ...props
+}) => (
   <StyledLink
     href={href}
     className={classNames}
     target={target}
     rel={rel}
     onClick={onClick}
+    {...props}
   >
     {label}
   </StyledLink>

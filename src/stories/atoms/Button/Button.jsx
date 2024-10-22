@@ -10,23 +10,24 @@ const StyledButton = styled.button`
     props.size === 'large'
       ? '2rem'
       : props.size === 'medium'
-      ? '1.5rem'
-      : '1rem'};
+        ? '1.5rem'
+        : '1rem'};
   padding: ${(props) =>
     props.size === 'large'
       ? '0.75rem 1.5rem'
       : props.size === 'medium'
-      ? '0.6875rem 1.25rem'
-      : '0.625rem 1rem'};
+        ? '0.6875rem 1.25rem'
+        : '0.625rem 1rem'};
 `
 
-export const Button = ({ size, label, onClick, classNames }) => {
+export const Button = ({ size, label, onClick, classNames, ...props }) => {
   return (
     <StyledButton
       type="button"
       size={size}
       onClick={onClick}
       className={classNames}
+      {...props}
     >
       {label}
     </StyledButton>

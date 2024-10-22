@@ -8,9 +8,14 @@ const StyledBox = styled.div`
   line-height: 1.25rem;
 `
 
-export const Box = ({ isTight, isRoomy, classNames, children }) => {
+export const Box = ({ isTight, isRoomy, classNames, children, ...props }) => {
   return (
-    <StyledBox isTight={isTight} isRoomy={isRoomy} className={classNames}>
+    <StyledBox
+      isTight={isTight}
+      isRoomy={isRoomy}
+      className={classNames}
+      {...props}
+    >
       {children}
     </StyledBox>
   )

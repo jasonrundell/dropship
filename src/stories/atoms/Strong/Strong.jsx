@@ -6,8 +6,10 @@ const StyledStrong = styled.strong`
   font-weight: 700;
 `
 
-export const Strong = ({ text, classNames }) => (
-  <StyledStrong className={classNames}>{text}</StyledStrong>
+export const Strong = ({ text, classNames, ...props }) => (
+  <StyledStrong className={classNames} {...props}>
+    {text}
+  </StyledStrong>
 )
 
 Strong.propTypes = {

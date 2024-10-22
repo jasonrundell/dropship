@@ -6,9 +6,9 @@ export const StyledArticle = styled.article`
   width: 100%;
 `
 
-export const Article = ({ id, classNames, children }) => {
+export const Article = ({ classNames, children, ...props }) => {
   return (
-    <StyledArticle id={id} className={classNames}>
+    <StyledArticle className={classNames} {...props}>
       {children}
     </StyledArticle>
   )
@@ -30,6 +30,5 @@ Article.propTypes = {
 }
 
 Article.defaultProps = {
-  id: null,
   classNames: null
 }
