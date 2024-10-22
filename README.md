@@ -3,7 +3,13 @@
 Dropship is a component library designed to provide reusable UI components for your projects. It includes a variety of atoms, molecules, and organisms to help you build consistent and maintainable user interfaces.
 
 ## Installation
-To install the project dependencies, run:
+You can install Dropship via npm. To install the package, run:
+
+```sh
+npm install @jasonrundell/dropship
+```
+
+To install the project dependencies for development, run:
 
 ```sh
 npm install
@@ -60,3 +66,7 @@ If you would like to contribute, please follow the contributing guidelines.
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Links
+
+- [NPM @jasonrundell/dropship](https://www.npmjs.com/package/@jasonrundell/dropship)
