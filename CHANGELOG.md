@@ -1,3 +1,16 @@
+# v2.6.1 (Tue Oct 22 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/jasonrundell/dropship ([@jasonrundell](https://github.com/jasonrundell))
+- Add README.md with project information and instructions ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.3.0 (Tue Oct 22 2024)
 
 #### 🚀 Enhancement
