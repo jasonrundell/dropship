@@ -8,9 +8,9 @@ export const StyledRow = styled.div`
   justify-content: ${(props) => props.justify};
 `
 
-export const Row = ({ justify, classNames, children }) => {
+export const Row = ({ justify, classNames, children, ...props }) => {
   return (
-    <StyledRow justify={justify} className={classNames}>
+    <StyledRow justify={justify} className={classNames} {...props}>
       {children}
     </StyledRow>
   )

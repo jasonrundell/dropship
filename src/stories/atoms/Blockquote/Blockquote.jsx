@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-export const Blockquote = ({ classNames, color, children }) => {
+export const Blockquote = ({ classNames, color, children, ...props }) => {
   const StyledBlockquote = styled.blockquote`
     position: relative;
     &::before {
@@ -34,7 +34,11 @@ export const Blockquote = ({ classNames, color, children }) => {
     }
   `
 
-  return <StyledBlockquote className={classNames}>{children}</StyledBlockquote>
+  return (
+    <StyledBlockquote className={classNames} {...props}>
+      {children}
+    </StyledBlockquote>
+  )
 }
 
 Blockquote.propTypes = {

@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Cite = ({ classNames, children }) => {
-  return <cite className={classNames}>{children}</cite>
+export const Cite = ({ classNames, children, ...props }) => {
+  return (
+    <cite className={classNames} {...props}>
+      {children}
+    </cite>
+  )
 }
 
 Cite.propTypes = {

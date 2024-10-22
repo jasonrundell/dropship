@@ -11,19 +11,15 @@ const StyledContainer = styled.div`
   }
 `
 
-export const Container = ({ id, classNames, children }) => {
+export const Container = ({ classNames, children, ...props }) => {
   return (
-    <StyledContainer id={id} className={classNames}>
+    <StyledContainer className={classNames} {...props}>
       {children}
     </StyledContainer>
   )
 }
 
 Container.propTypes = {
-  /**
-   * Assign a unique id to the section. A common use-case.
-   */
-  id: PropTypes.string,
   /**
    * Assign a custom class name or multiple class names to the component.
    */
@@ -35,6 +31,5 @@ Container.propTypes = {
 }
 
 Container.defaultProps = {
-  id: null,
   classNames: null
 }

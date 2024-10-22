@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Footer = ({ children, classnames }) => (
-  <footer className={classnames}>{children}</footer>
+export const Footer = ({ children, classnames, ...props }) => (
+  <footer className={classnames} {...props}>
+    {children}
+  </footer>
 )
 
 Footer.propTypes = {

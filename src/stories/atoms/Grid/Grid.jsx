@@ -21,7 +21,8 @@ export const Grid = ({
   largeColumnCount,
   breakInside,
   classNames,
-  children
+  children,
+  ...props
 }) => {
   const mediumBreakpoint = '768px'
   const largeBreakpoint = '1024px'
@@ -122,7 +123,11 @@ export const Grid = ({
     largeColClassName
   )
 
-  return <StyledGrid className={classNames}>{children}</StyledGrid>
+  return (
+    <StyledGrid className={classNames} {...props}>
+      {children}
+    </StyledGrid>
+  )
 }
 
 Grid.propTypes = {
