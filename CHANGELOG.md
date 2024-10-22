@@ -6,6 +6,48 @@
 
 #### ⚠️ Pushed to `main`
 
+- Update auto package ([@jasonrundell](https://github.com/jasonrundell))
+- Refactor GitHub Actions workflow for Chromatic integration ([@jasonrundell](https://github.com/jasonrundell))
+- Updating packages ([@jasonrundell](https://github.com/jasonrundell))
+- Make config more dry ([@jasonrundell](https://github.com/jasonrundell))
+- Package updates for release fix ([@jasonrundell](https://github.com/jasonrundell))
+- Fixing token name ([@jasonrundell](https://github.com/jasonrundell))
+- Merge branch 'main' of https://github.com/jasonrundell/dropship ([@jasonrundell](https://github.com/jasonrundell))
+- Package updates ([@jasonrundell](https://github.com/jasonrundell))
+
+#### 🔩 Dependency Updates
+
+- Bump cookie and express [#95](https://github.com/jasonrundell/dropship/pull/95) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump rollup from 3.29.4 to 3.29.5 [#94](https://github.com/jasonrundell/dropship/pull/94) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump body-parser and express [#93](https://github.com/jasonrundell/dropship/pull/93) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump serve-static and express [#92](https://github.com/jasonrundell/dropship/pull/92) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump webpack from 5.93.0 to 5.94.0 [#88](https://github.com/jasonrundell/dropship/pull/88) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump send and express [#90](https://github.com/jasonrundell/dropship/pull/90) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump vite from 4.5.3 to 4.5.5 [#89](https://github.com/jasonrundell/dropship/pull/89) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump express from 4.18.2 to 4.19.2 [#83](https://github.com/jasonrundell/dropship/pull/83) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump vite from 4.5.2 to 4.5.3 [#84](https://github.com/jasonrundell/dropship/pull/84) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ejs from 3.1.9 to 3.1.10 [#85](https://github.com/jasonrundell/dropship/pull/85) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump braces from 3.0.2 to 3.0.3 [#87](https://github.com/jasonrundell/dropship/pull/87) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ws from 6.2.2 to 6.2.3 [#86](https://github.com/jasonrundell/dropship/pull/86) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ip from 2.0.0 to 2.0.1 [#82](https://github.com/jasonrundell/dropship/pull/82) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump vite from 4.4.9 to 4.5.2 [#81](https://github.com/jasonrundell/dropship/pull/81) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @adobe/css-tools from 4.3.1 to 4.3.2 [#79](https://github.com/jasonrundell/dropship/pull/79) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
+# v2.3.0 (Tue Oct 22 2024)
+
+#### 🚀 Enhancement
+
+- Allow spread props [#96](https://github.com/jasonrundell/dropship/pull/96) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### ⚠️ Pushed to `main`
+
 - Refactor GitHub Actions workflow for Chromatic integration ([@jasonrundell](https://github.com/jasonrundell))
 - Updating packages ([@jasonrundell](https://github.com/jasonrundell))
 - Make config more dry ([@jasonrundell](https://github.com/jasonrundell))
