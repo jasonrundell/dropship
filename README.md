@@ -1,6 +1,5 @@
 # Dropship
 
-## Introduction
 Dropship is a component library designed to provide reusable UI components for your projects. It includes a variety of atoms, molecules, and organisms to help you build consistent and maintainable user interfaces.
 
 ## Installation
