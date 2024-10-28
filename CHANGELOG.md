@@ -1,3 +1,16 @@
+# v2.7.0 (Mon Oct 28 2024)
+
+#### 🚀 Enhancement
+
+- Version update [#98](https://github.com/jasonrundell/dropship/pull/98) ([@jasonrundell](https://github.com/jasonrundell))
+- Grid updates and README update with Storybook link [#97](https://github.com/jasonrundell/dropship/pull/97) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.6.3 (Tue Oct 22 2024)
 
 #### ⚠️ Pushed to `main`
