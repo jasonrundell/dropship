@@ -15,11 +15,40 @@ const breakInsideRules = [
   'unset'
 ]
 
+const breakInsideStyles = {
+  auto: css`
+    break-inside: auto;
+  `,
+  avoid: css`
+    break-inside: avoid;
+  `,
+  'avoid-page': css`
+    break-inside: avoid-page;
+  `,
+  'avoid-column': css`
+    break-inside: avoid-column;
+  `,
+  'avoid-region': css`
+    break-inside: avoid-region;
+  `,
+  inherit: css`
+    break-inside: inherit;
+  `,
+  initial: css`
+    break-inside: initial;
+  `,
+  unset: css`
+    break-inside: unset;
+  `
+}
+
 export const Grid = ({
-  columnCount,
-  mediumColumnCount,
-  largeColumnCount,
   breakInside,
+  columnGap,
+  rowGap,
+  gridTemplateColumns,
+  mediumTemplateColumns,
+  largeTemplateColumns,
   classNames,
   children,
   ...props
@@ -28,125 +57,66 @@ export const Grid = ({
   const largeBreakpoint = '1024px'
 
   const root = css`
-    column-count: ${columnCount};
-    width: 100%;
+    display: grid;
+    column-gap: ${columnGap ? columnGap : '0'};
+    row-gap: ${rowGap ? rowGap : '0'};
+    grid-template-columns: ${gridTemplateColumns};
 
     @media (min-width: ${mediumBreakpoint}) {
-      columns: ${mediumColumnCount ? mediumColumnCount : columnCount};
+      grid-template-columns: ${mediumTemplateColumns
+        ? mediumTemplateColumns
+        : gridTemplateColumns};
     }
 
     @media (min-width: ${largeBreakpoint}) {
-      columns: ${largeColumnCount ? largeColumnCount : columnCount};
+      grid-template-columns: ${largeTemplateColumns
+        ? largeTemplateColumns
+        : gridTemplateColumns};
     }
   `
 
-  const auto = css`
-    article,
-    div,
-    section {
-      break-inside: auto;
-    }
+  const StyledGrid = styled.div`
+    ${root}
   `
 
-  const avoid = css`
-    article,
-    div,
-    section {
-      break-inside: avoid;
-    }
+  const ChildWrapper = styled.div`
+    ${breakInsideStyles[breakInside]}
   `
-
-  const avoidPage = css`
-    article,
-    div,
-    section {
-      break-inside: avoid-page;
-    }
-  `
-
-  const avoidColumn = css`
-    article,
-    div,
-    section {
-      break-inside: avoid-column;
-    }
-  `
-
-  const avoidRegion = css`
-    article,
-    div,
-    section {
-      break-inside: avoid-region;
-    }
-  `
-
-  const inherit = css`
-    article,
-    div,
-    section {
-      break-inside: inherit;
-    }
-  `
-
-  const initial = css`
-    article,
-    div,
-    section {
-      break-inside: initial;
-    }
-  `
-
-  const unset = css`
-    article,
-    div,
-    section {
-      break-inside: unset;
-    }
-  `
-
-  const colClassName = `col${columnCount}`
-  const mediumColClassName = `colMedium${mediumColumnCount}`
-  const largeColClassName = `colLarge${largeColumnCount}`
-
-  const StyledGrid = styled.div(
-    breakInside === 'auto' && auto,
-    breakInside === 'avoid' && avoid,
-    breakInside === 'avoid-page' && avoidPage,
-    breakInside === 'avoid-column' && avoidColumn,
-    breakInside === 'avoid-region' && avoidRegion,
-    breakInside === 'inherit' && inherit,
-    breakInside === 'initial' && initial,
-    breakInside === 'unset' && unset,
-    root,
-    colClassName,
-    mediumColClassName,
-    largeColClassName
-  )
 
   return (
     <StyledGrid className={classNames} {...props}>
-      {children}
+      {React.Children.map(children, (child) => (
+        <ChildWrapper>{child}</ChildWrapper>
+      ))}
     </StyledGrid>
   )
 }
 
 Grid.propTypes = {
   /**
-   * Number of columns to span.
-   */
-  columnCount: PropTypes.oneOf(columnRules),
-  /**
-   * Number of columns to span at medium breakpoint.
-   */
-  mediumColumnCount: PropTypes.oneOf(columnRules),
-  /**
-   * Number of columns to span at large breakpoint.
-   */
-  largeColumnCount: PropTypes.oneOf(columnRules),
-  /**
    * Break inside rule.
    */
   breakInside: PropTypes.oneOf(breakInsideRules),
+  /**
+   * Gap between columns.
+   */
+  columnGap: PropTypes.string,
+  /**
+   * Gap between rows.
+   */
+  rowGap: PropTypes.string,
+  /**
+   * Grid template columns.
+   */
+  gridTemplateColumns: PropTypes.string,
+  /**
+   * Medium breakpoint grid template columns.
+   */
+  mediumTemplateColumns: PropTypes.string,
+  /**
+   * Large breakpoint grid template columns.
+   */
+  largeTemplateColumns: PropTypes.string,
   /**
    * Assign a custom class name or multiple class names to the component.
    */
@@ -158,9 +128,11 @@ Grid.propTypes = {
 }
 
 Grid.defaultProps = {
-  columnCount: 1,
   mediumColumnCount: null,
   largeColumnCount: null,
   breakInside: 'auto',
+  columnGap: '0',
+  rowGap: '0',
+  gridTemplateColumns: '1fr 1fr',
   classNames: null
 }
