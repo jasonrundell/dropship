@@ -1,3 +1,15 @@
+# v2.6.3 (Tue Oct 22 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md with installation instructions and links ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.6.2 (Tue Oct 22 2024)
 
 #### ⚠️ Pushed to `main`
