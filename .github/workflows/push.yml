@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 18.17.0
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: node_modules
           # package-lock.json is used for npm ci
