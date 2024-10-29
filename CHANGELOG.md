@@ -1,3 +1,15 @@
+# v2.9.0 (Tue Oct 29 2024)
+
+#### 🚀 Enhancement
+
+- Removing empty components [#99](https://github.com/jasonrundell/dropship/pull/99) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.7.0 (Mon Oct 28 2024)
 
 #### 🚀 Enhancement
