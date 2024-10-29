@@ -31,24 +31,15 @@ npm run storybook
 
 Atoms are the basic building blocks of a user interface. They include elements like buttons, inputs, and links. Here are all of the atoms included in Dropship:
 
-- Article
-- Avatar
 - Blockquote
 - Box
 - Button
-- Cite
 - Container
-- Footer
 - Grid
 - Heading
-- Icon
 - Link
-- Main
-- Paragraph
 - Row
-- Section
 - Spacer
-- Strong
 
 ## Storybook
 

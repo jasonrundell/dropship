@@ -3,7 +3,6 @@ import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
 import { Container } from './Container'
-import { Paragraph } from '../Paragraph/Paragraph'
 
 <Meta title="Atoms/Container" component={Container} />
 
@@ -20,6 +19,8 @@ export const Template = (args) => <Container {...args} />
 
 export const exampleText =
   "The old castle stood tall and proud, its stone walls weathered by centuries of wind and rain. The turrets reached high into the sky, casting a long shadow over the surrounding countryside. The moat was dry and overgrown, but the drawbridge still stood, a testament to the castle's past glory. As I walked through the crumbling halls, I couldn't help but feel a sense of awe and wonder at the history that was embedded in every stone. The castle may have been abandoned, but its presence was still felt in every corner."
+
+export const Paragraph = ({ children }) => <p>{children}</p>
 
 export const Example = () => <Paragraph>{exampleText}</Paragraph>
 

@@ -1,7 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs'
 import { expect } from '@storybook/jest'
 import { Spacer } from './Spacer'
-import { Paragraph } from '../Paragraph/Paragraph'
 import { sizes, sizeKeys } from '../../../shared/sizes'
 import './spacer-story.css'
 export const argTypes = {
@@ -48,22 +47,22 @@ project.**
 
 <Canvas>
   <Story name="Example">
-    <Paragraph>This paragraph has a default Spacer below it</Paragraph>
+    <p>This paragraph has a default Spacer below it</p>
     <Spacer className="story--atoms-spacer" />
-    <Paragraph>
+    <p>
       In all screens, this paragraph has a Spacer using "largest" below it
-    </Paragraph>
+    </p>
     <Spacer
       smallScreen="largest"
       mediumScreen="largest"
       largeScreen="largest"
       className="story--atoms-spacer"
     />
-    <Paragraph>
+    <p>
       In small screens, this paragraph has a Spacer using "small" below it. In
       medium screens, this paragraph has a Spacer using "smallest" below it. In
       large screens, this paragraph has a Spacer using "larger" below it.
-    </Paragraph>
+    </p>
     <Spacer
       smallScreen="small"
       mediumScreen="smallest"
