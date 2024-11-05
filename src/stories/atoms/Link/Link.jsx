@@ -8,12 +8,12 @@ const StyledLink = styled.a`
 `
 
 export const Link = ({
-  href,
+  href = '#',
   label,
-  onClick,
-  target,
-  rel,
-  classNames,
+  onClick = undefined,
+  target = null,
+  rel = null,
+  classNames = null,
   ...props
 }) => (
   <StyledLink
@@ -53,12 +53,4 @@ Link.propTypes = {
    * Assign a custom class name or multiple class names to the component.
    */
   classNames: PropTypes.string
-}
-
-Link.defaultProps = {
-  href: '#',
-  onClick: undefined,
-  target: null,
-  rel: null,
-  classNames: null
 }

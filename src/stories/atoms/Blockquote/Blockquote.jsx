@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-export const Blockquote = ({ classNames, color, children, ...props }) => {
+export const Blockquote = ({
+  classNames = null,
+  color,
+  children,
+  ...props
+}) => {
   const StyledBlockquote = styled.blockquote`
     position: relative;
     &::before {
@@ -54,8 +59,4 @@ Blockquote.propTypes = {
    * Box can contain any elements.
    */
   children: PropTypes.any.isRequired
-}
-
-Blockquote.defaultProps = {
-  classNames: null
 }

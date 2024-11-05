@@ -8,7 +8,12 @@ export const StyledRow = styled.div`
   justify-content: ${(props) => props.justify};
 `
 
-export const Row = ({ justify, classNames, children, ...props }) => {
+export const Row = ({
+  justify = 'start',
+  classNames = null,
+  children,
+  ...props
+}) => {
   return (
     <StyledRow justify={justify} className={classNames} {...props}>
       {children}
@@ -36,9 +41,4 @@ Row.propTypes = {
    * Row content.
    */
   children: PropTypes.any.isRequired
-}
-
-Row.defaultProps = {
-  justify: 'start',
-  classNames: null
 }

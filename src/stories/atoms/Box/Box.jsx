@@ -8,7 +8,13 @@ const StyledBox = styled.div`
   line-height: 1.25rem;
 `
 
-export const Box = ({ isTight, isRoomy, classNames, children, ...props }) => {
+export const Box = ({
+  isTight = false,
+  isRoomy = false,
+  classNames = null,
+  children,
+  ...props
+}) => {
   return (
     <StyledBox
       isTight={isTight}
@@ -38,10 +44,4 @@ Box.propTypes = {
    * Box can contain any elements.
    */
   children: PropTypes.any.isRequired
-}
-
-Box.defaultProps = {
-  isTight: false,
-  isRoomy: false,
-  classNames: null
 }
