@@ -1,3 +1,15 @@
+# v2.9.1 (Tue Nov 05 2024)
+
+#### 🐛 Bug Fix
+
+- Removing css js [#100](https://github.com/jasonrundell/dropship/pull/100) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.9.0 (Tue Oct 29 2024)
 
 #### 🚀 Enhancement
