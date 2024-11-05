@@ -20,7 +20,13 @@ const StyledButton = styled.button`
         : '0.625rem 1rem'};
 `
 
-export const Button = ({ size, label, onClick, classNames, ...props }) => {
+export const Button = ({
+  size = 'medium',
+  label,
+  onClick = undefined,
+  classNames,
+  ...props
+}) => {
   return (
     <StyledButton
       type="button"
@@ -51,9 +57,4 @@ Button.propTypes = {
    * Assign a custom class name or multiple class names to the component.
    */
   classNames: PropTypes.string
-}
-
-Button.defaultProps = {
-  size: 'medium',
-  onClick: undefined
 }

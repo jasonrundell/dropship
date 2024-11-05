@@ -46,7 +46,7 @@ const StyledHeading6 = styled.h6`
   margin-bottom: ${sizes.smallest}rem;
 `
 
-export const Heading = ({ level, label, classNames, id }) => {
+export const Heading = ({ level = 1, label, classNames, id }) => {
   let titleClass
   let Component
 
@@ -99,8 +99,4 @@ Heading.propTypes = {
    * Assign a custom class name or multiple class names to the component.
    */
   classNames: PropTypes.string
-}
-
-Heading.defaultProps = {
-  level: 1
 }

@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   }
 `
 
-export const Container = ({ classNames, children, ...props }) => {
+export const Container = ({ classNames = null, children, ...props }) => {
   return (
     <StyledContainer className={classNames} {...props}>
       {children}
@@ -28,8 +28,4 @@ Container.propTypes = {
    * Container content.
    */
   children: PropTypes.any.isRequired
-}
-
-Container.defaultProps = {
-  classNames: null
 }

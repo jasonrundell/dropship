@@ -43,13 +43,13 @@ const breakInsideStyles = {
 }
 
 export const Grid = ({
-  breakInside,
-  columnGap,
-  rowGap,
-  gridTemplateColumns,
-  mediumTemplateColumns,
-  largeTemplateColumns,
-  classNames,
+  breakInside = 'auto',
+  columnGap = '0',
+  rowGap = '0',
+  gridTemplateColumns = '1fr',
+  mediumTemplateColumns = '1fr 1fr',
+  largeTemplateColumns = '1fr 1fr 1fr',
+  classNames = null,
   children,
   ...props
 }) => {
@@ -125,14 +125,4 @@ Grid.propTypes = {
    * Grid content.
    */
   children: PropTypes.any.isRequired
-}
-
-Grid.defaultProps = {
-  mediumColumnCount: null,
-  largeColumnCount: null,
-  breakInside: 'auto',
-  columnGap: '0',
-  rowGap: '0',
-  gridTemplateColumns: '1fr 1fr',
-  classNames: null
 }

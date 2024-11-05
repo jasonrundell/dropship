@@ -19,9 +19,9 @@ export const StylesSpacer = styled.div`
 `
 
 export const Spacer = ({
-  smallScreen,
-  mediumScreen,
-  largeScreen,
+  smallScreen = 'normal',
+  mediumScreen = 'normal',
+  largeScreen = 'normal',
   ...props
 }) => {
   //return <div css={style} aria-hidden="true" {...props} />
@@ -34,12 +34,6 @@ export const Spacer = ({
       aria-hidden="true"
     />
   )
-}
-
-Spacer.defaultProps = {
-  smallScreen: 'normal',
-  mediumScreen: 'normal',
-  largeScreen: 'normal'
 }
 
 Spacer.propTypes = {
