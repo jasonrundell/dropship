@@ -1,3 +1,15 @@
+# v2.9.2 (Tue Nov 05 2024)
+
+#### 🐛 Bug Fix
+
+- React update and removed defaultProps [#101](https://github.com/jasonrundell/dropship/pull/101) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.9.1 (Tue Nov 05 2024)
 
 #### 🐛 Bug Fix
