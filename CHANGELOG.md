@@ -1,3 +1,15 @@
+# v2.9.3 (Fri Nov 08 2024)
+
+#### 🐛 Bug Fix
+
+- Updating red npm packages [#102](https://github.com/jasonrundell/dropship/pull/102) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.9.2 (Tue Nov 05 2024)
 
 #### 🐛 Bug Fix
