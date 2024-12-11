@@ -24,7 +24,7 @@ npm install
 To start the development server and view the components in Storybook, run:
 
 ```sh
-npm run storybook
+npm run start
 ```
 
 ## Atoms
@@ -49,10 +49,8 @@ This project uses Storybook for developing and showcasing components. You can fi
 
 Here are some useful scripts you can run:
 
-- `npm run build`: Builds the project.
 - `npm run start`: Starts the development server.
-- `npm run test`: Runs the tests.
-- `npm run storybook`: Starts the Storybook server.
+- `npm run build`: Builds the project.
 
 ## Contributing
 
