@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
@@ -62,13 +61,7 @@ const Grid = ({
     ${root}
   `
 
-  return (
-    <StyledGrid {...props}>
-      {React.Children.map(children, (child) => (
-        <>{child}</>
-      ))}
-    </StyledGrid>
-  )
+  return <StyledGrid {...props}>{children}</StyledGrid>
 }
 
 export default Grid
