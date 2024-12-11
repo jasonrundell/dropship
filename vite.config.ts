@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import dts from 'vite-plugin-dts'
 import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' })
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
@@ -17,7 +21,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: 'src/main.tsx',
+      entry: 'src/index.ts',
       name: 'Dropship',
       formats: ['es', 'cjs'],
       fileName: (format) => `index.${format}.js`
