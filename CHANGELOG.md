@@ -1,3 +1,16 @@
+# v3.0.0 (Wed Dec 11 2024)
+
+#### 💥 Breaking Change
+
+- Feature/release3 [#105](https://github.com/jasonrundell/dropship/pull/105) ([@jasonrundell](https://github.com/jasonrundell))
+- Upgrade to Storybook 8.4.2 #103 [#104](https://github.com/jasonrundell/dropship/pull/104) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v2.9.3 (Fri Nov 08 2024)
 
 #### 🐛 Bug Fix
