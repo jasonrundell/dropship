@@ -1,3 +1,15 @@
+# v3.0.1 (Wed Dec 11 2024)
+
+#### 🐛 Bug Fix
+
+- Fix NPM Package build #106 [#107](https://github.com/jasonrundell/dropship/pull/107) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v3.0.0 (Wed Dec 11 2024)
 
 #### 💥 Breaking Change
