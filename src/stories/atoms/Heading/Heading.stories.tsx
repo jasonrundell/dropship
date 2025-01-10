@@ -23,8 +23,10 @@ const meta: Meta<typeof Heading> = {
 export default meta
 type Story = StoryObj<typeof Heading>
 
-export const Default: Story = {
+export const H1: Story = {
+  name: 'H1',
   args: {
+    level: 1,
     label: 'This is an H1 heading'
   }
 }

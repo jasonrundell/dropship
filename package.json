@@ -28,14 +28,14 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@pigment-css/react": "^0.0.29",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "@eslint/js": "^9.13.0",
+    "@pigment-css/vite-plugin": "^0.0.29",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
     "@storybook/addon-onboarding": "^8.4.2",

@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
+import { styled } from '@pigment-css/react'
 import Tokens from '../../../lib/tokens'
 
-export interface HeadingProps {
+interface HeadingProps {
   /** Level of the heading */
   level?: 1 | 2 | 3 | 4 | 5 | 6
   /** Label of the heading */
@@ -10,16 +10,53 @@ export interface HeadingProps {
   id?: string
 }
 
-const headingStyles = (level: 1 | 2 | 3 | 4 | 5 | 6) => `
-  font-size: ${Tokens.sizes.headings[`h${level}` as keyof typeof Tokens.sizes.headings]}rem;
-  line-height: ${Tokens.sizes.headings[`h${level}` as keyof typeof Tokens.sizes.headings]}rem;
-  margin-top: 0;
-  margin-bottom: ${Tokens.sizes.headings[`h${level}` as keyof typeof Tokens.sizes.headings]}rem;
-`
+const headingStyles = (level: 1 | 2 | 3 | 4 | 5 | 6) => ({
+  fontSize: `${Tokens.sizes.headings[`h${level}`]}rem`,
+  lineHeight: `${Tokens.sizes.headings[`h${level}`]}rem`,
+  marginTop: '0',
+  marginBottom: `${Tokens.sizes.headings[`h${level}`]}rem`
+})
 
-const StyledHeading = styled.h1<{ level: 1 | 2 | 3 | 4 | 5 | 6 }>`
-  ${({ level }) => headingStyles(level)}
-`
+const StyledHeading = styled('h1')<{ level: 1 | 2 | 3 | 4 | 5 | 6 }>({
+  variants: [
+    {
+      props: {
+        level: 1
+      },
+      style: headingStyles(1)
+    },
+    {
+      props: {
+        level: 2
+      },
+      style: headingStyles(2)
+    },
+    {
+      props: {
+        level: 3
+      },
+      style: headingStyles(3)
+    },
+    {
+      props: {
+        level: 4
+      },
+      style: headingStyles(4)
+    },
+    {
+      props: {
+        level: 5
+      },
+      style: headingStyles(5)
+    },
+    {
+      props: {
+        level: 6
+      },
+      style: headingStyles(6)
+    }
+  ]
+})
 
 const Heading = ({ level = 1, label, id, ...props }: HeadingProps) => {
   return (

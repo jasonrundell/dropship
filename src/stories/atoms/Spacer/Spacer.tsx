@@ -1,8 +1,7 @@
-import styled from '@emotion/styled'
-
+import { styled } from '@pigment-css/react'
 import Tokens from '../../../lib/tokens'
 
-export interface SpacerProps {
+interface SpacerProps {
   /** Size of the spacer on small screens */
   smallScreen?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
   /** Size of the spacer on medium screens */
@@ -11,26 +10,167 @@ export interface SpacerProps {
   largeScreen?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 }
 
+const StyledSpacer = styled('div')<SpacerProps>({
+  display: 'block',
+  variants: [
+    {
+      props: {
+        smallScreen: 'xsmall'
+      },
+      style: {
+        height: `${Tokens.sizes['xsmall']}rem`
+      }
+    },
+    {
+      props: {
+        smallScreen: 'small'
+      },
+      style: {
+        height: `${Tokens.sizes['small']}rem`
+      }
+    },
+    {
+      props: {
+        smallScreen: 'medium'
+      },
+      style: {
+        height: `${Tokens.sizes['medium']}rem`
+      }
+    },
+    {
+      props: {
+        smallScreen: 'large'
+      },
+      style: {
+        height: `${Tokens.sizes['large']}rem`
+      }
+    },
+    {
+      props: {
+        smallScreen: 'xlarge'
+      },
+      style: {
+        height: `${Tokens.sizes['xlarge']}rem`
+      }
+    },
+    {
+      props: {
+        mediumScreen: 'xsmall'
+      },
+      style: {
+        '@media (min-width: 48rem)': {
+          height: `${Tokens.sizes['xsmall']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        mediumScreen: 'small'
+      },
+      style: {
+        '@media (min-width: 48rem)': {
+          height: `${Tokens.sizes['small']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        mediumScreen: 'medium'
+      },
+      style: {
+        '@media (min-width: 48rem)': {
+          height: `${Tokens.sizes['medium']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        mediumScreen: 'large'
+      },
+      style: {
+        '@media (min-width: 48rem)': {
+          height: `${Tokens.sizes['large']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        mediumScreen: 'xlarge'
+      },
+      style: {
+        '@media (min-width: 48rem)': {
+          height: `${Tokens.sizes['xlarge']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        largeScreen: 'xsmall'
+      },
+      style: {
+        '@media (min-width: 64rem)': {
+          height: `${Tokens.sizes['xsmall']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        largeScreen: 'small'
+      },
+      style: {
+        '@media (min-width: 64rem)': {
+          height: `${Tokens.sizes['small']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        largeScreen: 'medium'
+      },
+      style: {
+        '@media (min-width: 64rem)': {
+          height: `${Tokens.sizes['medium']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        largeScreen: 'large'
+      },
+      style: {
+        '@media (min-width: 64rem)': {
+          height: `${Tokens.sizes['large']}rem`
+        }
+      }
+    },
+    {
+      props: {
+        largeScreen: 'xlarge'
+      },
+      style: {
+        '@media (min-width: 64rem)': {
+          height: `${Tokens.sizes['xlarge']}rem`
+        }
+      }
+    }
+  ]
+})
+
 const Spacer = ({
-  smallScreen = 'small',
-  mediumScreen = 'small',
-  largeScreen = 'small',
+  smallScreen,
+  mediumScreen,
+  largeScreen,
   ...props
 }: SpacerProps) => {
-  const StylesSpacer = styled.div`
-    display: block;
-    height: ${Tokens.sizes[smallScreen]}rem;
-
-    @media (min-width: ${Tokens.sizes.breakpoints.medium}rem) {
-      height: ${Tokens.sizes[mediumScreen]}rem;
-    }
-
-    @media (min-width: ${Tokens.sizes.breakpoints.large}rem) {
-      height: ${Tokens.sizes[largeScreen]}rem;
-    }
-  `
-
-  return <StylesSpacer {...props} aria-hidden="true" />
+  return (
+    <StyledSpacer
+      smallScreen={smallScreen}
+      mediumScreen={mediumScreen}
+      largeScreen={largeScreen}
+      {...props}
+      aria-hidden="true"
+    />
+  )
 }
 
 export default Spacer

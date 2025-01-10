@@ -13,6 +13,9 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {}
   },
+  features: {
+    experimentalRSC: true
+  },
   async viteFinal(config) {
     config.plugins = await withoutVitePlugins(config.plugins, ['vite:dts'])
 

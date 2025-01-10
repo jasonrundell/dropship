@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { styled } from '@pigment-css/react'
 import Tokens from '../../../lib/tokens'
 
 export interface ButtonProps {
@@ -14,6 +14,56 @@ export interface ButtonProps {
   onClick?: () => void
 }
 
+const buttonStyles = (size: 'small' | 'medium' | 'large') => ({
+  fontSize: `${Tokens.sizes.fontSize[size]}rem`,
+  padding: `${Tokens.sizes.padding[size] / 2}rem ${Tokens.sizes.padding[size]}rem`
+})
+
+const StyledButton = styled('button')<{
+  size: 'small' | 'medium' | 'large'
+  primary: boolean
+}>({
+  cursor: 'pointer',
+  display: 'inline-block',
+  lineHeight: Tokens.sizes.lineHeight,
+  variants: [
+    {
+      props: {
+        size: 'small'
+      },
+      style: buttonStyles('small')
+    },
+    {
+      props: {
+        size: 'medium'
+      },
+      style: buttonStyles('medium')
+    },
+    {
+      props: {
+        size: 'large'
+      },
+      style: buttonStyles('large')
+    },
+    {
+      props: {
+        primary: true
+      },
+      style: {
+        backgroundColor: Tokens.colors.primary
+      }
+    },
+    {
+      props: {
+        primary: false
+      },
+      style: {
+        backgroundColor: Tokens.colors.secondary
+      }
+    }
+  ]
+})
+
 /** Primary UI component for user interaction */
 const Button = ({
   primary = false,
@@ -21,28 +71,8 @@ const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  const StyledButton = styled.button<{ size?: string }>`
-    cursor: pointer;
-    display: inline-block;
-    line-height: ${Tokens.sizes.lineHeight};
-    font-size: ${() =>
-      size === 'large'
-        ? `${Tokens.sizes.fontSize.large}rem`
-        : size === 'medium'
-          ? `${Tokens.sizes.fontSize.medium}rem`
-          : `${Tokens.sizes.fontSize.small}rem`};
-    padding: ${() =>
-      size === 'large'
-        ? `${Tokens.sizes.padding.large / 2}rem ${Tokens.sizes.padding.large}rem`
-        : size === 'medium'
-          ? `${Tokens.sizes.padding.medium / 2}rem ${Tokens.sizes.padding.medium}rem`
-          : `${Tokens.sizes.padding.small / 2}rem ${Tokens.sizes.padding.small}rem`};
-    background-color: ${primary
-      ? Tokens.colors.primary
-      : Tokens.colors.secondary};
-  `
   return (
-    <StyledButton type="button" {...props}>
+    <StyledButton type="button" primary={primary} size={size} {...props}>
       {label}
     </StyledButton>
   )

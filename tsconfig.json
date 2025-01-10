@@ -5,6 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
     "target": "ES6",
     "jsx": "react-jsx",
     /* Output */
