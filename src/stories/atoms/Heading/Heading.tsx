@@ -4,10 +4,10 @@ import Tokens from '../../../lib/tokens'
 interface HeadingProps {
   /** Level of the heading */
   level?: 1 | 2 | 3 | 4 | 5 | 6
-  /** Label of the heading */
-  label: string
   /** Optional id */
   id?: string
+  /** Children of the heading */
+  children: React.ReactNode
 }
 
 const headingStyles = (level: 1 | 2 | 3 | 4 | 5 | 6) => ({
@@ -58,10 +58,10 @@ const StyledHeading = styled('h1')<{ level: 1 | 2 | 3 | 4 | 5 | 6 }>({
   ]
 })
 
-const Heading = ({ level = 1, label, id, ...props }: HeadingProps) => {
+const Heading = ({ level = 1, id, children, ...props }: HeadingProps) => {
   return (
     <StyledHeading as={`h${level}`} level={level} id={id} {...props}>
-      {label}
+      {children}
     </StyledHeading>
   )
 }
