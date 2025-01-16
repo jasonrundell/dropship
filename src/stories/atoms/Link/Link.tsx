@@ -17,7 +17,7 @@ interface LinkProps {
 
 const StyledLink = styled('a')({
   cursor: 'pointer',
-  lineHeight: Tokens.sizes.lineHeight
+  lineHeight: Tokens.sizes.lineHeight.value
 })
 
 const Link = ({

@@ -11,8 +11,8 @@ interface HeadingProps {
 }
 
 const headingStyles = (level: 1 | 2 | 3 | 4 | 5 | 6) => ({
-  fontSize: `${Tokens.sizes.headings[`h${level}`]}rem`,
-  lineHeight: `${Tokens.sizes.headings[`h${level}`]}rem`,
+  fontSize: `${Tokens.sizes.headings[`h${level}`].value}${Tokens.sizes.headings[`h${level}`].unit}`,
+  lineHeight: `${Tokens.sizes.headings[`h${level}`].value}${Tokens.sizes.headings[`h${level}`].unit}`,
   margin: 0
 })
 

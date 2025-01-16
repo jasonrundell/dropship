@@ -15,7 +15,7 @@ export interface ButtonProps {
 }
 
 const buttonStyles = (size: 'small' | 'medium' | 'large') => ({
-  fontSize: `${Tokens.sizes.fontSize[size]}rem`,
+  fontSize: `${Tokens.sizes.fonts[size]}rem`,
   padding: `${Tokens.sizes.padding[size] / 2}rem ${Tokens.sizes.padding[size]}rem`
 })
 
@@ -25,7 +25,7 @@ const StyledButton = styled('button')<{
 }>({
   cursor: 'pointer',
   display: 'inline-block',
-  lineHeight: Tokens.sizes.lineHeight,
+  lineHeight: Tokens.sizes.lineHeight.value,
   variants: [
     {
       props: {
