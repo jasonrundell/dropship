@@ -13,8 +13,7 @@ interface HeadingProps {
 const headingStyles = (level: 1 | 2 | 3 | 4 | 5 | 6) => ({
   fontSize: `${Tokens.sizes.headings[`h${level}`]}rem`,
   lineHeight: `${Tokens.sizes.headings[`h${level}`]}rem`,
-  marginTop: '0',
-  marginBottom: `${Tokens.sizes.headings[`h${level}`]}rem`
+  margin: 0
 })
 
 const StyledHeading = styled('h1')<{ level: 1 | 2 | 3 | 4 | 5 | 6 }>({
