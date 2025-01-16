@@ -1,3 +1,15 @@
+# v3.2.0 (Thu Jan 16 2025)
+
+#### 🚀 Enhancement
+
+- Make components compatible with Nextjs SSR [#110](https://github.com/jasonrundell/dropship/pull/110) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v3.1.0 (Wed Dec 11 2024)
 
 #### 🚀 Enhancement
