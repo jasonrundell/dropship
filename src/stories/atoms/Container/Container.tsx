@@ -7,14 +7,14 @@ interface ContainerProps {
   children: React.ReactNode
 }
 
-const StyledContainer = styled('div')<ContainerProps>({
-  margin: '0 auto',
-  padding: `0 ${Tokens.sizes.breakpoints.large * 0.75}`,
-  '@media (min-width: 48rem)': {
-    width: `${Tokens.sizes.breakpoints.medium * 0.875}rem`,
-    padding: 0
+const StyledContainer = styled('div')<ContainerProps>`
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (min-width: ${Tokens.sizes.breakpoints.medium}rem) {
+    max-width: ${Tokens.sizes.breakpoints.medium}rem;
   }
-})
+`
 
 const Container = ({ children, ...props }: ContainerProps) => {
   return <StyledContainer {...props}>{children}</StyledContainer>
