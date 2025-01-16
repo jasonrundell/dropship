@@ -157,9 +157,9 @@ const StyledSpacer = styled('div')<SpacerProps>({
 })
 
 const Spacer = ({
-  smallScreen,
-  mediumScreen,
-  largeScreen,
+  smallScreen = 'small',
+  mediumScreen = 'small',
+  largeScreen = 'small',
   ...props
 }: SpacerProps) => {
   return (
