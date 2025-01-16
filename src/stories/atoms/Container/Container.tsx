@@ -1,21 +1,21 @@
-import styled from '@emotion/styled'
+import { styled } from '@pigment-css/react'
 
 import Tokens from '../../../lib/tokens'
 
-export interface ContainerProps {
+interface ContainerProps {
   /** Children of Container */
   children: React.ReactNode
 }
 
+const StyledContainer = styled('div')<ContainerProps>({
+  margin: '0 auto',
+  padding: `0 ${Tokens.sizes.padding.large}rem`,
+  '@media (min-width: 48rem)': {
+    maxWidth: `${Tokens.sizes.breakpoints.medium}rem`
+  }
+})
+
 const Container = ({ children, ...props }: ContainerProps) => {
-  const StyledContainer = styled.div`
-    margin: 0 auto;
-    padding: 0 ${Tokens.sizes.breakpoints.large * 0.75};
-    @media (min-width: ${Tokens.sizes.breakpoints.medium}rem) {
-      width: ${Tokens.sizes.breakpoints.medium * 0.875}rem;
-      padding: 0;
-    }
-  `
   return <StyledContainer {...props}>{children}</StyledContainer>
 }
 

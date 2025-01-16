@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+import { styled } from '@pigment-css/react'
 
-export interface RowProps {
+interface RowProps {
   /** Justify content of the row */
   justify?:
     | 'start'
@@ -14,19 +14,24 @@ export interface RowProps {
   children: React.ReactNode
 }
 
+const StyledRow = styled('div')<RowProps>({
+  display: 'flex',
+  flexFlow: 'row wrap',
+  justifyContent: ({ justify }) => justify || 'start',
+  alignItems: ({ align }) => align || 'start'
+})
+
 const Row = ({
   justify = 'start',
   align = 'start',
   children,
   ...props
 }: RowProps) => {
-  const StyledRow = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    ${justify ? `justify-content: ${justify};` : ''}
-    ${align ? `align-items: ${align};` : ''}
-  `
-  return <StyledRow {...props}>{children}</StyledRow>
+  return (
+    <StyledRow justify={justify} align={align} {...props}>
+      {children}
+    </StyledRow>
+  )
 }
 
 export default Row

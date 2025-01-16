@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import { styled } from '@pigment-css/react'
 
 import Tokens from '../../../lib/tokens'
 
@@ -11,22 +11,43 @@ export interface BoxProps {
   children: React.ReactNode
 }
 
+const StyledBox = styled('div')<BoxProps>({
+  lineHeight: `${Tokens.sizes.lineHeight}rem`,
+  variants: [
+    {
+      props: {
+        isRoomy: true
+      },
+      style: {
+        padding: `${Tokens.sizes.padding.large}rem`
+      }
+    },
+    {
+      props: {
+        isTight: true
+      },
+      style: {
+        padding: `${Tokens.sizes.padding.xsmall}rem`
+      }
+    },
+    {
+      props: {
+        isTight: false,
+        isRoomy: false
+      },
+      style: {
+        padding: `${Tokens.sizes.padding.small}rem`
+      }
+    }
+  ]
+})
+
 const Box = ({
   isTight = false,
   isRoomy = false,
   children,
   ...props
 }: BoxProps) => {
-  const StyledBox = styled.div<{ isTight?: boolean; isRoomy?: boolean }>`
-    padding: ${(props) =>
-      props.isRoomy
-        ? `${Tokens.sizes.padding.large}rem`
-        : props.isTight
-          ? `${Tokens.sizes.padding.xsmall}rem`
-          : `${Tokens.sizes.padding.small}rem`};
-    line-height: ${Tokens.sizes.lineHeight}rem;
-  `
-
   return (
     <StyledBox isTight={isTight} isRoomy={isRoomy} {...props}>
       {children}

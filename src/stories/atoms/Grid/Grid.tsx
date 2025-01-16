@@ -1,9 +1,6 @@
-import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { styled } from '@pigment-css/react'
 
-import Tokens from '../../../lib/tokens'
-
-export interface GridProps {
+interface GridProps {
   /** Gap between columns */
   columnGap?: string
   /** Gap between rows */
@@ -18,6 +15,22 @@ export interface GridProps {
   children: React.ReactNode
 }
 
+const StyledGrid = styled('div')<GridProps>({
+  display: 'grid',
+  columnGap: ({ columnGap }) => columnGap || '',
+  rowGap: ({ rowGap }) => rowGap || '',
+  gridTemplateColumns: ({ gridTemplateColumns }) =>
+    gridTemplateColumns || '1fr',
+  '@media (min-width: 48rem)': {
+    gridTemplateColumns: ({ mediumTemplateColumns, gridTemplateColumns }) =>
+      mediumTemplateColumns || gridTemplateColumns
+  },
+  '@media (min-width: 64rem)': {
+    gridTemplateColumns: ({ largeTemplateColumns, gridTemplateColumns }) =>
+      largeTemplateColumns || gridTemplateColumns
+  }
+})
+
 const Grid = ({
   columnGap = '',
   rowGap = '',
@@ -27,41 +40,18 @@ const Grid = ({
   children,
   ...props
 }: GridProps) => {
-  const mediumBreakpoint = `${Tokens.sizes.breakpoints.medium}rem`
-  const largeBreakpoint = `${Tokens.sizes.breakpoints.large}rem`
-
-  const root = css`
-    display: grid;
-    ${columnGap ? `column-gap: ${columnGap};` : ''}
-    ${rowGap ? `row-gap: ${rowGap};` : ''}
-    ${gridTemplateColumns
-      ? `grid-template-columns: ${gridTemplateColumns};`
-      : ''}
-
-    ${mediumTemplateColumns
-      ? `
-    @media (min-width: ${mediumBreakpoint}) {
-        grid-template-columns: ${
-          mediumTemplateColumns ? mediumTemplateColumns : gridTemplateColumns
-        };
-    }`
-      : ''}
-
-    ${largeTemplateColumns
-      ? `
-    @media (min-width: ${largeBreakpoint}) {
-      grid-template-columns: ${
-        largeTemplateColumns ? largeTemplateColumns : gridTemplateColumns
-      };
-    }`
-      : ''}
-  `
-
-  const StyledGrid = styled.div`
-    ${root}
-  `
-
-  return <StyledGrid {...props}>{children}</StyledGrid>
+  return (
+    <StyledGrid
+      columnGap={columnGap}
+      rowGap={rowGap}
+      gridTemplateColumns={gridTemplateColumns}
+      mediumTemplateColumns={mediumTemplateColumns}
+      largeTemplateColumns={largeTemplateColumns}
+      {...props}
+    >
+      {children}
+    </StyledGrid>
+  )
 }
 
 export default Grid
