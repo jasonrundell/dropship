@@ -15,8 +15,8 @@ export interface ButtonProps {
 }
 
 const buttonStyles = (size: 'small' | 'medium' | 'large') => ({
-  fontSize: `${Tokens.sizes.fonts[size]}rem`,
-  padding: `${Tokens.sizes.padding[size] / 2}rem ${Tokens.sizes.padding[size]}rem`
+  fontSize: `${Tokens.sizes.fonts[size].value}${Tokens.sizes.fonts[size].unit}`,
+  padding: `${Tokens.sizes.padding[size].value / 2}${Tokens.sizes.fonts[size].unit} ${Tokens.sizes.padding[size].value}${Tokens.sizes.fonts[size].unit}`
 })
 
 const StyledButton = styled('button')<{
@@ -50,7 +50,7 @@ const StyledButton = styled('button')<{
         primary: true
       },
       style: {
-        backgroundColor: Tokens.colors.primary
+        backgroundColor: Tokens.colors.primary.value
       }
     },
     {
@@ -58,7 +58,7 @@ const StyledButton = styled('button')<{
         primary: false
       },
       style: {
-        backgroundColor: Tokens.colors.secondary
+        backgroundColor: Tokens.colors.secondary.value
       }
     }
   ]

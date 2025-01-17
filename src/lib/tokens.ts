@@ -1,4 +1,4 @@
-import tokensFile from './tokens.json'
+import tokensFile from './common.tokens.json'
 
 const Tokens = JSON.parse(JSON.stringify(tokensFile))
 
