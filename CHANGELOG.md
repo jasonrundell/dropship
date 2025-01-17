@@ -1,3 +1,15 @@
+# v3.3.0 (Fri Jan 17 2025)
+
+#### 🚀 Enhancement
+
+- Refactor tokens to DTCG format [#112](https://github.com/jasonrundell/dropship/pull/112) ([@jasonrundell](https://github.com/jasonrundell))
+
+#### Authors: 1
+
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v3.2.0 (Thu Jan 16 2025)
 
 #### 🚀 Enhancement
