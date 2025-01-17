@@ -39,7 +39,6 @@
     "@chromatic-com/storybook": "^3.2.2",
     "@eslint/js": "^9.13.0",
     "@pigment-css/vite-plugin": "^0.0.29",
-    "@storybook/addon-docs": "^8.5.0",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
     "@storybook/addon-onboarding": "^8.4.2",
