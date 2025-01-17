@@ -24,14 +24,14 @@ export const Default: Story = {
 
 export const WithColor: Story = {
   args: {
-    color: Tokens.colors.primary,
+    color: Tokens.colors.primary.value,
     children: 'This is a blockquote'
   }
 }
 
 export const WithMultipleParagraphs: Story = {
   args: {
-    color: Tokens.colors.primary,
+    color: Tokens.colors.primary.value,
     children: (
       <>
         <p>

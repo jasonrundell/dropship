@@ -1,0 +1,206 @@
+{
+  "sizes": {
+    "xsmall": {
+      "value": 0.5,
+      "unit": "rem"
+    },
+    "small": {
+      "value": 1,
+      "unit": "rem"
+    },
+    "medium": {
+      "value": 1.5,
+      "unit": "rem"
+    },
+    "large": {
+      "value": 2,
+      "unit": "rem"
+    },
+    "xlarge": {
+      "value": 3,
+      "unit": "rem"
+    },
+    "lineHeight": {
+      "value": 1.3,
+      "unit": "rem"
+    },
+    "breakpoints": {
+      "small": {
+        "value": 30,
+        "unit": "rem"
+      },
+      "medium": {
+        "value": 48,
+        "unit": "rem"
+      },
+      "large": {
+        "value": 64,
+        "unit": "rem"
+      }
+    },
+    "padding": {
+      "xsmall": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "small": {
+        "value": 1,
+        "unit": "rem"
+      },
+      "medium": {
+        "value": 1.25,
+        "unit": "rem"
+      },
+      "large": {
+        "value": 2,
+        "unit": "rem"
+      },
+      "xlarge": {
+        "value": 3,
+        "unit": "rem"
+      }
+    },
+    "fonts": {
+      "small": {
+        "value": 1,
+        "unit": "rem"
+      },
+      "medium": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "large": {
+        "value": 2,
+        "unit": "rem"
+      }
+    },
+    "headings": {
+      "h1": {
+        "value": 2,
+        "unit": "rem"
+      },
+      "h2": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "h3": {
+        "value": 1.25,
+        "unit": "rem"
+      },
+      "h4": {
+        "value": 1,
+        "unit": "rem"
+      },
+      "h5": {
+        "value": 0.875,
+        "unit": "rem"
+      },
+      "h6": {
+        "value": 0.85,
+        "unit": "rem"
+      }
+    }
+  },
+  "colors": {
+    "primary": {
+      "value": "#6200ea",
+      "unit": "hex"
+    },
+    "primaryVariant": {
+      "value": "#3700b3",
+      "unit": "hex"
+    },
+    "secondary": {
+      "value": "#03dac6",
+      "unit": "hex"
+    },
+    "secondaryVariant": {
+      "value": "#018786",
+      "unit": "hex"
+    },
+    "accent": {
+      "value": "#ff4081",
+      "unit": "hex"
+    },
+    "background": {
+      "value": "#ffffff",
+      "unit": "hex"
+    },
+    "surface": {
+      "value": "#f5f5f5",
+      "unit": "hex"
+    },
+    "error": {
+      "value": "#b00020",
+      "unit": "hex"
+    },
+    "onPrimary": {
+      "value": "#ffffff",
+      "unit": "hex"
+    },
+    "onSecondary": {
+      "value": "#000000",
+      "unit": "hex"
+    },
+    "onBackground": {
+      "value": "#000000",
+      "unit": "hex"
+    },
+    "onSurface": {
+      "value": "#000000",
+      "unit": "hex"
+    },
+    "onError": {
+      "value": "#ffffff",
+      "unit": "hex"
+    },
+    "textPrimary": {
+      "value": "#212121",
+      "unit": "hex"
+    },
+    "textSecondary": {
+      "value": "#757575",
+      "unit": "hex"
+    },
+    "border": {
+      "value": "#e0e0e0",
+      "unit": "hex"
+    },
+    "link": {
+      "value": "#1e88e5",
+      "unit": "hex"
+    },
+    "muted": {
+      "value": "#f6f6f6",
+      "unit": "hex"
+    },
+    "success": {
+      "value": "#4caf50",
+      "unit": "hex"
+    },
+    "warning": {
+      "value": "#ff9800",
+      "unit": "hex"
+    }
+  },
+  "fonts": {
+    "body": {
+      "family": "Arial, sans-serif"
+    },
+    "heading": {
+      "family": "Georgia, serif"
+    },
+    "monospace": {
+      "family": "Courier New, monospace"
+    },
+    "quotes": {
+      "family": "'Times New Roman', Times, serif"
+    }
+  },
+  "### NOTES ###": {
+    "what this file is used for": "This file is used to store all the design tokens for the project. Design tokens are non-divisible elements of a design system that hold values such as colors, spacing, typography, and more. They are used to maintain visual consistency across the project. This token source file can be consumed by various tools and plugins to generate design tokens in different formats (see https://tr.designtokens.org/format/#file-format).",
+    "dropship": "Not all values in this token source file are implemented in the components available in this project. Some exist just as examples.",
+    "learn more": "You can learn more about design tokens and the DTCG format at https://tr.designtokens.org/",
+    "license": "MIT"
+  }
+}

@@ -12,14 +12,14 @@ export interface BoxProps {
 }
 
 const StyledBox = styled('div')<BoxProps>({
-  lineHeight: `${Tokens.sizes.lineHeight}rem`,
+  lineHeight: `${Tokens.sizes.lineHeight.value}${Tokens.sizes.lineHeight.unit}`,
   variants: [
     {
       props: {
         isRoomy: true
       },
       style: {
-        padding: `${Tokens.sizes.padding.large}rem`
+        padding: `${Tokens.sizes.padding.large.value}${Tokens.sizes.padding.large.unit}`
       }
     },
     {
@@ -27,7 +27,7 @@ const StyledBox = styled('div')<BoxProps>({
         isTight: true
       },
       style: {
-        padding: `${Tokens.sizes.padding.xsmall}rem`
+        padding: `${Tokens.sizes.padding.xsmall.value}${Tokens.sizes.padding.xsmall.unit}`
       }
     },
     {
@@ -36,7 +36,7 @@ const StyledBox = styled('div')<BoxProps>({
         isRoomy: false
       },
       style: {
-        padding: `${Tokens.sizes.padding.small}rem`
+        padding: `${Tokens.sizes.padding.small.value}${Tokens.sizes.padding.small.unit}`
       }
     }
   ]

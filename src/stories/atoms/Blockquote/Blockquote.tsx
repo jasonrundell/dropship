@@ -14,23 +14,23 @@ const StyledBlockquote = styled('blockquote')<BlockquoteProps>({
   '&::before': {
     display: 'inline',
     position: 'absolute',
-    fontFamily: Tokens.fonts.quotes,
-    fontSize: `${Tokens.sizes.fontSize.medium * 2}rem`,
+    fontFamily: Tokens.fonts.quotes.family,
+    fontSize: `${Tokens.sizes.fonts.medium.value * 2}${Tokens.sizes.fonts.medium.unit}`,
     color: ({ color }) => color,
     opacity: 0.8,
     content: '"❝"',
-    top: `-${Tokens.sizes.medium}rem`,
-    left: `-${Tokens.sizes.large}rem`
+    top: `-${Tokens.sizes.medium.value}${Tokens.sizes.fonts.medium.unit}`,
+    left: `-${Tokens.sizes.large.value}${Tokens.sizes.fonts.large.unit}`
   },
   '&::after': {
     display: 'inline',
     position: 'absolute',
-    fontFamily: Tokens.fonts.quotes,
-    fontSize: `${Tokens.sizes.fontSize.medium * 2}rem`,
+    fontFamily: Tokens.fonts.quotes.family,
+    fontSize: `${Tokens.sizes.fonts.medium.value * 2}${Tokens.sizes.fonts.medium.unit}`,
     color: ({ color }) => color,
     opacity: 0.8,
     content: '"❞"',
-    right: `-${Tokens.sizes.large}rem`
+    right: `-${Tokens.sizes.large.value}${Tokens.sizes.fonts.large.unit}`
   }
 })
 
