@@ -37,8 +37,6 @@ const TokenValue = styled('pre')({
   overflow: 'auto'
 })
 
-console.log(Tokens)
-
 const TokensDisplay: React.FC = () => {
   return (
     <Container>
