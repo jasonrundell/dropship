@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import './page.css'
+import logoImage from '../assets/dropship-logo.webp'
 
 const meta: Meta = {
   title: 'Welcome',
@@ -16,6 +17,12 @@ export const Default: Story = {
     <article>
       <section className="storybook-page">
         <h1>Dropship</h1>
+        <div className="storybook-dropship-logo">
+          <img
+            src={logoImage}
+            alt="Dropship logo of a space ship dropping cargo against a backdrop of stars"
+          />
+        </div>
         <p>
           Hi, welcome to Dropship. Dropship is a component library designed to
           provide reusable UI components for your projects. It currently

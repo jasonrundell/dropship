@@ -1,11 +1,25 @@
 .storybook-page {
   margin: 0 auto;
-  padding: 48px 20px;
-  max-width: 600px;
   color: #333;
   font-size: 16px;
   line-height: 1.3;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 300px;
+  word-wrap: break-word;
+}
+
+@media (min-width: 480px) {
+  .storybook-page {
+    width: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .storybook-page {
+    padding: 48px 20px;
+    width: auto;
+    max-width: 600px;
+  }
 }
 
 .storybook-page h1,
@@ -88,4 +102,22 @@
   color: #fff;
   padding: 16px;
   border-radius: 4px;
+  overflow-x: scroll;
+}
+
+.storybook-dropship-logo {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  align-items: flex-start;
+  margin: 40px auto;
+  width: 100%;
+  height: 100%;
+}
+
+.storybook-dropship-logo img {
+  width: 100%;
+  height: 100%;
+  max-width: 350px;
+  max-height: 350px;
 }
