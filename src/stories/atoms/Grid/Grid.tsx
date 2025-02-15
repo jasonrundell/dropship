@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { styled } from '@pigment-css/react'
 
 interface GridProps {
@@ -31,7 +32,7 @@ const StyledGrid = styled('div')<GridProps>({
   }
 })
 
-const Grid = ({
+const Grid = memo(({
   columnGap = '',
   rowGap = '',
   gridTemplateColumns = '1fr',
@@ -52,6 +53,8 @@ const Grid = ({
       {children}
     </StyledGrid>
   )
-}
+})
+
+Grid.displayName = 'Grid'
 
 export default Grid
