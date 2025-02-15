@@ -1,3 +1,20 @@
+# v3.3.1 (Fri Jan 24 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Adding Dropship logo ([@jasonrundell](https://github.com/jasonrundell))
+
+#### 🔩 Dependency Updates
+
+- Bump vite from 5.4.10 to 5.4.14 [#113](https://github.com/jasonrundell/dropship/pull/113) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Jason Rundell ([@jasonrundell](https://github.com/jasonrundell))
+
+---
+
 # v3.3.0 (Fri Jan 17 2025)
 
 #### 🚀 Enhancement
