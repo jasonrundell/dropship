@@ -38,7 +38,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
     "@eslint/js": "^9.13.0",
-    "@pigment-css/vite-plugin": "^0.0.29",
+    "@pigment-css/vite-plugin": "^0.0.30",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
     "@storybook/addon-onboarding": "^8.4.2",
@@ -60,7 +60,7 @@
     "storybook": "^8.4.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
-    "vite": "^5.4.10",
+    "vite": "^7.3.0",
     "vite-plugin-css": "^1.0.0",
     "vite-plugin-dts": "^4.3.0"
   },
