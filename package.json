@@ -1,6 +1,6 @@
 {
   "name": "@jasonrundell/dropship",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "Get a React project up and running really fast with Dropship.",
   "main": "dist/index.es.js",
   "module": "dist/index.es.js",
@@ -28,12 +28,15 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "auto shipit --base-branch=main",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prettier": "prettier --write ."
   },
   "dependencies": {
     "@pigment-css/react": "^0.0.29",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "yaml": "^2.8.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -62,7 +65,8 @@
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10",
     "vite-plugin-css": "^1.0.0",
-    "vite-plugin-dts": "^4.3.0"
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^4.0.18"
   },
   "eslintConfig": {
     "extends": [

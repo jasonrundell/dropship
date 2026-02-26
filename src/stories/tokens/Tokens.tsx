@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from '@pigment-css/react'
-import Tokens from '../../lib/tokens'
+import Tokens, { fontFamilyToCss } from '../../lib/tokens'
 
 const Container = styled('div')({
   display: 'flex',
@@ -44,317 +44,317 @@ const TokensDisplay: React.FC = () => {
         <TokenName>Colors</TokenName>
         <div>
           <TokenValue>
-            colors.primary.value: {Tokens.colors.primary.value}
+            colors.primary.$value.hex: {Tokens.colors.primary.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.primary.value as string} />
+          <ColorBox color={Tokens.colors.primary.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.primaryVariant.value: {Tokens.colors.primaryVariant.value}
+            colors.primaryVariant.$value.hex: {Tokens.colors.primaryVariant.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.primaryVariant.value as string} />
+          <ColorBox color={Tokens.colors.primaryVariant.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.secondary.value: {Tokens.colors.secondary.value}
+            colors.secondary.$value.hex: {Tokens.colors.secondary.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.secondary.value as string} />
+          <ColorBox color={Tokens.colors.secondary.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.secondaryVariant.value:{' '}
-            {Tokens.colors.secondaryVariant.value}
+            colors.secondaryVariant.$value.hex:{' '}
+            {Tokens.colors.secondaryVariant.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.secondaryVariant.value as string} />
+          <ColorBox color={Tokens.colors.secondaryVariant.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.accent.value: {Tokens.colors.accent.value}
+            colors.accent.$value.hex: {Tokens.colors.accent.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.accent.value as string} />
+          <ColorBox color={Tokens.colors.accent.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.background.value: {Tokens.colors.background.value}
+            colors.background.$value.hex: {Tokens.colors.background.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.background.value as string} />
+          <ColorBox color={Tokens.colors.background.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.surface.value: {Tokens.colors.surface.value}
+            colors.surface.$value.hex: {Tokens.colors.surface.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.surface.value as string} />
+          <ColorBox color={Tokens.colors.surface.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.error.value: {Tokens.colors.error.value}
+            colors.error.$value.hex: {Tokens.colors.error.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.error.value as string} />
+          <ColorBox color={Tokens.colors.error.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.onPrimary.value: {Tokens.colors.onPrimary.value}
+            colors.onPrimary.$value.hex: {Tokens.colors.onPrimary.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.onPrimary.value as string} />
+          <ColorBox color={Tokens.colors.onPrimary.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.onSecondary.value: {Tokens.colors.onSecondary.value}
+            colors.onSecondary.$value.hex: {Tokens.colors.onSecondary.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.onSecondary.value as string} />
+          <ColorBox color={Tokens.colors.onSecondary.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.onBackground.value: {Tokens.colors.onBackground.value}
+            colors.onBackground.$value.hex: {Tokens.colors.onBackground.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.onBackground.value as string} />
+          <ColorBox color={Tokens.colors.onBackground.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.onSurface.value: {Tokens.colors.onSurface.value}
+            colors.onSurface.$value.hex: {Tokens.colors.onSurface.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.onSurface.value as string} />
+          <ColorBox color={Tokens.colors.onSurface.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.onError.value: {Tokens.colors.onError.value}
+            colors.onError.$value.hex: {Tokens.colors.onError.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.onError.value as string} />
+          <ColorBox color={Tokens.colors.onError.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.textPrimary.value: {Tokens.colors.textPrimary.value}
+            colors.textPrimary.$value.hex: {Tokens.colors.textPrimary.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.textPrimary.value as string} />
+          <ColorBox color={Tokens.colors.textPrimary.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.textSecondary.value: {Tokens.colors.textSecondary.value}
+            colors.textSecondary.$value.hex: {Tokens.colors.textSecondary.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.textSecondary.value as string} />
+          <ColorBox color={Tokens.colors.textSecondary.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.border.value: {Tokens.colors.border.value}
+            colors.border.$value.hex: {Tokens.colors.border.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.border.value as string} />
+          <ColorBox color={Tokens.colors.border.$value.hex as string} />
         </div>
         <div>
-          <TokenValue>colors.link.value: {Tokens.colors.link.value}</TokenValue>
-          <ColorBox color={Tokens.colors.link.value as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.muted.value: {Tokens.colors.muted.value}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.muted.value as string} />
+          <TokenValue>colors.link.$value.hex: {Tokens.colors.link.$value.hex}</TokenValue>
+          <ColorBox color={Tokens.colors.link.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.success.value: {Tokens.colors.success.value}
+            colors.muted.$value.hex: {Tokens.colors.muted.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.success.value as string} />
+          <ColorBox color={Tokens.colors.muted.$value.hex as string} />
         </div>
         <div>
           <TokenValue>
-            colors.warning.value: {Tokens.colors.warning.value}
+            colors.success.$value.hex: {Tokens.colors.success.$value.hex}
           </TokenValue>
-          <ColorBox color={Tokens.colors.warning.value as string} />
+          <ColorBox color={Tokens.colors.success.$value.hex as string} />
+        </div>
+        <div>
+          <TokenValue>
+            colors.warning.$value.hex: {Tokens.colors.warning.$value.hex}
+          </TokenValue>
+          <ColorBox color={Tokens.colors.warning.$value.hex as string} />
         </div>
       </TokenCard>
       <TokenCard>
         <TokenName>Sizes</TokenName>
         <div>
           <TokenValue>
-            sizes.xsmall.value: {Tokens.sizes.xsmall.value}
+            sizes.xsmall.$value.value: {Tokens.sizes.xsmall.$value.value}
           </TokenValue>
-          <TokenValue>sizes.xsmall.unit: {Tokens.sizes.xsmall.unit}</TokenValue>
+          <TokenValue>sizes.xsmall.$value.unit: {Tokens.sizes.xsmall.$value.unit}</TokenValue>
         </div>
         <div>
-          <TokenValue>sizes.small.value: {Tokens.sizes.small.value}</TokenValue>
-          <TokenValue>sizes.small.unit: {Tokens.sizes.small.unit}</TokenValue>
+          <TokenValue>sizes.small.$value.value: {Tokens.sizes.small.$value.value}</TokenValue>
+          <TokenValue>sizes.small.$value.unit: {Tokens.sizes.small.$value.unit}</TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.medium.value: {Tokens.sizes.medium.value}
+            sizes.medium.$value.value: {Tokens.sizes.medium.$value.value}
           </TokenValue>
-          <TokenValue>sizes.medium.unit: {Tokens.sizes.medium.unit}</TokenValue>
+          <TokenValue>sizes.medium.$value.unit: {Tokens.sizes.medium.$value.unit}</TokenValue>
         </div>
         <div>
-          <TokenValue>sizes.large.value: {Tokens.sizes.large.value}</TokenValue>
-          <TokenValue>sizes.large.unit: {Tokens.sizes.large.unit}</TokenValue>
+          <TokenValue>sizes.large.$value.value: {Tokens.sizes.large.$value.value}</TokenValue>
+          <TokenValue>sizes.large.$value.unit: {Tokens.sizes.large.$value.unit}</TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.xlarge.value: {Tokens.sizes.xlarge.value}
+            sizes.xlarge.$value.value: {Tokens.sizes.xlarge.$value.value}
           </TokenValue>
-          <TokenValue>sizes.xlarge.unit: {Tokens.sizes.xlarge.unit}</TokenValue>
+          <TokenValue>sizes.xlarge.$value.unit: {Tokens.sizes.xlarge.$value.unit}</TokenValue>
         </div>
         <TokenName>Line heights</TokenName>
         <div>
           <TokenValue>
-            sizes.lineHeight.value: {Tokens.sizes.lineHeight.value}
+            sizes.lineHeight.$value.value: {Tokens.sizes.lineHeight.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.lineHeight.unit: {Tokens.sizes.lineHeight.unit}
+            sizes.lineHeight.$value.unit: {Tokens.sizes.lineHeight.$value.unit}
           </TokenValue>
         </div>
         <TokenName>Breakpoints</TokenName>
         <div>
           <TokenValue>
-            sizes.breakpoints.small.value:{' '}
-            {Tokens.sizes.breakpoints.small.value}
+            sizes.breakpoints.small.$value.value:{' '}
+            {Tokens.sizes.breakpoints.small.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.breakpoints.small.unit: {Tokens.sizes.breakpoints.small.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.breakpoints.medium.value:{' '}
-            {Tokens.sizes.breakpoints.small.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.breakpoints.medium.unit:{' '}
-            {Tokens.sizes.breakpoints.medium.unit}
+            sizes.breakpoints.small.$value.unit: {Tokens.sizes.breakpoints.small.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.breakpoints.large.value:{' '}
-            {Tokens.sizes.breakpoints.small.value}
+            sizes.breakpoints.medium.$value.value:{' '}
+            {Tokens.sizes.breakpoints.medium.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.breakpoints.large.unit: {Tokens.sizes.breakpoints.large.unit}
+            sizes.breakpoints.medium.$value.unit:{' '}
+            {Tokens.sizes.breakpoints.medium.$value.unit}
+          </TokenValue>
+        </div>
+        <div>
+          <TokenValue>
+            sizes.breakpoints.large.$value.value:{' '}
+            {Tokens.sizes.breakpoints.large.$value.value}
+          </TokenValue>
+          <TokenValue>
+            sizes.breakpoints.large.$value.unit: {Tokens.sizes.breakpoints.large.$value.unit}
           </TokenValue>
         </div>
         <TokenName>Padding</TokenName>
         <div>
           <TokenValue>
-            sizes.padding.xsmall.value: {Tokens.sizes.padding.xsmall.value}
+            sizes.padding.xsmall.$value.value: {Tokens.sizes.padding.xsmall.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.padding.xsmall.unit: {Tokens.sizes.padding.xsmall.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.padding.small.value: {Tokens.sizes.padding.small.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.small.unit: {Tokens.sizes.padding.small.unit}
+            sizes.padding.xsmall.$value.unit: {Tokens.sizes.padding.xsmall.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.padding.medium.value: {Tokens.sizes.padding.medium.value}
+            sizes.padding.small.$value.value: {Tokens.sizes.padding.small.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.padding.medium.unit: {Tokens.sizes.padding.medium.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.padding.large.value: {Tokens.sizes.padding.large.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.large.unit: {Tokens.sizes.padding.large.unit}
+            sizes.padding.small.$value.unit: {Tokens.sizes.padding.small.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.padding.xlarge.value: {Tokens.sizes.padding.xlarge.value}
+            sizes.padding.medium.$value.value: {Tokens.sizes.padding.medium.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.padding.xlarge.unit: {Tokens.sizes.padding.xlarge.unit}
-          </TokenValue>
-        </div>
-        <TokenName>Fonts</TokenName>
-        <div>
-          <TokenValue>
-            sizes.fonts.small.value: {Tokens.sizes.fonts.small.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.fonts.small.unit: {Tokens.sizes.fonts.small.unit}
+            sizes.padding.medium.$value.unit: {Tokens.sizes.padding.medium.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.fonts.medium.value: {Tokens.sizes.fonts.medium.value}
+            sizes.padding.large.$value.value: {Tokens.sizes.padding.large.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.fonts.medium.unit: {Tokens.sizes.fonts.medium.unit}
+            sizes.padding.large.$value.unit: {Tokens.sizes.padding.large.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.fonts.large.value: {Tokens.sizes.fonts.large.value}
+            sizes.padding.xlarge.$value.value: {Tokens.sizes.padding.xlarge.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.fonts.large.unit: {Tokens.sizes.fonts.large.unit}
+            sizes.padding.xlarge.$value.unit: {Tokens.sizes.padding.xlarge.$value.unit}
+          </TokenValue>
+        </div>
+        <TokenName>Font Sizes</TokenName>
+        <div>
+          <TokenValue>
+            sizes.fonts.small.$value.value: {Tokens.sizes.fonts.small.$value.value}
+          </TokenValue>
+          <TokenValue>
+            sizes.fonts.small.$value.unit: {Tokens.sizes.fonts.small.$value.unit}
+          </TokenValue>
+        </div>
+        <div>
+          <TokenValue>
+            sizes.fonts.medium.$value.value: {Tokens.sizes.fonts.medium.$value.value}
+          </TokenValue>
+          <TokenValue>
+            sizes.fonts.medium.$value.unit: {Tokens.sizes.fonts.medium.$value.unit}
+          </TokenValue>
+        </div>
+        <div>
+          <TokenValue>
+            sizes.fonts.large.$value.value: {Tokens.sizes.fonts.large.$value.value}
+          </TokenValue>
+          <TokenValue>
+            sizes.fonts.large.$value.unit: {Tokens.sizes.fonts.large.$value.unit}
           </TokenValue>
         </div>
         <TokenName>Headings</TokenName>
         <div>
           <TokenValue>
-            sizes.headings.h1.value: {Tokens.sizes.headings.h1.value}
+            sizes.headings.h1.$value.value: {Tokens.sizes.headings.h1.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.headings.h1.unit: {Tokens.sizes.headings.h1.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h2.value: {Tokens.sizes.headings.h2.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h2.unit: {Tokens.sizes.headings.h2.unit}
+            sizes.headings.h1.$value.unit: {Tokens.sizes.headings.h1.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.headings.h3.value: {Tokens.sizes.headings.h3.value}
+            sizes.headings.h2.$value.value: {Tokens.sizes.headings.h2.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.headings.h3.unit: {Tokens.sizes.headings.h3.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h4.value: {Tokens.sizes.headings.h4.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h4.unit: {Tokens.sizes.headings.h4.unit}
+            sizes.headings.h2.$value.unit: {Tokens.sizes.headings.h2.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.headings.h5.value: {Tokens.sizes.headings.h5.value}
+            sizes.headings.h3.$value.value: {Tokens.sizes.headings.h3.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.headings.h5.unit: {Tokens.sizes.headings.h5.unit}
+            sizes.headings.h3.$value.unit: {Tokens.sizes.headings.h3.$value.unit}
           </TokenValue>
         </div>
         <div>
           <TokenValue>
-            sizes.headings.h6.value: {Tokens.sizes.headings.h6.value}
+            sizes.headings.h4.$value.value: {Tokens.sizes.headings.h4.$value.value}
           </TokenValue>
           <TokenValue>
-            sizes.headings.h6.unit: {Tokens.sizes.headings.h6.unit}
+            sizes.headings.h4.$value.unit: {Tokens.sizes.headings.h4.$value.unit}
+          </TokenValue>
+        </div>
+        <div>
+          <TokenValue>
+            sizes.headings.h5.$value.value: {Tokens.sizes.headings.h5.$value.value}
+          </TokenValue>
+          <TokenValue>
+            sizes.headings.h5.$value.unit: {Tokens.sizes.headings.h5.$value.unit}
+          </TokenValue>
+        </div>
+        <div>
+          <TokenValue>
+            sizes.headings.h6.$value.value: {Tokens.sizes.headings.h6.$value.value}
+          </TokenValue>
+          <TokenValue>
+            sizes.headings.h6.$value.unit: {Tokens.sizes.headings.h6.$value.unit}
           </TokenValue>
         </div>
       </TokenCard>
       <TokenCard>
-        <TokenName>Fonts</TokenName>
-        <TokenValue>fonts.body.family: {Tokens.fonts.body.family}</TokenValue>
+        <TokenName>Font Families</TokenName>
+        <TokenValue>fonts.body.$value: {fontFamilyToCss(Tokens.fonts.body.$value)}</TokenValue>
         <TokenValue>
-          fonts.heading.family: {Tokens.fonts.heading.family}
+          fonts.heading.$value: {fontFamilyToCss(Tokens.fonts.heading.$value)}
         </TokenValue>
         <TokenValue>
-          fonts.monospace.family: {Tokens.fonts.monospace.family}
+          fonts.monospace.$value: {fontFamilyToCss(Tokens.fonts.monospace.$value)}
         </TokenValue>
         <TokenValue>
-          fonts.quotes.family: {Tokens.fonts.quotes.family}
+          fonts.quotes.$value: {fontFamilyToCss(Tokens.fonts.quotes.$value)}
         </TokenValue>
       </TokenCard>
     </Container>

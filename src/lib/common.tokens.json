@@ -1,206 +1,241 @@
 {
+  "$description": "Design tokens for the Dropship project, conforming to the DTCG Format Module 2025.10 (https://tr.designtokens.org/format/). Not all tokens are implemented in components; some exist as examples.",
   "sizes": {
+    "$type": "dimension",
     "xsmall": {
-      "value": 0.5,
-      "unit": "rem"
+      "$value": { "value": 0.5, "unit": "rem" }
     },
     "small": {
-      "value": 1,
-      "unit": "rem"
+      "$value": { "value": 1, "unit": "rem" }
     },
     "medium": {
-      "value": 1.5,
-      "unit": "rem"
+      "$value": { "value": 1.5, "unit": "rem" }
     },
     "large": {
-      "value": 2,
-      "unit": "rem"
+      "$value": { "value": 2, "unit": "rem" }
     },
     "xlarge": {
-      "value": 3,
-      "unit": "rem"
+      "$value": { "value": 3, "unit": "rem" }
     },
     "lineHeight": {
-      "value": 1.3,
-      "unit": "rem"
+      "$value": { "value": 1.3, "unit": "rem" }
     },
     "breakpoints": {
       "small": {
-        "value": 30,
-        "unit": "rem"
+        "$value": { "value": 30, "unit": "rem" }
       },
       "medium": {
-        "value": 48,
-        "unit": "rem"
+        "$value": { "value": 48, "unit": "rem" }
       },
       "large": {
-        "value": 64,
-        "unit": "rem"
+        "$value": { "value": 64, "unit": "rem" }
       }
     },
     "padding": {
       "xsmall": {
-        "value": 0.75,
-        "unit": "rem"
+        "$value": { "value": 0.75, "unit": "rem" }
       },
       "small": {
-        "value": 1,
-        "unit": "rem"
+        "$value": { "value": 1, "unit": "rem" }
       },
       "medium": {
-        "value": 1.25,
-        "unit": "rem"
+        "$value": { "value": 1.25, "unit": "rem" }
       },
       "large": {
-        "value": 2,
-        "unit": "rem"
+        "$value": { "value": 2, "unit": "rem" }
       },
       "xlarge": {
-        "value": 3,
-        "unit": "rem"
+        "$value": { "value": 3, "unit": "rem" }
       }
     },
     "fonts": {
       "small": {
-        "value": 1,
-        "unit": "rem"
+        "$value": { "value": 1, "unit": "rem" }
       },
       "medium": {
-        "value": 1.5,
-        "unit": "rem"
+        "$value": { "value": 1.5, "unit": "rem" }
       },
       "large": {
-        "value": 2,
-        "unit": "rem"
+        "$value": { "value": 2, "unit": "rem" }
       }
     },
     "headings": {
       "h1": {
-        "value": 2,
-        "unit": "rem"
+        "$value": { "value": 2, "unit": "rem" }
       },
       "h2": {
-        "value": 1.5,
-        "unit": "rem"
+        "$value": { "value": 1.5, "unit": "rem" }
       },
       "h3": {
-        "value": 1.25,
-        "unit": "rem"
+        "$value": { "value": 1.25, "unit": "rem" }
       },
       "h4": {
-        "value": 1,
-        "unit": "rem"
+        "$value": { "value": 1, "unit": "rem" }
       },
       "h5": {
-        "value": 0.875,
-        "unit": "rem"
+        "$value": { "value": 0.875, "unit": "rem" }
       },
       "h6": {
-        "value": 0.85,
-        "unit": "rem"
+        "$value": { "value": 0.85, "unit": "rem" }
       }
     }
   },
   "colors": {
+    "$type": "color",
     "primary": {
-      "value": "#6200ea",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.384, 0, 0.918],
+        "hex": "#6200ea"
+      }
     },
     "primaryVariant": {
-      "value": "#3700b3",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.216, 0, 0.702],
+        "hex": "#3700b3"
+      }
     },
     "secondary": {
-      "value": "#03dac6",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.012, 0.855, 0.776],
+        "hex": "#03dac6"
+      }
     },
     "secondaryVariant": {
-      "value": "#018786",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.004, 0.529, 0.525],
+        "hex": "#018786"
+      }
     },
     "accent": {
-      "value": "#ff4081",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 0.251, 0.506],
+        "hex": "#ff4081"
+      }
     },
     "background": {
-      "value": "#ffffff",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 1, 1],
+        "hex": "#ffffff"
+      }
     },
     "surface": {
-      "value": "#f5f5f5",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.961, 0.961, 0.961],
+        "hex": "#f5f5f5"
+      }
     },
     "error": {
-      "value": "#b00020",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.69, 0, 0.125],
+        "hex": "#b00020"
+      }
     },
     "onPrimary": {
-      "value": "#ffffff",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 1, 1],
+        "hex": "#ffffff"
+      }
     },
     "onSecondary": {
-      "value": "#000000",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "hex": "#000000"
+      }
     },
     "onBackground": {
-      "value": "#000000",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "hex": "#000000"
+      }
     },
     "onSurface": {
-      "value": "#000000",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0, 0, 0],
+        "hex": "#000000"
+      }
     },
     "onError": {
-      "value": "#ffffff",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 1, 1],
+        "hex": "#ffffff"
+      }
     },
     "textPrimary": {
-      "value": "#212121",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.129, 0.129, 0.129],
+        "hex": "#212121"
+      }
     },
     "textSecondary": {
-      "value": "#757575",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.459, 0.459, 0.459],
+        "hex": "#757575"
+      }
     },
     "border": {
-      "value": "#e0e0e0",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.878, 0.878, 0.878],
+        "hex": "#e0e0e0"
+      }
     },
     "link": {
-      "value": "#1e88e5",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.118, 0.533, 0.898],
+        "hex": "#1e88e5"
+      }
     },
     "muted": {
-      "value": "#f6f6f6",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.965, 0.965, 0.965],
+        "hex": "#f6f6f6"
+      }
     },
     "success": {
-      "value": "#4caf50",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.298, 0.686, 0.314],
+        "hex": "#4caf50"
+      }
     },
     "warning": {
-      "value": "#ff9800",
-      "unit": "hex"
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 0.596, 0],
+        "hex": "#ff9800"
+      }
     }
   },
   "fonts": {
+    "$type": "fontFamily",
     "body": {
-      "family": "Arial, sans-serif"
+      "$value": ["Arial", "sans-serif"]
     },
     "heading": {
-      "family": "Georgia, serif"
+      "$value": ["Georgia", "serif"]
     },
     "monospace": {
-      "family": "Courier New, monospace"
+      "$value": ["Courier New", "monospace"]
     },
     "quotes": {
-      "family": "'Times New Roman', Times, serif"
+      "$value": ["Times New Roman", "Times", "serif"]
     }
-  },
-  "### NOTES ###": {
-    "what this file is used for": "This file is used to store all the design tokens for the project. Design tokens are non-divisible elements of a design system that hold values such as colors, spacing, typography, and more. They are used to maintain visual consistency across the project. This token source file can be consumed by various tools and plugins to generate design tokens in different formats (see https://tr.designtokens.org/format/#file-format).",
-    "dropship": "Not all values in this token source file are implemented in the components available in this project. Some exist just as examples.",
-    "learn more": "You can learn more about design tokens and the DTCG format at https://tr.designtokens.org/",
-    "license": "MIT"
   }
 }
