@@ -18,7 +18,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
         smallScreen: 'xsmall'
       },
       style: {
-        height: `${Tokens.sizes.xsmall.value}${Tokens.sizes.xsmall.unit}`
+        height: `${Tokens.sizes.xsmall.$value.value}${Tokens.sizes.xsmall.$value.unit}`
       }
     },
     {
@@ -26,7 +26,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
         smallScreen: 'small'
       },
       style: {
-        height: `${Tokens.sizes.small.value}${Tokens.sizes.small.unit}`
+        height: `${Tokens.sizes.small.$value.value}${Tokens.sizes.small.$value.unit}`
       }
     },
     {
@@ -34,7 +34,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
         smallScreen: 'medium'
       },
       style: {
-        height: `${Tokens.sizes.medium.value}${Tokens.sizes.medium.unit}`
+        height: `${Tokens.sizes.medium.$value.value}${Tokens.sizes.medium.$value.unit}`
       }
     },
     {
@@ -42,7 +42,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
         smallScreen: 'large'
       },
       style: {
-        height: `${Tokens.sizes.large.value}${Tokens.sizes.large.unit}`
+        height: `${Tokens.sizes.large.$value.value}${Tokens.sizes.large.$value.unit}`
       }
     },
     {
@@ -50,7 +50,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
         smallScreen: 'xlarge'
       },
       style: {
-        height: `${Tokens.sizes.xlarge.value}${Tokens.sizes.xlarge.unit}`
+        height: `${Tokens.sizes.xlarge.$value.value}${Tokens.sizes.xlarge.$value.unit}`
       }
     },
     {
@@ -59,7 +59,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 48rem)': {
-          height: `${Tokens.sizes.xsmall.value}${Tokens.sizes.xsmall.unit}`
+          height: `${Tokens.sizes.xsmall.$value.value}${Tokens.sizes.xsmall.$value.unit}`
         }
       }
     },
@@ -69,7 +69,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 48rem)': {
-          height: `${Tokens.sizes.small.value}${Tokens.sizes.small.unit}`
+          height: `${Tokens.sizes.small.$value.value}${Tokens.sizes.small.$value.unit}`
         }
       }
     },
@@ -79,7 +79,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 48rem)': {
-          height: `${Tokens.sizes.medium.value}${Tokens.sizes.medium.unit}`
+          height: `${Tokens.sizes.medium.$value.value}${Tokens.sizes.medium.$value.unit}`
         }
       }
     },
@@ -89,7 +89,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 48rem)': {
-          height: `${Tokens.sizes.large.value}${Tokens.sizes.large.unit}`
+          height: `${Tokens.sizes.large.$value.value}${Tokens.sizes.large.$value.unit}`
         }
       }
     },
@@ -99,7 +99,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 48rem)': {
-          height: `${Tokens.sizes.xlarge.value}${Tokens.sizes.xlarge.unit}`
+          height: `${Tokens.sizes.xlarge.$value.value}${Tokens.sizes.xlarge.$value.unit}`
         }
       }
     },
@@ -109,7 +109,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 64rem)': {
-          height: `${Tokens.sizes.xsmall.value}${Tokens.sizes.xsmall.unit}`
+          height: `${Tokens.sizes.xsmall.$value.value}${Tokens.sizes.xsmall.$value.unit}`
         }
       }
     },
@@ -119,7 +119,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 64rem)': {
-          height: `${Tokens.sizes.small.value}${Tokens.sizes.small.unit}`
+          height: `${Tokens.sizes.small.$value.value}${Tokens.sizes.small.$value.unit}`
         }
       }
     },
@@ -129,7 +129,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 64rem)': {
-          height: `${Tokens.sizes.medium.value}${Tokens.sizes.medium.unit}`
+          height: `${Tokens.sizes.medium.$value.value}${Tokens.sizes.medium.$value.unit}`
         }
       }
     },
@@ -139,7 +139,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 64rem)': {
-          height: `${Tokens.sizes.large.value}${Tokens.sizes.large.unit}`
+          height: `${Tokens.sizes.large.$value.value}${Tokens.sizes.large.$value.unit}`
         }
       }
     },
@@ -149,7 +149,7 @@ const StyledSpacer = styled('div')<SpacerProps>({
       },
       style: {
         '@media (min-width: 64rem)': {
-          height: `${Tokens.sizes.xlarge.value}${Tokens.sizes.xlarge.unit}`
+          height: `${Tokens.sizes.xlarge.$value.value}${Tokens.sizes.xlarge.$value.unit}`
         }
       }
     }

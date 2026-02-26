@@ -1,6 +1,6 @@
 import { styled } from '@pigment-css/react'
 
-import Tokens from '../../../lib/tokens'
+import Tokens, { fontFamilyToCss } from '../../../lib/tokens'
 
 interface BlockquoteProps {
   /** Optional color of the quotation symbols */
@@ -14,23 +14,23 @@ const StyledBlockquote = styled('blockquote')<BlockquoteProps>({
   '&::before': {
     display: 'inline',
     position: 'absolute',
-    fontFamily: Tokens.fonts.quotes.family,
-    fontSize: `${Tokens.sizes.fonts.medium.value * 2}${Tokens.sizes.fonts.medium.unit}`,
+    fontFamily: fontFamilyToCss(Tokens.fonts.quotes.$value),
+    fontSize: `${Tokens.sizes.fonts.medium.$value.value * 2}${Tokens.sizes.fonts.medium.$value.unit}`,
     color: ({ color }) => color,
     opacity: 0.8,
     content: '"❝"',
-    top: `-${Tokens.sizes.medium.value}${Tokens.sizes.fonts.medium.unit}`,
-    left: `-${Tokens.sizes.large.value}${Tokens.sizes.fonts.large.unit}`
+    top: `-${Tokens.sizes.medium.$value.value}${Tokens.sizes.fonts.medium.$value.unit}`,
+    left: `-${Tokens.sizes.large.$value.value}${Tokens.sizes.fonts.large.$value.unit}`
   },
   '&::after': {
     display: 'inline',
     position: 'absolute',
-    fontFamily: Tokens.fonts.quotes.family,
-    fontSize: `${Tokens.sizes.fonts.medium.value * 2}${Tokens.sizes.fonts.medium.unit}`,
+    fontFamily: fontFamilyToCss(Tokens.fonts.quotes.$value),
+    fontSize: `${Tokens.sizes.fonts.medium.$value.value * 2}${Tokens.sizes.fonts.medium.$value.unit}`,
     color: ({ color }) => color,
     opacity: 0.8,
     content: '"❞"',
-    right: `-${Tokens.sizes.large.value}${Tokens.sizes.fonts.large.unit}`
+    right: `-${Tokens.sizes.large.$value.value}${Tokens.sizes.fonts.large.$value.unit}`
   }
 })
 

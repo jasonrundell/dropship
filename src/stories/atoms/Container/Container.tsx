@@ -9,9 +9,9 @@ interface ContainerProps {
 
 const StyledContainer = styled('div')<ContainerProps>({
   margin: '0 auto',
-  padding: `0 ${Tokens.sizes.padding.large.value}${Tokens.sizes.padding.large.unit}`,
+  padding: `0 ${Tokens.sizes.padding.large.$value.value}${Tokens.sizes.padding.large.$value.unit}`,
   '@media (min-width: 48rem)': {
-    maxWidth: `${Tokens.sizes.breakpoints.medium.value}${Tokens.sizes.breakpoints.medium.unit}`
+    maxWidth: `${Tokens.sizes.breakpoints.medium.$value.value}${Tokens.sizes.breakpoints.medium.$value.unit}`
   }
 })
 
