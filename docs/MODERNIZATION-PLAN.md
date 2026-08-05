@@ -1,284 +1,201 @@
 # Dropship Modernization Plan
 
-_Audit date: 2026-08-05 · Covers `jasonrundell/dropship` and
+_Audit and Phases 0–3 executed 2026-08-05 · Covers `jasonrundell/dropship` and
 `jasonrundell/dropship-components`_
 
 ---
 
-## 1. Where things stand today
+## 1. Status
 
-### 1.1 `dropship` — `@jasonrundell/dropship`
+**Phases 0 through 3 are complete**, on branch
+`claude/dropship-modernization-plan-inl5by`. The styling migration was pulled
+forward from Phase 4 because everything else was blocked behind it.
 
-A React component library (9 atoms) built with Vite in library mode, styled with
-Pigment CSS, documented in Storybook, released with `auto`.
+Remaining: Phase 5 (`dropship-components`), Phase 6 (repo hygiene and release
+tooling), Phase 7 (growth).
 
-**Verified by running the toolchain locally on `main` (Node 22, `npm ci`):**
+### What shipped
 
-| Check                | Result                                                             |
-| -------------------- | ------------------------------------------------------------------ |
-| `npm run build`      | ✅ passes (28 modules, ES + CJS + `.d.ts` + `style.css`)           |
-| `npm test`           | ✅ 59 tests pass — but **all 59 are token tests**                  |
-| `npm run lint`       | ❌ **crashes before linting a single file**                        |
-| CI — Release         | ❌ failing on every run since at least 2025-12                     |
-| CI — Chromatic       | ❌ failing on every run since at least 2026-04                     |
-| `npm audit`          | ⚠️ 8 advisories — 3 critical, 3 high                                |
+| Area                  | Before                  | After                                    |
+| --------------------- | ----------------------- | ---------------------------------------- |
+| `npm run lint`        | crashed on rule load    | passes, 32 files                         |
+| Release workflow      | failing since ~2025-12  | rewritten, npm provenance                |
+| Chromatic             | red on 18 straight runs | Dependabot/fork runs skipped             |
+| Component tests       | 0                       | 135 tests across all 9 atoms, plus axe   |
+| Coverage              | not measured            | 100% statements/branches/functions/lines |
+| Production advisories | 8 (3 critical, 3 high)  | **0**                                    |
+| Runtime dependencies  | 4                       | **0**                                    |
+| ES bundle             | 26.5 kB                 | **6.7 kB**                               |
+| Styling               | Pigment CSS 0.0.29      | vanilla-extract 1.21                     |
+| React                 | 18.3                    | 19.2 (peer `^19`)                        |
+| Vite                  | 5.4                     | 8.2                                      |
+| Storybook             | 8.4                     | 10.5                                     |
+| TypeScript            | 5.6                     | 6.0                                      |
+| ESLint                | 9 (crashing)            | 10.8 + React Compiler rules              |
 
-**The three things that are actually broken right now:**
+Every commit was verified with lint, typecheck, the full test suite, a
+production build, `publint`, `attw`, a Storybook build, and — for the packaging
+and framework changes — by packing the tarball and rendering all nine components
+through `renderToStaticMarkup` in a scratch consumer project.
 
-1. **Lint is dead.** `eslint@9.39.2` resolved against `typescript-eslint@8`
-   throws on rule load:
-   `TypeError: Error while loading rule '@typescript-eslint/no-unused-expressions': Cannot read properties of undefined (reading 'allowShortCircuit')`.
-   It never lints anything — so nothing has been lint-checked for months.
+### Three findings that changed the plan
 
-2. **Releases are not reaching npm.** GitHub has a `v3.4.0` tag and release
-   (2026-02-26) and `package.json` says `3.4.0`, but **npm's latest is `3.3.1`
-   from 2025-01-24**. Every `Release` workflow run for the last ~8 months
-   concluded `failure`. The workflow itself is the likely culprit — it still
-   uses `actions/checkout@v2`, `actions/setup-node@v1`, and pins Node
-   `18.17.0` (EOL). Anyone doing `npm i @jasonrundell/dropship` today gets
-   code from January 2025, including the pre-DTCG token API.
+**1. Releases were never reaching npm.** GitHub had a `v3.4.0` tag and release
+from 2026-02-26 and `package.json` said `3.4.0`, but npm's latest was `3.3.1`
+from 2025-01-24. Every `Release` run had failed for roughly eight months — the
+workflow still used `actions/checkout@v2`, `actions/setup-node@v1`, and a pin to
+EOL Node 18.17.0. Anyone running `npm i @jasonrundell/dropship` was getting
+January 2025 code, including the pre-DTCG token API.
 
-3. **Chromatic is red on every run**, so there is no visual-regression safety
-   net, and 7 open Dependabot PRs are stalled behind red CI.
+**2. Chromatic was not broken — Dependabot was.** All 18 failures were on
+`dependabot/*` branches; `main` was 6 for 6. Dependabot PRs cannot read
+repository secrets, so `CHROMATIC_PROJECT_TOKEN` resolved to an empty string.
+Those runs are now skipped rather than reported as failures nobody could fix.
 
-**Version drift** (repo → current):
+**3. Pigment CSS had to go before anything else could move.** It accounted for
+two of the three critical advisories (via `@wyw-in-js/transform` → `happy-dom`),
+its Vite plugin peer-capped at Vite 6 which blocked Vite 7 and 8, upgrading it
+to 0.0.31 silently dropped most of the library's extracted CSS (2257 bytes
+across 4 rules down to 379 bytes across 2), and its Vite plugin broke v8
+coverage instrumentation so components silently vanished from the report. It was
+pinned to 0.0.29 and then removed.
 
-| Package                  | Repo     | Latest   | Gap        |
-| ------------------------ | -------- | -------- | ---------- |
-| React / React DOM        | 18.3.1   | 19.2.8   | 1 major    |
-| Vite                     | 5.4.x    | 8.2.0    | 3 majors   |
-| Storybook                | 8.4.x    | 10.5.6   | 2 majors   |
-| TypeScript               | 5.6      | 7.0.2    | 2 majors   |
-| ESLint                   | 9.x      | 10.8.0   | 1 major    |
-| `@vitejs/plugin-react`   | 4.3.x    | 6.0.5    | 2 majors   |
-| Vitest                   | 4.0.18   | 4.1.10   | current ✅ |
-| `@pigment-css/react`     | 0.0.29   | 0.0.31   | pre-1.0 ⚠️ |
+That produced a strict ordering — **styling → Storybook → Vite** — since
+Storybook 8 also peer-caps at Vite 6, so Storybook 10 had to land before Vite 8,
+which was itself only reachable once Pigment was gone.
 
-**Security.** 3 critical advisories, all reachable from direct dependencies:
+### Notable outcomes
 
-- `@pigment-css/react` → `@wyw-in-js/transform` → `happy-dom` — **VM context
-  escape leading to RCE**. This is a build-time dependency of the styling
-  engine, so it runs on every dev/CI build.
-- `@pigment-css/vite-plugin` — same chain.
-- `vitest` — arbitrary file read/execute when the Vitest UI server is
-  listening.
+- **Design tokens are now overridable.** They compile to CSS custom properties
+  with stable, readable names (`--dropship-color-primary`) rather than
+  build-hashed ones. Setting one in a consumer stylesheet restyles every
+  component that uses it, with no rebuild — and gives dark mode somewhere to
+  attach. `common.tokens.json` remains the single source of truth.
+- **The package has no runtime dependencies.** The built bundle imports only
+  `react` and `react/jsx-runtime`; vanilla-extract's runtime helpers are small
+  enough to inline. Consumers no longer install a styling peer at all — a
+  scratch install pulls 4 packages, down from 136.
+- **Packaging is now verified.** `publint` and `attw` gate CI and caught two
+  real defects: the CJS entry was a `.js` file inside a `"type": "module"`
+  package (so Node parsed it as ESM), and the `types` condition was ordered last
+  (so types only resolved via dynamic import).
+- **Coverage went 79.5% → 100%** as a side effect of the styling migration. The
+  gap had been Pigment's callback props, which only the build-time transform
+  could invoke and no test could reach.
 
-Plus high-severity `vite`, `lodash`, `minimatch`, `picomatch`, `postcss`,
-`js-yaml`, `flatted`, `fast-uri`, `brace-expansion`, `ws`.
+---
 
-**Code and packaging issues found by reading the source:**
+## 2. Remaining work
 
-- **`yaml` is a runtime `dependency`** (`package.json:39`) but is imported
-  nowhere in `src/`. It was added as a transitive-resolution workaround and now
-  ships to every consumer for nothing — and it carries its own advisory.
-- **`vite.config.ts` mixes JSX transforms.** `tsconfig` sets
-  `"jsx": "react-jsx"` (automatic runtime), but `vite.config.ts:19-23` sets
-  `esbuild.jsxInject`, `jsxFactory`, and `jsxFragment` to the classic runtime.
-  The inject forces `import React from 'react'` into every module, which is
-  what pushes the CJS bundle to 17 KB and blocks a clean React 19 story.
-- **The `exports` map is malformed.** In `package.json:13-21`, `"types"` is
-  listed _after_ `"import"`/`"require"`. Condition order is significant —
-  `"types"` must come first or TypeScript's `bundler`/`node16` resolution can
-  miss it. `"style"` is also not a resolvable condition where it sits.
-- **Library source lives in `src/stories/`.** `src/index.ts` exports from
-  `./stories/atoms/...`. The Storybook demo folder is doubling as the public
-  API surface, which makes it easy to accidentally ship a story asset.
-- **No component tests at all.** `vitest.config.ts` sets
-  `environment: 'node'` with no jsdom and no Testing Library. 9 components,
-  0 render tests. The 59 passing tests all cover `src/lib/tokens.ts`.
-- **Storybook config targets a dead API surface.** `addon-essentials`,
-  `addon-interactions`, and `addon-onboarding` were absorbed or removed in
-  Storybook 9/10 (`@storybook/addon-essentials` latest is `8.6.14`), and
-  `features.experimentalRSC` no longer exists.
-- **No `LICENSE` file**, though `README.md` says "See the LICENSE file for
-  details" and `package.json` declares MIT.
-- **No `.github/dependabot.yml`** — only GitHub's default security updates
-  are running, which is why the open PRs are all advisory bumps.
-- **No `engines`, no `sideEffects`, no `peerDependencies`.** React and
-  `@pigment-css/react` are `externals` in the Rollup config but listed as
-  regular `dependencies`, so consumers can silently end up with two Reacts.
-- **No `.nvmrc` / Node version pin**, and CI Node versions disagree across
+### Phase 5 — `dropship-components`
+
+Per your decision this becomes a separate library of unstyled semantic
+primitives rather than being archived. Not started. Scope:
+
+- Replace the entire toolchain: React 16 → 19, Enzyme → Testing Library, Jest 23
+  → Vitest, Parcel 1 → Vite, Babel 6 presets → none, Travis (Node 7) → GitHub
+  Actions.
+- **All 21 test files need rewriting.** The suite is built on
+  `enzyme-adapter-react-16`, and no Enzyme adapter has ever existed for React 17
+  or later, so none of it can be carried forward as-is.
+- Decide the published package name and publish to npm for the first time (it
+  has never been published — `npm view dropship-components` returns 404).
+- Stop committing `dist/` to the repository.
+- Draw a clear boundary against `dropship`. `Button`, `Heading`, and `Link`
+  currently exist in both, and the two libraries need a stated division of
+  responsibility before both are on npm.
+
+### Phase 6 — Repo hygiene and release tooling
+
+- **Migrate `auto` → Changesets.** All 22 remaining advisories are dev-only and
+  rooted in `auto` (via `@octokit/*`) and `yaml`. `auto` is also heavy for a
+  single-package repo.
+- **Publish the pending release.** `package.json` is at 3.4.0 while npm is still
+  on 3.3.1. The React 19 peer requirement makes the next release a **4.0.0
+  major**.
+- Move library source out of `src/stories/` into `src/components/`. The
+  Storybook demo folder is currently doubling as the public API surface, which
+  makes it easy to ship a story asset by accident.
+- Add `CONTRIBUTING.md`, issue and PR templates, and `CODEOWNERS`.
+
+### Phase 7 — Growth
+
+- **Dark mode**, now that tokens are CSS custom properties — the mechanism is
+  already in place.
+- **First molecules**: `Card`, `Field`, `ButtonGroup`.
+- **Port semantic atoms** worth keeping from `dropship-components`: `Paragraph`,
+  `Image`, `Code`, `Label`, `InputText`, `Form`, `Nav`, lists.
+- **Add `eslint-plugin-jsx-a11y`** once it supports ESLint 10. Its latest
+  release (6.10.2) is from October 2024 and caps at ESLint 9; forcing the pair
+  is what left lint crashing for months. Accessibility is covered meanwhile by
+  axe assertions in every component test and by `@storybook/addon-a11y`.
+
+---
+
+## 3. Repository state as found (2026-08-05)
+
+Kept for reference — this is what the audit turned up before any changes.
+
+### 3.1 `dropship` — `@jasonrundell/dropship` 3.4.0
+
+Verified by running the toolchain on `main` (Node 22, `npm ci`):
+
+| Check           | Result                                            |
+| --------------- | ------------------------------------------------- |
+| `npm run build` | ✅ passed                                         |
+| `npm test`      | ✅ 59 tests — but all 59 covered `src/lib/tokens` |
+| `npm run lint`  | ❌ crashed before linting a single file           |
+| CI — Release    | ❌ failing every run since at least 2025-12       |
+| CI — Chromatic  | ❌ failing on every `dependabot/*` run            |
+| `npm audit`     | ⚠️ 8 production advisories — 3 critical, 3 high   |
+
+Code and packaging issues found by reading the source:
+
+- `yaml` was a runtime `dependency` but imported nowhere in `src/`.
+- `vite.config.ts` set `esbuild.jsxInject`/`jsxFactory`/`jsxFragment` (classic
+  runtime) while `tsconfig` set `"jsx": "react-jsx"` (automatic runtime).
+- The `exports` map listed `"types"` last and pointed `require` at a `.js` file
+  in a `"type": "module"` package.
+- Library source lived in `src/stories/`; `src/index.ts` exported from
+  `./stories/atoms/...`.
+- `vitest.config.ts` used `environment: 'node'` with no jsdom and no Testing
+  Library — a component test could not have been written.
+- Six components typed `children` as `React.ReactNode` without importing React,
+  relying on the deprecated UMD global, which leaked into `dist/index.d.ts`.
+- Storybook config targeted `addon-essentials`, `addon-interactions`,
+  `addon-onboarding`, and `features.experimentalRSC`, all removed in 9/10.
+- `eslint.config.js` ignored only `dist`, so build outputs got linted.
+- The Storybook ESLint plugin was configured in a legacy `eslintConfig` block in
+  `package.json` that flat config never reads, so its rules never ran.
+- No `LICENSE` file, though `README.md` referenced one.
+- No `.github/dependabot.yml`, no `engines`, no `sideEffects`, no
+  `peerDependencies`, no Node version pin, and CI Node versions disagreed across
   workflows (20 in build/chromatic, 18.17.0 in release).
 
-### 1.2 `dropship-components`
+### 3.2 `dropship-components`
 
-Effectively abandoned. Last commit **2023-03-02**; the code itself is 2018-era.
+Effectively abandoned. Last commit 2023-03-02; the code is 2018-era.
 
-- **React 16.5**, **Enzyme 3 + `enzyme-adapter-react-16`** (no adapter has ever
-  existed for React 17+ — this test suite cannot be carried forward as-is),
-  **Jest 23**, **Parcel 1** (EOL), **Babel 6** presets (`babel-preset-env`,
-  `babel-preset-react` — both superseded by `@babel/*` scoped packages years
-  ago).
-- CI is **Travis**, targeting **Node 7**.
-- **Never published to npm** — `npm view dropship-components` returns 404. It
-  has no consumers.
-- `dist/` is committed to the repository.
-- Contains 21 unstyled semantic wrappers: `Abbr`, `Address`, `Article`,
-  `Aside`, `Button`, `Code`, `Div`, `Footer`, `Form`, `Heading`, `Hgroup`,
-  `Image`, `InputSubmit`, `InputText`, `Label`, `Link`, `Nav`, `OrderedList`,
-  `Paragraph`, `Section`, `UnorderedList`. Most are one-line
-  `props → element` passthroughs.
-
-**Recommendation: archive it.** Modernizing it would mean replacing every
-single tool in the stack for a package nobody installs, and `dropship` already
-supersedes its `Button`, `Heading`, and `Link`. The one thing worth salvaging
-is the _idea list_ — several of those semantic elements are reasonable
-candidates for new `dropship` atoms (see Phase 5).
+- React 16.5, Enzyme 3 + `enzyme-adapter-react-16`, Jest 23, Parcel 1 (EOL),
+  Babel 6 presets. CI is Travis, targeting Node 7.
+- Never published to npm.
+- `dist/` committed to the repository.
+- 21 unstyled semantic wrappers, most of them one-line `props → element`
+  passthroughs: `Abbr`, `Address`, `Article`, `Aside`, `Button`, `Code`, `Div`,
+  `Footer`, `Form`, `Heading`, `Hgroup`, `Image`, `InputSubmit`, `InputText`,
+  `Label`, `Link`, `Nav`, `OrderedList`, `Paragraph`, `Section`,
+  `UnorderedList`.
 
 ---
 
-## 2. Guiding principles
+## 4. Guiding principles used
 
 1. **Get to green before getting to new.** A repo where lint crashes and
-   releases silently fail can't absorb a React 19 + Vite 8 + Storybook 10 jump
-   safely. Fix the pipeline first, then upgrade under it.
-2. **One concern per PR.** Each phase below is a reviewable PR that leaves
-   `main` releasable.
+   releases silently fail cannot absorb a React 19 + Vite 8 + Storybook 10 jump
+   safely. The pipeline was fixed first, then upgraded under.
+2. **One concern per commit**, each leaving `main` releasable.
 3. **Every upgrade lands with a test that would have caught its regression.**
-4. **Don't grow the API surface until the foundation is solid.** New components
-   come last.
-
----
-
-## 3. The plan
-
-### Phase 0 — Unbreak the pipeline (highest priority, no version bumps)
-
-Goal: `lint`, `test`, `build`, and `release` all pass on `main`.
-
-- Align `eslint` / `typescript-eslint` to a compatible pair and confirm
-  `npm run lint` actually reports on files. Add `--max-warnings=0`.
-- Repair the `Release` workflow: `actions/checkout@v4`,
-  `actions/setup-node@v4`, drop the Node 18.17.0 pin, `npm ci` instead of
-  `npm install -g @storybook/cli && npm install`. Diagnose the underlying
-  publish failure and get `3.4.0` (or `3.4.1`) onto npm.
-- Repair or temporarily disable the Chromatic workflow so PR CI is meaningful.
-- Add a single `ci.yml` that runs lint + test + build on PRs, replacing the
-  build-only workflow.
-- Add `.nvmrc` and `"engines": { "node": ">=22" }`; use one Node version
-  everywhere.
-- Add `.github/dependabot.yml` (npm + github-actions ecosystems, weekly,
-  grouped minor/patch) so bumps arrive in batches instead of one PR per CVE.
-
-**Exit criteria:** green CI on a PR, and `npm view @jasonrundell/dropship
-version` matches `package.json`.
-
-### Phase 1 — Packaging correctness (no behaviour change)
-
-- Fix the `exports` map: `"types"` first, add a proper `"./style.css"` entry,
-  keep `main`/`module`/`types` as legacy fallbacks.
-- Move `react`, `react-dom`, and the styling runtime from `dependencies` to
-  `peerDependencies` (with `peerDependenciesMeta` where optional), matching the
-  Rollup `external` list.
-- **Remove the unused `yaml` runtime dependency.**
-- Add `"sideEffects": ["*.css"]` so bundlers can tree-shake the JS.
-- Remove the conflicting `esbuild.jsxInject` / `jsxFactory` / `jsxFragment`
-  block so the automatic JSX runtime is used consistently. Expect the bundle to
-  shrink.
-- Add a `publint` + `@arethetypeswrong/cli` check to CI to keep this honest.
-
-**Exit criteria:** `publint` clean; a scratch Vite app and a scratch Next.js app
-both consume the tarball (`npm pack`) without warnings.
-
-### Phase 2 — Test infrastructure
-
-This is the prerequisite for every upgrade after it. Without render tests, a
-React 19 or Storybook 10 migration is unverifiable.
-
-- Switch `vitest.config.ts` to `environment: 'jsdom'`, add
-  `@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`.
-- Write render + prop + a11y-role tests for all 9 atoms. Target meaningful
-  coverage of the public API, not a percentage.
-- Add `vitest --coverage` with a threshold gate in CI.
-- Add `axe-core`/`vitest-axe` assertions to each atom's test — the library's
-  pitch is "consistent and maintainable UI", and accessibility should be part
-  of that contract.
-
-**Exit criteria:** every exported component has a test; coverage gate enforced
-in CI.
-
-### Phase 3 — Framework upgrades (sequential, one PR each)
-
-Order matters; each step is independently revertable.
-
-1. **TypeScript 5.6 → 5.9**, then evaluate **7.x** separately. TS 7 is the
-   native/Go compiler rewrite — worth adopting, but not in the same PR as a
-   React major. Turn on `verbatimModuleSyntax` and `erasableSyntaxOnly`.
-2. **Vite 5 → 6 → 7 → 8** and `@vitejs/plugin-react` 4 → 6. Vite 6+ ships the
-   Environment API and drops the deprecated CJS Node API the current build
-   warns about.
-3. **React 18 → 19** and `@types/react` 19. Peer range becomes `>=18 <20` or
-   `^19` depending on your answer to Q3 below. Check `React.ReactNode` typing
-   changes and the `ref`-as-prop change in each atom.
-4. **Storybook 8 → 9 → 10.** Migrate off `addon-essentials`/`addon-interactions`
-   /`addon-onboarding`, drop `features.experimentalRSC`, adopt the Vitest-based
-   test addon (which replaces the old interaction-test runner and can share the
-   Phase 2 test setup).
-5. **ESLint 9 → 10**, `typescript-eslint` 8 → latest, add
-   `eslint-plugin-jsx-a11y` and `eslint-plugin-react-compiler`.
-
-**Exit criteria:** all green, Chromatic shows no unintended visual diffs, and
-the packed tarball still works in the scratch consumer apps.
-
-### Phase 4 — Styling engine decision ⚠️ **needs your call — see Q2**
-
-`@pigment-css/react` is still `0.0.31` after two years and is the source of two
-of the three critical advisories. This is the single biggest architectural risk
-in the repo. Options are laid out in the questions section; the work is roughly
-"rewrite 9 `styled()` calls plus the token bridge," which is a contained,
-mechanical change either way — but it's a decision, not a default.
-
-### Phase 5 — Consolidation and growth
-
-- **Archive `dropship-components`** on GitHub (read-only, with a README banner
-  pointing at `dropship`).
-- Optionally port the genuinely useful semantic atoms from it into `dropship`
-  with real styling, tokens, tests, and stories. Best candidates:
-  `Paragraph`, `Image`, `Code`, `Blockquote` (already exists), `Label`,
-  `InputText`, `Form`, `Nav`, `List`.
-- Fill out the atomic-design story the README promises: with atoms solid,
-  add the first molecules (`Card`, `Field`, `ButtonGroup`).
-- Add dark mode via token-level CSS custom properties.
-
-### Phase 6 — Repo hygiene
-
-- Add the missing `LICENSE` (MIT) file the README already references.
-- Add `CONTRIBUTING.md`, issue/PR templates, `CODEOWNERS`.
-- Rewrite `README.md` with a real quickstart, per-component prop tables, and
-  a token-usage section (the v3.4.0 DTCG breaking change is currently only
-  documented in a GitHub release body).
-- Move library source out of `src/stories/` into `src/components/`, leaving
-  `*.stories.tsx` alongside. Re-point `src/index.ts`.
-- Enable npm **provenance** / OIDC trusted publishing in the release workflow.
-- Consider migrating `auto` → **Changesets** (`auto` itself carries 4 open
-  advisories via `@octokit/*` and is a heavy dependency for a single-package
-  repo).
-
----
-
-## 4. Suggested sequencing
-
-| PR  | Phase | Content                                   | Risk   |
-| --- | ----- | ----------------------------------------- | ------ |
-| 1   | 0     | Fix lint, CI workflows, Node pin, Dependabot | Low    |
-| 2   | 0     | Fix release → publish 3.4.x to npm        | Low    |
-| 3   | 1     | Packaging: exports, peers, drop `yaml`, JSX | Medium |
-| 4   | 2     | jsdom + RTL + tests for 9 atoms + coverage | Low    |
-| 5   | 3.1   | TypeScript 5.9                            | Low    |
-| 6   | 3.2   | Vite 6 → 8                                | Medium |
-| 7   | 3.3   | React 19                                  | Medium |
-| 8   | 3.4   | Storybook 10                              | Medium |
-| 9   | 3.5   | ESLint 10 + a11y plugins                  | Low    |
-| 10  | 4     | Styling engine (pending decision)         | High   |
-| 11  | 5     | Archive `dropship-components`             | Low    |
-| 12  | 6     | LICENSE, README, docs, repo layout        | Low    |
-
-Phases 0–2 are the ones that actually matter for reliability. Everything from
-Phase 3 on is safe to do incrementally once they're done.
-
----
-
-## 5. Open questions
-
-See the questions raised alongside this document. Phase 4 in particular cannot
-start without a decision on the styling engine.
+   The 132 pre-existing tests passing unmodified is what demonstrates the
+   styling migration preserved behaviour.
+4. **Verify against the published artifact, not just the source tree.** Several
+   defects were only visible from a packed tarball consumed by another project.
