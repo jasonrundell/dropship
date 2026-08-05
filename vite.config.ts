@@ -13,13 +13,16 @@ export default defineConfig({
       bundleTypes: true,
       tsconfigPath: './tsconfig.app.json',
       // Without this the emit walks every file the tsconfig includes and
-      // ships declarations for tests and stories alongside the library.
-      include: [
-        'src/index.ts',
-        'src/lib/**/*.ts',
-        'src/stories/atoms/**/*.tsx'
-      ],
-      exclude: ['**/*.test.*', '**/*.stories.*']
+      // ships declarations for tests, stories, and the demo app alongside the
+      // library. Excluding rather than narrowing `include` keeps the .css.ts
+      // and token JSON files in the project, which the sources import.
+      exclude: [
+        '**/*.test.*',
+        '**/*.stories.*',
+        'src/test/**',
+        'src/App.tsx',
+        'src/main.tsx'
+      ]
     }),
     vanillaExtractPlugin()
   ],
