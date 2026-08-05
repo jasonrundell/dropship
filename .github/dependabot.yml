@@ -1,0 +1,58 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      # Keep related tooling moving together so a single red PR doesn't
+      # stall the whole queue the way one-PR-per-CVE did.
+      storybook:
+        patterns:
+          - 'storybook'
+          - '@storybook/*'
+          - '@chromatic-com/storybook'
+          - 'eslint-plugin-storybook'
+          - 'chromatic'
+      vite:
+        patterns:
+          - 'vite'
+          - 'vitest'
+          - '@vitejs/*'
+          - '@vitest/*'
+          - 'vite-plugin-*'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+      linting:
+        patterns:
+          - 'eslint'
+          - '@eslint/*'
+          - 'eslint-plugin-*'
+          - 'typescript-eslint'
+          - 'prettier'
+      testing-library:
+        patterns:
+          - '@testing-library/*'
+          - 'jsdom'
+          - 'axe-core'
+          - 'vitest-axe'
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns:
+          - '*'
