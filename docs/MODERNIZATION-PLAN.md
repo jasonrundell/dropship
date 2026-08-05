@@ -1,18 +1,20 @@
 # Dropship Modernization Plan
 
-_Audit and Phases 0–3 executed 2026-08-05 · Covers `jasonrundell/dropship` and
+_Audit and Phases 0–6 executed 2026-08-05 · Covers `jasonrundell/dropship` and
 `jasonrundell/dropship-components`_
 
 ---
 
 ## 1. Status
 
-**Phases 0 through 3 are complete**, on branch
-`claude/dropship-modernization-plan-inl5by`. The styling migration was pulled
-forward from Phase 4 because everything else was blocked behind it.
+**Phases 0 through 6 are complete.** The styling migration was pulled forward
+from Phase 4 because everything else was blocked behind it.
 
-Remaining: Phase 5 (`dropship-components`), Phase 6 (repo hygiene and release
-tooling), Phase 7 (growth).
+- `dropship` — branch `claude/dropship-modernization-plan-inl5by`
+- `dropship-components` — branch `claude/modernize-as-dropship-primitives`,
+  rebuilt and renamed to `@jasonrundell/dropship-primitives`
+
+Remaining: Phase 7 (growth), which is feature work rather than modernization.
 
 ### What shipped
 
@@ -87,44 +89,69 @@ which was itself only reachable once Pigment was gone.
 
 ## 2. Remaining work
 
-### Phase 5 — `dropship-components`
+### Phase 5 — `dropship-components` ✅
 
-Per your decision this becomes a separate library of unstyled semantic
-primitives rather than being archived. Not started. Scope:
+Rebuilt as **`@jasonrundell/dropship-primitives`** on branch
+`claude/modernize-as-dropship-primitives`. Never having been published meant no
+consumers and no compatibility to preserve, so the API was corrected rather than
+carried forward.
 
-- Replace the entire toolchain: React 16 → 19, Enzyme → Testing Library, Jest 23
-  → Vitest, Parcel 1 → Vite, Babel 6 presets → none, Travis (Node 7) → GitHub
-  Actions.
-- **All 21 test files need rewriting.** The suite is built on
-  `enzyme-adapter-react-16`, and no Enzyme adapter has ever existed for React 17
-  or later, so none of it can be carried forward as-is.
-- Decide the published package name and publish to npm for the first time (it
-  has never been published — `npm view dropship-components` returns 404).
-- Stop committing `dist/` to the repository.
-- Draw a clear boundary against `dropship`. `Button`, `Heading`, and `Link`
-  currently exist in both, and the two libraries need a stated division of
-  responsibility before both are on npm.
+All 21 components are kept, but they no longer just re-emit a tag:
 
-### Phase 6 — Repo hygiene and release tooling
+- **Every prop is forwarded.** The originals accepted only `cssClass` and
+  `children` and silently dropped everything else — `id`, `aria-*`, and event
+  handlers had nowhere to go.
+- **`className`** replaces the non-standard `cssClass`.
+- **Refs reach the element.** React 19 makes `ref` an ordinary prop, so this
+  needed no `forwardRef` wrappers.
+- **Polymorphic `as`**, with props type-checked against whatever it resolves to.
+  Verified with a negative type check: `<Link as="button" href="/x" />`,
+  `<Button href="/x" />`, and `<Heading level={7} />` are all compile errors.
+- **`createPrimitive` is exported** so consumers can build their own.
 
-- **Migrate `auto` → Changesets.** All 22 remaining advisories are dev-only and
-  rooted in `auto` (via `@octokit/*`) and `yaml`. `auto` is also heavy for a
-  single-package repo.
-- **Publish the pending release.** `package.json` is at 3.4.0 while npm is still
-  on 3.3.1. The React 19 peer requirement makes the next release a **4.0.0
-  major**.
-- Move library source out of `src/stories/` into `src/components/`. The
-  Storybook demo folder is currently doubling as the public API surface, which
-  makes it easy to ship a story asset by accident.
-- Add `CONTRIBUTING.md`, issue and PR templates, and `CODEOWNERS`.
+Two bugs fixed along the way:
+
+- The lists keyed children by `item.toString()`, so a list of three identical
+  strings collapsed to one item. Items now take an explicit `key`, with the
+  index as fallback.
+- An SSR check caught `<Button as="a">` emitting `<a type="button">`, where
+  `type` declares a MIME type. Element-specific defaults now apply only when the
+  rendered element is the primitive's own. Pinned by tests.
+
+Toolchain: Vite 8, TypeScript 6, Vitest 4 with Testing Library, ESLint 10,
+Storybook 10, Changesets, GitHub Actions. The Enzyme suite could not be carried
+forward — no adapter has ever existed past React 16 — so all 21 test files were
+rewritten. 130 tests at 100% coverage, `publint` clean, `attw` green.
+
+**Still to decide:** the repository is still named `dropship-components` while
+the package is `@jasonrundell/dropship-primitives`. Renaming the repo would
+align them; the package's `repository` field points at the current name and
+would need updating if you do.
+
+### Phase 6 — Repo hygiene and release tooling ✅
+
+- **Migrated `auto` → Changesets.** `auto` accounted for 13 of the 22 remaining
+  dev advisories through `@octokit/*`, and drove versioning off PR labels. The
+  release workflow now opens a "Version Packages" PR; merging it publishes. Dev
+  advisories are down to 9, none from direct dependencies.
+- **The 4.0.0 major is staged** as a changeset. Verified that
+  `changeset version` resolves it to 4.0.0 and writes the changelog correctly.
+- **Dropped the `yaml` devDependency**, a transitive-resolution workaround that
+  is unnecessary on Vite 8 and Vitest 4.
+- **Library source moved** from `src/stories/atoms/` to `src/components/`. The
+  Storybook demo folder had been doubling as the public API surface.
+- **Added `CONTRIBUTING.md`**, issue forms, a PR template, and `CODEOWNERS`.
 
 ### Phase 7 — Growth
 
 - **Dark mode**, now that tokens are CSS custom properties — the mechanism is
   already in place.
 - **First molecules**: `Card`, `Field`, `ButtonGroup`.
-- **Port semantic atoms** worth keeping from `dropship-components`: `Paragraph`,
-  `Image`, `Code`, `Label`, `InputText`, `Form`, `Nav`, lists.
+- **Decide how the two libraries relate in practice.** `Button`, `Heading`, and
+  `Link` exist in both. The stated division — Dropship is styled and
+  opinionated, Dropship Primitives is unstyled markup — is written into both
+  READMEs, but it is worth revisiting whether Dropship should build its atoms
+  _on_ the primitives rather than duplicating them.
 - **Add `eslint-plugin-jsx-a11y`** once it supports ESLint 10. Its latest
   release (6.10.2) is from October 2024 and caps at ESLint 9; forcing the pair
   is what left lint crashing for months. Accessibility is covered meanwhile by

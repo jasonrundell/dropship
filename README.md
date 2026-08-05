@@ -111,6 +111,12 @@ follows, testing expectations, and how releases work.
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE)
 file for details.
 
+## Related
+
+Looking for unstyled semantic markup rather than styled components?
+[`@jasonrundell/dropship-primitives`](https://github.com/jasonrundell/dropship-components)
+is the companion library: polymorphic HTML primitives that ship no CSS.
+
 ## Links
 
 - [NPM @jasonrundell/dropship](https://www.npmjs.com/package/@jasonrundell/dropship)
