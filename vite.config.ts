@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { pigment } from '@pigment-css/vite-plugin'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import path from 'path'
@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     react(),
     dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
-    pigment()
+    vanillaExtractPlugin()
   ],
   resolve: {
     alias: {
@@ -25,15 +25,21 @@ export default defineConfig({
       // extension or Node parses it as ESM and consumers get a syntax error.
       fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs')
     },
+    cssCodeSplit: false,
+    // public/ holds Storybook demo assets; they must not ship in the package.
+    copyPublicDir: false,
     sourcemap: true,
     rollupOptions: {
-      external: ['react', 'react-dom', '@pigment-css/react'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
-          '@pigment-css/react': 'pigmentCssReact'
+          'react-dom': 'ReactDOM'
         },
+        assetFileNames: (asset) =>
+          asset.names?.some((name) => name.endsWith('.css'))
+            ? 'style.css'
+            : '[name][extname]',
         exports: 'named'
       }
     }

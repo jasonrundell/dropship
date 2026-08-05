@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
-import { styled } from '@pigment-css/react'
 
-import Tokens from '../../../lib/tokens'
+import { box } from './Box.css'
 
 export interface BoxProps {
   /** Option to set if box padding is tight */
@@ -12,47 +11,19 @@ export interface BoxProps {
   children: ReactNode
 }
 
-const StyledBox = styled('div')<BoxProps>({
-  lineHeight: `${Tokens.sizes.lineHeight.$value.value}${Tokens.sizes.lineHeight.$value.unit}`,
-  variants: [
-    {
-      props: {
-        isRoomy: true
-      },
-      style: {
-        padding: `${Tokens.sizes.padding.large.$value.value}${Tokens.sizes.padding.large.$value.unit}`
-      }
-    },
-    {
-      props: {
-        isTight: true
-      },
-      style: {
-        padding: `${Tokens.sizes.padding.xsmall.$value.value}${Tokens.sizes.padding.xsmall.$value.unit}`
-      }
-    },
-    {
-      props: {
-        isTight: false,
-        isRoomy: false
-      },
-      style: {
-        padding: `${Tokens.sizes.padding.small.$value.value}${Tokens.sizes.padding.small.$value.unit}`
-      }
-    }
-  ]
-})
-
 const Box = ({
   isTight = false,
   isRoomy = false,
   children,
   ...props
 }: BoxProps) => {
+  // isRoomy wins when both are set, matching the previous variant ordering.
+  const density = isRoomy ? 'roomy' : isTight ? 'tight' : 'default'
+
   return (
-    <StyledBox isTight={isTight} isRoomy={isRoomy} {...props}>
+    <div className={box({ density })} {...props}>
       {children}
-    </StyledBox>
+    </div>
   )
 }
 

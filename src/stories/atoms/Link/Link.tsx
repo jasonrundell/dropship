@@ -1,8 +1,6 @@
-import { styled } from '@pigment-css/react'
+import { link } from './Link.css'
 
-import Tokens from '../../../lib/tokens'
-
-interface LinkProps {
+export interface LinkProps {
   /** URL of the link */
   href: string
   /** Label of the link */
@@ -15,11 +13,6 @@ interface LinkProps {
   onClick?: () => void
 }
 
-const StyledLink = styled('a')({
-  cursor: 'pointer',
-  lineHeight: Tokens.sizes.lineHeight.$value.value
-})
-
 const Link = ({
   href = '#',
   label = 'Click here to visit',
@@ -29,7 +22,8 @@ const Link = ({
   ...props
 }: LinkProps) => {
   return (
-    <StyledLink
+    <a
+      className={link}
       href={href}
       target={target}
       rel={rel}
@@ -37,7 +31,8 @@ const Link = ({
       {...props}
     >
       {label}
-    </StyledLink>
+    </a>
   )
 }
+
 export default Link

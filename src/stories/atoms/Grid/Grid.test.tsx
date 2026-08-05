@@ -44,6 +44,23 @@ describe('Grid', () => {
     expect(screen.getByTestId('grid')).toBeVisible()
   })
 
+  it('falls back to the base template when a breakpoint template is empty', () => {
+    render(
+      <Grid
+        gridTemplateColumns="200px 1fr"
+        mediumTemplateColumns=""
+        largeTemplateColumns=""
+        data-testid="grid"
+      >
+        <div>Cell</div>
+      </Grid>
+    )
+
+    // All three breakpoint variables should resolve to the base template.
+    const style = screen.getByTestId('grid').getAttribute('style') ?? ''
+    expect(style.match(/200px 1fr/g)).toHaveLength(3)
+  })
+
   it('is memoised and exposes a display name for devtools', () => {
     expect(Grid.displayName).toBe('Grid')
   })

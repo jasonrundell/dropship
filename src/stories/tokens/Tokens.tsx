@@ -1,43 +1,29 @@
-import React from 'react'
-import { styled } from '@pigment-css/react'
+import type { ReactNode } from 'react'
+
 import Tokens, { fontFamilyToCss } from '../../lib/tokens'
+import * as styles from './Tokens.css'
 
-const Container = styled('div')({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '16px'
-})
+const Container = ({ children }: { children: ReactNode }) => (
+  <div className={styles.container}>{children}</div>
+)
 
-const TokenCard = styled('div')({
-  background: '#f9f9f9',
-  border: '1px solid #ddd',
-  borderRadius: '8px',
-  padding: '16px',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-})
+const TokenCard = ({ children }: { children: ReactNode }) => (
+  <div className={styles.tokenCard}>{children}</div>
+)
 
-const ColorBox = styled('div')<{ color: string }>({
-  background: (props) => props.color,
-  height: '25px',
-  width: '25px',
-  borderRadius: '4px',
-  marginBottom: '8px'
-})
+const TokenName = ({ children }: { children: ReactNode }) => (
+  <h3 className={styles.tokenName}>{children}</h3>
+)
 
-const TokenName = styled('h3')({
-  fontSize: '1.2rem',
-  margin: '0 0 8px 0'
-})
+const TokenValue = ({ children }: { children: ReactNode }) => (
+  <pre className={styles.tokenValue}>{children}</pre>
+)
 
-const TokenValue = styled('pre')({
-  background: '#fff',
-  padding: '8px',
-  borderRadius: '4px',
-  fontSize: '0.9rem',
-  overflow: 'auto'
-})
+const ColorBox = ({ color }: { color: string }) => (
+  <div className={styles.colorBox} style={{ background: color }} />
+)
 
-const TokensDisplay: React.FC = () => {
+const TokensDisplay = () => {
   return (
     <Container>
       <TokenCard>

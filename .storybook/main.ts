@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 import { withoutVitePlugins } from '@storybook/builder-vite'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -18,6 +19,7 @@ const config: StorybookConfig = {
   },
   async viteFinal(config) {
     config.plugins = await withoutVitePlugins(config.plugins, ['vite:dts'])
+    config.plugins.push(vanillaExtractPlugin())
 
     return config
   }

@@ -1,5 +1,4 @@
-import { styled } from '@pigment-css/react'
-import Tokens from '../../../lib/tokens'
+import { button } from './Button.css'
 
 export interface ButtonProps {
   /** Is this the principal call to action on the page? */
@@ -14,67 +13,23 @@ export interface ButtonProps {
   onClick?: () => void
 }
 
-const buttonStyles = (size: 'small' | 'medium' | 'large') => ({
-  fontSize: `${Tokens.sizes.fonts[size].$value.value}${Tokens.sizes.fonts[size].$value.unit}`,
-  padding: `${Tokens.sizes.padding[size].$value.value / 2}${Tokens.sizes.fonts[size].$value.unit} ${Tokens.sizes.padding[size].$value.value}${Tokens.sizes.fonts[size].$value.unit}`
-})
-
-const StyledButton = styled('button')<{
-  size: 'small' | 'medium' | 'large'
-  primary: boolean
-}>({
-  cursor: 'pointer',
-  display: 'inline-block',
-  lineHeight: Tokens.sizes.lineHeight.$value.value,
-  variants: [
-    {
-      props: {
-        size: 'small'
-      },
-      style: buttonStyles('small')
-    },
-    {
-      props: {
-        size: 'medium'
-      },
-      style: buttonStyles('medium')
-    },
-    {
-      props: {
-        size: 'large'
-      },
-      style: buttonStyles('large')
-    },
-    {
-      props: {
-        primary: true
-      },
-      style: {
-        backgroundColor: Tokens.colors.primary.$value.hex
-      }
-    },
-    {
-      props: {
-        primary: false
-      },
-      style: {
-        backgroundColor: Tokens.colors.secondary.$value.hex
-      }
-    }
-  ]
-})
-
 /** Primary UI component for user interaction */
 const Button = ({
   primary = false,
+  backgroundColor,
   size = 'medium',
   label,
   ...props
 }: ButtonProps) => {
   return (
-    <StyledButton type="button" primary={primary} size={size} {...props}>
+    <button
+      type="button"
+      className={button({ primary, size })}
+      style={backgroundColor ? { backgroundColor } : undefined}
+      {...props}
+    >
       {label}
-    </StyledButton>
+    </button>
   )
 }
 

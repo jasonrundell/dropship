@@ -1,15 +1,15 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 export default defineConfig({
-  // The Pigment Vite plugin is deliberately NOT registered here. Its transform
-  // loses the source mapping v8 needs, which silently drops every component it
-  // touches from the coverage report. Pigment's styled() has a runtime path, so
-  // components render correctly under test without it.
-  plugins: [react()],
+  plugins: [react(), vanillaExtractPlugin()],
   test: {
     globals: true,
     environment: 'jsdom',
+    // The vanilla-extract plugin runs its own Vite compiler for .css.ts files;
+    // isolating each test file in a forked process lets it be torn down cleanly.
+    pool: 'forks',
     setupFiles: ['./src/test/setup.ts'],
     css: true,
     coverage: {
@@ -17,16 +17,11 @@ export default defineConfig({
       reporter: ['text', 'lcov', 'json-summary'],
       include: ['src/lib/**/*.ts', 'src/stories/atoms/**/*.tsx'],
       exclude: ['**/*.stories.*'],
-      // Seven of the ten covered files sit at 100%. The shortfall is confined to
-      // Blockquote, Grid, and Row, whose styled() callback props
-      // (`color: ({ color }) => color`) are only ever invoked by Pigment's
-      // build-time transform and so are unreachable from a test. Raise these to
-      // 90/85/90/90 once the styling engine no longer relies on that pattern.
       thresholds: {
-        statements: 78,
-        branches: 60,
-        functions: 58,
-        lines: 77
+        statements: 100,
+        branches: 100,
+        functions: 100,
+        lines: 100
       }
     }
   }

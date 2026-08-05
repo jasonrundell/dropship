@@ -1,23 +1,18 @@
 import type { ReactNode } from 'react'
-import { styled } from '@pigment-css/react'
 
-import Tokens from '../../../lib/tokens'
+import { container } from './Container.css'
 
-interface ContainerProps {
+export interface ContainerProps {
   /** Children of Container */
   children: ReactNode
 }
 
-const StyledContainer = styled('div')<ContainerProps>({
-  margin: '0 auto',
-  padding: `0 ${Tokens.sizes.padding.large.$value.value}${Tokens.sizes.padding.large.$value.unit}`,
-  '@media (min-width: 48rem)': {
-    maxWidth: `${Tokens.sizes.breakpoints.medium.$value.value}${Tokens.sizes.breakpoints.medium.$value.unit}`
-  }
-})
-
 const Container = ({ children, ...props }: ContainerProps) => {
-  return <StyledContainer {...props}>{children}</StyledContainer>
+  return (
+    <div className={container} {...props}>
+      {children}
+    </div>
+  )
 }
 
 export default Container

@@ -1,8 +1,17 @@
 import { memo } from 'react'
 import type { ReactNode } from 'react'
-import { styled } from '@pigment-css/react'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
 
-interface GridProps {
+import {
+  columnGapVar,
+  grid,
+  largeTemplateVar,
+  mediumTemplateVar,
+  rowGapVar,
+  templateVar
+} from './Grid.css'
+
+export interface GridProps {
   /** Gap between columns */
   columnGap?: string
   /** Gap between rows */
@@ -17,22 +26,6 @@ interface GridProps {
   children: ReactNode
 }
 
-const StyledGrid = styled('div')<GridProps>({
-  display: 'grid',
-  columnGap: ({ columnGap }) => columnGap || '',
-  rowGap: ({ rowGap }) => rowGap || '',
-  gridTemplateColumns: ({ gridTemplateColumns }) =>
-    gridTemplateColumns || '1fr',
-  '@media (min-width: 48rem)': {
-    gridTemplateColumns: ({ mediumTemplateColumns, gridTemplateColumns }) =>
-      mediumTemplateColumns || gridTemplateColumns
-  },
-  '@media (min-width: 64rem)': {
-    gridTemplateColumns: ({ largeTemplateColumns, gridTemplateColumns }) =>
-      largeTemplateColumns || gridTemplateColumns
-  }
-})
-
 const Grid = memo(
   ({
     columnGap = '',
@@ -44,16 +37,19 @@ const Grid = memo(
     ...props
   }: GridProps) => {
     return (
-      <StyledGrid
-        columnGap={columnGap}
-        rowGap={rowGap}
-        gridTemplateColumns={gridTemplateColumns}
-        mediumTemplateColumns={mediumTemplateColumns}
-        largeTemplateColumns={largeTemplateColumns}
+      <div
+        className={grid}
+        style={assignInlineVars({
+          [columnGapVar]: columnGap,
+          [rowGapVar]: rowGap,
+          [templateVar]: gridTemplateColumns,
+          [mediumTemplateVar]: mediumTemplateColumns || gridTemplateColumns,
+          [largeTemplateVar]: largeTemplateColumns || gridTemplateColumns
+        })}
         {...props}
       >
         {children}
-      </StyledGrid>
+      </div>
     )
   }
 )

@@ -55,6 +55,20 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toBeVisible()
   })
 
+  it('applies a custom backgroundColor when given one', () => {
+    render(<Button label="Save" backgroundColor="rgb(255, 0, 0)" />)
+
+    expect(screen.getByRole('button')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)'
+    })
+  })
+
+  it('sets no inline style when backgroundColor is omitted', () => {
+    render(<Button label="Save" />)
+
+    expect(screen.getByRole('button')).not.toHaveAttribute('style')
+  })
+
   it('has no axe violations', async () => {
     const { container } = render(<Button label="Save changes" />)
 

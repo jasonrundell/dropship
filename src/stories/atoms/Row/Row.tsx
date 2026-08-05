@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react'
-import { styled } from '@pigment-css/react'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
 
-interface RowProps {
+import { alignVar, justifyVar, row } from './Row.css'
+
+export interface RowProps {
   /** Justify content of the row */
   justify?:
     | 'start'
@@ -15,13 +17,6 @@ interface RowProps {
   children: ReactNode
 }
 
-const StyledRow = styled('div')<RowProps>({
-  display: 'flex',
-  flexFlow: 'row wrap',
-  justifyContent: ({ justify }) => justify || 'start',
-  alignItems: ({ align }) => align || 'start'
-})
-
 const Row = ({
   justify = 'start',
   align = 'start',
@@ -29,9 +24,16 @@ const Row = ({
   ...props
 }: RowProps) => {
   return (
-    <StyledRow justify={justify} align={align} {...props}>
+    <div
+      className={row}
+      style={assignInlineVars({
+        [justifyVar]: justify,
+        [alignVar]: align
+      })}
+      {...props}
+    >
       {children}
-    </StyledRow>
+    </div>
   )
 }
 
