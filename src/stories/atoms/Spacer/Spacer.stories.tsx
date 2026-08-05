@@ -47,7 +47,6 @@ export const XSmall: Story = {
 }
 
 export const Small: Story = {
-  name: 'Small',
   args: {
     smallScreen: 'small',
     mediumScreen: 'small',
@@ -56,7 +55,6 @@ export const Small: Story = {
 }
 
 export const Medium: Story = {
-  name: 'Medium',
   args: {
     smallScreen: 'medium',
     mediumScreen: 'medium',
@@ -65,7 +63,6 @@ export const Medium: Story = {
 }
 
 export const Large: Story = {
-  name: 'Large',
   args: {
     smallScreen: 'large',
     mediumScreen: 'large',

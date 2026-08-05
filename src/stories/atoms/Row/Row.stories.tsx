@@ -37,7 +37,6 @@ export const Default: Story = {
 }
 
 export const Centered: Story = {
-  name: 'Centered',
   args: {
     justify: 'center',
     align: 'center',
