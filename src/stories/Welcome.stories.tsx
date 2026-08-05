@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import './page.css'
 import logoImage from '../assets/dropship-logo.webp'
 

@@ -8,7 +8,19 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     react(),
-    dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
+    dts({
+      // vite-plugin-dts 5 (unplugin-dts) renamed rollupTypes to bundleTypes.
+      bundleTypes: true,
+      tsconfigPath: './tsconfig.app.json',
+      // Without this the emit walks every file the tsconfig includes and
+      // ships declarations for tests and stories alongside the library.
+      include: [
+        'src/index.ts',
+        'src/lib/**/*.ts',
+        'src/stories/atoms/**/*.tsx'
+      ],
+      exclude: ['**/*.test.*', '**/*.stories.*']
+    }),
     vanillaExtractPlugin()
   ],
   resolve: {
