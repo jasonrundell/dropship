@@ -27,20 +27,22 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "start": "npm run storybook",
-    "dev": "vite",
     "build": "tsc -p tsconfig.json && vite build && node scripts/emit-cjs-types.mjs",
-    "lint": "eslint . --max-warnings=0",
-    "typecheck": "tsc -p tsconfig.app.json --noEmit",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "auto shipit --base-branch=main",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "changeset": "changeset",
     "check:package": "npm run build && publint --strict && attw --pack . --exclude-entrypoints style.css",
+    "dev": "vite",
+    "lint": "eslint . --max-warnings=0",
     "prettier": "prettier --write .",
-    "test:coverage": "vitest run --coverage"
+    "preview": "vite preview",
+    "release": "npm run build && changeset publish",
+    "start": "npm run storybook",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
+    "version-packages": "changeset version"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -48,6 +50,8 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.1",
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.5.6",
@@ -65,7 +69,6 @@
     "@vanilla-extract/vite-plugin": "^5.2.6",
     "@vitejs/plugin-react": "^6.0.5",
     "@vitest/coverage-v8": "^4.1.10",
-    "auto": "^11.2.1",
     "axe-core": "^4.12.1",
     "chromatic": "^18.1.0",
     "eslint": "^10.8.0",
@@ -83,8 +86,7 @@
     "typescript-eslint": "^8.66.0",
     "vite": "^8.2.0",
     "vite-plugin-dts": "^5.0.3",
-    "vitest": "^4.0.18",
-    "yaml": "^2.8.2"
+    "vitest": "^4.0.18"
   },
   "engines": {
     "node": ">=22"
