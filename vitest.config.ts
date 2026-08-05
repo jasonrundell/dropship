@@ -15,7 +15,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov', 'json-summary'],
-      include: ['src/lib/**/*.ts', 'src/stories/atoms/**/*.tsx'],
+      include: ['src/lib/**/*.ts', 'src/components/**/*.tsx'],
       exclude: ['**/*.stories.*'],
       thresholds: {
         statements: 100,

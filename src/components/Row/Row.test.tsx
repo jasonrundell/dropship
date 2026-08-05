@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Row from './Row'
-import { expectNoAxeViolations } from '../../../test/axe'
+import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Row', () => {
   it('renders all of its children', () => {

@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes'
 
-import { vars } from '../../../lib/tokens.css'
+import { vars } from '../../lib/tokens.css'
 
 export const button = recipe({
   base: {

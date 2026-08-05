@@ -80,8 +80,9 @@ Names follow the token file's structure: `--dropship-color-*`,
 
 ## Storybook
 
-This project uses Storybook for developing and showcasing components. Stories
-live alongside their components in `src/stories`.
+This project uses Storybook for developing and showcasing components. Each
+component lives in `src/components/<Name>/` alongside its styles
+(`<Name>.css.ts`), tests, and story.
 
 ## Scripts
 

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import Spacer from './Spacer'
-import { expectNoAxeViolations } from '../../../test/axe'
+import { expectNoAxeViolations } from '../../test/axe'
 
 const SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const
 

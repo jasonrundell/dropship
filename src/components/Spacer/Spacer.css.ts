@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes'
 
-import { media, vars } from '../../../lib/tokens.css'
+import { media, vars } from '../../lib/tokens.css'
 
 type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 

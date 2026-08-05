@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Container from './Container'
-import { expectNoAxeViolations } from '../../../test/axe'
+import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Container', () => {
   it('renders its children', () => {

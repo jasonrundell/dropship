@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Button from './Button'
-import { expectNoAxeViolations } from '../../../test/axe'
+import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Button', () => {
   it('renders its label inside a button element', () => {

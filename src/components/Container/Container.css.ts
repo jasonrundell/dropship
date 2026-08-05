@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { media, vars } from '../../../lib/tokens.css'
+import { media, vars } from '../../lib/tokens.css'
 
 export const container = style({
   margin: '0 auto',

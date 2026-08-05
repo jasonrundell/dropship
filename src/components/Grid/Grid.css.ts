@@ -1,6 +1,6 @@
 import { createVar, style } from '@vanilla-extract/css'
 
-import { media } from '../../../lib/tokens.css'
+import { media } from '../../lib/tokens.css'
 
 export const columnGapVar = createVar()
 export const rowGapVar = createVar()

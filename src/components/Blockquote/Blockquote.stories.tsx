@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import Tokens from '../../../lib/tokens'
+import Tokens from '../../lib/tokens'
 
 import Blockquote from './Blockquote'
 

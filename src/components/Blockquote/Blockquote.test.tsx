@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Blockquote from './Blockquote'
-import { expectNoAxeViolations } from '../../../test/axe'
+import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Blockquote', () => {
   it('renders a blockquote element containing its children', () => {
