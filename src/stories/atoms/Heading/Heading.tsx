@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { styled } from '@pigment-css/react'
 import Tokens from '../../../lib/tokens'
 
@@ -7,7 +8,7 @@ interface HeadingProps {
   /** Optional id */
   id?: string
   /** Children of the heading */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const headingStyles = (level: 1 | 2 | 3 | 4 | 5 | 6) => ({

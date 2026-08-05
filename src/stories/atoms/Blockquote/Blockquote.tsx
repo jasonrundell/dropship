@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { styled } from '@pigment-css/react'
 
 import Tokens, { fontFamilyToCss } from '../../../lib/tokens'
@@ -6,7 +7,7 @@ interface BlockquoteProps {
   /** Optional color of the quotation symbols */
   color?: string
   /** Children of Blockquote */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const StyledBlockquote = styled('blockquote')<BlockquoteProps>({

@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import type { ReactNode } from 'react'
 import { styled } from '@pigment-css/react'
 
 interface GridProps {
@@ -13,7 +14,7 @@ interface GridProps {
   /** Grid template for large screens and up */
   largeTemplateColumns?: string
   /** Children of Grid */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const StyledGrid = styled('div')<GridProps>({

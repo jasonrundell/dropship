@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { styled } from '@pigment-css/react'
 
 import Tokens from '../../../lib/tokens'
@@ -8,7 +9,7 @@ export interface BoxProps {
   /** Option to set if box padding is roomy */
   isRoomy?: boolean
   /** Children of Box */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const StyledBox = styled('div')<BoxProps>({

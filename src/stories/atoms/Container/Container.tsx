@@ -1,10 +1,11 @@
+import type { ReactNode } from 'react'
 import { styled } from '@pigment-css/react'
 
 import Tokens from '../../../lib/tokens'
 
 interface ContainerProps {
   /** Children of Container */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const StyledContainer = styled('div')<ContainerProps>({

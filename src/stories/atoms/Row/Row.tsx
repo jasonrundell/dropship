@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { styled } from '@pigment-css/react'
 
 interface RowProps {
@@ -11,7 +12,7 @@ interface RowProps {
     | 'space-evenly'
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
   /** Children of Row */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const StyledRow = styled('div')<RowProps>({
