@@ -57,26 +57,58 @@ atoms included in Dropship:
 | `Row`        | `justify`, `align`                                                                            |
 | `Spacer`     | `smallScreen`, `mediumScreen`, `largeScreen` (`xsmall`–`xlarge`)                              |
 
+## Themes
+
+Dropship ships four themes that render **identical markup** in deliberately
+unrelated ways — a CSS Zen Garden for component libraries. Tokens drive form;
+components drive function.
+
+| Theme        | Character                                                                |
+| ------------ | ------------------------------------------------------------------------ |
+| `hangar`     | Default. Instrumentation: monospaced headings, sharp corners, hairlines  |
+| `broadsheet` | Editorial print: serif, ink on paper, rules instead of boxes, no shadows |
+| `arcade`     | Neo-brutalist: heavy outlines, hard offset shadows, saturated colour     |
+| `cascade`    | Soft: generous rounding, blurred elevation, almost no visible borders    |
+
+Switch themes with a single attribute — no rebuild, no JavaScript, and it
+cascades, so you can scope a theme to any subtree:
+
+```html
+<body data-theme="arcade">
+  <aside data-theme="broadsheet">…this subtree only…</aside>
+</body>
+```
+
+The four themes differ on _structural_ axes, not just colour — `radius`,
+`borderWidth`, `shadow`, `font`, and `letterSpacing`. That is what makes them
+look unrelated rather than recoloured, and a test asserts they stay that way.
+
 ## Design tokens
 
-Tokens are defined in `src/lib/common.tokens.json` following the
-[DTCG Format Module 2025.10](https://tr.designtokens.org/format/) specification,
-and compile to CSS custom properties on `:root`.
+Tokens live in `src/tokens/<theme>.tokens.json`, each a
+[DTCG Format Module 2025.10](https://tr.designtokens.org/format/) document, and
+compile to CSS custom properties.
 
-Those custom property names are part of the public API. To restyle every
-component that uses a token, override it in your own stylesheet — no rebuild
-required:
+Those custom property names are public API. Override one in your own stylesheet
+to restyle every component that uses it — no rebuild required:
 
 ```css
 :root {
   --dropship-color-primary: #0f766e;
-  --dropship-padding-large: 2.5rem;
+  --dropship-radius-md: 0;
 }
 ```
 
-Names follow the token file's structure: `--dropship-color-*`,
-`--dropship-size-*`, `--dropship-padding-*`, `--dropship-fontSize-*`,
-`--dropship-heading-*`, `--dropship-breakpoint-*`, and `--dropship-font-*`.
+Names follow the contract's structure: `--dropship-color-*`,
+`--dropship-space-*`, `--dropship-radius-*`, `--dropship-borderWidth-*`,
+`--dropship-shadow-*`, `--dropship-font-*`, `--dropship-fontSize-*`,
+`--dropship-fontWeight-*`, `--dropship-lineHeight-*`,
+`--dropship-letterSpacing-*`, `--dropship-duration-*`, `--dropship-easing-*`,
+and `--dropship-breakpoint-*`.
+
+Writing a theme means supplying that same set of tokens with your own values.
+The contract is defined in `src/lib/schema.ts`, and a test verifies every theme
+satisfies it exactly.
 
 ## Storybook
 

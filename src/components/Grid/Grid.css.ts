@@ -1,6 +1,6 @@
-import { createVar, style } from '@vanilla-extract/css'
+import { createVar, fallbackVar, style } from '@vanilla-extract/css'
 
-import { media } from '../../lib/tokens.css'
+import { media, vars } from '../../lib/theme.css'
 
 export const columnGapVar = createVar()
 export const rowGapVar = createVar()
@@ -10,14 +10,14 @@ export const largeTemplateVar = createVar()
 
 export const grid = style({
   display: 'grid',
-  columnGap: columnGapVar,
-  rowGap: rowGapVar,
+  columnGap: fallbackVar(columnGapVar, vars.space.md),
+  rowGap: fallbackVar(rowGapVar, vars.space.md),
   gridTemplateColumns: templateVar,
   '@media': {
-    [media.medium]: {
+    [media.md]: {
       gridTemplateColumns: mediumTemplateVar
     },
-    [media.large]: {
+    [media.lg]: {
       gridTemplateColumns: largeTemplateVar
     }
   }

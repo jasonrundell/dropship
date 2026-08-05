@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import Tokens from '../../lib/tokens'
+import { vars } from '../../lib/theme.css'
 
 import Blockquote from './Blockquote'
 
@@ -24,14 +24,14 @@ export const Default: Story = {
 
 export const WithColor: Story = {
   args: {
-    color: Tokens.colors.primary.$value.hex,
+    color: vars.color.accent,
     children: 'This is a blockquote'
   }
 }
 
 export const WithMultipleParagraphs: Story = {
   args: {
-    color: Tokens.colors.primary.$value.hex,
+    color: vars.color.accent,
     children: (
       <>
         <p>

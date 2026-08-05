@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 
-import { alignVar, justifyVar, row } from './Row.css'
+import { alignVar, gapVar, justifyVar, row } from './Row.css'
 
 export interface RowProps {
   /** Justify content of the row */
@@ -13,6 +13,8 @@ export interface RowProps {
     | 'space-around'
     | 'space-evenly'
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
+  /** Gap between children. Defaults to the theme's medium space token. */
+  gap?: string
   /** Children of Row */
   children: ReactNode
 }
@@ -20,6 +22,7 @@ export interface RowProps {
 const Row = ({
   justify = 'start',
   align = 'start',
+  gap,
   children,
   ...props
 }: RowProps) => {
@@ -28,7 +31,8 @@ const Row = ({
       className={row}
       style={assignInlineVars({
         [justifyVar]: justify,
-        [alignVar]: align
+        [alignVar]: align,
+        ...(gap ? { [gapVar]: gap } : {})
       })}
       {...props}
     >

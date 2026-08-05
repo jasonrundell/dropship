@@ -1,20 +1,23 @@
 import { recipe } from '@vanilla-extract/recipes'
 
-import { media, vars } from '../../lib/tokens.css'
+import { media, vars } from '../../lib/theme.css'
 
 type Size = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 
-/** A height rule, scoped to a breakpoint when one is given. */
+/** Maps the public size names onto the theme's space scale. */
+const SPACE: Record<Size, string> = {
+  xsmall: vars.space.xs,
+  small: vars.space.md,
+  medium: vars.space.lg,
+  large: vars.space.xl,
+  xlarge: vars.space['3xl']
+}
+
 const height = (size: Size, query?: string) =>
   query
-    ? { '@media': { [query]: { height: vars.size[size] } } }
-    : { height: vars.size[size] }
+    ? { '@media': { [query]: { height: SPACE[size] } } }
+    : { height: SPACE[size] }
 
-/**
- * One variant group per breakpoint. The Pigment version spelled all fifteen
- * combinations out by hand; deriving them keeps the three breakpoints
- * guaranteed to stay in step with each other.
- */
 const heightVariants = (query?: string) => ({
   xsmall: height('xsmall', query),
   small: height('small', query),
@@ -24,13 +27,11 @@ const heightVariants = (query?: string) => ({
 })
 
 export const spacer = recipe({
-  base: {
-    display: 'block'
-  },
+  base: { display: 'block', flexShrink: 0 },
   variants: {
     smallScreen: heightVariants(),
-    mediumScreen: heightVariants(media.medium),
-    largeScreen: heightVariants(media.large)
+    mediumScreen: heightVariants(media.md),
+    largeScreen: heightVariants(media.lg)
   },
   defaultVariants: {
     smallScreen: 'small',

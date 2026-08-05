@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Blockquote,
+  Box,
+  Button,
+  Container,
+  Grid,
+  Heading,
+  Link,
+  Row,
+  Spacer
+} from './index'
+import { THEME_NAMES } from './lib/schema'
+import * as styles from './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+/**
+ * The Zen Garden panel.
+ *
+ * `Panel` is written once. It is rendered once per theme, and the only thing
+ * that differs between renders is the `data-theme` attribute on the wrapper.
+ * Any visual difference you see below comes entirely from token values.
+ */
+const Panel = () => (
+  <Container>
+    <Heading level={2}>Specimen</Heading>
+    <Spacer smallScreen="xsmall" />
+    <Heading level={4}>Identical markup, different tokens</Heading>
+    <Spacer smallScreen="small" />
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <Row gap="0.75rem" align="center">
+      <Button label="Primary" primary />
+      <Button label="Secondary" />
+      <Button label="Small" size="small" primary />
+    </Row>
+
+    <Spacer smallScreen="small" />
+
+    <Box>
+      <Heading level={5}>Surface</Heading>
+      <Spacer smallScreen="xsmall" />
+      <p style={{ margin: 0 }}>
+        Body copy on a raised surface, with a <Link href="#" label="link" />{' '}
+        inside it.
       </p>
-    </>
-  )
-}
+    </Box>
+
+    <Spacer smallScreen="small" />
+
+    <Grid gridTemplateColumns="1fr 1fr" mediumTemplateColumns="1fr 1fr">
+      <Box isTight>
+        <Heading level={6}>Tight</Heading>
+      </Box>
+      <Box isTight>
+        <Heading level={6}>Tight</Heading>
+      </Box>
+    </Grid>
+
+    <Spacer smallScreen="small" />
+
+    <Blockquote>
+      The same nine components, restyled by nothing but token values.
+    </Blockquote>
+    <Spacer smallScreen="medium" />
+  </Container>
+)
+
+const App = () => (
+  <div className={styles.gallery}>
+    {THEME_NAMES.map((theme) => (
+      <section key={theme} data-theme={theme} className={styles.pane}>
+        <div className={styles.label}>{theme}</div>
+        <Panel />
+      </section>
+    ))}
+  </div>
+)
 
 export default App

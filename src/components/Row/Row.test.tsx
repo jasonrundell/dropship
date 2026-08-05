@@ -43,6 +43,27 @@ describe('Row', () => {
     }
   )
 
+  it('applies a caller-supplied gap', () => {
+    render(
+      <Row gap="3rem" data-testid="row">
+        <div>Cell</div>
+      </Row>
+    )
+
+    expect(screen.getByTestId('row').getAttribute('style')).toContain('3rem')
+  })
+
+  it('falls back to the theme gap when none is given', () => {
+    render(
+      <Row data-testid="row">
+        <div>Cell</div>
+      </Row>
+    )
+
+    // No gap variable is set inline, so the stylesheet's token fallback wins.
+    expect(screen.getByTestId('row').getAttribute('style')).not.toContain('gap')
+  })
+
   it('has no axe violations', async () => {
     const { container } = render(
       <Row>

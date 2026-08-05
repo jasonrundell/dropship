@@ -35,3 +35,6 @@ yarn-error.log*
 storybook.log
 # linting
 .eslintcache
+
+# demo gallery build
+/demo-dist

@@ -1,407 +1,134 @@
 import type { ReactNode } from 'react'
 
-import Tokens, { fontFamilyToCss } from '../../lib/tokens'
+import { vars } from '../../lib/theme.css'
 import * as styles from './Tokens.css'
 
-const Container = ({ children }: { children: ReactNode }) => (
-  <div className={styles.container}>{children}</div>
+/**
+ * Live token reference. Every swatch is painted with the contract's custom
+ * property rather than a copied value, so switching the theme in the toolbar
+ * restyles this page too — the reference cannot drift from the tokens.
+ */
+
+const Section = ({
+  title,
+  children
+}: {
+  title: string
+  children: ReactNode
+}) => (
+  <section className={styles.section}>
+    <h3 className={styles.sectionTitle}>{title}</h3>
+    <div className={styles.grid}>{children}</div>
+  </section>
 )
 
-const TokenCard = ({ children }: { children: ReactNode }) => (
-  <div className={styles.tokenCard}>{children}</div>
+const Swatch = ({ name, value }: { name: string; value: string }) => (
+  <div className={styles.card}>
+    <div className={styles.swatch} style={{ background: value }} />
+    <code className={styles.name}>{name}</code>
+  </div>
 )
 
-const TokenName = ({ children }: { children: ReactNode }) => (
-  <h3 className={styles.tokenName}>{children}</h3>
+const Sample = ({ name, children }: { name: string; children: ReactNode }) => (
+  <div className={styles.card}>
+    <div className={styles.sample}>{children}</div>
+    <code className={styles.name}>{name}</code>
+  </div>
 )
 
-const TokenValue = ({ children }: { children: ReactNode }) => (
-  <pre className={styles.tokenValue}>{children}</pre>
-)
+const entries = (group: Record<string, string>) => Object.entries(group)
 
-const ColorBox = ({ color }: { color: string }) => (
-  <div className={styles.colorBox} style={{ background: color }} />
-)
+const TokensDisplay = () => (
+  <div className={styles.page}>
+    <Section title="Colour">
+      {entries(vars.color).map(([name, value]) => (
+        <Swatch key={name} name={`color.${name}`} value={value} />
+      ))}
+    </Section>
 
-const TokensDisplay = () => {
-  return (
-    <Container>
-      <TokenCard>
-        <TokenName>Colors</TokenName>
-        <div>
-          <TokenValue>
-            colors.primary.$value.hex: {Tokens.colors.primary.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.primary.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.primaryVariant.$value.hex:{' '}
-            {Tokens.colors.primaryVariant.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.primaryVariant.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.secondary.$value.hex: {Tokens.colors.secondary.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.secondary.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.secondaryVariant.$value.hex:{' '}
-            {Tokens.colors.secondaryVariant.$value.hex}
-          </TokenValue>
-          <ColorBox
-            color={Tokens.colors.secondaryVariant.$value.hex as string}
+    <Section title="Space">
+      {entries(vars.space).map(([name, value]) => (
+        <Sample key={name} name={`space.${name}`}>
+          <div
+            style={{
+              height: '0.75rem',
+              width: value,
+              background: vars.color.primary
+            }}
           />
-        </div>
-        <div>
-          <TokenValue>
-            colors.accent.$value.hex: {Tokens.colors.accent.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.accent.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.background.$value.hex: {Tokens.colors.background.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.background.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.surface.$value.hex: {Tokens.colors.surface.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.surface.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.error.$value.hex: {Tokens.colors.error.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.error.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.onPrimary.$value.hex: {Tokens.colors.onPrimary.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.onPrimary.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.onSecondary.$value.hex:{' '}
-            {Tokens.colors.onSecondary.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.onSecondary.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.onBackground.$value.hex:{' '}
-            {Tokens.colors.onBackground.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.onBackground.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.onSurface.$value.hex: {Tokens.colors.onSurface.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.onSurface.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.onError.$value.hex: {Tokens.colors.onError.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.onError.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.textPrimary.$value.hex:{' '}
-            {Tokens.colors.textPrimary.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.textPrimary.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.textSecondary.$value.hex:{' '}
-            {Tokens.colors.textSecondary.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.textSecondary.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.border.$value.hex: {Tokens.colors.border.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.border.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.link.$value.hex: {Tokens.colors.link.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.link.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.muted.$value.hex: {Tokens.colors.muted.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.muted.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.success.$value.hex: {Tokens.colors.success.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.success.$value.hex as string} />
-        </div>
-        <div>
-          <TokenValue>
-            colors.warning.$value.hex: {Tokens.colors.warning.$value.hex}
-          </TokenValue>
-          <ColorBox color={Tokens.colors.warning.$value.hex as string} />
-        </div>
-      </TokenCard>
-      <TokenCard>
-        <TokenName>Sizes</TokenName>
-        <div>
-          <TokenValue>
-            sizes.xsmall.$value.value: {Tokens.sizes.xsmall.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.xsmall.$value.unit: {Tokens.sizes.xsmall.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.small.$value.value: {Tokens.sizes.small.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.small.$value.unit: {Tokens.sizes.small.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.medium.$value.value: {Tokens.sizes.medium.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.medium.$value.unit: {Tokens.sizes.medium.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.large.$value.value: {Tokens.sizes.large.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.large.$value.unit: {Tokens.sizes.large.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.xlarge.$value.value: {Tokens.sizes.xlarge.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.xlarge.$value.unit: {Tokens.sizes.xlarge.$value.unit}
-          </TokenValue>
-        </div>
-        <TokenName>Line heights</TokenName>
-        <div>
-          <TokenValue>
-            sizes.lineHeight.$value.value:{' '}
-            {Tokens.sizes.lineHeight.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.lineHeight.$value.unit: {Tokens.sizes.lineHeight.$value.unit}
-          </TokenValue>
-        </div>
-        <TokenName>Breakpoints</TokenName>
-        <div>
-          <TokenValue>
-            sizes.breakpoints.small.$value.value:{' '}
-            {Tokens.sizes.breakpoints.small.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.breakpoints.small.$value.unit:{' '}
-            {Tokens.sizes.breakpoints.small.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.breakpoints.medium.$value.value:{' '}
-            {Tokens.sizes.breakpoints.medium.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.breakpoints.medium.$value.unit:{' '}
-            {Tokens.sizes.breakpoints.medium.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.breakpoints.large.$value.value:{' '}
-            {Tokens.sizes.breakpoints.large.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.breakpoints.large.$value.unit:{' '}
-            {Tokens.sizes.breakpoints.large.$value.unit}
-          </TokenValue>
-        </div>
-        <TokenName>Padding</TokenName>
-        <div>
-          <TokenValue>
-            sizes.padding.xsmall.$value.value:{' '}
-            {Tokens.sizes.padding.xsmall.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.xsmall.$value.unit:{' '}
-            {Tokens.sizes.padding.xsmall.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.padding.small.$value.value:{' '}
-            {Tokens.sizes.padding.small.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.small.$value.unit:{' '}
-            {Tokens.sizes.padding.small.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.padding.medium.$value.value:{' '}
-            {Tokens.sizes.padding.medium.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.medium.$value.unit:{' '}
-            {Tokens.sizes.padding.medium.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.padding.large.$value.value:{' '}
-            {Tokens.sizes.padding.large.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.large.$value.unit:{' '}
-            {Tokens.sizes.padding.large.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.padding.xlarge.$value.value:{' '}
-            {Tokens.sizes.padding.xlarge.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.padding.xlarge.$value.unit:{' '}
-            {Tokens.sizes.padding.xlarge.$value.unit}
-          </TokenValue>
-        </div>
-        <TokenName>Font Sizes</TokenName>
-        <div>
-          <TokenValue>
-            sizes.fonts.small.$value.value:{' '}
-            {Tokens.sizes.fonts.small.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.fonts.small.$value.unit:{' '}
-            {Tokens.sizes.fonts.small.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.fonts.medium.$value.value:{' '}
-            {Tokens.sizes.fonts.medium.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.fonts.medium.$value.unit:{' '}
-            {Tokens.sizes.fonts.medium.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.fonts.large.$value.value:{' '}
-            {Tokens.sizes.fonts.large.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.fonts.large.$value.unit:{' '}
-            {Tokens.sizes.fonts.large.$value.unit}
-          </TokenValue>
-        </div>
-        <TokenName>Headings</TokenName>
-        <div>
-          <TokenValue>
-            sizes.headings.h1.$value.value:{' '}
-            {Tokens.sizes.headings.h1.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h1.$value.unit:{' '}
-            {Tokens.sizes.headings.h1.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h2.$value.value:{' '}
-            {Tokens.sizes.headings.h2.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h2.$value.unit:{' '}
-            {Tokens.sizes.headings.h2.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h3.$value.value:{' '}
-            {Tokens.sizes.headings.h3.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h3.$value.unit:{' '}
-            {Tokens.sizes.headings.h3.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h4.$value.value:{' '}
-            {Tokens.sizes.headings.h4.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h4.$value.unit:{' '}
-            {Tokens.sizes.headings.h4.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h5.$value.value:{' '}
-            {Tokens.sizes.headings.h5.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h5.$value.unit:{' '}
-            {Tokens.sizes.headings.h5.$value.unit}
-          </TokenValue>
-        </div>
-        <div>
-          <TokenValue>
-            sizes.headings.h6.$value.value:{' '}
-            {Tokens.sizes.headings.h6.$value.value}
-          </TokenValue>
-          <TokenValue>
-            sizes.headings.h6.$value.unit:{' '}
-            {Tokens.sizes.headings.h6.$value.unit}
-          </TokenValue>
-        </div>
-      </TokenCard>
-      <TokenCard>
-        <TokenName>Font Families</TokenName>
-        <TokenValue>
-          fonts.body.$value: {fontFamilyToCss(Tokens.fonts.body.$value)}
-        </TokenValue>
-        <TokenValue>
-          fonts.heading.$value: {fontFamilyToCss(Tokens.fonts.heading.$value)}
-        </TokenValue>
-        <TokenValue>
-          fonts.monospace.$value:{' '}
-          {fontFamilyToCss(Tokens.fonts.monospace.$value)}
-        </TokenValue>
-        <TokenValue>
-          fonts.quotes.$value: {fontFamilyToCss(Tokens.fonts.quotes.$value)}
-        </TokenValue>
-      </TokenCard>
-    </Container>
-  )
-}
+        </Sample>
+      ))}
+    </Section>
+
+    <Section title="Radius">
+      {entries(vars.radius).map(([name, value]) => (
+        <Sample key={name} name={`radius.${name}`}>
+          <div
+            style={{
+              height: '2.5rem',
+              width: '2.5rem',
+              borderRadius: value,
+              background: vars.color.accent
+            }}
+          />
+        </Sample>
+      ))}
+    </Section>
+
+    <Section title="Border width">
+      {entries(vars.borderWidth).map(([name, value]) => (
+        <Sample key={name} name={`borderWidth.${name}`}>
+          <div
+            style={{
+              height: '2.5rem',
+              width: '2.5rem',
+              borderWidth: value,
+              borderStyle: vars.borderStyle.default,
+              borderColor: vars.color.border
+            }}
+          />
+        </Sample>
+      ))}
+    </Section>
+
+    <Section title="Shadow">
+      {entries(vars.shadow).map(([name, value]) => (
+        <Sample key={name} name={`shadow.${name}`}>
+          <div
+            style={{
+              height: '2.5rem',
+              width: '2.5rem',
+              boxShadow: value,
+              background: vars.color.surface,
+              borderWidth: vars.borderWidth.hairline,
+              borderStyle: vars.borderStyle.default,
+              borderColor: vars.color.border
+            }}
+          />
+        </Sample>
+      ))}
+    </Section>
+
+    <Section title="Type scale">
+      {entries(vars.fontSize).map(([name, value]) => (
+        <Sample key={name} name={`fontSize.${name}`}>
+          <span style={{ fontSize: value, fontFamily: vars.font.heading }}>
+            Ag
+          </span>
+        </Sample>
+      ))}
+    </Section>
+
+    <Section title="Font">
+      {entries(vars.font).map(([name, value]) => (
+        <Sample key={name} name={`font.${name}`}>
+          <span style={{ fontFamily: value, fontSize: vars.fontSize.lg }}>
+            Ag
+          </span>
+        </Sample>
+      ))}
+    </Section>
+  </div>
+)
 
 export default TokensDisplay

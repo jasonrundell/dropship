@@ -39,15 +39,36 @@ Styles are written with [vanilla-extract](https://vanilla-extract.style/) in
 `.css.ts` files and compiled to plain CSS at build time. There is no runtime
 styling library.
 
-- Use `style()` for static styles and `recipe()` for variant sets.
-- Never hard-code a value that exists as a token. Import `vars` from
-  `src/lib/tokens.css.ts`.
-- For values only known at runtime (a caller-supplied grid template, for
-  instance), declare a `createVar()` and set it with `assignInlineVars`.
+The rule that everything else rests on: **tokens drive form, components drive
+function.** A component may reference the token contract and nothing else.
 
-Tokens themselves are defined in `src/lib/common.tokens.json`, which follows the
-[DTCG Format Module 2025.10](https://tr.designtokens.org/format/) specification.
-Adding a token means adding it there and exposing it in `src/lib/tokens.css.ts`.
+- Use `style()` for static styles and `recipe()` for variant sets.
+- **Never write a literal colour or dimension in a component stylesheet.**
+  Import `vars` from `src/lib/theme.css.ts` and use a token. This is enforced —
+  `src/lib/theme-agnostic.test.ts` fails the build on any hex colour or
+  `px`/`rem`/`em` literal in `src/components/**/*.css.ts`.
+- For values only known at runtime (a caller-supplied grid template), declare a
+  `createVar()` and set it with `assignInlineVars`. Give it a token fallback via
+  `fallbackVar` so it still themes when the caller passes nothing.
+
+If you need a value that no token provides, that is a signal the **token
+contract** has a gap, not a licence to hard-code. Add it to `TokenShape` in
+`src/lib/schema.ts` and to all four theme files.
+
+### Tokens and themes
+
+Each theme is a
+[DTCG Format Module 2025.10](https://tr.designtokens.org/format/) document in
+`src/tokens/<theme>.tokens.json`. All four supply the same contract with
+different values, and tests verify that they do.
+
+Themes are expected to differ on _structural_ axes — `radius`, `borderWidth`,
+`shadow`, `font`, `letterSpacing` — not only colour. A test fails if every theme
+agrees on one of those, because that would mean the themes are recolourings of
+one design rather than different designs.
+
+To add a theme: copy an existing token file, change the values, and add its name
+to `THEME_NAMES` in `src/lib/schema.ts`.
 
 ### Tests
 

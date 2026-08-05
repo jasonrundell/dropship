@@ -1,35 +1,67 @@
 import { style } from '@vanilla-extract/css'
 
-export const container = style({
+import { vars } from '../../lib/theme.css'
+
+export const page = style({
+  background: vars.color.background,
+  color: vars.color.text,
+  fontFamily: vars.font.body,
+  padding: vars.space.lg,
   display: 'flex',
-  flexWrap: 'wrap',
-  gap: '16px'
+  flexDirection: 'column',
+  gap: vars.space.xl
 })
 
-export const tokenCard = style({
-  background: '#f9f9f9',
-  border: '1px solid #ddd',
-  borderRadius: '8px',
-  padding: '16px',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+export const section = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space.sm
 })
 
-export const colorBox = style({
-  height: '25px',
-  width: '25px',
-  borderRadius: '4px',
-  marginBottom: '8px'
+export const sectionTitle = style({
+  margin: 0,
+  fontFamily: vars.font.heading,
+  fontWeight: vars.fontWeight.heading,
+  fontSize: vars.fontSize.lg,
+  letterSpacing: vars.letterSpacing.heading,
+  color: vars.color.text
 })
 
-export const tokenName = style({
-  fontSize: '1.2rem',
-  margin: '0 0 8px 0'
+export const grid = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(9rem, 1fr))',
+  gap: vars.space.sm
 })
 
-export const tokenValue = style({
-  background: '#fff',
-  padding: '8px',
-  borderRadius: '4px',
-  fontSize: '0.9rem',
-  overflow: 'auto'
+export const card = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space['2xs'],
+  padding: vars.space.xs,
+  background: vars.color.surface,
+  borderWidth: vars.borderWidth.hairline,
+  borderStyle: vars.borderStyle.default,
+  borderColor: vars.color.border,
+  borderRadius: vars.radius.md
+})
+
+export const swatch = style({
+  height: '3rem',
+  borderRadius: vars.radius.sm,
+  borderWidth: vars.borderWidth.hairline,
+  borderStyle: vars.borderStyle.default,
+  borderColor: vars.color.border
+})
+
+export const sample = style({
+  minHeight: '3rem',
+  display: 'flex',
+  alignItems: 'center',
+  color: vars.color.text
+})
+
+export const name = style({
+  fontFamily: vars.font.mono,
+  fontSize: vars.fontSize.xs,
+  color: vars.color.textMuted
 })

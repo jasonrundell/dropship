@@ -1,13 +1,17 @@
 import { style } from '@vanilla-extract/css'
 
-import { media, vars } from '../../lib/tokens.css'
+import { media, vars } from '../../lib/theme.css'
 
 export const container = style({
-  margin: '0 auto',
-  padding: `0 ${vars.padding.large}`,
+  marginInline: 'auto',
+  width: '100%',
+  paddingInline: vars.space.md,
+  color: vars.color.text,
+  fontFamily: vars.font.body,
   '@media': {
-    [media.medium]: {
-      maxWidth: vars.breakpoint.medium
+    [media.md]: {
+      maxWidth: vars.breakpoint.md,
+      paddingInline: vars.space.lg
     }
   }
 })

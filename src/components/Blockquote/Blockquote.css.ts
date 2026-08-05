@@ -1,29 +1,23 @@
 import { createVar, style } from '@vanilla-extract/css'
 
-import { vars } from '../../lib/tokens.css'
+import { vars } from '../../lib/theme.css'
 
+/** Caller-supplied accent for the quote marks; falls back to the theme. */
 export const quoteColorVar = createVar()
-
-const quoteMark = {
-  display: 'inline',
-  position: 'absolute',
-  fontFamily: vars.font.quotes,
-  fontSize: `calc(${vars.fontSize.medium} * 2)`,
-  color: quoteColorVar,
-  opacity: 0.8
-} as const
 
 export const blockquote = style({
   position: 'relative',
-  '::before': {
-    ...quoteMark,
-    content: '"\\275D"',
-    top: `calc(${vars.size.medium} * -1)`,
-    left: `calc(${vars.size.large} * -1)`
-  },
-  '::after': {
-    ...quoteMark,
-    content: '"\\275E"',
-    right: `calc(${vars.size.large} * -1)`
+  margin: 0,
+  paddingInlineStart: vars.space.lg,
+  borderInlineStartWidth: vars.borderWidth.thick,
+  borderInlineStartStyle: vars.borderStyle.default,
+  borderInlineStartColor: quoteColorVar,
+  color: vars.color.textMuted,
+  fontFamily: vars.font.body,
+  fontSize: vars.fontSize.lg,
+  fontStyle: 'italic',
+  lineHeight: vars.lineHeight.loose,
+  vars: {
+    [quoteColorVar]: vars.color.accent
   }
 })

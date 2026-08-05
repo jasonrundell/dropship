@@ -12,9 +12,9 @@ import {
 } from './Grid.css'
 
 export interface GridProps {
-  /** Gap between columns */
+  /** Gap between columns. Defaults to the theme's medium space token. */
   columnGap?: string
-  /** Gap between rows */
+  /** Gap between rows. Defaults to the theme's medium space token. */
   rowGap?: string
   /** Grid template columns for small screens and up */
   gridTemplateColumns?: string
@@ -28,8 +28,8 @@ export interface GridProps {
 
 const Grid = memo(
   ({
-    columnGap = '',
-    rowGap = '',
+    columnGap,
+    rowGap,
     gridTemplateColumns = '1fr',
     mediumTemplateColumns = '1fr 1fr',
     largeTemplateColumns = '1fr 1fr 1fr',
@@ -39,9 +39,12 @@ const Grid = memo(
     return (
       <div
         className={grid}
+        // Vars are only assigned when a value is supplied. Assigning an empty
+        // string would set the property to empty rather than leaving the
+        // theme's fallback in place.
         style={assignInlineVars({
-          [columnGapVar]: columnGap,
-          [rowGapVar]: rowGap,
+          ...(columnGap ? { [columnGapVar]: columnGap } : {}),
+          ...(rowGap ? { [rowGapVar]: rowGap } : {}),
           [templateVar]: gridTemplateColumns,
           [mediumTemplateVar]: mediumTemplateColumns || gridTemplateColumns,
           [largeTemplateVar]: largeTemplateColumns || gridTemplateColumns
