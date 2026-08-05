@@ -134,17 +134,14 @@ describe('common.tokens.json DTCG structure', () => {
 
     const fontNames = ['body', 'heading', 'monospace', 'quotes']
 
-    it.each(fontNames)(
-      'fonts.%s has $value that is a string array',
-      (name) => {
-        const token = Tokens.fonts[name]
-        expect(token.$value).toBeDefined()
-        expect(Array.isArray(token.$value)).toBe(true)
-        token.$value.forEach((f: unknown) => {
-          expect(typeof f).toBe('string')
-        })
-      }
-    )
+    it.each(fontNames)('fonts.%s has $value that is a string array', (name) => {
+      const token = Tokens.fonts[name]
+      expect(token.$value).toBeDefined()
+      expect(Array.isArray(token.$value)).toBe(true)
+      token.$value.forEach((f: unknown) => {
+        expect(typeof f).toBe('string')
+      })
+    })
 
     it('preserves expected font family arrays', () => {
       expect(Tokens.fonts.body.$value).toEqual(['Arial', 'sans-serif'])

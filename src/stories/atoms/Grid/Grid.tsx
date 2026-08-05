@@ -32,28 +32,30 @@ const StyledGrid = styled('div')<GridProps>({
   }
 })
 
-const Grid = memo(({
-  columnGap = '',
-  rowGap = '',
-  gridTemplateColumns = '1fr',
-  mediumTemplateColumns = '1fr 1fr',
-  largeTemplateColumns = '1fr 1fr 1fr',
-  children,
-  ...props
-}: GridProps) => {
-  return (
-    <StyledGrid
-      columnGap={columnGap}
-      rowGap={rowGap}
-      gridTemplateColumns={gridTemplateColumns}
-      mediumTemplateColumns={mediumTemplateColumns}
-      largeTemplateColumns={largeTemplateColumns}
-      {...props}
-    >
-      {children}
-    </StyledGrid>
-  )
-})
+const Grid = memo(
+  ({
+    columnGap = '',
+    rowGap = '',
+    gridTemplateColumns = '1fr',
+    mediumTemplateColumns = '1fr 1fr',
+    largeTemplateColumns = '1fr 1fr 1fr',
+    children,
+    ...props
+  }: GridProps) => {
+    return (
+      <StyledGrid
+        columnGap={columnGap}
+        rowGap={rowGap}
+        gridTemplateColumns={gridTemplateColumns}
+        mediumTemplateColumns={mediumTemplateColumns}
+        largeTemplateColumns={largeTemplateColumns}
+        {...props}
+      >
+        {children}
+      </StyledGrid>
+    )
+  }
+)
 
 Grid.displayName = 'Grid'
 
