@@ -16,17 +16,14 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  esbuild: {
-    jsxInject: `import React from 'react'`,
-    jsxFactory: 'React.createElement',
-    jsxFragment: 'React.Fragment'
-  },
   build: {
     lib: {
       entry: 'src/index.ts',
       name: 'Dropship',
       formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format}.js`
+      // The package is "type": "module", so the CJS build needs a .cjs
+      // extension or Node parses it as ESM and consumers get a syntax error.
+      fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs')
     },
     sourcemap: true,
     rollupOptions: {
