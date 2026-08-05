@@ -102,8 +102,9 @@ component lives in `src/components/<Name>/` alongside its styles
 
 ## Contributing
 
-If you would like to contribute, please create an issue and then open up a PR
-from a fork.
+Please open an issue first, then a pull request from a fork. See
+[CONTRIBUTING.md](./CONTRIBUTING.md) for setup, the file layout each component
+follows, testing expectations, and how releases work.
 
 ## License
 

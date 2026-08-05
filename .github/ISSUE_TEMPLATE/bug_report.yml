@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in Dropship does not behave as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what did you get instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How to reproduce
+      description: >
+        The smallest snippet that shows the problem. A link to a repository or
+        sandbox is ideal.
+      render: tsx
+    validations:
+      required: true
+
+  - type: input
+    id: dropship-version
+    attributes:
+      label: Dropship version
+      placeholder: 4.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: react-version
+    attributes:
+      label: React version
+      placeholder: 19.2.0
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Bundler and framework
+      description: e.g. Vite 8, Next.js 15, Remix
+    validations:
+      required: false

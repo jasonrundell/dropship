@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose a new component, prop, or token
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to build
+      description: >
+        Describe the use case rather than the solution. What does Dropship make
+        awkward today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you have in mind
+      description: A sketch of the API, if you have one.
+      render: tsx
+    validations:
+      required: false
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of change
+      options:
+        - New component
+        - New prop on an existing component
+        - New or changed design token
+        - Something else
+    validations:
+      required: true
