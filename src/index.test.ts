@@ -10,6 +10,7 @@ const EXPECTED_EXPORTS = [
   'Blockquote',
   'Box',
   'Button',
+  'Card',
   'Container',
   'Grid',
   'Heading',

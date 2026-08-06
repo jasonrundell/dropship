@@ -116,7 +116,8 @@ describe('every theme satisfies the contract', () => {
       'borderWidth.thin',
       'shadow.md',
       'font.heading',
-      'letterSpacing.heading'
+      'letterSpacing.heading',
+      'layout.cardAreas'
     ]
 
     for (const axis of axes) {
@@ -136,6 +137,22 @@ describe('every theme satisfies the contract', () => {
         `every theme uses the same ${axis}; themes would look alike`
       ).toBeGreaterThan(1)
     }
+  })
+
+  /**
+   * The strongest form of the claim: a theme can change where things sit, not
+   * just how they look. If every theme shared one grid-template-areas string,
+   * layout would not be themeable and the system would be a palette swap.
+   */
+  it('themes arrange components differently, not just style them', () => {
+    const arrangements = new Set(
+      THEME_NAMES.map((name) => themes[name].layout.cardAreas)
+    )
+
+    expect(
+      arrangements.size,
+      'every theme lays Card out identically; layout is not themeable'
+    ).toBe(THEME_NAMES.length)
   })
 
   it('each theme is structurally distinct from every other', () => {

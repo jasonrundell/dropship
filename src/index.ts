@@ -1,6 +1,7 @@
 export { default as Blockquote } from './components/Blockquote/Blockquote'
 export { default as Box } from './components/Box/Box'
 export { default as Button } from './components/Button/Button'
+export { default as Card } from './components/Card/Card'
 export { default as Container } from './components/Container/Container'
 export { default as Grid } from './components/Grid/Grid'
 export { default as Heading } from './components/Heading/Heading'

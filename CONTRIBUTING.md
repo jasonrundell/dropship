@@ -70,6 +70,23 @@ one design rather than different designs.
 To add a theme: copy an existing token file, change the values, and add its name
 to `THEME_NAMES` in `src/lib/schema.ts`.
 
+### Components with internal structure
+
+A component made of more than one element should render its children into
+**named grid areas** and let the theme arrange them, rather than hard-coding a
+layout. `Card` is the reference implementation.
+
+- Give each slot a `gridArea` and a `data-part` attribute. `data-part` names are
+  public API — a theme may target them with its own CSS when tokens are not
+  enough — so treat renaming one as a breaking change.
+- Add `grid-template-areas` and `grid-template-columns` tokens to `TokenShape`
+  and to all four theme files. Layout tokens are necessarily per-component,
+  since the area names belong to a specific component's slots.
+- Omit a slot from the DOM entirely when it has no content, so an absent slot
+  leaves no empty grid cell.
+- Do not let a theme change DOM order. Visual order and reading order stay
+  coupled on purpose.
+
 ### Tests
 
 Coverage thresholds are set to 100% and enforced in CI, so a new component needs

@@ -50,6 +50,7 @@ atoms included in Dropship:
 | `Blockquote` | `color`                                                                                       |
 | `Box`        | `isTight`, `isRoomy`                                                                          |
 | `Button`     | `label`, `primary`, `size` (`small`/`medium`/`large`), `backgroundColor`, `onClick`           |
+| `Card`       | `media`, `title`, `children`, `actions`, `titleAs` — slots arranged by the theme              |
 | `Container`  | —                                                                                             |
 | `Grid`       | `columnGap`, `rowGap`, `gridTemplateColumns`, `mediumTemplateColumns`, `largeTemplateColumns` |
 | `Heading`    | `level` (1–6), `id`                                                                           |

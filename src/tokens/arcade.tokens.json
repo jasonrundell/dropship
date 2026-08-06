@@ -572,5 +572,15 @@
         "unit": "rem"
       }
     }
+  },
+  "layout": {
+    "$type": "string",
+    "$description": "Media pushed to the right, text leading.",
+    "cardAreas": {
+      "$value": "\"title media\" \"body media\" \"actions media\""
+    },
+    "cardColumns": {
+      "$value": "1fr 8rem"
+    }
   }
 }

@@ -129,6 +129,29 @@ export type TokenShape = {
     md: string
     lg: string
   }
+  /**
+   * Placement.
+   *
+   * This is the part that makes the system a Zen Garden rather than a palette
+   * swap. Components render their children into *named* grid areas, and a
+   * theme supplies the `grid-template-areas` string that arranges them. A
+   * token can move a card's media above the text, beside it, or to the far
+   * side, with no change to the markup.
+   *
+   * Layout tokens are necessarily per-component: `grid-template-areas` names
+   * the slots a specific component exposes. DTCG has no layout primitive, so
+   * these carry a non-standard `$type` of `string`.
+   *
+   * What a token deliberately cannot do is change DOM order. Visual order and
+   * reading order stay coupled, so a theme cannot make the tab order disagree
+   * with what is on screen. That limit is a feature.
+   */
+  layout: {
+    /** `grid-template-areas` for Card. Slots: media, title, body, actions. */
+    cardAreas: string
+    /** `grid-template-columns` for Card. */
+    cardColumns: string
+  }
 }
 
 /** Themes shipped with the library. `hangar` is the default. */

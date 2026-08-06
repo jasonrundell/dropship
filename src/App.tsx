@@ -2,6 +2,7 @@ import {
   Blockquote,
   Box,
   Button,
+  Card,
   Container,
   Grid,
   Heading,
@@ -31,6 +32,20 @@ const Panel = () => (
       <Button label="Secondary" />
       <Button label="Small" size="small" primary />
     </Row>
+
+    <Card
+      media={<div style={{ height: '100%', minHeight: '4rem' }} />}
+      title="Card"
+      actions={
+        <>
+          <Button label="Open" primary size="small" />
+          <Button label="Later" size="small" />
+        </>
+      }
+    >
+      The media, title, body and actions are named grid areas. Where they sit is
+      a token.
+    </Card>
 
     <Spacer smallScreen="small" />
 

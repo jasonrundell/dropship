@@ -490,5 +490,15 @@
         "unit": "rem"
       }
     }
+  },
+  "layout": {
+    "$type": "string",
+    "$description": "Editorial: full-bleed media above a single column of text.",
+    "cardAreas": {
+      "$value": "\"media\" \"title\" \"body\" \"actions\""
+    },
+    "cardColumns": {
+      "$value": "1fr"
+    }
   }
 }

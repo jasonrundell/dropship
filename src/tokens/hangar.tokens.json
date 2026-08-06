@@ -573,5 +573,15 @@
         "unit": "rem"
       }
     }
+  },
+  "layout": {
+    "$type": "string",
+    "$description": "Dense and technical: media pinned left in a fixed column.",
+    "cardAreas": {
+      "$value": "\"media title\" \"media body\" \"media actions\""
+    },
+    "cardColumns": {
+      "$value": "9rem 1fr"
+    }
   }
 }
