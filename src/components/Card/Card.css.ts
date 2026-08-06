@@ -1,3 +1,4 @@
+import { recipe } from '@vanilla-extract/recipes'
 import { style } from '@vanilla-extract/css'
 
 import { vars } from '../../lib/theme.css'
@@ -11,23 +12,43 @@ import { vars } from '../../lib/theme.css'
  * component guarantees the slot names exist, and the theme decides where they
  * go.
  */
-export const card = style({
-  display: 'grid',
-  gridTemplateAreas: vars.layout.cardAreas,
-  gridTemplateColumns: vars.layout.cardColumns,
-  gap: vars.space.sm,
-  alignItems: 'start',
-  padding: vars.space.md,
-  background: vars.color.surface,
-  color: vars.color.text,
-  fontFamily: vars.font.body,
-  fontSize: vars.fontSize.md,
-  lineHeight: vars.lineHeight.normal,
-  borderRadius: vars.radius.lg,
-  borderWidth: vars.borderWidth.hairline,
-  borderStyle: vars.borderStyle.default,
-  borderColor: vars.color.border,
-  boxShadow: vars.shadow.md
+export const card = recipe({
+  base: {
+    display: 'grid',
+    gap: vars.space.sm,
+    alignItems: 'start',
+    padding: vars.space.md,
+    background: vars.color.surface,
+    color: vars.color.text,
+    fontFamily: vars.font.body,
+    fontSize: vars.fontSize.md,
+    lineHeight: vars.lineHeight.normal,
+    borderRadius: vars.radius.lg,
+    borderWidth: vars.borderWidth.hairline,
+    borderStyle: vars.borderStyle.default,
+    borderColor: vars.color.border,
+    boxShadow: vars.shadow.md
+  },
+  variants: {
+    /**
+     * The layout tokens exist to arrange the media relative to the text. With
+     * no media there is nothing to arrange, and applying them anyway would
+     * reserve an empty column and crush the text into what is left — which is
+     * exactly what a text-only card in a three-up grid looked like before this
+     * variant existed.
+     */
+    hasMedia: {
+      true: {
+        gridTemplateAreas: vars.layout.cardAreas,
+        gridTemplateColumns: vars.layout.cardColumns
+      },
+      false: {
+        gridTemplateAreas: "'title' 'body' 'actions'",
+        gridTemplateColumns: '1fr'
+      }
+    }
+  },
+  defaultVariants: { hasMedia: false }
 })
 
 export const media = style({

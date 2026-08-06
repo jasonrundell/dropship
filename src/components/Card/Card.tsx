@@ -24,7 +24,9 @@ export type CardProps = Omit<ComponentPropsWithRef<'div'>, 'title'> & {
  * public hook for a theme that needs to reach past the tokens with its own CSS.
  *
  * Slots are omitted from the DOM entirely when not supplied, so an absent slot
- * leaves no empty grid cell behind.
+ * leaves no empty grid cell behind. A card with no media drops the templated
+ * layout altogether and stacks, since the layout tokens exist to place media
+ * relative to text.
  */
 const Card = ({
   media,
@@ -34,7 +36,11 @@ const Card = ({
   titleAs: TitleTag = 'h3',
   ...props
 }: CardProps) => (
-  <div className={styles.card} data-part="card" {...props}>
+  <div
+    className={styles.card({ hasMedia: media !== undefined })}
+    data-part="card"
+    {...props}
+  >
     {media !== undefined && (
       <div className={styles.media} data-part="card-media">
         {media}

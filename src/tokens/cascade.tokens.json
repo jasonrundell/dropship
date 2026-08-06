@@ -1,5 +1,5 @@
 {
-  "$description": "Cascade \u2014 soft and humane. Generous rounding, blurred elevation, almost no visible borders, a cool muted palette, and geometric sans throughout. The direct opposite of Arcade on every structural axis.",
+  "$description": "Soft and humane: generous rounding, blurred elevation, and almost no visible borders. The direct opposite of Arcade on every structural axis.",
   "color": {
     "$type": "color",
     "background": {
@@ -83,11 +83,11 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.051,
-          0.5804,
-          0.5333
+          0.0471,
+          0.5137,
+          0.4706
         ],
-        "hex": "#0d9488"
+        "hex": "#0c8378"
       }
     },
     "onAccent": {
@@ -116,22 +116,22 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.0196,
-          0.5882,
-          0.4118
+          0.0157,
+          0.5059,
+          0.3529
         ],
-        "hex": "#059669"
+        "hex": "#04815a"
       }
     },
     "warning": {
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.851,
-          0.4667,
-          0.0235
+          0.6667,
+          0.3647,
+          0.0196
         ],
-        "hex": "#d97706"
+        "hex": "#aa5d05"
       }
     },
     "error": {

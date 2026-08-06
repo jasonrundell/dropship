@@ -36,8 +36,9 @@ const values = {
 /** The default theme. Also the source of the contract's shape. */
 export const DEFAULT_THEME = 'hangar'
 
-export const vars = createGlobalThemeContract(values[DEFAULT_THEME], (_v, path) =>
-  ['dropship', ...path].join('-')
+export const vars = createGlobalThemeContract(
+  values[DEFAULT_THEME],
+  (_v, path) => ['dropship', ...path].join('-')
 )
 
 // The default theme lands on :root so a consumer gets a working system from
@@ -51,7 +52,11 @@ for (const name of THEME_NAMES) {
 
 // Applying the default explicitly too, so `data-theme="hangar"` works on a
 // nested element and can override an ancestor set to something else.
-createGlobalTheme(`[data-theme='${DEFAULT_THEME}']`, vars, values[DEFAULT_THEME])
+createGlobalTheme(
+  `[data-theme='${DEFAULT_THEME}']`,
+  vars,
+  values[DEFAULT_THEME]
+)
 
 /** Media query strings. vanilla-extract needs these as literals, not vars. */
 export const media = {

@@ -1,5 +1,5 @@
 {
-  "$description": "Arcade \u2014 neo-brutalist. Heavy black outlines, hard offset shadows with no blur, saturated primaries, zero rounding, and very heavy weights. Proves elevation can be a solid offset rather than a blur.",
+  "$description": "Neo-brutalist: heavy black outlines, hard offset shadows, and saturated colour. Proves elevation can be a solid offset rather than a blur.",
   "color": {
     "$type": "color",
     "background": {
@@ -61,11 +61,11 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.8824,
-          0.1137,
-          0.3608
+          0.8549,
+          0.1098,
+          0.349
         ],
-        "hex": "#e11d5c"
+        "hex": "#da1c59"
       }
     },
     "onPrimary": {

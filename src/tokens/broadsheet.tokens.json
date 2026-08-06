@@ -1,5 +1,5 @@
 {
-  "$description": "Broadsheet \u2014 editorial print. Serif throughout, ink on paper, rules instead of boxes, no shadows at all, no rounding, and a generous measure. Proves a theme can remove elevation entirely.",
+  "$description": "Editorial print: serif throughout, ink on paper, and rules instead of boxes. Removes elevation entirely \u2014 no shadows and no rounding anywhere.",
   "color": {
     "$type": "color",
     "background": {

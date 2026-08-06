@@ -11,11 +11,10 @@ export const link = style({
   textUnderlineOffset: vars.space['3xs'],
   borderRadius: vars.radius.sm,
   cursor: 'pointer',
-  transitionProperty: 'color, text-decoration-thickness',
+  transitionProperty: 'text-decoration-thickness',
   transitionDuration: vars.duration.fast,
   transitionTimingFunction: vars.easing.standard,
   ':hover': {
-    color: vars.color.accent,
     textDecorationThickness: vars.borderWidth.thin
   },
   ':focus-visible': {

@@ -66,7 +66,9 @@ describe('Card', () => {
     (tag) => {
       render(<Card title="Custom" titleAs={tag} />)
 
-      expect(screen.getByRole('heading', { level: Number(tag[1]) })).toBeVisible()
+      expect(
+        screen.getByRole('heading', { level: Number(tag[1]) })
+      ).toBeVisible()
     }
   )
 
@@ -90,6 +92,22 @@ describe('Card', () => {
       'card-body',
       'card-actions'
     ])
+  })
+
+  it('drops the templated layout when there is no media', () => {
+    // With no media there is no media track to reserve. Leaving the template
+    // in place reserved an empty column and crushed the text beside it.
+    const { container } = render(<Card title="Text only">Body</Card>)
+    const withMedia = render(
+      <Card media="m" title="With media" data-testid="with-media">
+        Body
+      </Card>
+    )
+
+    const textOnly = container.querySelector('[data-part="card"]')
+    const media = withMedia.container.querySelector('[data-part="card"]')
+
+    expect(textOnly?.className).not.toBe(media?.className)
   })
 
   it('forwards arbitrary props to the root', () => {

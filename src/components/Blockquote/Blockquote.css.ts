@@ -18,6 +18,6 @@ export const blockquote = style({
   fontStyle: 'italic',
   lineHeight: vars.lineHeight.loose,
   vars: {
-    [quoteColorVar]: vars.color.accent
+    [quoteColorVar]: vars.color.primary
   }
 })

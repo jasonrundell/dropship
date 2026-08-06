@@ -90,6 +90,19 @@ describe('every theme satisfies the contract', () => {
 
   const referencePaths = paths(reference).sort()
 
+  it.each(THEME_NAMES)('%s carries a description of its character', (name) => {
+    const doc = JSON.parse(
+      readFileSync(
+        join(import.meta.dirname, '..', 'tokens', `${name}.tokens.json`),
+        'utf8'
+      )
+    ) as { $description?: string }
+
+    // The design picker derives its copy from this, so it cannot be missing.
+    expect(doc.$description, `${name} needs a $description`).toBeTruthy()
+    expect(doc.$description).toMatch(/\.\s/)
+  })
+
   it.each(THEME_NAMES)('%s defines exactly the contract keys', (name) => {
     expect(paths(themes[name]).sort()).toEqual(referencePaths)
   })
@@ -98,7 +111,10 @@ describe('every theme satisfies the contract', () => {
     const empty = paths(themes[name]).filter((path) => {
       const value = path
         .split('.')
-        .reduce<unknown>((acc, key) => (acc as Record<string, unknown>)[key], themes[name])
+        .reduce<unknown>(
+          (acc, key) => (acc as Record<string, unknown>)[key],
+          themes[name]
+        )
       return typeof value !== 'string' || value.length === 0
     })
 

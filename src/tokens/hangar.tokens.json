@@ -1,5 +1,5 @@
 {
-  "$description": "Hangar \u2014 the default. Instrumentation: high contrast, tight grid, monospaced headings with wide tracking, sharp corners, precise hairlines, and a single signal-orange accent. Restrained everywhere except where it needs to be read at a glance.",
+  "$description": "Instrumentation: monospaced headings with wide tracking, sharp corners, and precise hairlines. The default design. Restrained everywhere except where something needs to be read at a glance.",
   "color": {
     "$type": "color",
     "background": {

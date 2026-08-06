@@ -49,14 +49,17 @@ describe('toCssValue', () => {
 
   it('quotes font families containing spaces', () => {
     expect(
-      toCssValue({ $type: 'fontFamily', $value: ['Berkeley Mono', 'monospace'] })
+      toCssValue({
+        $type: 'fontFamily',
+        $value: ['Berkeley Mono', 'monospace']
+      })
     ).toBe("'Berkeley Mono', monospace")
   })
 
   it('renders a cubic bezier', () => {
-    expect(
-      toCssValue({ $type: 'cubicBezier', $value: [0.2, 0, 0, 1] })
-    ).toBe('cubic-bezier(0.2, 0, 0, 1)')
+    expect(toCssValue({ $type: 'cubicBezier', $value: [0.2, 0, 0, 1] })).toBe(
+      'cubic-bezier(0.2, 0, 0, 1)'
+    )
   })
 
   it('renders a duration', () => {
@@ -66,7 +69,12 @@ describe('toCssValue', () => {
   })
 
   const shadowLayer = {
-    color: { colorSpace: 'srgb', components: [0, 0, 0], hex: '#000000', alpha: 1 },
+    color: {
+      colorSpace: 'srgb',
+      components: [0, 0, 0],
+      hex: '#000000',
+      alpha: 1
+    },
     offsetX: { value: 4, unit: 'px' },
     offsetY: { value: 4, unit: 'px' },
     blur: { value: 0, unit: 'px' },
@@ -89,21 +97,18 @@ describe('toCssValue', () => {
     expect(toCssValue({ $type: 'shadow', $value: 'none' })).toBe('none')
   })
 
-  it.each(['fontWeight', 'number', 'strokeStyle'])(
-    'stringifies %s',
-    (type) => {
-      expect(toCssValue({ $type: type, $value: 700 })).toBe('700')
-    }
-  )
+  it.each(['fontWeight', 'number', 'strokeStyle'])('stringifies %s', (type) => {
+    expect(toCssValue({ $type: type, $value: 700 })).toBe('700')
+  })
 
   it('stringifies an unrecognised type rather than failing', () => {
     expect(toCssValue({ $type: 'somethingNew', $value: 'raw' })).toBe('raw')
   })
 
   it('falls back to the inherited group type when the token has none', () => {
-    expect(
-      toCssValue({ $value: { value: 2, unit: 'rem' } }, 'dimension')
-    ).toBe('2rem')
+    expect(toCssValue({ $value: { value: 2, unit: 'rem' } }, 'dimension')).toBe(
+      '2rem'
+    )
   })
 })
 
