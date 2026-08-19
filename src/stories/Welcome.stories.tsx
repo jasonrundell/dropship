@@ -49,11 +49,10 @@ export const Default: Story = {
         </div>
 
         <p>
-          This is a hobby project of{' '}
-          <a href="https://jasonrundell.com">mine</a>. Why build yet another
-          design system? Because I enjoy building them, I always find myself
-          reaching for one, and the fastest way to understand components and
-          design systems is to make one.
+          This is a hobby project of <a href="https://jasonrundell.com">mine</a>
+          . Why build yet another design system? Because I enjoy building them,
+          I always find myself reaching for one, and the fastest way to
+          understand components and design systems is to make one.
         </p>
         <p>
           <strong>

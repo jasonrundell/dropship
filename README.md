@@ -134,6 +134,7 @@ component lives in `src/components/<Name>/` alongside its styles
 | `npm run check:package`   | Build, then validate the package with publint and attw |
 | `npm run build-storybook` | Build the static Storybook                             |
 | `npm run prettier`        | Format the repository                                  |
+| `npm run prettier:check`  | Check formatting without writing (runs in CI)          |
 
 ## Contributing
 

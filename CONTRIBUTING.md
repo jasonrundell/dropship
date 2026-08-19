@@ -120,6 +120,7 @@ deliberate.
 ## Before opening a pull request
 
 ```sh
+npm run prettier:check
 npm run lint          # zero warnings tolerated
 npm run typecheck
 npm run test:coverage
@@ -153,4 +154,10 @@ publishes to npm. You do not need to bump the version by hand.
 ## Code style
 
 Prettier and ESLint are the arbiters, and both run in CI. `npm run prettier`
-formats everything.
+formats everything; `npm run prettier:check` reports without writing, which is
+what CI runs.
+
+On Windows, `prettier:check` will fail on nearly every file if git is converting
+line endings on checkout. Prettier is configured for LF, so set
+`git config core.autocrlf input` before checking out — the repository content is
+LF and CI checks it as LF.

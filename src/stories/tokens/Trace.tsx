@@ -160,8 +160,8 @@ const Trace = ({ theme }: { theme: ThemeName }) => {
                   </span>
                   <pre className={styles.code}>
                     <code>
-                      <span className={styles.property}>{property}</span>:{' '}
-                      {css};
+                      <span className={styles.property}>{property}</span>: {css}
+                      ;
                     </code>
                   </pre>
                 </div>

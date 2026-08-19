@@ -5,154 +5,98 @@
     "background": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.9843,
-          0.9804,
-          0.9686
-        ],
+        "components": [0.9843, 0.9804, 0.9686],
         "hex": "#fbfaf7"
       }
     },
     "surface": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          1.0,
-          1.0,
-          1.0
-        ],
+        "components": [1.0, 1.0, 1.0],
         "hex": "#ffffff"
       }
     },
     "text": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.1098,
-          0.098,
-          0.0902
-        ],
+        "components": [0.1098, 0.098, 0.0902],
         "hex": "#1c1917"
       }
     },
     "textMuted": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.3412,
-          0.3255,
-          0.3059
-        ],
+        "components": [0.3412, 0.3255, 0.3059],
         "hex": "#57534e"
       }
     },
     "border": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.1098,
-          0.098,
-          0.0902
-        ],
+        "components": [0.1098, 0.098, 0.0902],
         "hex": "#1c1917"
       }
     },
     "primary": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.4863,
-          0.1765,
-          0.0706
-        ],
+        "components": [0.4863, 0.1765, 0.0706],
         "hex": "#7c2d12"
       }
     },
     "onPrimary": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.9843,
-          0.9804,
-          0.9686
-        ],
+        "components": [0.9843, 0.9804, 0.9686],
         "hex": "#fbfaf7"
       }
     },
     "accent": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.1176,
-          0.2275,
-          0.3725
-        ],
+        "components": [0.1176, 0.2275, 0.3725],
         "hex": "#1e3a5f"
       }
     },
     "onAccent": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.9843,
-          0.9804,
-          0.9686
-        ],
+        "components": [0.9843, 0.9804, 0.9686],
         "hex": "#fbfaf7"
       }
     },
     "focus": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.4863,
-          0.1765,
-          0.0706
-        ],
+        "components": [0.4863, 0.1765, 0.0706],
         "hex": "#7c2d12"
       }
     },
     "success": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.0863,
-          0.3961,
-          0.2039
-        ],
+        "components": [0.0863, 0.3961, 0.2039],
         "hex": "#166534"
       }
     },
     "warning": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.5216,
-          0.302,
-          0.0549
-        ],
+        "components": [0.5216, 0.302, 0.0549],
         "hex": "#854d0e"
       }
     },
     "error": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.6,
-          0.1059,
-          0.1059
-        ],
+        "components": [0.6, 0.1059, 0.1059],
         "hex": "#991b1b"
       }
     },
     "onError": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [
-          0.9843,
-          0.9804,
-          0.9686
-        ],
+        "components": [0.9843, 0.9804, 0.9686],
         "hex": "#fbfaf7"
       }
     }
@@ -298,28 +242,13 @@
   "font": {
     "$type": "fontFamily",
     "body": {
-      "$value": [
-        "Iowan Old Style",
-        "Palatino Linotype",
-        "Georgia",
-        "serif"
-      ]
+      "$value": ["Iowan Old Style", "Palatino Linotype", "Georgia", "serif"]
     },
     "heading": {
-      "$value": [
-        "Iowan Old Style",
-        "Palatino Linotype",
-        "Georgia",
-        "serif"
-      ]
+      "$value": ["Iowan Old Style", "Palatino Linotype", "Georgia", "serif"]
     },
     "mono": {
-      "$value": [
-        "Courier Prime",
-        "Courier New",
-        "Courier",
-        "monospace"
-      ]
+      "$value": ["Courier Prime", "Courier New", "Courier", "monospace"]
     }
   },
   "fontSize": {
@@ -445,28 +374,13 @@
   "easing": {
     "$type": "cubicBezier",
     "standard": {
-      "$value": [
-        0.2,
-        0,
-        0,
-        1
-      ]
+      "$value": [0.2, 0, 0, 1]
     },
     "entrance": {
-      "$value": [
-        0,
-        0,
-        0.2,
-        1
-      ]
+      "$value": [0, 0, 0.2, 1]
     },
     "exit": {
-      "$value": [
-        0.4,
-        0,
-        1,
-        1
-      ]
+      "$value": [0.4, 0, 1, 1]
     }
   },
   "breakpoint": {
