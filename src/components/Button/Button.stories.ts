@@ -3,13 +3,16 @@ import { fn } from 'storybook/test'
 
 import Button from './Button'
 
+/**
+ * Every button on this page is styled entirely by the active design. There is
+ * no colour control, because there is no colour prop — `primary` and `size`
+ * select between values the theme supplies. Change the design in the toolbar
+ * to see what that buys.
+ */
 const meta = {
   title: 'Atoms/Button',
   component: Button,
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   args: { onClick: fn() }
 } satisfies Meta<typeof Button>
 

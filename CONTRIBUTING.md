@@ -15,7 +15,12 @@ Dropship targets Node 22 or newer. If you use `nvm`:
 nvm use          # reads .nvmrc
 npm ci
 npm start        # opens Storybook on :6006
+npm run dev      # serves the landing page on :5173
 ```
+
+Storybook is the development surface — it exists to check that every component
+answers to every design. The landing page is the showcase, and renders its whole
+self from the same components.
 
 ## Making a change
 

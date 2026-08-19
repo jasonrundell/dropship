@@ -49,7 +49,7 @@ atoms included in Dropship:
 | ------------ | --------------------------------------------------------------------------------------------- |
 | `Blockquote` | `color`                                                                                       |
 | `Box`        | `isTight`, `isRoomy`                                                                          |
-| `Button`     | `label`, `primary`, `size` (`small`/`medium`/`large`), `backgroundColor`, `onClick`           |
+| `Button`     | `label`, `primary`, `size` (`small`/`medium`/`large`), `onClick`                              |
 | `Card`       | `media`, `title`, `children`, `actions`, `titleAs` — slots arranged by the theme              |
 | `Container`  | —                                                                                             |
 | `Grid`       | `columnGap`, `rowGap`, `gridTemplateColumns`, `mediumTemplateColumns`, `largeTemplateColumns` |
@@ -122,8 +122,10 @@ component lives in `src/components/<Name>/` alongside its styles
 | Script                    | Purpose                                                |
 | ------------------------- | ------------------------------------------------------ |
 | `npm start`               | Start Storybook                                        |
-| `npm run dev`             | Start the Vite dev server                              |
+| `npm run dev`             | Serve the landing page on :5173                        |
 | `npm run build`           | Build the library (ESM, CJS, types, CSS)               |
+| `npm run build:demo`      | Build the landing page into `demo-dist/`               |
+| `npm run preview:demo`    | Serve the built landing page                           |
 | `npm test`                | Run the test suite                                     |
 | `npm run test:watch`      | Run tests in watch mode                                |
 | `npm run test:coverage`   | Run tests with coverage thresholds enforced            |

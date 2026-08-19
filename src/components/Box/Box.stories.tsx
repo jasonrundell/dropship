@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { bounds } from '../../stories/bounds.css'
 import Box from './Box'
 
 const meta = {
@@ -11,9 +12,11 @@ const meta = {
     isRoomy: { control: false },
     children: { control: 'text' }
   },
+  // Framed so the density variants can be read as sizes rather than as three
+  // similar boxes.
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: 'pink' }}>
+      <div className={bounds}>
         <Story />
       </div>
     )

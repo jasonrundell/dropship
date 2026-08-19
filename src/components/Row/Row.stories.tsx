@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { block, bounds } from '../../stories/bounds.css'
 import Row from './Row'
 
 const meta: Meta<typeof Row> = {
@@ -18,9 +19,11 @@ const meta: Meta<typeof Row> = {
       }
     }
   },
+  // Framed so the track the children are being justified and aligned within is
+  // visible, rather than only their final positions.
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: 'pink' }}>
+      <div className={bounds}>
         <Story />
       </div>
     )
@@ -40,36 +43,16 @@ export const Centered: Story = {
   args: {
     justify: 'center',
     align: 'center',
+    // Three unequal heights, so `align` has something to disagree about.
     children: (
       <>
-        <div
-          style={{
-            backgroundColor: 'yellow',
-            padding: '1rem',
-            margin: '1rem',
-            height: '2rem'
-          }}
-        >
+        <div className={block} style={{ height: '2rem' }}>
           One
         </div>
-        <div
-          style={{
-            backgroundColor: 'yellow',
-            padding: '1rem',
-            margin: '1rem',
-            height: '5rem'
-          }}
-        >
+        <div className={block} style={{ height: '5rem' }}>
           Two
         </div>
-        <div
-          style={{
-            backgroundColor: 'yellow',
-            padding: '1rem',
-            margin: '1rem',
-            height: '3rem'
-          }}
-        >
+        <div className={block} style={{ height: '3rem' }}>
           Three
         </div>
       </>

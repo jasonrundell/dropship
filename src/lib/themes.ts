@@ -50,3 +50,12 @@ export const THEMES: ThemeSummary[] = THEME_NAMES.map((name) => {
     swatches: PREVIEW_KEYS.map((key) => doc.color[key].$value.hex)
   }
 })
+
+/**
+ * The same summaries keyed by name, for callers that already hold a
+ * `ThemeName` and would otherwise need a `find` TypeScript cannot prove
+ * succeeds.
+ */
+export const THEME_BY_NAME = Object.fromEntries(
+  THEMES.map((summary) => [summary.name, summary])
+) as Record<ThemeName, ThemeSummary>

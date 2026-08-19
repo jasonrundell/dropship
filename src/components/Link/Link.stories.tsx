@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { bounds } from '../../stories/bounds.css'
 import Link from './Link'
 
 const meta: Meta<typeof Link> = {
@@ -12,9 +13,11 @@ const meta: Meta<typeof Link> = {
     target: { control: 'text' },
     rel: { control: 'text' }
   },
+  // Framed so the line the link sits on is visible, which is where a theme's
+  // underline and focus ring have to work.
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: 'pink' }}>
+      <div className={bounds}>
         <Story />
       </div>
     )

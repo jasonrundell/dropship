@@ -86,7 +86,7 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
             </Heading>
             <Spacer smallScreen="small" />
             <p className={styles.lede}>
-              Every design below renders this same page from the same nine
+              Every design below renders this same page from the same ten
               components. Nothing changes but a token file.
             </p>
             <Spacer smallScreen="medium" />
@@ -162,6 +162,17 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
               different design below and watch the media move — the markup does
               not change, only the value of one token.
             </Card>
+
+            <Spacer smallScreen="small" />
+            <p className={styles.prose}>
+              Want the receipt?{' '}
+              <Link
+                href="https://dropship-storybook.vercel.app/?path=/story/tokens--how-a-design-is-made"
+                label="Trace that card back to its tokens"
+              />{' '}
+              — the DTCG source for each of the seven values that painted it,
+              beside the CSS they compile to, for whichever design is active.
+            </p>
 
             <Spacer smallScreen="medium" />
             <Blockquote>

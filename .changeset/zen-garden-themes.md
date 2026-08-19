@@ -17,6 +17,13 @@ depending only on which theme is active.
 | `arcade`     | Neo-brutalist: heavy outlines, hard offset shadows, saturated colour     |
 | `cascade`    | Soft: generous rounding, blurred elevation, almost no visible borders    |
 
+**No two designs share a typeface.** Each supplies its own body, heading, and
+monospace face — Hangar sets headings in a monospace, Broadsheet in a serif,
+Arcade in a heavy grotesque, Cascade in a geometric sans — and a test asserts
+all three roles are distinct across all four. Typography is the loudest signal
+a design gives off, so two designs sharing a heading face read as variants of
+one another however far apart their colour and geometry are.
+
 Switch with a single attribute — no rebuild, no JavaScript, and it cascades, so
 a theme can be scoped to any subtree:
 

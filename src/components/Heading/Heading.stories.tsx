@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { bounds } from '../../stories/bounds.css'
 import Heading from './Heading'
 
 const meta: Meta<typeof Heading> = {
@@ -11,9 +12,11 @@ const meta: Meta<typeof Heading> = {
     children: { control: 'text' },
     id: { control: 'text' }
   },
+  // Framed so each level's block box — and the space a theme gives it — is
+  // visible, not just the glyphs.
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: 'pink' }}>
+      <div className={bounds}>
         <Story />
       </div>
     )

@@ -156,6 +156,23 @@ describe('every theme satisfies the contract', () => {
   })
 
   /**
+   * `font.heading` is in the axes above, but that check only asks for *some*
+   * disagreement — Arcade and Hangar both shipped Berkeley Mono headings and
+   * passed it. Typography is the loudest signal a design gives off, so every
+   * role gets its own face in every design, and the floor here is exact.
+   */
+  it('gives every theme its own typeface in every font role', () => {
+    for (const role of ['body', 'heading', 'mono'] as const) {
+      const faces = THEME_NAMES.map((name) => themes[name].font[role])
+
+      expect(
+        new Set(faces).size,
+        `two themes share a ${role} face — ${faces.join(' / ')}`
+      ).toBe(THEME_NAMES.length)
+    }
+  })
+
+  /**
    * The strongest form of the claim: a theme can change where things sit, not
    * just how they look. If every theme shared one grid-template-areas string,
    * layout would not be themeable and the system would be a palette swap.

@@ -36,5 +36,9 @@ storybook.log
 # linting
 .eslintcache
 
+# agent scratch space, including worktrees — full copies of this repo at other
+# commits, which eslint and vitest would otherwise collect
+/.claude
+
 # demo gallery build
 /demo-dist

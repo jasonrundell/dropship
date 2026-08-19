@@ -388,18 +388,17 @@
     },
     "heading": {
       "$value": [
-        "Berkeley Mono",
-        "SFMono-Regular",
-        "Menlo",
-        "Consolas",
-        "monospace"
+        "Archivo Black",
+        "Arial Black",
+        "Archivo",
+        "Helvetica Neue",
+        "sans-serif"
       ]
     },
     "mono": {
       "$value": [
-        "Berkeley Mono",
-        "SFMono-Regular",
-        "Menlo",
+        "Space Mono",
+        "Andale Mono",
         "Consolas",
         "monospace"
       ]

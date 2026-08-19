@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { THEMES } from './themes'
+import { THEMES, THEME_BY_NAME } from './themes'
 import { THEME_NAMES } from './schema'
 
 /**
@@ -30,6 +30,14 @@ describe('theme summaries', () => {
 
     for (const swatch of swatches) {
       expect(swatch).toMatch(/^#[0-9a-f]{6}$/)
+    }
+  })
+
+  it('keys every summary by its own name', () => {
+    for (const name of THEME_NAMES) {
+      expect(THEME_BY_NAME[name]).toBe(
+        THEMES.find((entry) => entry.name === name)
+      )
     }
   })
 

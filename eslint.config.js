@@ -6,7 +6,10 @@ import storybook from 'eslint-plugin-storybook'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  { ignores: ['dist', 'storybook-static', 'coverage', 'public'] },
+  // `.claude` holds agent worktrees — full copies of this repo at other
+  // commits. Linting them reports errors against code that is not on this
+  // branch, and fails the run outright when several are present.
+  { ignores: ['dist', 'storybook-static', 'coverage', 'public', '.claude'] },
   {
     extends: [
       js.configs.recommended,

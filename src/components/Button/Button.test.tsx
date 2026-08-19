@@ -55,16 +55,11 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toBeVisible()
   })
 
-  it('applies a custom backgroundColor when given one', () => {
-    render(<Button label="Save" backgroundColor="rgb(255, 0, 0)" />)
-
-    expect(screen.getByRole('button')).toHaveStyle({
-      backgroundColor: 'rgb(255, 0, 0)'
-    })
-  })
-
-  it('sets no inline style when backgroundColor is omitted', () => {
-    render(<Button label="Save" />)
+  it('never sets an inline style, whatever variant it is given', () => {
+    // Button deliberately exposes no colour prop. A literal passed from the
+    // call site would land here as an inline style, outrank the theme, and
+    // survive a design change — breaking the one guarantee the system makes.
+    render(<Button label="Save" primary size="large" />)
 
     expect(screen.getByRole('button')).not.toHaveAttribute('style')
   })

@@ -315,10 +315,9 @@
     },
     "mono": {
       "$value": [
-        "Berkeley Mono",
-        "SFMono-Regular",
-        "Menlo",
-        "Consolas",
+        "Courier Prime",
+        "Courier New",
+        "Courier",
         "monospace"
       ]
     }

@@ -1,7 +1,7 @@
 import type { Decorator, Preview } from '@storybook/react-vite'
 
 import { THEME_NAMES } from '../src/lib/schema'
-import '../src/lib/theme.css'
+import { DEFAULT_THEME } from '../src/lib/theme.css'
 
 /**
  * The Zen Garden switch. Every story renders identical markup; changing the
@@ -9,7 +9,7 @@ import '../src/lib/theme.css'
  * restyles. If a component fails to respond here, it is hard-coding something.
  */
 const withTheme: Decorator = (Story, context) => {
-  const theme = context.globals.theme ?? 'hangar'
+  const theme = context.globals.theme ?? DEFAULT_THEME
 
   return (
     <div
@@ -29,7 +29,7 @@ const withTheme: Decorator = (Story, context) => {
 
 const preview: Preview = {
   decorators: [withTheme],
-  initialGlobals: { theme: 'hangar' },
+  initialGlobals: { theme: DEFAULT_THEME },
   globalTypes: {
     theme: {
       description: 'Design system theme',
@@ -46,7 +46,26 @@ const preview: Preview = {
   },
   parameters: {
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
-    a11y: { test: 'todo' }
+    a11y: { test: 'todo' },
+    options: {
+      // Read the front page before the component list.
+      storySort: { order: ['Welcome', 'Tokens', 'Atoms'] }
+    },
+    /**
+     * Chromatic snapshots the default design only.
+     *
+     * Snapshotting all four would catch more — a design can break a
+     * component's layout in a way no unit test sees — but it also multiplies
+     * every baseline by four, and any change to a shared token rebaselines the
+     * lot. One design keeps the diffs readable and the review cheap.
+     *
+     * The other three are not unguarded: `theme-agnostic.test.ts` proves no
+     * component hard-codes a value and that the designs stay structurally
+     * distinct, and the toolbar switches between them for a look by eye. Add
+     * a design back here when its layout is worth watching, one entry per
+     * mode — `broadsheet: { theme: 'broadsheet' }`.
+     */
+    chromatic: { modes: { [DEFAULT_THEME]: { theme: DEFAULT_THEME } } }
   }
 }
 

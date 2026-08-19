@@ -1,123 +1,152 @@
+/**
+ * The Storybook front page, styled entirely from the token contract.
+ *
+ * This is plain CSS rather than vanilla-extract because it is Storybook
+ * furniture, not a shipped component. It still reaches only for `--dropship-*`
+ * custom properties, so it re-themes with the toolbar like everything else — a
+ * welcome page that ignored the active design would be the worst possible
+ * first impression of a system whose entire pitch is that nothing does.
+ *
+ * Media queries carry literal widths because custom properties cannot be read
+ * inside `@media`. They mirror `breakpoint.sm` and `breakpoint.md`.
+ */
+
 .storybook-page {
   margin: 0 auto;
-  color: #333;
-  font-size: 16px;
-  line-height: 1.3;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  width: 300px;
+  width: 100%;
+  max-width: 42rem;
+  color: var(--dropship-color-text);
+  background: var(--dropship-color-background);
+  font-family: var(--dropship-font-body);
+  font-size: var(--dropship-fontSize-md);
+  line-height: var(--dropship-lineHeight-normal);
+  letter-spacing: var(--dropship-letterSpacing-normal);
   word-wrap: break-word;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 48rem) {
   .storybook-page {
-    width: 400px;
-  }
-}
-
-@media (min-width: 768px) {
-  .storybook-page {
-    padding: 48px 20px;
-    width: auto;
-    max-width: 600px;
+    padding-block: var(--dropship-space-2xl);
+    padding-inline: var(--dropship-space-lg);
   }
 }
 
 .storybook-page h1,
-.storybook-page h2 {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 0 4px;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1;
+.storybook-page h2,
+.storybook-page h3 {
+  margin: var(--dropship-space-xl) 0 var(--dropship-space-sm);
+  color: var(--dropship-color-text);
+  font-family: var(--dropship-font-heading);
+  font-weight: var(--dropship-fontWeight-heading);
+  line-height: var(--dropship-lineHeight-tight);
+  letter-spacing: var(--dropship-letterSpacing-heading);
 }
 
 .storybook-page h1 {
-  font-size: 32px;
+  margin-top: 0;
+  font-size: var(--dropship-fontSize-3xl);
 }
 
 .storybook-page h2 {
-  font-size: 24px;
+  font-size: var(--dropship-fontSize-2xl);
+}
+
+.storybook-page h3 {
+  font-size: var(--dropship-fontSize-xl);
 }
 
 .storybook-page p {
-  margin: 1em 0;
+  margin: var(--dropship-space-md) 0;
+}
+
+.storybook-page .lede {
+  color: var(--dropship-color-textMuted);
+  font-size: var(--dropship-fontSize-lg);
+  line-height: var(--dropship-lineHeight-loose);
 }
 
 .storybook-page a {
-  color: inherit;
+  color: var(--dropship-color-primary);
+  text-decoration-thickness: var(--dropship-borderWidth-hairline);
+  text-underline-offset: var(--dropship-space-3xs);
+}
+
+.storybook-page a:hover {
+  text-decoration-thickness: var(--dropship-borderWidth-thin);
+}
+
+.storybook-page a:focus-visible {
+  outline: var(--dropship-borderWidth-thick) solid var(--dropship-color-focus);
+  outline-offset: var(--dropship-space-3xs);
 }
 
 .storybook-page ul {
-  margin: 1em 0;
-  padding-left: 30px;
+  margin: var(--dropship-space-md) 0;
+  padding-left: var(--dropship-space-lg);
 }
 
 .storybook-page li {
-  margin-bottom: 8px;
+  margin-bottom: var(--dropship-space-xs);
 }
 
-.storybook-page .tip {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 10px;
-  border-radius: 1em;
-  background: #e7fdd8;
-  padding: 4px 12px;
-  color: #357a14;
-  font-weight: 700;
-  font-size: 11px;
-  line-height: 12px;
-}
-
-.storybook-page .tip-wrapper {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.storybook-page .tip-wrapper svg {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 3px;
-  margin-right: 4px;
-  width: 12px;
-  height: 12px;
-}
-
-.storybook-page .tip-wrapper svg path {
-  fill: #1ea7fd;
+.storybook-page blockquote {
+  margin: var(--dropship-space-md) 0;
+  padding-left: var(--dropship-space-md);
+  border-left: var(--dropship-borderWidth-thick)
+    var(--dropship-borderStyle-default) var(--dropship-color-primary);
+  color: var(--dropship-color-textMuted);
 }
 
 .storybook-page pre {
-  margin: 24px 0;
+  margin: var(--dropship-space-md) 0;
 }
 
 .storybook-page code {
   display: block;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  font-size: 16px;
-  background: #333;
-  color: #fff;
-  padding: 16px;
-  border-radius: 4px;
-  overflow-x: scroll;
+  padding: var(--dropship-space-sm);
+  background: var(--dropship-color-surface);
+  color: var(--dropship-color-text);
+  border: var(--dropship-borderWidth-hairline)
+    var(--dropship-borderStyle-default) var(--dropship-color-border);
+  border-radius: var(--dropship-radius-md);
+  box-shadow: var(--dropship-shadow-sm);
+  font-family: var(--dropship-font-mono);
+  font-size: var(--dropship-fontSize-sm);
+  line-height: var(--dropship-lineHeight-normal);
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* An aside that carries its own weight in every design. */
+.storybook-page .callout {
+  margin: var(--dropship-space-lg) 0;
+  padding: var(--dropship-space-md);
+  background: var(--dropship-color-surface);
+  border: var(--dropship-borderWidth-thin) var(--dropship-borderStyle-default)
+    var(--dropship-color-border);
+  border-radius: var(--dropship-radius-lg);
+  box-shadow: var(--dropship-shadow-md);
+}
+
+.storybook-page .callout > :first-child {
+  margin-top: 0;
+}
+
+.storybook-page .callout > :last-child {
+  margin-bottom: 0;
 }
 
 .storybook-dropship-logo {
   display: flex;
   justify-content: flex-start;
-  justify-items: flex-start;
   align-items: flex-start;
-  margin: 40px auto;
+  margin: var(--dropship-space-lg) 0;
   width: 100%;
-  height: 100%;
 }
 
 .storybook-dropship-logo img {
   width: 100%;
-  height: 100%;
-  max-width: 350px;
-  max-height: 350px;
+  max-width: 22rem;
+  height: auto;
+  border-radius: var(--dropship-radius-lg);
 }

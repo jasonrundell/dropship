@@ -398,10 +398,9 @@
     },
     "mono": {
       "$value": [
-        "Berkeley Mono",
-        "SFMono-Regular",
+        "IBM Plex Mono",
+        "Cascadia Mono",
         "Menlo",
-        "Consolas",
         "monospace"
       ]
     }

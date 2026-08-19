@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { fill } from '../../stories/bounds.css'
 import Spacer from './Spacer'
 
 const meta: Meta<typeof Spacer> = {
@@ -23,9 +24,12 @@ const meta: Meta<typeof Spacer> = {
       }
     }
   },
+  // A Spacer is height and nothing else, so the only way to see one is to fill
+  // it. The bar is the story: it grows and shrinks with the theme's space
+  // scale, which is the whole point of the component.
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: 'pink' }}>
+      <div className={fill}>
         <Story />
       </div>
     )
