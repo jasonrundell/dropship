@@ -27,6 +27,13 @@
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/**/*.json"],
+  "include": [
+    "src",
+    "src/**/*.json",
+    /* Explicit globs: a bare ".storybook" is skipped as a dot-directory, and
+       the a11y story test imports the preview. */
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
+  ],
   "exclude": ["node_modules", "dist"]
 }

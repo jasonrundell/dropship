@@ -113,6 +113,13 @@ it('has no axe violations', async () => {
 })
 ```
 
+Stories are checked too, and you do not have to wire that up.
+`src/stories.a11y.test.tsx` discovers every `*.stories.*` file, renders each
+story through the real preview decorators, and runs the same axe assertion. It
+catches what isolated component tests cannot — a heading level that skips once
+components are composed, a control that loses its accessible name inside a
+layout. Adding a story adds its check.
+
 If you add or remove an exported component, update the expected export list in
 `src/index.test.ts`. That test exists so a change to the public API is
 deliberate.

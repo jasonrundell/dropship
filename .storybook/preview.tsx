@@ -46,7 +46,10 @@ const preview: Preview = {
   },
   parameters: {
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
-    a11y: { test: 'todo' },
+    // Violations are errors, not suggestions. `src/stories.a11y.test.tsx`
+    // runs axe over every story and fails CI on any of them, so the panel
+    // here should say the same thing rather than filing them as todos.
+    a11y: { test: 'error' },
     options: {
       // Read the front page before the component list.
       storySort: { order: ['Welcome', 'Tokens', 'Atoms'] }
