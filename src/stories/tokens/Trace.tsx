@@ -86,7 +86,7 @@ const trace = (doc: DtcgNode, path: string): TokenTrace => {
   return {
     source: JSON.stringify(token, null, 2),
     css: toCssValue(token, inherited),
-    property: `--dropship-${keys.join('-')}`,
+    property: `--topiary-${keys.join('-')}`,
     type: token.$type ?? inherited ?? 'unknown'
   }
 }

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 36 92 102" role="img" aria-label="Topiary mark: a topiary peacock in a pot">
+  <!-- The Topiary mark: same geometry as the four-theme logo, drawn once in
+       the brand's own colours with outlines heavy enough to survive 16px. -->
+  <defs>
+    <path id="leaf" d="M0 0 C-7 -16 -7 -33 0 -44 C7 -33 7 -16 0 0 Z"/>
+    <g id="tail">
+      <use href="#leaf" transform="translate(60 84) rotate(-86)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(-63)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(-40)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(-17)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(17)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(40)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(63)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(86)"/>
+    </g>
+    <path id="body" d="M60 54 C65 54 68 57.5 68 62 C68 66 66.5 69 65 72 C64.5 76 65 78 68 80 C73 83 76 87 76 92 C76 100 69 106 60 106 C51 106 44 100 44 92 C44 87 47 83 52 80 C55 78 55.5 76 55 72 C53.5 69 52 66 52 62 C52 57.5 55 54 60 54 Z"/>
+    <g id="crest">
+      <path d="M60 55 L60 48 M56.5 56 L53 49 M63.5 56 L67 49" fill="none"/>
+      <circle cx="60" cy="46" r="2.4"/>
+      <circle cx="52.2" cy="47.6" r="2.4"/>
+      <circle cx="67.8" cy="47.6" r="2.4"/>
+    </g>
+    <g id="eyes">
+      <circle cx="56.6" cy="61.5" r="1.8"/>
+      <circle cx="63.4" cy="61.5" r="1.8"/>
+    </g>
+    <path id="beak" d="M56.8 65.2 L60 69.8 L63.2 65.2 Q60 63.2 56.8 65.2 Z"/>
+    <rect id="trunk" x="57" y="103" width="6" height="13"/>
+    <path id="pot" d="M38 114 H82 V120 H77.5 L74.5 134 H45.5 L42.5 120 H38 Z"/>
+  </defs>
+  <g stroke-linejoin="miter">
+    <use href="#tail" fill="#15803d" stroke="#0a0a0b" stroke-width="2.2"/>
+    <use href="#body" fill="#15803d" stroke="#0a0a0b" stroke-width="2.2"/>
+    <use href="#crest" fill="#15803d" stroke="#0a0a0b" stroke-width="1.8"/>
+    <use href="#trunk" fill="#57534e" stroke="#0a0a0b" stroke-width="1.8"/>
+    <use href="#pot" fill="#c2410c" stroke="#0a0a0b" stroke-width="2.2"/>
+    <use href="#eyes" fill="#0a0a0b"/>
+    <use href="#beak" fill="#c2410c" stroke="#0a0a0b" stroke-width="1.4"/>
+  </g>
+</svg>

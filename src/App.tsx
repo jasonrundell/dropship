@@ -5,7 +5,7 @@ import { DEFAULT_THEME } from './lib/theme.css'
 import { THEME_NAMES } from './lib/schema'
 import type { ThemeName } from './lib/schema'
 
-const STORAGE_KEY = 'dropship-theme'
+const STORAGE_KEY = 'topiary-theme'
 
 const isThemeName = (value: unknown): value is ThemeName =>
   typeof value === 'string' &&

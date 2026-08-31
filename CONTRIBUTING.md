@@ -1,4 +1,4 @@
-# Contributing to Dropship
+# Contributing to Topiary
 
 Thanks for taking the time to contribute.
 
@@ -9,7 +9,7 @@ avoids anyone spending time on work that turns out not to fit.
 
 ## Getting set up
 
-Dropship targets Node 22 or newer. If you use `nvm`:
+Topiary targets Node 22 or newer. If you use `nvm`:
 
 ```sh
 nvm use          # reads .nvmrc

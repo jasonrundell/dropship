@@ -1,5 +1,5 @@
 {
-  "name": "@jasonrundell/dropship",
+  "name": "@jasonrundell/topiary",
   "version": "3.4.0",
   "description": "A token-driven React component library: the same markup renders as four deliberately unrelated designs.",
   "main": "./dist/index.cjs",

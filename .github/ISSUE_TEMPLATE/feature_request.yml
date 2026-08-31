@@ -7,7 +7,7 @@ body:
     attributes:
       label: What are you trying to build
       description: >
-        Describe the use case rather than the solution. What does Dropship make
+        Describe the use case rather than the solution. What does Topiary make
         awkward today?
     validations:
       required: true

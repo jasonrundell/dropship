@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import './page.css'
-import logoImage from '../assets/dropship-logo.webp'
+import logoImage from '../assets/topiary-logo.svg'
 import { THEMES } from '../lib/themes'
 
 const meta: Meta = {
@@ -15,16 +15,16 @@ export const Default: Story = {
   render: () => (
     <article>
       <section className="storybook-page">
-        <h1>Dropship</h1>
-        <div className="storybook-dropship-logo">
+        <h1>Topiary</h1>
+        <div className="storybook-topiary-logo">
           <img
             src={logoImage}
-            alt="Dropship logo of a space ship dropping cargo against a backdrop of stars"
+            alt="The Topiary mascot — a topiary peacock in a pot — rendered once in each of the four themes: hangar, broadsheet, arcade, and cascade"
           />
         </div>
 
         <p className="lede">
-          Tokens drive form. Components drive function. Dropship ships four
+          Tokens drive form. Components drive function. Topiary ships four
           designs that render <strong>identical markup</strong> in deliberately
           unrelated ways &mdash; a CSS Zen Garden for component libraries.
         </p>
@@ -93,7 +93,7 @@ export const Default: Story = {
               </a>
             </blockquote>
             <p>
-              Dropship&rsquo;s designs are DTCG documents in JSON, one per
+              Topiary&rsquo;s designs are DTCG documents in JSON, one per
               design, compiled to CSS custom properties at build time. You can
               read the format at{' '}
               <a href="https://tr.designtokens.org/">tr.designtokens.org</a>.
@@ -132,15 +132,15 @@ export const Default: Story = {
           default design and all four theme blocks.
         </p>
         <pre>
-          <code>npm install @jasonrundell/dropship</code>
+          <code>npm install @jasonrundell/topiary</code>
         </pre>
         <pre>
-          <code>import '@jasonrundell/dropship/style.css'</code>
+          <code>import '@jasonrundell/topiary/style.css'</code>
         </pre>
         <p>Then import components as you need them:</p>
         <pre>
           <code>
-            {`import { Card, Button } from '@jasonrundell/dropship'
+            {`import { Card, Button } from '@jasonrundell/topiary'
 
 function App() {
   return (
@@ -173,13 +173,13 @@ function App() {
         <pre>
           <code>
             {`[data-theme='mine'] {
-  --dropship-color-primary: #0f766e;
-  --dropship-radius-md: 0;
-  --dropship-shadow-md: 4px 4px 0 0 #000;
+  --topiary-color-primary: #0f766e;
+  --topiary-radius-md: 0;
+  --topiary-shadow-md: 4px 4px 0 0 #000;
 
   /* Placement is a token too. */
-  --dropship-layout-cardAreas: 'title media' 'body media';
-  --dropship-layout-cardColumns: 1fr 8rem;
+  --topiary-layout-cardAreas: 'title media' 'body media';
+  --topiary-layout-cardColumns: 1fr 8rem;
 }`}
           </code>
         </pre>

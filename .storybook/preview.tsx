@@ -24,10 +24,10 @@ const withTheme: Decorator = (Story, context) => {
     <div
       data-theme={theme}
       style={{
-        background: 'var(--dropship-color-background)',
-        color: 'var(--dropship-color-text)',
-        fontFamily: 'var(--dropship-font-body)',
-        padding: 'var(--dropship-space-lg)',
+        background: 'var(--topiary-color-background)',
+        color: 'var(--topiary-color-text)',
+        fontFamily: 'var(--topiary-font-body)',
+        padding: 'var(--topiary-space-lg)',
         minHeight: fillsCanvas ? '100vh' : undefined
       }}
     >

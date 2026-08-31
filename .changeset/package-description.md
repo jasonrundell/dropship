@@ -1,11 +1,11 @@
 ---
-'@jasonrundell/dropship': patch
+'@jasonrundell/topiary': patch
 ---
 
 Describe the package as what it is.
 
 The npm description read "Get a React project up and running really fast with
-Dropship" — a generic speed pitch that says nothing true about this package and
+Topiary" — a generic speed pitch that says nothing true about this package and
 nothing that distinguishes it. It is now:
 
 > A token-driven React component library: the same markup renders as four
