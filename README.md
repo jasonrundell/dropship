@@ -136,6 +136,23 @@ component lives in `src/components/<Name>/` alongside its styles
 | `npm run prettier`        | Format the repository                                  |
 | `npm run prettier:check`  | Check formatting without writing (runs in CI)          |
 
+## Deploys
+
+Two Vercel projects build from this repository, both from `main`:
+
+| Site         | Build command             | Output directory   |
+| ------------ | ------------------------- | ------------------ |
+| Storybook    | `npm run build-storybook` | `storybook-static` |
+| Landing page | `npm run build:demo`      | `demo-dist`        |
+
+Both are configured in Vercel's dashboard rather than in a `vercel.json`, and
+deliberately so. A `vercel.json` at the repository root is read by **every**
+project whose root directory is the repository root, and its `buildCommand` and
+`outputDirectory` override the dashboard. With two sites building from one root
+there is no single file that can serve both — adding one would silently retarget
+the other site's build. Keep the settings in the dashboard unless the projects
+are given separate root directories.
+
 ## Contributing
 
 Please open an issue first, then a pull request from a fork. See
