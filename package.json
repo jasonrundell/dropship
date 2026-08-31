@@ -1,7 +1,7 @@
 {
   "name": "@jasonrundell/dropship",
   "version": "3.4.0",
-  "description": "Get a React project up and running really fast with Dropship.",
+  "description": "A token-driven React component library: the same markup renders as four deliberately unrelated designs.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
