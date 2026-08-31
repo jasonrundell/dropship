@@ -1,77 +1,98 @@
 {
   "name": "@jasonrundell/dropship",
   "version": "3.4.0",
-  "description": "Get a React project up and running really fast with Dropship.",
-  "main": "dist/index.es.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "description": "A token-driven React component library: the same markup renders as four deliberately unrelated designs.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
-    "dist",
-    "dist/style.css"
+    "dist"
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts",
-      "style": "./dist/style.css"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
   },
   "scripts": {
-    "start": "npm run storybook",
-    "dev": "vite",
-    "build": "tsc -p tsconfig.json && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
+    "build": "tsc -p tsconfig.json && vite build && node scripts/emit-cjs-types.mjs",
     "build-storybook": "storybook build",
-    "release": "auto shipit --base-branch=main",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "changeset": "changeset",
+    "check:package": "npm run build && publint --strict && attw --pack . --exclude-entrypoints style.css",
+    "dev": "vite",
+    "lint": "eslint . --max-warnings=0",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "preview": "vite preview",
+    "preview:demo": "vite preview --config vite.demo.config.ts",
+    "release": "npm run build && changeset publish",
+    "start": "npm run storybook",
+    "storybook": "storybook dev -p 6006",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
-    "prettier": "prettier --write ."
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
+    "version-packages": "changeset version"
   },
-  "dependencies": {
-    "@pigment-css/react": "^0.0.29",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "yaml": "^2.8.2"
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
-    "@eslint/js": "^9.13.0",
-    "@pigment-css/vite-plugin": "^0.0.29",
-    "@storybook/addon-essentials": "^8.4.2",
-    "@storybook/addon-interactions": "^8.4.2",
-    "@storybook/addon-onboarding": "^8.4.2",
-    "@storybook/blocks": "^8.4.2",
-    "@storybook/react": "^8.4.2",
-    "@storybook/react-vite": "^8.4.2",
-    "@storybook/test": "^8.4.2",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "auto": "^11.2.1",
-    "chromatic": "^7.2.0",
-    "eslint": "^9.13.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "eslint-plugin-storybook": "^0.11.0",
-    "globals": "^15.11.0",
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.1",
+    "@chromatic-com/storybook": "^5.2.1",
+    "@eslint/js": "^10.0.1",
+    "@storybook/addon-a11y": "^10.5.6",
+    "@storybook/addon-docs": "^10.5.6",
+    "@storybook/react": "^10.5.6",
+    "@storybook/react-vite": "^10.5.6",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vanilla-extract/css": "^1.21.2",
+    "@vanilla-extract/dynamic": "^2.1.5",
+    "@vanilla-extract/recipes": "^0.5.7",
+    "@vanilla-extract/vite-plugin": "^5.2.6",
+    "@vitejs/plugin-react": "^6.0.5",
+    "@vitest/coverage-v8": "^4.1.10",
+    "axe-core": "^4.12.1",
+    "chromatic": "^18.1.0",
+    "eslint": "^10.8.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "eslint-plugin-storybook": "^10.5.6",
+    "globals": "^17.9.0",
+    "jsdom": "^30.0.1",
     "prettier": "^3.0.3",
-    "storybook": "^8.4.2",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.11.0",
-    "vite": "^5.4.10",
-    "vite-plugin-css": "^1.0.0",
-    "vite-plugin-dts": "^4.3.0",
+    "publint": "^0.3.14",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "storybook": "^10.5.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.66.0",
+    "vite": "^8.2.0",
+    "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.0.18"
   },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
+  "engines": {
+    "node": ">=22"
   },
   "license": "MIT",
   "repository": {

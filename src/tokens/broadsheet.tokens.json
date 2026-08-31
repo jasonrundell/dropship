@@ -1,0 +1,417 @@
+{
+  "$description": "Editorial print: serif throughout, ink on paper, and rules instead of boxes. Removes elevation entirely \u2014 no shadows and no rounding anywhere.",
+  "color": {
+    "$type": "color",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9843, 0.9804, 0.9686],
+        "hex": "#fbfaf7"
+      }
+    },
+    "surface": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1.0, 1.0, 1.0],
+        "hex": "#ffffff"
+      }
+    },
+    "text": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.1098, 0.098, 0.0902],
+        "hex": "#1c1917"
+      }
+    },
+    "textMuted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.3412, 0.3255, 0.3059],
+        "hex": "#57534e"
+      }
+    },
+    "border": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.1098, 0.098, 0.0902],
+        "hex": "#1c1917"
+      }
+    },
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.4863, 0.1765, 0.0706],
+        "hex": "#7c2d12"
+      }
+    },
+    "onPrimary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9843, 0.9804, 0.9686],
+        "hex": "#fbfaf7"
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.1176, 0.2275, 0.3725],
+        "hex": "#1e3a5f"
+      }
+    },
+    "onAccent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9843, 0.9804, 0.9686],
+        "hex": "#fbfaf7"
+      }
+    },
+    "focus": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.4863, 0.1765, 0.0706],
+        "hex": "#7c2d12"
+      }
+    },
+    "success": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.0863, 0.3961, 0.2039],
+        "hex": "#166534"
+      }
+    },
+    "warning": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.5216, 0.302, 0.0549],
+        "hex": "#854d0e"
+      }
+    },
+    "error": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.6, 0.1059, 0.1059],
+        "hex": "#991b1b"
+      }
+    },
+    "onError": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9843, 0.9804, 0.9686],
+        "hex": "#fbfaf7"
+      }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "3xs": {
+      "$value": {
+        "value": 0.125,
+        "unit": "rem"
+      }
+    },
+    "2xs": {
+      "$value": {
+        "value": 0.375,
+        "unit": "rem"
+      }
+    },
+    "xs": {
+      "$value": {
+        "value": 0.625,
+        "unit": "rem"
+      }
+    },
+    "sm": {
+      "$value": {
+        "value": 1,
+        "unit": "rem"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 1.375,
+        "unit": "rem"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 2,
+        "unit": "rem"
+      }
+    },
+    "xl": {
+      "$value": {
+        "value": 2.75,
+        "unit": "rem"
+      }
+    },
+    "2xl": {
+      "$value": {
+        "value": 4,
+        "unit": "rem"
+      }
+    },
+    "3xl": {
+      "$value": {
+        "value": 5.5,
+        "unit": "rem"
+      }
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "none": {
+      "$value": {
+        "value": 0,
+        "unit": "rem"
+      }
+    },
+    "sm": {
+      "$value": {
+        "value": 0,
+        "unit": "rem"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 0,
+        "unit": "rem"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 0,
+        "unit": "rem"
+      }
+    },
+    "full": {
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      }
+    }
+  },
+  "borderWidth": {
+    "$type": "dimension",
+    "none": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "hairline": {
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      }
+    },
+    "thin": {
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      }
+    },
+    "thick": {
+      "$value": {
+        "value": 3,
+        "unit": "px"
+      }
+    }
+  },
+  "borderStyle": {
+    "$type": "strokeStyle",
+    "default": {
+      "$value": "solid"
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "none": {
+      "$value": "none"
+    },
+    "sm": {
+      "$value": "none"
+    },
+    "md": {
+      "$value": "none"
+    },
+    "lg": {
+      "$value": "none"
+    }
+  },
+  "font": {
+    "$type": "fontFamily",
+    "body": {
+      "$value": ["Iowan Old Style", "Palatino Linotype", "Georgia", "serif"]
+    },
+    "heading": {
+      "$value": ["Iowan Old Style", "Palatino Linotype", "Georgia", "serif"]
+    },
+    "mono": {
+      "$value": ["Courier Prime", "Courier New", "Courier", "monospace"]
+    }
+  },
+  "fontSize": {
+    "$type": "dimension",
+    "xs": {
+      "$value": {
+        "value": 0.8125,
+        "unit": "rem"
+      }
+    },
+    "sm": {
+      "$value": {
+        "value": 0.9375,
+        "unit": "rem"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 1.0625,
+        "unit": "rem"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 1.25,
+        "unit": "rem"
+      }
+    },
+    "xl": {
+      "$value": {
+        "value": 1.625,
+        "unit": "rem"
+      }
+    },
+    "2xl": {
+      "$value": {
+        "value": 2.25,
+        "unit": "rem"
+      }
+    },
+    "3xl": {
+      "$value": {
+        "value": 3.25,
+        "unit": "rem"
+      }
+    }
+  },
+  "fontWeight": {
+    "$type": "fontWeight",
+    "regular": {
+      "$value": 400
+    },
+    "medium": {
+      "$value": 500
+    },
+    "bold": {
+      "$value": 700
+    },
+    "heading": {
+      "$value": 700
+    }
+  },
+  "lineHeight": {
+    "$type": "number",
+    "tight": {
+      "$value": 1.15
+    },
+    "normal": {
+      "$value": 1.7
+    },
+    "loose": {
+      "$value": 1.95
+    }
+  },
+  "letterSpacing": {
+    "$type": "dimension",
+    "tight": {
+      "$value": {
+        "value": -0.02,
+        "unit": "em"
+      }
+    },
+    "normal": {
+      "$value": {
+        "value": 0,
+        "unit": "em"
+      }
+    },
+    "wide": {
+      "$value": {
+        "value": 0.02,
+        "unit": "em"
+      }
+    },
+    "heading": {
+      "$value": {
+        "value": -0.025,
+        "unit": "em"
+      }
+    }
+  },
+  "duration": {
+    "$type": "duration",
+    "fast": {
+      "$value": {
+        "value": 120,
+        "unit": "ms"
+      }
+    },
+    "normal": {
+      "$value": {
+        "value": 200,
+        "unit": "ms"
+      }
+    },
+    "slow": {
+      "$value": {
+        "value": 320,
+        "unit": "ms"
+      }
+    }
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "standard": {
+      "$value": [0.2, 0, 0, 1]
+    },
+    "entrance": {
+      "$value": [0, 0, 0.2, 1]
+    },
+    "exit": {
+      "$value": [0.4, 0, 1, 1]
+    }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "sm": {
+      "$value": {
+        "value": 30,
+        "unit": "rem"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 48,
+        "unit": "rem"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 64,
+        "unit": "rem"
+      }
+    }
+  },
+  "layout": {
+    "$type": "string",
+    "$description": "Editorial: full-bleed media above a single column of text.",
+    "cardAreas": {
+      "$value": "\"media\" \"title\" \"body\" \"actions\""
+    },
+    "cardColumns": {
+      "$value": "1fr"
+    }
+  }
+}

@@ -6,9 +6,10 @@
   ],
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-    "target": "ES6",
+    "target": "ES2022",
     "jsx": "react-jsx",
     /* Output */
+    "rootDir": "./src",
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",

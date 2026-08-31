@@ -1,0 +1,48 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+import { bounds } from '../../stories/bounds.css'
+import Box from './Box'
+
+const meta = {
+  title: 'Atoms/Box',
+  component: Box,
+  tags: ['autodocs'],
+  argTypes: {
+    isTight: { control: false },
+    isRoomy: { control: false },
+    children: { control: 'text' }
+  },
+  // Framed so the density variants can be read as sizes rather than as three
+  // similar boxes.
+  decorators: [
+    (Story) => (
+      <div className={bounds}>
+        <Story />
+      </div>
+    )
+  ]
+} satisfies Meta<typeof Box>
+
+export default meta
+
+type Story = StoryObj<typeof Box>
+
+export const Default: Story = {
+  args: {
+    children: 'This is a box'
+  }
+}
+
+export const Tight: Story = {
+  args: {
+    isTight: true,
+    children: 'This is a tight box'
+  }
+}
+
+export const Roomy: Story = {
+  args: {
+    isRoomy: true,
+    children: 'This is a roomy box'
+  }
+}

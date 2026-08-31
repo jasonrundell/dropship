@@ -1,24 +1,47 @@
-name: 'Chromatic'
+name: Chromatic
 
-on: push
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: chromatic-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   chromatic:
     name: Run Chromatic
     runs-on: ubuntu-latest
+    # Dependabot and fork PRs cannot read repository secrets, so
+    # CHROMATIC_PROJECT_TOKEN resolves to an empty string and the action fails.
+    # Skip those runs instead of reporting a red check nobody can fix.
+    if: |
+      github.actor != 'dependabot[bot]' &&
+      (github.event_name == 'push' ||
+       github.event.pull_request.head.repo.full_name == github.repository)
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
+          # Chromatic uses git history to establish the visual baseline.
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
+          cache: npm
+
       - name: Install dependencies
-        # ⚠️ See your package manager's documentation for the correct command to install dependencies in a CI environment.
         run: npm ci
+
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:
-          # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
+          exitZeroOnChanges: true
