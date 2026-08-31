@@ -13,6 +13,7 @@ import {
 import { THEMES } from '../lib/themes'
 import type { ThemeName } from '../lib/schema'
 import * as styles from './Landing.css'
+import logoUrl from '../assets/topiary-logo.svg'
 
 /**
  * Topiary's landing page, and its own demonstration.
@@ -79,6 +80,11 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
       <main>
         <section className={styles.section}>
           <Container>
+            <img
+              className={styles.heroLogo}
+              src={logoUrl}
+              alt="The Topiary mascot — a topiary peacock in a pot — rendered once in each of the four themes: hangar, broadsheet, arcade, and cascade"
+            />
             <span className={styles.eyebrow}>Design system</span>
             <Spacer smallScreen="xsmall" />
             <Heading level={1}>

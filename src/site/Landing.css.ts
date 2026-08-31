@@ -64,6 +64,14 @@ export const eyebrow = style({
   borderRadius: vars.radius.sm
 })
 
+export const heroLogo = style({
+  display: 'block',
+  width: '100%',
+  maxWidth: '34rem',
+  height: 'auto',
+  marginBlockEnd: vars.space.lg
+})
+
 export const lede = style({
   fontSize: vars.fontSize.xl,
   lineHeight: vars.lineHeight.normal,
