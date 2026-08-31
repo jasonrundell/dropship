@@ -1,14 +1,23 @@
 # Dropship
 
-Dropship is a component library designed to provide reusable UI components for
-your projects. It currently includes a small variety of atoms (molecules and
-organisms are TBD) to help you build consistent and maintainable user
-interfaces.
+**Tokens drive form. Components drive function.**
 
-## View Dropship on Storybook
+Dropship is a React component library built around one claim: the same markup
+should render as designs that look unrelated, with nothing changing but a token
+file. It ships four, and they differ _structurally_ — corner radius, border
+weight, how elevation is expressed, typeface, even where a card puts its media —
+not only in colour.
 
-You can see the latest build of Dropship on Storybook at
-[https://dropship-storybook.vercel.app/](https://dropship-storybook.vercel.app/).
+The component set is small on purpose. The components exist to demonstrate the
+token contract; the contract is the part worth taking.
+
+## Where to look
+
+- **[Storybook](https://dropship-storybook.vercel.app/)** — every component in
+  every design, with a switcher in the toolbar, a live token reference, and a
+  page tracing one rendered card back to the tokens that painted it.
+- **`npm run dev`** — the landing page, which builds itself out of these same
+  components and lets you swap the design underneath it.
 
 ## Requirements
 
@@ -113,8 +122,12 @@ satisfies it exactly.
 
 ## Storybook
 
-This project uses Storybook for developing and showcasing components. Each
-component lives in `src/components/<Name>/` alongside its styles
+Storybook is the development surface: its job is to prove every component
+answers to every design, which is why each story renders inside the theme
+switcher and why axe runs over all of them in CI. The landing page is the
+showcase.
+
+Each component lives in `src/components/<Name>/` alongside its styles
 (`<Name>.css.ts`), tests, and story.
 
 ## Scripts
