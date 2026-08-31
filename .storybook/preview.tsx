@@ -11,6 +11,15 @@ import { DEFAULT_THEME } from '../src/lib/theme.css'
 const withTheme: Decorator = (Story, context) => {
   const theme = context.globals.theme ?? DEFAULT_THEME
 
+  /**
+   * A story shown alone wants the design's background to reach the bottom of
+   * the canvas. A docs block is sized to its own content, so the same
+   * viewport-height wrapper cannot fit inside one: it overflows, the block
+   * clips to a strip, and because the wrapper leads with padding that strip is
+   * mostly empty — which is what made every docs page look blank.
+   */
+  const fillsCanvas = context.viewMode !== 'docs'
+
   return (
     <div
       data-theme={theme}
@@ -19,7 +28,7 @@ const withTheme: Decorator = (Story, context) => {
         color: 'var(--dropship-color-text)',
         fontFamily: 'var(--dropship-font-body)',
         padding: 'var(--dropship-space-lg)',
-        minHeight: '100vh'
+        minHeight: fillsCanvas ? '100vh' : undefined
       }}
     >
       <Story />
