@@ -27,7 +27,6 @@ import Mascot from './Mascot'
  */
 
 const REPO_URL = 'https://github.com/jasonrundell/topiary'
-const STORYBOOK_URL = 'https://topiary-storybook.vercel.app/'
 const GUIDE_URL = `${REPO_URL}/blob/main/docs/HOW-TO.md`
 const tokenFileUrl = (theme: ThemeName) =>
   `${REPO_URL}/blob/main/src/tokens/${theme}.tokens.json`
