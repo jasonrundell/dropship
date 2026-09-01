@@ -41,7 +41,7 @@ export const Default: Story = {
             <strong>This Storybook is the development surface.</strong> It
             exists to check that every component answers to every design. The
             showcase is the{' '}
-            <a href="https://github.com/jasonrundell/dropship">
+            <a href="https://github.com/jasonrundell/topiary">
               project&rsquo;s landing page
             </a>
             , which renders its whole self from these same components.
@@ -196,8 +196,8 @@ function App() {
         <h2>GitHub</h2>
         <p>
           Source at{' '}
-          <a href="https://github.com/jasonrundell/dropship">
-            github.com/jasonrundell/dropship
+          <a href="https://github.com/jasonrundell/topiary">
+            github.com/jasonrundell/topiary
           </a>
           .
         </p>

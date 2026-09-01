@@ -19,7 +19,7 @@ token contract; the contract is the part worth taking.
 
 ## Where to look
 
-- **[Storybook](https://dropship-storybook.vercel.app/)** — every component in
+- **[Storybook](https://topiary-storybook.vercel.app/)** — every component in
   every design, with a switcher in the toolbar, a live token reference, and a
   page tracing one rendered card back to the tokens that painted it.
 - **`npm run dev`** — the landing page, which builds itself out of these same
@@ -175,7 +175,9 @@ are given separate root directories.
 
 Please open an issue first, then a pull request from a fork. See
 [CONTRIBUTING.md](./CONTRIBUTING.md) for setup, the file layout each component
-follows, testing expectations, and how releases work.
+follows, testing expectations, and how releases work, or
+[docs/HOW-TO.md](./docs/HOW-TO.md) for a walkthrough of building a component and
+extending the token contract, start to finish.
 
 ## License
 

@@ -31,7 +31,7 @@ export const Default: Story = {}
 
 export const WithHref: Story = {
   args: {
-    href: 'https://github.com/jasonrundell/dropship',
+    href: 'https://github.com/jasonrundell/topiary',
     label: 'Visit the Topiary repository'
   }
 }
@@ -39,7 +39,7 @@ export const WithHref: Story = {
 export const WithTarget: Story = {
   name: 'With target _blank',
   args: {
-    href: 'https://github.com/jasonrundell/dropship',
+    href: 'https://github.com/jasonrundell/topiary',
     label: 'Visit the Topiary repository',
     target: '_blank'
   }
@@ -48,7 +48,7 @@ export const WithTarget: Story = {
 export const WithRel: Story = {
   name: 'With rel noopener noreferrer',
   args: {
-    href: 'https://github.com/jasonrundell/dropship',
+    href: 'https://github.com/jasonrundell/topiary',
     label: 'Visit the Topiary repository',
     rel: 'noopener noreferrer'
   }
