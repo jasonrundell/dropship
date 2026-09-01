@@ -385,6 +385,19 @@ theme, and that no two themes share a typeface in any font role. A theme that
 only changes colours will fail those checks by design: the point of the system
 is that themes look unrelated, not recoloured.
 
+### Submitting it
+
+Built a theme you'd like to see shipped? **Open an issue describing it first**
+(per [CONTRIBUTING.md](../CONTRIBUTING.md)), then a pull request from a fork —
+the same process as any other change. There's a dedicated PR template with the
+fields a theme submission needs (the `$description`, a screenshot, which
+structural axes it changes) at
+[`.github/PULL_REQUEST_TEMPLATE/new-theme.md`](../.github/PULL_REQUEST_TEMPLATE/new-theme.md);
+GitHub applies it automatically if you append `?template=new-theme.md` to the
+pull request URL, or you can copy its checklist into the description by hand.
+Accepted themes join `hangar`, `broadsheet`, `arcade`, and `cascade` in the next
+release.
+
 ---
 
 ## Part 7 — Before you open a pull request

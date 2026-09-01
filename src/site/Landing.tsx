@@ -246,9 +246,15 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
                 />{' '}
                 — the DTCG source, exactly as shipped, for the design on screen
                 right now. Built one of your own? Open a pull request with a
-                token file that satisfies the same contract — see the{' '}
-                <Link href={GUIDE_URL} label="guide to adding a theme" /> — and
-                it's a candidate for the next design Topiary ships.
+                token file that satisfies the same contract, using the{' '}
+                <Link
+                  href={`${REPO_URL}/blob/main/.github/PULL_REQUEST_TEMPLATE/new-theme.md`}
+                  label="new-theme pull request template"
+                />{' '}
+                — see the{' '}
+                <Link href={GUIDE_URL} label="guide to adding a theme" /> for
+                the full walkthrough — and it's a candidate for the next design
+                Topiary ships.
               </p>
             ) : null}
           </Container>

@@ -73,7 +73,15 @@ agrees on one of those, because that would mean the themes are recolourings of
 one design rather than different designs.
 
 To add a theme: copy an existing token file, change the values, and add its name
-to `THEME_NAMES` in `src/lib/schema.ts`.
+to `THEME_NAMES` in `src/lib/schema.ts`. See
+[docs/HOW-TO.md § Adding a theme](./docs/HOW-TO.md#part-6--adding-a-theme) for
+the full walkthrough, including the WCAG AA and structural-distinctness checks a
+new theme has to pass.
+
+Themes from outside contributors are welcome as pull requests — open an issue
+first as above, then use the
+[`new-theme`](./.github/PULL_REQUEST_TEMPLATE/new-theme.md) pull request
+template so the review has everything it needs in one pass.
 
 ### Components with internal structure
 
