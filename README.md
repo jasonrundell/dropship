@@ -187,7 +187,7 @@ file for details.
 ## Related
 
 Looking for unstyled semantic markup rather than styled components?
-[`@jasonrundell/topiary-primitives`](https://github.com/jasonrundell/dropship-components)
+[`@jasonrundell/topiary-primitives`](https://github.com/jasonrundell/topiary-components)
 is the companion library: polymorphic HTML primitives that ship no CSS.
 
 ## Links
