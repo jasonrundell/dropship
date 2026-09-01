@@ -1,3 +1,7 @@
+<!-- Adding a new theme? There's a dedicated checklist with the extra fields
+a theme submission needs — append `?template=new-theme.md` to this URL, or
+copy it from `.github/PULL_REQUEST_TEMPLATE/new-theme.md`. -->
+
 ## What changed
 
 <!-- A sentence or two. What does this do, and why? -->

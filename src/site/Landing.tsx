@@ -26,6 +26,12 @@ import Mascot from './Mascot'
  * in the footer. The content is Topiary's own.
  */
 
+const REPO_URL = 'https://github.com/jasonrundell/topiary'
+const STORYBOOK_URL = 'https://topiary-storybook.vercel.app/'
+const GUIDE_URL = `${REPO_URL}/blob/main/docs/HOW-TO.md`
+const tokenFileUrl = (theme: ThemeName) =>
+  `${REPO_URL}/blob/main/src/tokens/${theme}.tokens.json`
+
 const INSTALL = `npm install @jasonrundell/topiary`
 
 const USAGE = `import '@jasonrundell/topiary/style.css'
@@ -235,6 +241,27 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
                 </button>
               ))}
             </div>
+
+            <Spacer smallScreen="small" />
+            {active ? (
+              <p className={`${styles.prose} ${styles.muted}`}>
+                <Link
+                  href={tokenFileUrl(active.name)}
+                  label={`View ${active.name}'s tokens`}
+                />{' '}
+                — the DTCG source, exactly as shipped, for the design on screen
+                right now. Built one of your own? Open a pull request with a
+                token file that satisfies the same contract, using the{' '}
+                <Link
+                  href={`${REPO_URL}/blob/main/.github/PULL_REQUEST_TEMPLATE/new-theme.md`}
+                  label="new-theme pull request template"
+                />{' '}
+                — see the{' '}
+                <Link href={GUIDE_URL} label="guide to adding a theme" /> for
+                the full walkthrough — and it's a candidate for the next design
+                Topiary ships.
+              </p>
+            ) : null}
           </Container>
         </section>
 
@@ -266,7 +293,10 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
             <Spacer smallScreen="small" />
             <p className={styles.prose}>
               The custom property names are public API. Override them anywhere
-              and every component that uses them follows.
+              and every component that uses them follows. For a full walkthrough
+              — building a component, extending the token contract, shipping a
+              new design — see the{' '}
+              <Link href={GUIDE_URL} label="how-to guide" />.
             </p>
             <Spacer smallScreen="small" />
             <pre className={styles.codeBlock}>
