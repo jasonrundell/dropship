@@ -18,7 +18,12 @@ const config: StorybookConfig = {
     options: {}
   },
   async viteFinal(config) {
-    config.plugins = await withoutVitePlugins(config.plugins, ['vite:dts'])
+    // vite-plugin-dts 5 rebuilt itself on unplugin-dts, which renamed its
+    // Vite plugin from 'vite:dts' to 'unplugin-dts'. Left filtering for the
+    // old name, this plugin runs during the Storybook build too — where
+    // `dist/index.d.ts` does not exist yet, since only `npm run build` (not
+    // `build-storybook`) runs `tsc` first — and its bundling step throws.
+    config.plugins = await withoutVitePlugins(config.plugins, ['unplugin-dts'])
     config.plugins.push(vanillaExtractPlugin())
 
     return config
