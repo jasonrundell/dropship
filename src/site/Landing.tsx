@@ -65,11 +65,11 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
               <Link href="#designs" label="Designs" />
               <Link href="#install" label="Install" />
               <Link
-                href="https://github.com/jasonrundell/dropship"
+                href="https://github.com/jasonrundell/topiary"
                 label="GitHub"
               />
               <Link
-                href="https://dropship-storybook.vercel.app/"
+                href="https://topiary-storybook.vercel.app/"
                 label="Storybook"
               />
             </nav>
@@ -173,7 +173,7 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
             <p className={styles.prose}>
               Want the receipt?{' '}
               <Link
-                href="https://dropship-storybook.vercel.app/?path=/story/tokens--how-a-design-is-made"
+                href="https://topiary-storybook.vercel.app/?path=/story/tokens--how-a-design-is-made"
                 label="Trace that card back to its tokens"
               />{' '}
               — the DTCG source for each of the seven values that painted it,
@@ -310,7 +310,7 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
           <p className={`${styles.prose} ${styles.muted}`}>
             MIT licensed.{' '}
             <Link
-              href="https://github.com/jasonrundell/dropship"
+              href="https://github.com/jasonrundell/topiary"
               label="Source on GitHub"
             />
             .

@@ -14,7 +14,7 @@ addons.setConfig({
   theme: create({
     base: 'light',
     brandTitle: 'Topiary',
-    brandUrl: 'https://github.com/jasonrundell/dropship',
+    brandUrl: 'https://github.com/jasonrundell/topiary',
     brandTarget: '_self'
   })
 })

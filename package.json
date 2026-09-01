@@ -97,13 +97,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasonrundell/dropship.git"
+    "url": "git+https://github.com/jasonrundell/topiary.git"
   },
   "bugs": {
-    "url": "https://github.com/jasonrundell/dropship/issues"
+    "url": "https://github.com/jasonrundell/topiary/issues"
   },
   "author": "Jason Rundell <jason.rundell@gmail.com>",
-  "homepage": "https://github.com/jasonrundell/dropship#readme",
+  "homepage": "https://github.com/jasonrundell/topiary#readme",
   "keywords": [
     "react",
     "vite",
