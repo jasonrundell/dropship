@@ -1,4 +1,4 @@
-# Dropship: a design system that compiles
+# Topiary: a design system that compiles
 
 _Direction set 2026-08-05. Supersedes the framing in
 [MODERNIZATION-PLAN.md](./MODERNIZATION-PLAN.md), which covers the tooling work
@@ -8,7 +8,7 @@ that got the repo to a state where this is buildable._
 
 ## The problem with what exists
 
-Dropship has been maintained for seven years and has never had a thesis.
+Topiary has been maintained for seven years and has never had a thesis.
 "Reusable UI components for your projects" is what every component library says.
 Nine generic atoms competing against shadcn, Radix, and MUI is a position that
 cannot be won and is not interesting to work on.
@@ -19,7 +19,7 @@ Two facts point somewhere better.
 `common.tokens.json` implements DTCG Format Module 2025.10 — a specification
 almost nobody has implemented. Style Dictionary is the incumbent transformer and
 is both heavyweight and behind the spec. Open Props earned thousands of stars
-doing nothing but shipping design tokens as CSS custom properties. Dropship
+doing nothing but shipping design tokens as CSS custom properties. Topiary
 already built the rare half of that and then buried it under a Button.
 
 **Zero users is an asset, not a problem.** Two stars, no downloads that matter,
@@ -28,7 +28,7 @@ major is already staged. This is the moment to be opinionated.
 
 ## The thesis
 
-> **Dropship is not a component library. It is a compiler that turns one token
+> **Topiary is not a component library. It is a compiler that turns one token
 > file into an entire design system.**
 
 One manifest is the source of truth. Everything else is generated and never
@@ -47,8 +47,10 @@ written twice:
 Components exist to prove the compiler works. They are the demo, not the
 product.
 
-The name already carries the metaphor: a dropship carries cargo, and cargo
-travels with a **manifest**. That is what the token file becomes.
+The name already carries the metaphor: topiary is one living structure clipped
+into unrelated shapes. The markup is the plant; the token file is the
+**clipping** — change nothing but the shears and the same growth reads as a
+peacock, a spiral, or a hedge.
 
 ## Why all of it, and in this order
 
@@ -101,7 +103,7 @@ those before the compiler has anything interesting to compile.
 
 Replace the hand-written `tokens.css.ts` bridge with a real transformer.
 
-- `@dropship/compiler`: reads the manifest, emits targets through a plugin
+- `@topiary/compiler`: reads the manifest, emits targets through a plugin
   interface so new targets are additive.
 - Launch targets: CSS custom properties, TypeScript constants and types,
   Tailwind v4 `@theme`, a normalised JSON manifest, and Figma variables.
@@ -113,8 +115,8 @@ Replace the hand-written `tokens.css.ts` bridge with a real transformer.
   (`color.link` → `{color.primary}`), which the DTCG spec supports and the
   current flat file does not use.
 
-**Ships:** `dropship build` turning one file into five artifacts, and refusing
-to emit an inaccessible theme.
+**Ships:** `topiary build` turning one file into five artifacts, and refusing to
+emit an inaccessible theme.
 
 ## Phase C — The live surface
 
@@ -138,13 +140,13 @@ A site where a visitor can:
 
 The first output that is useful to people who never install a component.
 
-- `npx dropship doctor` — point it at any codebase and it reports hard-coded
+- `npx topiary doctor` — point it at any codebase and it reports hard-coded
   values that should be tokens: a `#6200ea` that is really
-  `--dropship-color-primary`, a `padding: 17px` that is off-scale. With `--fix`.
+  `--topiary-color-primary`, a `padding: 17px` that is off-scale. With `--fix`.
 - An ESLint plugin **generated from the manifest**, so the rules cannot drift
   from the tokens.
 
-**Ships:** a standalone tool with a reason to exist independent of Dropship's
+**Ships:** a standalone tool with a reason to exist independent of Topiary's
 components. This is how a project with two stars finds its first real users.
 
 ## Phase E — Agent-native
@@ -157,7 +159,7 @@ The manifest is already machine-readable. Expose it.
 - Dogfood it — this repo is developed with an agent, so the feedback loop is
   immediate.
 
-**Ships:** a recorded demo of an agent writing correct Dropship code, and being
+**Ships:** a recorded demo of an agent writing correct Topiary code, and being
 corrected when it does not.
 
 ## Phase F — Consolidation
@@ -169,7 +171,7 @@ Changesets already handles this.
 This also resolves the duplication left over from the primitives rebuild:
 `Button`, `Heading`, and `Link` currently exist in both libraries. In the new
 architecture the relationship is clean — **primitives are the unstyled markup
-layer, Dropship's components are primitives plus compiled tokens.** Dropship
+layer, Topiary's components are primitives plus compiled tokens.** Topiary
 builds on primitives rather than duplicating them.
 
 ---
@@ -181,7 +183,7 @@ builds on primitives rather than duplicating them.
 - Not a design language like Material. The point is that the look is swappable;
   the shipped theme is a demonstration, not a mandate.
 - Not a framework. Every output is a plain artifact — CSS, JSON, TypeScript —
-  that works without adopting Dropship wholesale.
+  that works without adopting Topiary wholesale.
 
 ## Open question
 

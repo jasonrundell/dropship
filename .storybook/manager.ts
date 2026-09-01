@@ -13,7 +13,7 @@ import { create } from 'storybook/theming'
 addons.setConfig({
   theme: create({
     base: 'light',
-    brandTitle: 'Dropship',
+    brandTitle: 'Topiary',
     brandUrl: 'https://github.com/jasonrundell/dropship',
     brandTarget: '_self'
   })

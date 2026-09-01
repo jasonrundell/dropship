@@ -1,5 +1,5 @@
 name: Bug report
-description: Something in Dropship does not behave as documented
+description: Something in Topiary does not behave as documented
 labels: [bug]
 body:
   - type: textarea
@@ -22,9 +22,9 @@ body:
       required: true
 
   - type: input
-    id: dropship-version
+    id: topiary-version
     attributes:
-      label: Dropship version
+      label: Topiary version
       placeholder: 4.0.0
     validations:
       required: true

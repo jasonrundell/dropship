@@ -34,7 +34,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'Dropship',
+      name: 'Topiary',
       formats: ['es', 'cjs'],
       // The package is "type": "module", so the CJS build needs a .cjs
       // extension or Node parses it as ESM and consumers get a syntax error.

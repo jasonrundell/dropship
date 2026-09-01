@@ -1,5 +1,5 @@
 ---
-'@jasonrundell/dropship': minor
+'@jasonrundell/topiary': minor
 ---
 
 Themes can now control layout, and adds `Card`.
@@ -21,10 +21,10 @@ them differently from identical props:
 | `arcade`     | Media pushed right, text leading               |
 | `cascade`    | Media above, title and actions sharing a row   |
 
-**New tokens:** `--dropship-layout-cardAreas` and
-`--dropship-layout-cardColumns`. Layout tokens are necessarily per-component,
-since the area names belong to a specific component's slots. DTCG has no layout
-primitive, so these carry a non-standard `$type`.
+**New tokens:** `--topiary-layout-cardAreas` and `--topiary-layout-cardColumns`.
+Layout tokens are necessarily per-component, since the area names belong to a
+specific component's slots. DTCG has no layout primitive, so these carry a
+non-standard `$type`.
 
 **New: `data-part` hooks.** Every `Card` slot carries a stable `data-part`
 attribute (`card`, `card-media`, `card-title`, `card-body`, `card-actions`) as a

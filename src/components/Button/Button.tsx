@@ -18,7 +18,7 @@ export interface ButtonProps {
  * values the active theme supplies, which is what makes a button re-themeable;
  * a literal colour passed from the call site would survive a design change and
  * quietly break the one guarantee the system makes. Restyle by overriding
- * `--dropship-color-primary` — or any other custom property — instead.
+ * `--topiary-color-primary` — or any other custom property — instead.
  */
 const Button = ({
   primary = false,

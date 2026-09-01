@@ -1,5 +1,5 @@
 ---
-'@jasonrundell/dropship': major
+'@jasonrundell/topiary': major
 ---
 
 Remove `Button`'s `backgroundColor` prop.
@@ -18,8 +18,8 @@ component rather than one button and survive a rebuild:
 
 ```css
 [data-theme='mine'] {
-  --dropship-color-primary: #0f766e;
-  --dropship-color-onPrimary: #ffffff;
+  --topiary-color-primary: #0f766e;
+  --topiary-color-onPrimary: #ffffff;
 }
 ```
 

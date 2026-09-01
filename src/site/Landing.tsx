@@ -13,22 +13,23 @@ import {
 import { THEMES } from '../lib/themes'
 import type { ThemeName } from '../lib/schema'
 import * as styles from './Landing.css'
+import Mascot from './Mascot'
 
 /**
- * Dropship's landing page, and its own demonstration.
+ * Topiary's landing page, and its own demonstration.
  *
  * Every design in the picker renders this exact component tree. Nothing below
  * branches on the active theme — the page has no idea which design is showing.
  * That is the whole claim, made by construction rather than by assertion.
  *
  * Structurally this owes an obvious debt to CSS Zen Garden, which is credited
- * in the footer. The content is Dropship's own.
+ * in the footer. The content is Topiary's own.
  */
 
-const INSTALL = `npm install @jasonrundell/dropship`
+const INSTALL = `npm install @jasonrundell/topiary`
 
-const USAGE = `import '@jasonrundell/dropship/style.css'
-import { Card, Button } from '@jasonrundell/dropship'
+const USAGE = `import '@jasonrundell/topiary/style.css'
+import { Card, Button } from '@jasonrundell/topiary'
 
 <Card title="Ready" actions={<Button label="Go" primary />}>
   Styled by whichever theme is active.
@@ -37,13 +38,13 @@ import { Card, Button } from '@jasonrundell/dropship'
 const THEME_OVERRIDE = `/* A theme is a block of custom properties.
    Nothing is rebuilt; nothing is recompiled. */
 [data-theme='mine'] {
-  --dropship-color-primary: #0f766e;
-  --dropship-radius-md: 0;
-  --dropship-shadow-md: 4px 4px 0 0 #000;
+  --topiary-color-primary: #0f766e;
+  --topiary-radius-md: 0;
+  --topiary-shadow-md: 4px 4px 0 0 #000;
 
   /* Placement is a token too. */
-  --dropship-layout-cardAreas: 'title media' 'body media';
-  --dropship-layout-cardColumns: 1fr 8rem;
+  --topiary-layout-cardAreas: 'title media' 'body media';
+  --topiary-layout-cardColumns: 1fr 8rem;
 }`
 
 type LandingProps = {
@@ -59,7 +60,7 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
       <header className={styles.banner}>
         <Container>
           <div className={styles.bannerInner}>
-            <span className={styles.wordmark}>Dropship</span>
+            <span className={styles.wordmark}>Topiary</span>
             <nav className={styles.nav} aria-label="Project">
               <Link href="#designs" label="Designs" />
               <Link href="#install" label="Install" />
@@ -79,36 +80,41 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
       <main>
         <section className={styles.section}>
           <Container>
-            <span className={styles.eyebrow}>Design system</span>
-            <Spacer smallScreen="xsmall" />
-            <Heading level={1}>
-              Tokens drive form. Components drive function.
-            </Heading>
-            <Spacer smallScreen="small" />
-            <p className={styles.lede}>
-              Every design below renders this same page from the same ten
-              components. Nothing changes but a token file.
-            </p>
-            <Spacer smallScreen="medium" />
-            <Row gap="0.75rem" align="center">
-              <Button
-                label="Pick a design"
-                primary
-                onClick={() => {
-                  document
-                    .querySelector('#designs')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              />
-              <Button
-                label="Install it"
-                onClick={() => {
-                  document
-                    .querySelector('#install')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              />
-            </Row>
+            <div className={styles.heroInner}>
+              <div>
+                <span className={styles.eyebrow}>Design system</span>
+                <Spacer smallScreen="xsmall" />
+                <Heading level={1}>
+                  Tokens drive form. Components drive function.
+                </Heading>
+                <Spacer smallScreen="small" />
+                <p className={styles.lede}>
+                  Every design below renders this same page from the same ten
+                  components. Nothing changes but a token file.
+                </p>
+                <Spacer smallScreen="medium" />
+                <Row gap="0.75rem" align="center">
+                  <Button
+                    label="Pick a design"
+                    primary
+                    onClick={() => {
+                      document
+                        .querySelector('#designs')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  />
+                  <Button
+                    label="Install it"
+                    onClick={() => {
+                      document
+                        .querySelector('#install')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  />
+                </Row>
+              </div>
+              <Mascot />
+            </div>
           </Container>
         </section>
 
@@ -194,7 +200,7 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
             </Heading>
             <Spacer smallScreen="small" />
             <p className={styles.prose}>
-              Four designs ship with Dropship. Choosing one re-renders nothing —
+              Four designs ship with Topiary. Choosing one re-renders nothing —
               it sets a single attribute, and the cascade does the rest.{' '}
               {active ? (
                 <>
@@ -293,12 +299,12 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
       <footer className={styles.contentinfo}>
         <Container>
           <p className={styles.prose}>
-            Dropship is an homage to{' '}
+            Topiary is an homage to{' '}
             <Link href="https://csszengarden.com/" label="CSS Zen Garden" /> by
             Dave Shea, which made the case in 2003 that one document could carry
             any number of designs. This is that idea applied to a component
             library, with design tokens in place of stylesheets. The content and
-            code here are Dropship&rsquo;s own.
+            code here are Topiary&rsquo;s own.
           </p>
           <Spacer smallScreen="small" />
           <p className={`${styles.prose} ${styles.muted}`}>

@@ -64,6 +64,18 @@ export const eyebrow = style({
   borderRadius: vars.radius.sm
 })
 
+export const heroInner = style({
+  display: 'grid',
+  gap: vars.space.xl,
+  alignItems: 'center',
+  gridTemplateColumns: '1fr',
+  '@media': {
+    [media.md]: {
+      gridTemplateColumns: '1fr auto'
+    }
+  }
+})
+
 export const lede = style({
   fontSize: vars.fontSize.xl,
   lineHeight: vars.lineHeight.normal,

@@ -1,5 +1,5 @@
 ---
-'@jasonrundell/dropship': patch
+'@jasonrundell/topiary': patch
 ---
 
 Every shipped design now meets WCAG AA, enforced by the test suite.

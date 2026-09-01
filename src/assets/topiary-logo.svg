@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 184" role="img" aria-label="The Topiary mascot — a topiary peacock — rendered once in each of the four themes: hangar, broadsheet, arcade, and cascade">
+  <!--
+    One peacock, four themes. The geometry below is defined exactly once;
+    every tile re-renders the same shapes with nothing changing but the
+    values each theme's tokens supply: colour, stroke weight, corner
+    treatment, shadow, and typeface. Tokens drive form.
+  -->
+  <defs>
+    <path id="leaf" d="M0 0 C-7 -16 -7 -33 0 -44 C7 -33 7 -16 0 0 Z"/>
+    <g id="tail">
+      <use href="#leaf" transform="translate(60 84) rotate(-86)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(-63)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(-40)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(-17)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(17)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(40)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(63)"/>
+      <use href="#leaf" transform="translate(60 84) rotate(86)"/>
+    </g>
+    <path id="body" d="M60 54 C65 54 68 57.5 68 62 C68 66 66.5 69 65 72 C64.5 76 65 78 68 80 C73 83 76 87 76 92 C76 100 69 106 60 106 C51 106 44 100 44 92 C44 87 47 83 52 80 C55 78 55.5 76 55 72 C53.5 69 52 66 52 62 C52 57.5 55 54 60 54 Z"/>
+    <g id="crest">
+      <path d="M60 55 L60 48 M56.5 56 L53 49 M63.5 56 L67 49" fill="none"/>
+      <circle cx="60" cy="46" r="2.1"/>
+      <circle cx="52.2" cy="47.6" r="2.1"/>
+      <circle cx="67.8" cy="47.6" r="2.1"/>
+    </g>
+    <g id="eyes">
+      <circle cx="56.6" cy="61.5" r="1.7"/>
+      <circle cx="63.4" cy="61.5" r="1.7"/>
+    </g>
+    <path id="beak" d="M56.8 65.2 L60 69.8 L63.2 65.2 Q60 63.2 56.8 65.2 Z"/>
+    <rect id="trunk" x="57" y="103" width="6" height="13"/>
+    <path id="pot" d="M38 114 H82 V120 H77.5 L74.5 134 H45.5 L42.5 120 H38 Z"/>
+
+    <filter id="sh-hangar" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#0a0a0b" flood-opacity="0.22"/>
+    </filter>
+    <filter id="sh-arcade" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="4" dy="4" stdDeviation="0" flood-color="#000000" flood-opacity="1"/>
+    </filter>
+    <filter id="sh-cascade" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+
+    <pattern id="hatch" width="3.5" height="3.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="3.5" height="3.5" fill="#fbfaf7"/>
+      <line x1="0" y1="0" x2="0" y2="3.5" stroke="#1c1917" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- hangar: instrumentation. Hairlines, sharp corners, subtle elevation. -->
+  <g>
+    <rect x="8" y="8" width="122" height="168" rx="3" fill="#fafaf9" stroke="#d6d3d1" stroke-width="1"/>
+    <g transform="translate(9 14)" filter="url(#sh-hangar)" stroke-linejoin="miter">
+      <use href="#tail" fill="#0f766e" stroke="#0a0a0b" stroke-width="1"/>
+      <use href="#body" fill="#0f766e" stroke="#0a0a0b" stroke-width="1"/>
+      <use href="#crest" fill="#0f766e" stroke="#0a0a0b" stroke-width="1"/>
+      <use href="#trunk" fill="#57534e" stroke="#0a0a0b" stroke-width="1"/>
+      <use href="#pot" fill="#c2410c" stroke="#0a0a0b" stroke-width="1"/>
+      <use href="#eyes" fill="#0a0a0b"/>
+      <use href="#beak" fill="#c2410c" stroke="#0a0a0b" stroke-width="0.8"/>
+    </g>
+    <text x="69" y="167" text-anchor="middle" font-family="ui-monospace, 'Courier New', monospace" font-size="10" letter-spacing="1.5" fill="#0a0a0b">hangar</text>
+  </g>
+
+  <!-- broadsheet: editorial print. Ink on paper, rules instead of boxes, no shadows. -->
+  <g>
+    <rect x="146" y="8" width="122" height="168" fill="#fbfaf7"/>
+    <line x1="152" y1="13" x2="262" y2="13" stroke="#1c1917" stroke-width="2.5"/>
+    <line x1="152" y1="17" x2="262" y2="17" stroke="#1c1917" stroke-width="0.75"/>
+    <line x1="152" y1="172" x2="262" y2="172" stroke="#1c1917" stroke-width="0.75"/>
+    <g transform="translate(147 14)" stroke-linejoin="miter">
+      <use href="#tail" fill="url(#hatch)" stroke="#1c1917" stroke-width="1.3"/>
+      <use href="#body" fill="#fbfaf7" stroke="#1c1917" stroke-width="1.3"/>
+      <use href="#crest" fill="#1c1917" stroke="#1c1917" stroke-width="1"/>
+      <use href="#trunk" fill="#1c1917"/>
+      <use href="#pot" fill="#1c1917" stroke="#1c1917" stroke-width="1"/>
+      <use href="#eyes" fill="#1c1917"/>
+      <use href="#beak" fill="#fbfaf7" stroke="#1c1917" stroke-width="1"/>
+    </g>
+    <text x="207" y="167" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11" fill="#1c1917">broadsheet</text>
+  </g>
+
+  <!-- arcade: neo-brutalist. Heavy outlines, hard offset shadow, saturated colour. -->
+  <g>
+    <rect x="289" y="13" width="122" height="168" fill="#000000"/>
+    <rect x="284" y="8" width="122" height="168" fill="#fffbeb" stroke="#000000" stroke-width="3"/>
+    <g transform="translate(285 14)" filter="url(#sh-arcade)" stroke-linejoin="miter">
+      <use href="#tail" fill="#15803d" stroke="#000000" stroke-width="3"/>
+      <use href="#body" fill="#15803d" stroke="#000000" stroke-width="3"/>
+      <use href="#crest" fill="#facc15" stroke="#000000" stroke-width="2.2"/>
+      <use href="#trunk" fill="#000000"/>
+      <use href="#pot" fill="#da1c59" stroke="#000000" stroke-width="3"/>
+      <use href="#eyes" fill="#000000"/>
+      <use href="#beak" fill="#facc15" stroke="#000000" stroke-width="1.8"/>
+    </g>
+    <text x="345" y="167" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" letter-spacing="1" fill="#000000">arcade</text>
+  </g>
+
+  <!-- cascade: soft. Generous rounding, blurred elevation, no visible borders. -->
+  <g>
+    <rect x="422" y="8" width="122" height="168" rx="20" fill="#f8fafc" filter="url(#sh-cascade)"/>
+    <g transform="translate(423 14)" filter="url(#sh-cascade)" stroke-linejoin="round" stroke-linecap="round">
+      <use href="#tail" fill="#0c8378"/>
+      <use href="#body" fill="#04815a"/>
+      <use href="#crest" fill="#4f46e5" stroke="#0c8378" stroke-width="2"/>
+      <use href="#trunk" fill="#64748b" stroke="#64748b" stroke-width="3"/>
+      <use href="#pot" fill="#4f46e5" stroke="#4f46e5" stroke-width="5"/>
+      <use href="#eyes" fill="#0f172a"/>
+      <use href="#beak" fill="#aa5d05"/>
+    </g>
+    <text x="483" y="167" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="11" fill="#0f172a">cascade</text>
+  </g>
+</svg>

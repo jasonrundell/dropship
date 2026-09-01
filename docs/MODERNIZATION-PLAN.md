@@ -3,6 +3,10 @@
 _Audit and Phases 0–6 executed 2026-08-05 · Covers `jasonrundell/dropship` and
 `jasonrundell/dropship-components`_
 
+> **Note (2026-08-31):** the project has since been rebranded to **Topiary**
+> (`@jasonrundell/topiary`). This document is a historical record and keeps the
+> names as they were when the work was done.
+
 ---
 
 ## 1. Status

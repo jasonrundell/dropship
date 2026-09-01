@@ -1,10 +1,10 @@
 ---
-'@jasonrundell/dropship': major
+'@jasonrundell/topiary': major
 ---
 
 Rebuild the token layer as a themeable contract, and ship four themes.
 
-Dropship now works the way CSS Zen Garden did: **tokens drive form, components
+Topiary now works the way CSS Zen Garden did: **tokens drive form, components
 drive function.** The same markup renders in deliberately unrelated ways
 depending only on which theme is active.
 
@@ -42,10 +42,10 @@ different colours.
 
 **Breaking changes**
 
-- Token custom properties have been renamed and restructured.
-  `--dropship-size-*` and `--dropship-padding-*` are replaced by
-  `--dropship-space-*`; `--dropship-heading-*` is replaced by
-  `--dropship-fontSize-*`. Anything overriding the old names needs updating.
+- Token custom properties have been renamed and restructured. `--topiary-size-*`
+  and `--topiary-padding-*` are replaced by `--topiary-space-*`;
+  `--topiary-heading-*` is replaced by `--topiary-fontSize-*`. Anything
+  overriding the old names needs updating.
 - The `Tokens` default export and `fontFamilyToCss` are no longer exported from
   the package. Token access is via CSS custom properties, or `vars` from the
   theme module.

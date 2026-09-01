@@ -1,8 +1,14 @@
-# Dropship
+# Topiary
+
+<img src="src/assets/topiary-logo.svg" alt="The Topiary mascot — a topiary peacock in a pot — rendered once in each of the four themes: hangar, broadsheet, arcade, and cascade" width="560" />
 
 **Tokens drive form. Components drive function.**
 
-Dropship is a React component library built around one claim: the same markup
+Like its namesake — one living structure clipped into unrelated shapes — the
+same peacock above is drawn exactly once; only the tokens change. Formerly
+published as `@jasonrundell/dropship`.
+
+Topiary is a React component library built around one claim: the same markup
 should render as designs that look unrelated, with nothing changing but a token
 file. It ships four, and they differ _structurally_ — corner radius, border
 weight, how elevation is expressed, typeface, even where a card puts its media —
@@ -24,25 +30,25 @@ token contract; the contract is the part worth taking.
 - React 19 and React DOM 19 (peer dependencies)
 - Node 22 or newer for local development
 
-Dropship has no runtime dependencies of its own — styles compile to plain CSS at
+Topiary has no runtime dependencies of its own — styles compile to plain CSS at
 build time, so there is no styling library to install alongside it.
 
 ## Installation
 
 ```sh
-npm install @jasonrundell/dropship
+npm install @jasonrundell/topiary
 ```
 
 Import the stylesheet once, at your application's entry point:
 
 ```js
-import '@jasonrundell/dropship/style.css'
+import '@jasonrundell/topiary/style.css'
 ```
 
 Then import components as needed:
 
 ```jsx
-import { Button } from '@jasonrundell/dropship'
+import { Button } from '@jasonrundell/topiary'
 
 function App() {
   return <Button label="Click Me" />
@@ -52,7 +58,7 @@ function App() {
 ## Atoms
 
 Atoms are the basic building blocks of a user interface. Here are all of the
-atoms included in Dropship:
+atoms included in Topiary:
 
 | Component    | Key props                                                                                     |
 | ------------ | --------------------------------------------------------------------------------------------- |
@@ -69,7 +75,7 @@ atoms included in Dropship:
 
 ## Themes
 
-Dropship ships four themes that render **identical markup** in deliberately
+Topiary ships four themes that render **identical markup** in deliberately
 unrelated ways — a CSS Zen Garden for component libraries. Tokens drive form;
 components drive function.
 
@@ -104,17 +110,16 @@ to restyle every component that uses it — no rebuild required:
 
 ```css
 :root {
-  --dropship-color-primary: #0f766e;
-  --dropship-radius-md: 0;
+  --topiary-color-primary: #0f766e;
+  --topiary-radius-md: 0;
 }
 ```
 
-Names follow the contract's structure: `--dropship-color-*`,
-`--dropship-space-*`, `--dropship-radius-*`, `--dropship-borderWidth-*`,
-`--dropship-shadow-*`, `--dropship-font-*`, `--dropship-fontSize-*`,
-`--dropship-fontWeight-*`, `--dropship-lineHeight-*`,
-`--dropship-letterSpacing-*`, `--dropship-duration-*`, `--dropship-easing-*`,
-and `--dropship-breakpoint-*`.
+Names follow the contract's structure: `--topiary-color-*`, `--topiary-space-*`,
+`--topiary-radius-*`, `--topiary-borderWidth-*`, `--topiary-shadow-*`,
+`--topiary-font-*`, `--topiary-fontSize-*`, `--topiary-fontWeight-*`,
+`--topiary-lineHeight-*`, `--topiary-letterSpacing-*`, `--topiary-duration-*`,
+`--topiary-easing-*`, and `--topiary-breakpoint-*`.
 
 Writing a theme means supplying that same set of tokens with your own values.
 The contract is defined in `src/lib/schema.ts`, and a test verifies every theme
@@ -180,9 +185,9 @@ file for details.
 ## Related
 
 Looking for unstyled semantic markup rather than styled components?
-[`@jasonrundell/dropship-primitives`](https://github.com/jasonrundell/dropship-components)
+[`@jasonrundell/topiary-primitives`](https://github.com/jasonrundell/dropship-components)
 is the companion library: polymorphic HTML primitives that ship no CSS.
 
 ## Links
 
-- [NPM @jasonrundell/dropship](https://www.npmjs.com/package/@jasonrundell/dropship)
+- [NPM @jasonrundell/topiary](https://www.npmjs.com/package/@jasonrundell/topiary)

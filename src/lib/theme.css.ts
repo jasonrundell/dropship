@@ -21,7 +21,7 @@ import cascade from '../tokens/cascade.tokens.json'
  * `data-theme` on any ancestor restyles everything beneath it with no rebuild
  * and no JavaScript.
  *
- * Property names are stable and readable (`--dropship-color-primary`) rather
+ * Property names are stable and readable (`--topiary-color-primary`) rather
  * than build-hashed, because they are public API — a consumer can override one
  * in their own stylesheet, and a theme is nothing more than a block of them.
  */
@@ -38,7 +38,7 @@ export const DEFAULT_THEME = 'hangar'
 
 export const vars = createGlobalThemeContract(
   values[DEFAULT_THEME],
-  (_v, path) => ['dropship', ...path].join('-')
+  (_v, path) => ['topiary', ...path].join('-')
 )
 
 // The default theme lands on :root so a consumer gets a working system from
