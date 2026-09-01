@@ -13,7 +13,7 @@ import {
 import { THEMES } from '../lib/themes'
 import type { ThemeName } from '../lib/schema'
 import * as styles from './Landing.css'
-import logoUrl from '../assets/topiary-logo.svg'
+import Mascot from './Mascot'
 
 /**
  * Topiary's landing page, and its own demonstration.
@@ -80,41 +80,41 @@ const Landing = ({ theme, onSelectTheme }: LandingProps) => {
       <main>
         <section className={styles.section}>
           <Container>
-            <img
-              className={styles.heroLogo}
-              src={logoUrl}
-              alt="The Topiary mascot — a topiary peacock in a pot — rendered once in each of the four themes: hangar, broadsheet, arcade, and cascade"
-            />
-            <span className={styles.eyebrow}>Design system</span>
-            <Spacer smallScreen="xsmall" />
-            <Heading level={1}>
-              Tokens drive form. Components drive function.
-            </Heading>
-            <Spacer smallScreen="small" />
-            <p className={styles.lede}>
-              Every design below renders this same page from the same ten
-              components. Nothing changes but a token file.
-            </p>
-            <Spacer smallScreen="medium" />
-            <Row gap="0.75rem" align="center">
-              <Button
-                label="Pick a design"
-                primary
-                onClick={() => {
-                  document
-                    .querySelector('#designs')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              />
-              <Button
-                label="Install it"
-                onClick={() => {
-                  document
-                    .querySelector('#install')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              />
-            </Row>
+            <div className={styles.heroInner}>
+              <div>
+                <span className={styles.eyebrow}>Design system</span>
+                <Spacer smallScreen="xsmall" />
+                <Heading level={1}>
+                  Tokens drive form. Components drive function.
+                </Heading>
+                <Spacer smallScreen="small" />
+                <p className={styles.lede}>
+                  Every design below renders this same page from the same ten
+                  components. Nothing changes but a token file.
+                </p>
+                <Spacer smallScreen="medium" />
+                <Row gap="0.75rem" align="center">
+                  <Button
+                    label="Pick a design"
+                    primary
+                    onClick={() => {
+                      document
+                        .querySelector('#designs')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  />
+                  <Button
+                    label="Install it"
+                    onClick={() => {
+                      document
+                        .querySelector('#install')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  />
+                </Row>
+              </div>
+              <Mascot />
+            </div>
           </Container>
         </section>
 

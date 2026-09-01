@@ -64,12 +64,16 @@ export const eyebrow = style({
   borderRadius: vars.radius.sm
 })
 
-export const heroLogo = style({
-  display: 'block',
-  width: '100%',
-  maxWidth: '34rem',
-  height: 'auto',
-  marginBlockEnd: vars.space.lg
+export const heroInner = style({
+  display: 'grid',
+  gap: vars.space.xl,
+  alignItems: 'center',
+  gridTemplateColumns: '1fr',
+  '@media': {
+    [media.md]: {
+      gridTemplateColumns: '1fr auto'
+    }
+  }
 })
 
 export const lede = style({
