@@ -19,7 +19,7 @@ token contract; the contract is the part worth taking.
 
 ## Where to look
 
-- **[Storybook](https://dropship-storybook.vercel.app/)** — every component in
+- **[Storybook](https://topiary-storybook.vercel.app/)** — every component in
   every design, with a switcher in the toolbar, a live token reference, and a
   page tracing one rendered card back to the tokens that painted it.
 - **`npm run dev`** — the landing page, which builds itself out of these same
