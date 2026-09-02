@@ -161,6 +161,8 @@ export const CONTRAST_PAIRS: ContrastPair[] = [
     foreground: 'border',
     background: 'surface',
     where: 'a card outline',
-    minRatio: 1
+    // WCAG 1.4.11: non-text UI-component boundaries need 3:1 so a panel's
+    // edge stays visually distinguishable from the surface it sits on.
+    minRatio: 3
   }
 ]

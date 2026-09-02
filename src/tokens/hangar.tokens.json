@@ -40,8 +40,8 @@
     "border": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [0.8392, 0.8275, 0.8196],
-        "hex": "#d6d3d1"
+        "components": [0.5882, 0.5804, 0.5725],
+        "hex": "#969492"
       }
     },
     "primary": {
