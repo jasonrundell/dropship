@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import { button } from './Button.css'
 import { mergeClassNames } from '../../lib/mergeProps'
@@ -10,6 +10,12 @@ export interface ButtonProps extends ComponentPropsWithRef<'button'> {
   size?: 'small' | 'medium' | 'large'
   /** Button contents */
   label: string
+  /**
+   * Additional content rendered after the label, e.g. an icon. `label`
+   * always renders first; when both are given, `children` follows it
+   * inside the same button rather than replacing it.
+   */
+  children?: ReactNode
   /** Optional click handler */
   onClick?: () => void
 }
@@ -28,6 +34,7 @@ const Button = ({
   size = 'medium',
   label,
   className,
+  children,
   ...props
 }: ButtonProps) => {
   return (
@@ -37,6 +44,7 @@ const Button = ({
       {...props}
     >
       {label}
+      {children}
     </button>
   )
 }

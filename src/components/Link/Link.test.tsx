@@ -78,4 +78,17 @@ describe('Link', () => {
     expect(classes).toContain(link)
     expect(classes).toContain('consumer-class')
   })
+
+  it('renders children after the label', () => {
+    render(
+      <Link href="/docs" label="Read the docs">
+        <span data-testid="icon">→</span>
+      </Link>
+    )
+
+    const anchor = screen.getByRole('link')
+
+    expect(anchor.childNodes[0]).toHaveTextContent('Read the docs')
+    expect(anchor.childNodes[1]).toBe(screen.getByTestId('icon'))
+  })
 })

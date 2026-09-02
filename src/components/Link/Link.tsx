@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import { link } from './Link.css'
 import { mergeClassNames } from '../../lib/mergeProps'
@@ -8,6 +8,13 @@ export interface LinkProps extends ComponentPropsWithRef<'a'> {
   href: string
   /** Label of the link */
   label: string
+  /**
+   * Additional content rendered after the label, e.g. a trailing icon
+   * signalling that the link opens a submenu. `label` always renders first;
+   * when both are given, `children` follows it inside the same anchor
+   * rather than replacing it.
+   */
+  children?: ReactNode
   /** Target of the link */
   target?: string
   /** Rel of the link */
@@ -23,6 +30,7 @@ const Link = ({
   rel = '',
   onClick = undefined,
   className,
+  children,
   ...props
 }: LinkProps) => {
   return (
@@ -35,6 +43,7 @@ const Link = ({
       {...props}
     >
       {label}
+      {children}
     </a>
   )
 }

@@ -97,4 +97,17 @@ describe('Button', () => {
       ])
     )
   })
+
+  it('renders children after the label', () => {
+    render(
+      <Button label="Save">
+        <span data-testid="icon">✓</span>
+      </Button>
+    )
+
+    const buttonEl = screen.getByRole('button')
+
+    expect(buttonEl.childNodes[0]).toHaveTextContent('Save')
+    expect(buttonEl.childNodes[1]).toBe(screen.getByTestId('icon'))
+  })
 })
