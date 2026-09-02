@@ -1,9 +1,11 @@
 import { createElement } from 'react'
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import { heading } from './Heading.css'
 
-export interface HeadingProps {
+// h1-h6 all share the HTMLHeadingElement DOM interface, so any one of them is
+// a faithful base to extend regardless of which `level` is rendered.
+export interface HeadingProps extends ComponentPropsWithRef<'h1'> {
   /** Level of the heading */
   level?: 1 | 2 | 3 | 4 | 5 | 6
   /** Optional id */

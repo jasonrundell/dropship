@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 
 import {
@@ -11,7 +11,7 @@ import {
   templateVar
 } from './Grid.css'
 
-export interface GridProps {
+export interface GridProps extends ComponentPropsWithRef<'div'> {
   /** Gap between columns. Defaults to the theme's medium space token. */
   columnGap?: string
   /** Gap between rows. Defaults to the theme's medium space token. */

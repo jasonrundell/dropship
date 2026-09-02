@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 
 import { alignVar, gapVar, justifyVar, row } from './Row.css'
 
-export interface RowProps {
+export interface RowProps extends ComponentPropsWithRef<'div'> {
   /** Justify content of the row */
   justify?:
     | 'start'

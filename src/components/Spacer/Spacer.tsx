@@ -1,6 +1,8 @@
+import type { ComponentPropsWithRef } from 'react'
+
 import { spacer } from './Spacer.css'
 
-export interface SpacerProps {
+export interface SpacerProps extends ComponentPropsWithRef<'div'> {
   /** Size of the spacer on small screens */
   smallScreen?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
   /** Size of the spacer on medium screens */

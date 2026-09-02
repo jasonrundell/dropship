@@ -1,6 +1,8 @@
+import type { ComponentPropsWithRef } from 'react'
+
 import { link } from './Link.css'
 
-export interface LinkProps {
+export interface LinkProps extends ComponentPropsWithRef<'a'> {
   /** URL of the link */
   href: string
   /** Label of the link */

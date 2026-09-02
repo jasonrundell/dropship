@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import { box } from './Box.css'
 
-export interface BoxProps {
+export interface BoxProps extends ComponentPropsWithRef<'div'> {
   /** Option to set if box padding is tight */
   isTight?: boolean
   /** Option to set if box padding is roomy */

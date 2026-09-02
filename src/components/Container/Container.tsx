@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import { container } from './Container.css'
 
-export interface ContainerProps {
+export interface ContainerProps extends ComponentPropsWithRef<'div'> {
   /** Children of Container */
   children: ReactNode
 }

@@ -1,6 +1,8 @@
+import type { ComponentPropsWithRef } from 'react'
+
 import { button } from './Button.css'
 
-export interface ButtonProps {
+export interface ButtonProps extends ComponentPropsWithRef<'button'> {
   /** Is this the principal call to action on the page? */
   primary?: boolean
   /** How large should the button be? */

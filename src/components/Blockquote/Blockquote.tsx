@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 
 import { blockquote, quoteColorVar } from './Blockquote.css'
 
-export interface BlockquoteProps {
+export interface BlockquoteProps extends ComponentPropsWithRef<'blockquote'> {
   /** Optional color of the quotation symbols */
   color?: string
   /** Children of Blockquote */
