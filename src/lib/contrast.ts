@@ -164,5 +164,17 @@ export const CONTRAST_PAIRS: ContrastPair[] = [
     // WCAG 1.4.11: non-text UI-component boundaries need 3:1 so a panel's
     // edge stays visually distinguishable from the surface it sits on.
     minRatio: 3
+  },
+  {
+    foreground: 'primary',
+    background: 'surfaceAlt',
+    where: "a link's text on its own :hover background",
+    minRatio: AA_NORMAL
+  },
+  {
+    foreground: 'text',
+    background: 'surfaceAlt',
+    where: "a secondary button's label on its own :hover background",
+    minRatio: AA_NORMAL
   }
 ]

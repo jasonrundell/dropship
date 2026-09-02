@@ -19,8 +19,8 @@
     "surfaceAlt": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [0.9961, 0.9529, 0.7804],
-        "hex": "#fef3c7"
+        "components": [1.0, 0.9765, 0.8902],
+        "hex": "#fff9e3"
       }
     },
     "text": {
