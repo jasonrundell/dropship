@@ -130,6 +130,17 @@ export type TokenShape = {
     lg: string
   }
   /**
+   * Stacking order. A fixed nav bar and a dropdown/mega panel both need to
+   * sit above normal page content, and the panel above the bar — this scale
+   * is what a consumer reaches for instead of hardcoding a `z-index`.
+   */
+  zIndex: {
+    base: string
+    overlay: string
+    nav: string
+    modal: string
+  }
+  /**
    * Placement.
    *
    * This is the part that makes the system a Zen Garden rather than a palette

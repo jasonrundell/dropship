@@ -404,6 +404,21 @@
       }
     }
   },
+  "zIndex": {
+    "$type": "number",
+    "base": {
+      "$value": 1
+    },
+    "overlay": {
+      "$value": 10
+    },
+    "nav": {
+      "$value": 100
+    },
+    "modal": {
+      "$value": 1000
+    }
+  },
   "layout": {
     "$type": "string",
     "$description": "Editorial: full-bleed media above a single column of text.",
