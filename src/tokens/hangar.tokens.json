@@ -16,6 +16,13 @@
         "hex": "#ffffff"
       }
     },
+    "surfaceAlt": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9608, 0.9608, 0.9569],
+        "hex": "#f5f5f4"
+      }
+    },
     "text": {
       "$value": {
         "colorSpace": "srgb",

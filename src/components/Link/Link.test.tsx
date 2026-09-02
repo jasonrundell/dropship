@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -51,5 +53,14 @@ describe('Link', () => {
     const { container } = render(<Link href="/docs" label="Read the docs" />)
 
     await expectNoAxeViolations(container)
+  })
+
+  it("highlights with the theme's alt-surface token on hover", () => {
+    // jsdom cannot resolve real :hover styling, so this asserts the source
+    // wires the hover rule to the token — the same technique
+    // theme-agnostic.test.ts uses to enforce token usage.
+    const source = readFileSync(join(import.meta.dirname, 'Link.css.ts'), 'utf8')
+
+    expect(source).toMatch(/:hover['"]?:\s*{[^}]*surfaceAlt/)
   })
 })

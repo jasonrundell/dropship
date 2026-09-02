@@ -18,6 +18,8 @@ export type TokenShape = {
     background: string
     /** Raised panel background. */
     surface: string
+    /** Hover/highlighted state of `surface`, e.g. a nav item on `:hover`. */
+    surfaceAlt: string
     /** Body text. */
     text: string
     /** De-emphasised text. Must still pass AA against `surface`. */
