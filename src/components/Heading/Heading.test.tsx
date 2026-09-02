@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Heading from './Heading'
+import { heading } from './Heading.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Heading', () => {
@@ -36,5 +37,21 @@ describe('Heading', () => {
     )
 
     await expectNoAxeViolations(container)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(<Heading className="consumer-class">Section</Heading>)
+
+    const classes = screen.getByRole('heading').className.split(' ')
+
+    // `recipe()` classes are themselves a space-separated list (base +
+    // variant), so every one of its tokens must survive alongside the
+    // consumer's.
+    expect(classes).toEqual(
+      expect.arrayContaining([
+        ...heading({ level: 1 }).split(' '),
+        'consumer-class'
+      ])
+    )
   })
 })

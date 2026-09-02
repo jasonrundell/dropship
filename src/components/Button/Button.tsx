@@ -1,12 +1,21 @@
-import { button } from './Button.css'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
-export interface ButtonProps {
+import { button } from './Button.css'
+import { mergeClassNames } from '../../lib/mergeProps'
+
+export interface ButtonProps extends ComponentPropsWithRef<'button'> {
   /** Is this the principal call to action on the page? */
   primary?: boolean
   /** How large should the button be? */
   size?: 'small' | 'medium' | 'large'
   /** Button contents */
   label: string
+  /**
+   * Additional content rendered after the label, e.g. an icon. `label`
+   * always renders first; when both are given, `children` follows it
+   * inside the same button rather than replacing it.
+   */
+  children?: ReactNode
   /** Optional click handler */
   onClick?: () => void
 }
@@ -24,11 +33,18 @@ const Button = ({
   primary = false,
   size = 'medium',
   label,
+  className,
+  children,
   ...props
 }: ButtonProps) => {
   return (
-    <button type="button" className={button({ primary, size })} {...props}>
+    <button
+      type="button"
+      className={mergeClassNames(button({ primary, size }), className)}
+      {...props}
+    >
       {label}
+      {children}
     </button>
   )
 }

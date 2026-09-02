@@ -1,8 +1,11 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Button from './Button'
+import { button } from './Button.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Button', () => {
@@ -68,5 +71,43 @@ describe('Button', () => {
     const { container } = render(<Button label="Save changes" />)
 
     await expectNoAxeViolations(container)
+  })
+
+  it("highlights with the theme's alt-surface token on hover", () => {
+    // jsdom cannot resolve real :hover styling, so this asserts the source
+    // wires the hover rule to the token — the same technique
+    // theme-agnostic.test.ts uses to enforce token usage.
+    const source = readFileSync(
+      join(import.meta.dirname, 'Button.css.ts'),
+      'utf8'
+    )
+
+    expect(source).toMatch(/:hover['"]?:\s*{[^}]*surfaceAlt/)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(<Button label="Save" className="consumer-class" />)
+
+    const classes = screen.getByRole('button').className.split(' ')
+
+    expect(classes).toEqual(
+      expect.arrayContaining([
+        ...button({ primary: false, size: 'medium' }).split(' '),
+        'consumer-class'
+      ])
+    )
+  })
+
+  it('renders children after the label', () => {
+    render(
+      <Button label="Save">
+        <span data-testid="icon">✓</span>
+      </Button>
+    )
+
+    const buttonEl = screen.getByRole('button')
+
+    expect(buttonEl.childNodes[0]).toHaveTextContent('Save')
+    expect(buttonEl.childNodes[1]).toBe(screen.getByTestId('icon'))
   })
 })

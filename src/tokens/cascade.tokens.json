@@ -16,6 +16,13 @@
         "hex": "#ffffff"
       }
     },
+    "surfaceAlt": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [0.9451, 0.9608, 0.9765],
+        "hex": "#f1f5f9"
+      }
+    },
     "text": {
       "$value": {
         "colorSpace": "srgb",
@@ -33,8 +40,8 @@
     "border": {
       "$value": {
         "colorSpace": "srgb",
-        "components": [0.8863, 0.9098, 0.9412],
-        "hex": "#e2e8f0"
+        "components": [0.5686, 0.5804, 0.6039],
+        "hex": "#91949a"
       }
     },
     "primary": {
@@ -483,6 +490,21 @@
         "value": 64,
         "unit": "rem"
       }
+    }
+  },
+  "zIndex": {
+    "$type": "number",
+    "base": {
+      "$value": 1
+    },
+    "overlay": {
+      "$value": 10
+    },
+    "nav": {
+      "$value": 100
+    },
+    "modal": {
+      "$value": 1000
     }
   },
   "layout": {

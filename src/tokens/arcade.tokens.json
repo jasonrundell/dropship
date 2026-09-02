@@ -16,6 +16,13 @@
         "hex": "#ffffff"
       }
     },
+    "surfaceAlt": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1.0, 0.9765, 0.8902],
+        "hex": "#fff9e3"
+      }
+    },
     "text": {
       "$value": {
         "colorSpace": "srgb",
@@ -477,6 +484,21 @@
         "value": 64,
         "unit": "rem"
       }
+    }
+  },
+  "zIndex": {
+    "$type": "number",
+    "base": {
+      "$value": 1
+    },
+    "overlay": {
+      "$value": 10
+    },
+    "nav": {
+      "$value": 100
+    },
+    "modal": {
+      "$value": 1000
     }
   },
   "layout": {

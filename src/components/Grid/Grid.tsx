@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 
 import {
@@ -10,8 +10,9 @@ import {
   rowGapVar,
   templateVar
 } from './Grid.css'
+import { mergeClassNames, mergeStyle } from '../../lib/mergeProps'
 
-export interface GridProps {
+export interface GridProps extends ComponentPropsWithRef<'div'> {
   /** Gap between columns. Defaults to the theme's medium space token. */
   columnGap?: string
   /** Gap between rows. Defaults to the theme's medium space token. */
@@ -34,21 +35,27 @@ const Grid = memo(
     mediumTemplateColumns = '1fr 1fr',
     largeTemplateColumns = '1fr 1fr 1fr',
     children,
+    className,
+    style,
     ...props
   }: GridProps) => {
     return (
       <div
-        className={grid}
+        className={mergeClassNames(grid, className)}
         // Vars are only assigned when a value is supplied. Assigning an empty
         // string would set the property to empty rather than leaving the
-        // theme's fallback in place.
-        style={assignInlineVars({
-          ...(columnGap ? { [columnGapVar]: columnGap } : {}),
-          ...(rowGap ? { [rowGapVar]: rowGap } : {}),
-          [templateVar]: gridTemplateColumns,
-          [mediumTemplateVar]: mediumTemplateColumns || gridTemplateColumns,
-          [largeTemplateVar]: largeTemplateColumns || gridTemplateColumns
-        })}
+        // theme's fallback in place. A caller's own `style` merges on top
+        // rather than replacing these, winning on any key conflict.
+        style={mergeStyle(
+          assignInlineVars({
+            ...(columnGap ? { [columnGapVar]: columnGap } : {}),
+            ...(rowGap ? { [rowGapVar]: rowGap } : {}),
+            [templateVar]: gridTemplateColumns,
+            [mediumTemplateVar]: mediumTemplateColumns || gridTemplateColumns,
+            [largeTemplateVar]: largeTemplateColumns || gridTemplateColumns
+          }),
+          style
+        )}
         {...props}
       >
         {children}

@@ -129,4 +129,14 @@ describe('Card', () => {
 
     await expectNoAxeViolations(container)
   })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    const { container } = render(<Card title="t" className="consumer-class" />)
+
+    const classes =
+      container.querySelector('[data-part="card"]')?.className.split(' ') ?? []
+
+    expect(classes).toContain('consumer-class')
+    expect(classes.length).toBeGreaterThan(1)
+  })
 })

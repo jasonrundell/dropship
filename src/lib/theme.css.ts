@@ -58,11 +58,23 @@ createGlobalTheme(
   values[DEFAULT_THEME]
 )
 
+/**
+ * Bare breakpoint values (e.g. `'30rem'`), for a consumer doing its own
+ * JS-side responsive math — CSS custom properties can't drive a `@media`
+ * query or be compared against `window.innerWidth`, so this is the same
+ * source `media` below derives its wrapped strings from, exported directly.
+ */
+export const breakpoints = {
+  sm: values[DEFAULT_THEME].breakpoint.sm,
+  md: values[DEFAULT_THEME].breakpoint.md,
+  lg: values[DEFAULT_THEME].breakpoint.lg
+}
+
 /** Media query strings. vanilla-extract needs these as literals, not vars. */
 export const media = {
-  sm: `(min-width: ${values[DEFAULT_THEME].breakpoint.sm})`,
-  md: `(min-width: ${values[DEFAULT_THEME].breakpoint.md})`,
-  lg: `(min-width: ${values[DEFAULT_THEME].breakpoint.lg})`
+  sm: `(min-width: ${breakpoints.sm})`,
+  md: `(min-width: ${breakpoints.md})`,
+  lg: `(min-width: ${breakpoints.lg})`
 }
 
 export { THEME_NAMES }

@@ -1,6 +1,9 @@
-import { spacer } from './Spacer.css'
+import type { ComponentPropsWithRef } from 'react'
 
-export interface SpacerProps {
+import { spacer } from './Spacer.css'
+import { mergeClassNames } from '../../lib/mergeProps'
+
+export interface SpacerProps extends ComponentPropsWithRef<'div'> {
   /** Size of the spacer on small screens */
   smallScreen?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
   /** Size of the spacer on medium screens */
@@ -13,11 +16,15 @@ const Spacer = ({
   smallScreen = 'small',
   mediumScreen = 'small',
   largeScreen = 'small',
+  className,
   ...props
 }: SpacerProps) => {
   return (
     <div
-      className={spacer({ smallScreen, mediumScreen, largeScreen })}
+      className={mergeClassNames(
+        spacer({ smallScreen, mediumScreen, largeScreen }),
+        className
+      )}
       {...props}
       aria-hidden="true"
     />

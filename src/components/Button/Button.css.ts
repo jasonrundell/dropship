@@ -67,7 +67,10 @@ export const button = recipe({
       false: {
         backgroundColor: vars.color.surface,
         color: vars.color.text,
-        borderColor: vars.color.border
+        borderColor: vars.color.border,
+        ':hover': {
+          backgroundColor: vars.color.surfaceAlt
+        }
       }
     }
   },

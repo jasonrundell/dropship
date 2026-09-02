@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Grid from './Grid'
+import { grid, templateVar } from './Grid.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Grid', () => {
@@ -73,5 +74,38 @@ describe('Grid', () => {
     )
 
     await expectNoAxeViolations(container)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(
+      <Grid className="consumer-class" data-testid="grid">
+        <div>Cell</div>
+      </Grid>
+    )
+
+    const classes = screen.getByTestId('grid').className.split(' ')
+
+    expect(classes).toContain(grid)
+    expect(classes).toContain('consumer-class')
+  })
+
+  it('merges a consumer style with its own computed template variables', () => {
+    render(
+      <Grid
+        gridTemplateColumns="200px 1fr"
+        style={{ color: 'red' }}
+        data-testid="grid"
+      >
+        <div>Cell</div>
+      </Grid>
+    )
+
+    const el = screen.getByTestId('grid')
+    const bareTemplateVar = templateVar.match(/--[\w-]+/)?.[0] as string
+
+    // The consumer's style must be present alongside — not instead of — the
+    // computed inline template variables.
+    expect(el.style.getPropertyValue(bareTemplateVar)).toBe('200px 1fr')
+    expect(el.style.color).toBe('red')
   })
 })

@@ -15,7 +15,8 @@ export const link = style({
   transitionDuration: vars.duration.fast,
   transitionTimingFunction: vars.easing.standard,
   ':hover': {
-    textDecorationThickness: vars.borderWidth.thin
+    textDecorationThickness: vars.borderWidth.thin,
+    backgroundColor: vars.color.surfaceAlt
   },
   ':focus-visible': {
     outline: `${vars.borderWidth.thick} solid ${vars.color.focus}`,

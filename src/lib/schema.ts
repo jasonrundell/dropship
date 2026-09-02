@@ -18,6 +18,8 @@ export type TokenShape = {
     background: string
     /** Raised panel background. */
     surface: string
+    /** Hover/highlighted state of `surface`, e.g. a nav item on `:hover`. */
+    surfaceAlt: string
     /** Body text. */
     text: string
     /** De-emphasised text. Must still pass AA against `surface`. */
@@ -128,6 +130,17 @@ export type TokenShape = {
     sm: string
     md: string
     lg: string
+  }
+  /**
+   * Stacking order. A fixed nav bar and a dropdown/mega panel both need to
+   * sit above normal page content, and the panel above the bar — this scale
+   * is what a consumer reaches for instead of hardcoding a `z-index`.
+   */
+  zIndex: {
+    base: string
+    overlay: string
+    nav: string
+    modal: string
   }
   /**
    * Placement.
