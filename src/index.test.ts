@@ -27,7 +27,10 @@ const EXPECTED_COMPONENTS = [
  */
 const EXPECTED_VALUE_EXPORTS = ['DEFAULT_THEME', 'THEME_NAMES', 'media']
 
-const EXPECTED_EXPORTS = [...EXPECTED_COMPONENTS, ...EXPECTED_VALUE_EXPORTS].sort()
+const EXPECTED_EXPORTS = [
+  ...EXPECTED_COMPONENTS,
+  ...EXPECTED_VALUE_EXPORTS
+].sort()
 
 describe('public API', () => {
   it('exports exactly the documented components and theme values', () => {
@@ -44,7 +47,7 @@ describe('public API', () => {
     }
   })
 
-  it('exports breakpoints as media query strings usable at a consumer\'s own build time', () => {
+  it("exports breakpoints as media query strings usable at a consumer's own build time", () => {
     expect(topiary.media.sm).toBe('(min-width: 30rem)')
     expect(topiary.media.md).toBe('(min-width: 48rem)')
     expect(topiary.media.lg).toBe('(min-width: 64rem)')
