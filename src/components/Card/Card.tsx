@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import * as styles from './Card.css'
+import { mergeClassNames } from '../../lib/mergeProps'
 
 export type CardProps = Omit<ComponentPropsWithRef<'div'>, 'title'> & {
   /** Imagery or any visual block. Rendered into the `media` slot. */
@@ -34,10 +35,14 @@ const Card = ({
   actions,
   children,
   titleAs: TitleTag = 'h3',
+  className,
   ...props
 }: CardProps) => (
   <div
-    className={styles.card({ hasMedia: media !== undefined })}
+    className={mergeClassNames(
+      styles.card({ hasMedia: media !== undefined }),
+      className
+    )}
     data-part="card"
     {...props}
   >

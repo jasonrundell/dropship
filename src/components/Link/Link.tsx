@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 
 import { link } from './Link.css'
+import { mergeClassNames } from '../../lib/mergeProps'
 
 export interface LinkProps extends ComponentPropsWithRef<'a'> {
   /** URL of the link */
@@ -21,11 +22,12 @@ const Link = ({
   target = '',
   rel = '',
   onClick = undefined,
+  className,
   ...props
 }: LinkProps) => {
   return (
     <a
-      className={link}
+      className={mergeClassNames(link, className)}
       href={href}
       target={target}
       rel={rel}

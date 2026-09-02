@@ -5,6 +5,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Button from './Button'
+import { button } from './Button.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Button', () => {
@@ -82,5 +83,18 @@ describe('Button', () => {
     )
 
     expect(source).toMatch(/:hover['"]?:\s*{[^}]*surfaceAlt/)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(<Button label="Save" className="consumer-class" />)
+
+    const classes = screen.getByRole('button').className.split(' ')
+
+    expect(classes).toEqual(
+      expect.arrayContaining([
+        ...button({ primary: false, size: 'medium' }).split(' '),
+        'consumer-class'
+      ])
+    )
   })
 })

@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 
 import { button } from './Button.css'
+import { mergeClassNames } from '../../lib/mergeProps'
 
 export interface ButtonProps extends ComponentPropsWithRef<'button'> {
   /** Is this the principal call to action on the page? */
@@ -26,10 +27,15 @@ const Button = ({
   primary = false,
   size = 'medium',
   label,
+  className,
   ...props
 }: ButtonProps) => {
   return (
-    <button type="button" className={button({ primary, size })} {...props}>
+    <button
+      type="button"
+      className={mergeClassNames(button({ primary, size }), className)}
+      {...props}
+    >
       {label}
     </button>
   )

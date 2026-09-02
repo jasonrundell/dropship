@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Row from './Row'
+import { justifyVar, row } from './Row.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Row', () => {
@@ -72,5 +73,34 @@ describe('Row', () => {
     )
 
     await expectNoAxeViolations(container)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(
+      <Row className="consumer-class" data-testid="row">
+        <div>Cell</div>
+      </Row>
+    )
+
+    const classes = screen.getByTestId('row').className.split(' ')
+
+    expect(classes).toContain(row)
+    expect(classes).toContain('consumer-class')
+  })
+
+  it('merges a consumer style with its own computed alignment variables', () => {
+    render(
+      <Row justify="center" style={{ color: 'red' }} data-testid="row">
+        <div>Cell</div>
+      </Row>
+    )
+
+    const el = screen.getByTestId('row')
+    const bareJustifyVar = justifyVar.match(/--[\w-]+/)?.[0] as string
+
+    // The consumer's style must be present alongside — not instead of — the
+    // computed inline vars the component sets for justify/align/gap.
+    expect(el.style.getPropertyValue(bareJustifyVar)).toBe('center')
+    expect(el.style.color).toBe('red')
   })
 })

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import Spacer from './Spacer'
+import { spacer } from './Spacer.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 const SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const
@@ -41,5 +42,22 @@ describe('Spacer', () => {
     const { container } = render(<Spacer />)
 
     await expectNoAxeViolations(container)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    const { container } = render(<Spacer className="consumer-class" />)
+
+    const classes = (container.firstElementChild?.className ?? '').split(' ')
+
+    expect(classes).toEqual(
+      expect.arrayContaining([
+        ...spacer({
+          smallScreen: 'small',
+          mediumScreen: 'small',
+          largeScreen: 'small'
+        }).split(' '),
+        'consumer-class'
+      ])
+    )
   })
 })

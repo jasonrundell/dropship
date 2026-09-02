@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Box from './Box'
+import { box } from './Box.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Box', () => {
@@ -39,5 +40,18 @@ describe('Box', () => {
     const { container } = render(<Box>Accessible content</Box>)
 
     await expectNoAxeViolations(container)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(<Box className="consumer-class">Content</Box>)
+
+    const classes = screen.getByText('Content').className.split(' ')
+
+    expect(classes).toEqual(
+      expect.arrayContaining([
+        ...box({ density: 'default' }).split(' '),
+        'consumer-class'
+      ])
+    )
   })
 })

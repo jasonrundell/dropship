@@ -5,6 +5,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Link from './Link'
+import { link } from './Link.css'
 import { expectNoAxeViolations } from '../../test/axe'
 
 describe('Link', () => {
@@ -59,8 +60,22 @@ describe('Link', () => {
     // jsdom cannot resolve real :hover styling, so this asserts the source
     // wires the hover rule to the token — the same technique
     // theme-agnostic.test.ts uses to enforce token usage.
-    const source = readFileSync(join(import.meta.dirname, 'Link.css.ts'), 'utf8')
+    const source = readFileSync(
+      join(import.meta.dirname, 'Link.css.ts'),
+      'utf8'
+    )
 
     expect(source).toMatch(/:hover['"]?:\s*{[^}]*surfaceAlt/)
+  })
+
+  it('merges a consumer className instead of replacing its own', () => {
+    render(
+      <Link href="/docs" label="Read the docs" className="consumer-class" />
+    )
+
+    const classes = screen.getByRole('link').className.split(' ')
+
+    expect(classes).toContain(link)
+    expect(classes).toContain('consumer-class')
   })
 })
