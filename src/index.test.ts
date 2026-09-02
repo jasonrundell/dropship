@@ -25,7 +25,12 @@ const EXPECTED_COMPONENTS = [
  * Topiary's without guessing at values only visible as compiled CSS custom
  * properties.
  */
-const EXPECTED_VALUE_EXPORTS = ['DEFAULT_THEME', 'THEME_NAMES', 'media']
+const EXPECTED_VALUE_EXPORTS = [
+  'DEFAULT_THEME',
+  'THEME_NAMES',
+  'breakpoints',
+  'media'
+]
 
 const EXPECTED_EXPORTS = [
   ...EXPECTED_COMPONENTS,
@@ -51,6 +56,17 @@ describe('public API', () => {
     expect(topiary.media.sm).toBe('(min-width: 30rem)')
     expect(topiary.media.md).toBe('(min-width: 48rem)')
     expect(topiary.media.lg).toBe('(min-width: 64rem)')
+  })
+
+  it("exports breakpoints as bare literals usable in a consumer's own JS-side responsive math", () => {
+    // `media` wraps these in a `(min-width: ...)` media-query string for
+    // vanilla-extract's own use; a consumer doing plain JS comparisons (e.g.
+    // against window.innerWidth converted to rem) needs the bare value too.
+    expect(topiary.breakpoints).toEqual({
+      sm: '30rem',
+      md: '48rem',
+      lg: '64rem'
+    })
   })
 
   it('exports the theme name list and the default theme', () => {

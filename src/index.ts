@@ -13,5 +13,7 @@ export { default as Spacer } from './components/Spacer/Spacer'
 // properties cannot drive a consumer's own `@media` queries or theme
 // switcher, so these are the values behind `--topiary-breakpoint-*` and the
 // theme contract, importable directly rather than guessed at or duplicated.
-export { media, THEME_NAMES, DEFAULT_THEME } from './lib/theme.css'
+// `breakpoints` gives the bare literals (e.g. `'30rem'`); `media` wraps them
+// as `(min-width: ...)` strings for vanilla-extract's own use.
+export { breakpoints, media, THEME_NAMES, DEFAULT_THEME } from './lib/theme.css'
 export type { ThemeName } from './lib/theme.css'
