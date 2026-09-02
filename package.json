@@ -1,6 +1,6 @@
 {
   "name": "@jasonrundell/topiary",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "A token-driven React component library: the same markup renders as four deliberately unrelated designs.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
